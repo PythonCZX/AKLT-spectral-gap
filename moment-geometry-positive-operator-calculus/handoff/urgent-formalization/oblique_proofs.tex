@@ -1,0 +1,395 @@
+% UNCHECKED HAND-PROOF SOURCE, 2026-11-15.
+% No compilation, proof-assistant checking, or numerical verification was run.
+% Input fragment using standard amsmath/amssymb notation.
+\section{Complete inputs for the compatible-idempotent gap certificate}
+\label{urgent:oblique}
+
+\paragraph{Status and conventions.}
+This expanded hand proof is prepared for formalization and has not been
+machine checked. It derives the hypothesis called hcos rather than assuming
+it. Hilbert spaces are finite dimensional over $\mathbb C$; norms of maps
+are operator norms; $[A,B]=AB-BA$; $\Pi_M$ denotes the orthogonal projector
+onto $M$. Define the Friedrichs cosine, including degenerate cases, by
+\[
+ c(M,N)=\|\Pi_M\Pi_N-\Pi_{M\cap N}\|.
+\]
+Writing $W=M\cap N$, the projector $\Pi_W$ commutes with both projectors.
+Thus the operator inside this norm is
+$(\Pi_M-\Pi_W)(\Pi_N-\Pi_W)$, and its norm equals the supremum of
+$|\langle u,v\rangle|$ over unit vectors in $M\ominus W$ and $N\ominus W$.
+The operator-norm definition gives zero when a reduced subspace is zero.
+
+\subsection{The orthogonalizer and its commutators}
+
+\paragraph{Lemma O1 (idempotent normal form).}
+If $P^2=P$ and $M=\operatorname{ran}P$, the orthogonal splitting
+$\mathcal H=M\oplus M^\perp$ gives
+\[
+ P=\begin{pmatrix}I&A\\0&0\end{pmatrix},\quad
+ P^*=\begin{pmatrix}I&0\\A^*&0\end{pmatrix},\quad
+ S:=P-P^*=\begin{pmatrix}0&A\\-A^*&0\end{pmatrix}.
+\]
+Indeed $P$ fixes its range, and all its outputs lie in its range.
+Multiplication gives $S^*S=\operatorname{diag}(AA^*,A^*A)$, hence
+$\|S\|=\|A\|$. For $u\in M$ and $v\in M^\perp$,
+\[
+ \|P(u,v)\|\leq\|u\|+\|A\|\|v\|
+ \leq\sqrt{1+\|A\|^2}\sqrt{\|u\|^2+\|v\|^2}.
+\]
+Consequently, with $a=\|P-P^*\|$ and $\kappa=\sqrt{1+a^2}$,
+$\|P\|\leq\kappa$. This inequality also covers $P=0$.
+
+\paragraph{Lemma O2 (exact orthogonalizer).}
+Set $D=I-(P-P^*)^2$. Since $S^*=-S$, $D=I+S^*S\geq I$.
+Thus $D$ is invertible and $\|D^{-1}\|\leq1$. In the above blocks,
+\[
+ D=\operatorname{diag}(I+AA^*,I+A^*A),\qquad
+ PP^*=\operatorname{diag}(I+AA^*,0).
+\]
+Therefore
+\begin{equation}
+ \Pi_M=PP^*D^{-1}.
+ \label{urgent:orthogonalizer}
+\end{equation}
+The block computation identifies the right side with the actual orthogonal
+projection; it does not assume that an arbitrary product is self-adjoint.
+
+\paragraph{Lemma O3 (orthogonalization commutator estimate).}
+For any map $T$ put $u_T=\|[P,T]\|+\|[P^*,T]\|$ and
+$L=\kappa+2\kappa^2a$. Then
+\begin{equation}
+ \|[\Pi_M,T]\|\leq L u_T.
+ \label{urgent:ortho-commutator}
+\end{equation}
+The algebraic identities are
+\[
+ [XY,T]=X[Y,T]+[X,T]Y,\qquad
+ [D^{-1},T]=-D^{-1}[D,T]D^{-1}.
+\]
+The second follows by expanding $[DD^{-1},T]=0$.
+For $N=PP^*$, the first gives
+$\|[N,T]\|\leq\kappa u_T$ and $\|N\|\leq\kappa^2$.
+Also $[S,T]=[P,T]-[P^*,T]$, so
+\[
+ \|[D,T]\|=\|[S^2,T]\|\leq2a u_T.
+\]
+Apply the product identity to $ND^{-1}$ and use $\|D^{-1}\|\leq1$:
+the two terms are bounded by $\kappa u_T$ and $2\kappa^2a u_T$.
+
+\paragraph{Lemma O4 (two compatible idempotents).}
+Suppose $P^2=P$, $R^2=R$, and $PR=RP$. Write
+$\Pi=\Pi_{\operatorname{ran}P}$, $\Theta=\Pi_{\operatorname{ran}R}$,
+and $\epsilon=\|[P,R^*]\|$. Then
+\begin{equation}
+ \|[\Pi,\Theta]\|\leq2L_PL_R\epsilon.
+ \label{urgent:double-commutator}
+\end{equation}
+Indeed $[P^*,R^*]=0$ and $[P,R^*]^*=[R,P^*]$.
+Apply O3 to $R$ first with $T=P$, then with $T=P^*$.
+It gives $\|[\Theta,P]\|,\|[\Theta,P^*]\|\leq L_R\epsilon$.
+Applying O3 to $P$ with $T=\Theta$ now proves the claim.
+The adjoint identity also proves the symmetry
+$\|[P,R^*]\|=\|[R,P^*]\|$.
+
+\subsection{Compatibility supplies angular separation}
+
+\paragraph{Lemma O5 (quotient separation).}
+Put $M=\operatorname{ran}P$, $N=\operatorname{ran}R$, $W=M\cap N$.
+The product $PR$ has range $W$: it takes values in both ranges by
+commutativity, and fixes every vector in their intersection.
+Both maps preserve $W$. Their induced maps $\overline P,\overline R$
+on $\mathcal H/W$ are idempotents, have product zero in either order, and
+satisfy $\|\overline P\|\leq\|P\|$ and $\|\overline R\|\leq\|R\|$.
+For the norm statement, for each representative $x$ and every $w\in W$,
+\[
+ \|[Px]\|_{\mathcal H/W}
+ =\|[P(x+w)]\|_{\mathcal H/W}\leq\|P\|\|x+w\|;
+\]
+take the infimum over $w$. Identify the quotient isometrically with
+$W^\perp$ using orthogonal representatives. The range of $\overline P$
+then equals $M\ominus W$: for $m\in M$, its representative
+$m-\Pi_Wm$ remains in $M$, and every image class has such a representative.
+The corresponding assertion holds for $R$.
+
+For nonzero $u$ and $v$ in these two quotient ranges,
+$\overline P u=u$ and $\overline P v=0$, so for every $t\in\mathbb C$,
+\[
+ \|u\|\leq\kappa_P\|u-tv\|.
+\]
+Minimize the squared norm over $t$ to obtain
+\[
+ \|u\|^2\leq\kappa_P^2
+ \left(\|u\|^2-\frac{|\langle u,v\rangle|^2}{\|v\|^2}\right).
+\]
+Thus
+\begin{equation}
+ c(M,N)\leq \frac{a_P}{\kappa_P},\qquad
+ c(M,N)\leq \frac{a_R}{\kappa_R}.
+ \label{urgent:quotient-separation}
+\end{equation}
+If either reduced range is zero the assertion follows from $c=0$.
+Since $\kappa_P^2=1+a_P^2$, these estimates imply
+\[
+ \sqrt{1-c(M,N)^2}\geq
+ \frac1{\min(\kappa_P,\kappa_R)}.
+\]
+In particular the positive denominator needed below is established;
+small commutators of arbitrary orthogonal projections alone would not
+give this exclusion of nearly parallel ranges.
+
+\paragraph{Lemma O6 (cosine from an orthogonal commutator).}
+For orthogonal projections $A,B$, put
+$R=\Pi_{\operatorname{ran}A\cap\operatorname{ran}B}$ and
+$c=\|AB-R\|$. Then
+\begin{equation}
+ c\sqrt{1-c^2}\leq\|[A,B]\|.
+ \label{urgent:cosine-commutator}
+\end{equation}
+To see this without assuming a principal-angle theorem, restrict to
+$W^\perp$ and put $A_0=A-R$, $B_0=B-R$.
+The positive map $T=A_0B_0A_0$ has norm $c^2$, by
+$\|A_0B_0\|^2=\|(A_0B_0)(A_0B_0)^*\|$.
+If $c=0$ the claim is immediate. Otherwise let $u$ be a unit eigenvector
+for $T$ with eigenvalue $c^2$. Since this eigenvalue is positive,
+$A_0u=u$. Therefore
+\[
+ [A_0,B_0]u=c^2u-B_0u,\qquad
+ \|B_0u\|^2=\langle u,B_0u\rangle=c^2.
+\]
+Expanding the squared norm gives $c^2-c^4$, which proves the bound.
+Combine this with O4--O5 to conclude
+\begin{equation}
+ c(M,N)\leq
+ 2\min(\kappa_P,\kappa_R)L_PL_R\|[P,R^*]\|.
+ \label{urgent:adjoint-cosine}
+\end{equation}
+
+\subsection{Derivation of the physical cross-term inequality}
+
+\paragraph{Lemma O7 (complementary Friedrichs cosines).}
+For finite-dimensional subspaces,
+$c(M,N)=c(M^\perp,N^\perp)$.
+Here are the details needed if this identity is not already available
+in a proof-assistant library. For $A=\Pi_M$, $B=\Pi_N$, diagonalize
+the positive contraction $ABA$ on $\operatorname{ran}A$.
+An eigenvector of eigenvalue $1$ belongs to $M\cap N$.
+An eigenvector of eigenvalue $0$ belongs to $M\cap N^\perp$, since
+$\|Bu\|^2=\langle u,ABA u\rangle$.
+For each unit eigenvector $u$ of eigenvalue $0<\lambda<1$, set
+\[
+ v=\frac{Bu-\lambda u}{\sqrt{\lambda(1-\lambda)}}.
+\]
+Then $Av=0$, $\|v\|=1$, and on the span of $u,v$,
+\[
+ A=\begin{pmatrix}1&0\\0&0\end{pmatrix},\qquad
+ B=\begin{pmatrix}\lambda&\sqrt{\lambda(1-\lambda)}\\
+ \sqrt{\lambda(1-\lambda)}&1-\lambda\end{pmatrix}.
+\]
+These formulas follow by $ABA u=\lambda u$ and $B^2=B$.
+Different orthogonal eigenvectors produce orthogonal two-dimensional
+blocks: use
+$\langle Bu,Bu'\rangle=\langle u,Bu'\rangle
+=\lambda'\langle u,u'\rangle$
+and expand the numerators defining $v,v'$.
+The same computation works within a repeated eigenspace.
+Each block reduces both self-adjoint projections.
+On the remaining reducing space $A=0$, so diagonalizing the remaining
+projection $B$ gives only scalar blocks $(A,B)=(0,0),(0,1)$.
+Together with the eigenvalue-zero and eigenvalue-one blocks already
+listed, this exhausts the space.
+
+On each nontrivial block the range cosine is $\sqrt\lambda$.
+The complementary ranges are generated by $v$ and
+$-\sqrt{1-\lambda}\,u+\sqrt\lambda\,v$, also with overlap
+$\sqrt\lambda$. All scalar blocks contribute zero once the relevant
+intersection is removed. The maximum over the blocks, or zero when
+there are no such blocks, proves the claimed equality.
+
+\paragraph{Lemma O8 (hcos is a conclusion).}
+For $Q=I-\Pi_M$, $T=I-\Pi_N$ and every $\psi$,
+\begin{equation}
+ \operatorname{Re}\langle Q\psi,T\psi\rangle
+ \geq-c(M,N)\|Q\psi\|\|T\psi\|.
+ \label{urgent:hcos}
+\end{equation}
+Put $Z=M^\perp\cap N^\perp$ and $z=\Pi_Z\psi$.
+The projections of both $Q\psi$ and $T\psi$ onto $Z$ equal $z$.
+Thus write $Q\psi=z+u$, $T\psi=z+v$, with
+$u\in M^\perp\ominus Z$ and $v\in N^\perp\ominus Z$.
+O7 and the definition of the cosine give
+$|\langle u,v\rangle|\leq c(M,N)\|u\|\|v\|$.
+Consequently
+\[
+ \operatorname{Re}\langle Q\psi,T\psi\rangle
+ =\|z\|^2+\operatorname{Re}\langle u,v\rangle
+ \geq-c(M,N)\|u\|\|v\|
+ \geq-c(M,N)\|Q\psi\|\|T\psi\|.
+\]
+Equivalently, the anticommutator quadratic form is at least
+$-2c(M,N)\|Q\psi\|\|T\psi\|$.
+
+\subsection{Construction of the matrix and the global gap}
+
+\paragraph{Theorem O9 (compatible-idempotent certificate).}
+Let $I$ be a finite index set and $(P_i)_{i\in I}$ pairwise commuting
+idempotents. Set $M_i=\operatorname{ran}P_i$, $\Pi_i=\Pi_{M_i}$,
+$Q_i=I-\Pi_i$, and $H=\sum_iQ_i$. Define
+\[
+ a_i=\|P_i-P_i^*\|,\quad
+ \kappa_i=\sqrt{1+a_i^2},\quad
+ L_i=\kappa_i+2\kappa_i^2a_i,
+\]
+and, for $i\ne j$,
+\[
+ b_{ij}=\min\left\{
+ \frac{a_i}{\kappa_i},\frac{a_j}{\kappa_j},
+ 2\min(\kappa_i,\kappa_j)L_iL_j\|[P_i,P_j^*]\|
+ \right\},\qquad b_{ii}=0.
+\]
+The entries are nonnegative. O4 proves symmetry of the adjoint-commutator
+norm, so $B=(b_{ij})$ is a real symmetric matrix.
+O5 and O6 imply $c(M_i,M_j)\leq b_{ij}$; O8 therefore gives
+\[
+ \boxed{\ \forall i\ne j,\ \forall\psi,\quad
+ \operatorname{Re}\langle Q_i\psi,Q_j\psi\rangle
+ \geq-b_{ij}\|Q_i\psi\|\|Q_j\psi\|.\ }
+\]
+This is exactly the hypothesis called hcos in an abstract projection-sum
+formalization, now proved from compatible idempotents.
+
+For completeness, for fixed $\psi$ put $x_i=\|Q_i\psi\|$.
+Since the $Q_i$ are orthogonal projections,
+\[
+ \langle\psi,H\psi\rangle=\sum_i x_i^2,\qquad
+ \langle\psi,H^2\psi\rangle
+ =\sum_i x_i^2+2\sum_{i<j}
+ \operatorname{Re}\langle Q_i\psi,Q_j\psi\rangle
+ \geq x^{\mathsf T}(I-B)x.
+\]
+Diagonalizing the real symmetric matrix proves
+$x^{\mathsf T}Bx\leq\rho(B)\|x\|_2^2$, since each eigenvalue is at most
+its absolute value and hence at most the spectral radius.
+It follows that $H^2\geq(1-\rho(B))H$.
+Also $\ker H=\mathcal K:=\bigcap_iM_i$, because its quadratic form is
+the sum of the nonnegative numbers $\|Q_i\psi\|^2$.
+If $\alpha=1-\rho(B)>0$, every eigenvalue of the positive map $H$
+satisfies $\lambda^2\geq\alpha\lambda$; hence it is zero or at least
+$\alpha$. The spectral theorem therefore yields
+\[
+ H\geq(1-\rho(B))(I-\Pi_{\mathcal K}).
+\]
+This operator inequality remains meaningful when there is no excited
+sector. For the empty index set, take $H=0$, $\mathcal K=\mathcal H$,
+and the empty spectral radius to be zero.
+
+\paragraph{Lemma O10 (weighted finite certificates).}
+One may replace $B$ by any nonnegative symmetric matrix $\widehat B$
+dominating the derived cosines. If $w_i>0$ and
+$\sum_j\widehat b_{ij}w_j\leq rw_i$, then
+$\rho(\widehat B)\leq r$.
+Indeed $D_w^{-1}\widehat B D_w$ has nonnegative row sums at most $r$.
+For an eigenvector choose a coordinate with maximal absolute value;
+its eigenvalue equation and the triangle inequality give
+$|\lambda|\leq r$. Similarity preserves eigenvalues.
+The constant-vector choice gives the usual maximum-row-sum bound.
+If $r<1$, the same quadratic-form proof gives gap at least $1-r$.
+
+\subsection{Product filters and the explicit local neighborhood}
+
+\paragraph{Lemma O11 (locality under similarity and orthogonalization).}
+Let $\mathcal H=\bigotimes_{x\in V}\mathcal H_x$ with finite $V$ and
+nonzero finite-dimensional site spaces. Suppose
+$E_i=E_{i,S_i}\otimes I_{V\setminus S_i}$ are commuting orthogonal
+projections. Given invertible site maps $L_x$, put
+$L=\bigotimes_xL_x$ and $P_i=LE_iL^{-1}$.
+Tensor multiplication outside $S_i$ cancels those factors, giving
+\[
+ P_i=(L_{S_i}E_{i,S_i}L_{S_i}^{-1})\otimes I_{V\setminus S_i}.
+\]
+Similarity preserves idempotence and commutativity.
+The orthogonalizer O2 (or the tensor product of the range and its
+orthogonal complement) gives
+\[
+ \Pi_{\operatorname{ran}P_i}
+ =\Pi_{\operatorname{ran}(L_{S_i}E_{i,S_i}L_{S_i}^{-1})}
+ \otimes I_{V\setminus S_i}.
+\]
+Thus the physical constraints have the same supports.
+Disjoint supports imply $[P_i,P_j^*]=0$, hence $b_{ij}=0$.
+Finally
+\[
+ \bigcap_i L\operatorname{ran}E_i
+ =L\left(\bigcap_i\operatorname{ran}E_i\right).
+\]
+The reverse inclusion is immediate, and the forward inclusion follows
+by applying $L^{-1}$ to a vector in every subspace. This identifies the
+full, possibly degenerate, physical ground space.
+
+\paragraph{Lemma O12 (local perturbation estimate).}
+Suppose $L_x=e^{K_x}$ and $\|K_x\|\leq\varepsilon$ with $\varepsilon\geq0$.
+Self-adjointness of $K_x$ is not needed for this bound.
+For $|S_i|\leq s$ let $K_{S_i}$ be the sum of its embedded site generators.
+These commute, so $L_{S_i}=e^{K_{S_i}}$ and
+$\|K_{S_i}\|\leq s\varepsilon$.
+For $E=E_{i,S_i}$ and $K=K_{S_i}$ put
+$F(t)=e^{tK}Ee^{-tK}$ for $0\leq t\leq1$.
+Differentiating the absolutely convergent matrix-exponential series gives
+\[
+ F'(t)=e^{tK}[K,E]e^{-tK}.
+\]
+The same series gives $\|e^{\pm tK}\|\leq e^{t\|K\|}$.
+Since $\|E\|\leq1$, $\|[K,E]\|\leq2\|K\|$.
+The fundamental theorem of calculus and the triangle inequality give
+\[
+ \|P_i-E_i\|
+ \leq\int_0^1 2\|K\|e^{2t\|K\|}\,dt
+ =e^{2\|K\|}-1
+ \leq e^{2s\varepsilon}-1=:\delta.
+\]
+At $\|K\|=0$ both sides of the equality are zero directly.
+Tensoring with the identity on a nonzero finite-dimensional factor
+preserves the norm, justifying passage to the full system.
+Since $E_i=E_i^*$,
+\[
+ a_i=\|(P_i-E_i)-(P_i-E_i)^*\|\leq2\delta.
+\]
+As $\kappa_i\geq1$, this implies $b_{ij}\leq2\delta$.
+
+\paragraph{Corollary O13 (filtered-parent gap with derived hcos).}
+Suppose every support has at most $s$ sites and intersects at most
+$M$ other supports. O11 implies that each row of $B$ has at most $M$
+nonzero off-diagonal entries; O12 bounds each by $2\delta$.
+Consequently
+$\rho(B)\leq2M(e^{2s\varepsilon}-1)$.
+If this number is below one, O9 proves
+\[
+ H_L:=\sum_i(I-\Pi_{L\operatorname{ran}E_i})
+ \ \geq\
+ \left[1-2M(e^{2s\varepsilon}-1)\right]
+ \left(I-\Pi_{\,L(\cap_i\operatorname{ran}E_i)}\right).
+\]
+In particular, whenever an excited sector exists, its spectral gap is
+at least the bracketed number. This estimates local matrices and their
+support incidences, never a condition number for the full product $L$.
+Neither hcos nor support sparsity has been left as an unexplained input.
+
+\paragraph{Optional nonuniform and adjoint-commutator bounds.}
+Given individual bounds
+$\|P_i-E_i\|\leq\delta_i$, the symmetric matrix
+\[
+ \widehat b_{ij}=
+ \begin{cases}
+ 2\min(\delta_i,\delta_j),&i\ne j,\ S_i\cap S_j\ne\varnothing,\\
+ 0,&\text{otherwise}
+ \end{cases}
+\]
+also satisfies hcos, by O5, O8, and O12. Apply O10 to it.
+For a second optional estimate write $P_i=E_i+D_i$ with
+$\|D_i\|\leq\delta_i$. Since the reference projections commute,
+\[
+ [P_i,P_j^*]=[E_i,D_j^*]+[D_i,E_j]+[D_i,D_j^*],
+ \qquad
+ \|[P_i,P_j^*]\|\leq2\delta_i+2\delta_j+2\delta_i\delta_j.
+\]
+This is valid, although generally weaker for the uniform neighborhood
+than the separation term $a_i/\kappa_i$ already used above.

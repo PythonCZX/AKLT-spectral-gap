@@ -1,0 +1,989 @@
+% Self-contained journal-style fragments. Labels and citation keys use q:.
+% Required packages: amsmath, amssymb, amsthm, mathtools, hyperref.
+% Required theorem environments: theorem, lemma, proposition, corollary, remark.
+
+\section{Completely positive transport and tensor-network gaps}
+\label{q:sec-networks}
+
+A transfer operator is usually used to estimate the decay of correlations
+along a one-dimensional tensor network.  Here it has a second role: it
+controls the angle between two local ground spaces meeting at a vertex
+of an arbitrary graph.  The useful comparison is an inequality between
+completely positive maps.  Such an inequality remains valid when a wire
+is attached to an arbitrarily entangled positive core.  Moreover, two
+different edge constraints can interact through that core only when both
+of their wire maps depart from their rank-one limits.  This gives a
+quadratic, rather than linear, error bound.
+
+The use of transfer operators and ground-space angles for decorated
+AKLT models originates in \cite{q:ARLLNY2020}; the extension to bounded-degree
+graphs with a sufficient decoration linear in the degree is
+\cite{LuciaYoung2023}.  The argument below gives a degree-independent
+two-port angle estimate, leading to logarithmic sufficient decoration.
+The final conversion from a blocked projector parent to a specified
+microscopic Hamiltonian is stated separately, with its normalization
+and finite-patch constants explicit.
+
+\subsection{Finite local data}
+
+Let $\mathcal G=(V,E)$ be a finite simple graph without isolated
+vertices.  Open regions may also have dangling boundary ports; these
+are included in every product over ports below, but carry no internal
+edge constraint.  Every incidence $(v,e)$ carries a finite-dimensional exposed
+virtual space.  Every edge carries a fixed nonzero vector of full Schmidt
+rank on its two exposed spaces.  At each vertex choose an arbitrary
+nonzero core map $A_v$, and attach one matrix-product half-wire to
+each of its input legs.  Write $T_v$ for the resulting map from the
+exposed virtual spaces to the physical block.  The block consists of
+the core and its incident half-wires.
+
+Put $C_v=A_v^*A_v$.  Contraction of the half-wires gives the exact identity
+\begin{equation}
+ T_v^*T_v=\left(\bigotimes_{e\ni v}\Phi_{v,e}\right)(C_v),
+ \label{q:gram-channel}
+\end{equation}
+where each $\Phi_{v,e}$ is a completely positive (CP) map.  One may fix
+the convention directly: if $W_{p,a,b}$ is the amplitude of a half-wire
+with physical index $p$, core index $a$, and exposed index $b$, its
+Kraus matrices are $(K_p)_{b,a}=\overline{W_{p,a,b}}$.  Thus
+\[
+ (T^*T)_{b',b}
+ =\sum_{p,a',a}\overline{W_{p,a',b'}}(C_v)_{a',a}W_{p,a,b}
+ =\left(\sum_p K_pC_vK_p^*\right)_{b',b}.
+\]
+In particular, no partial transpose of an entangled core is involved.
+
+Assume that, for every incidence, there is a rank-one CP map
+\[
+ \Psi_{v,e}(X)=\operatorname{tr}(\tau_{v,e}X)R_{v,e},
+ \qquad \tau_{v,e}>0,\quad R_{v,e}>0,
+\]
+and a number $0\leq\delta_{v,e}<1$ such that
+\begin{equation}
+ (1-\delta_{v,e})\Psi_{v,e}
+ \ \leq_{\mathrm{CP}}\ \Phi_{v,e}
+ \ \leq_{\mathrm{CP}}\ (1+\delta_{v,e})\Psi_{v,e}.
+ \label{q:cp-sandwich}
+\end{equation}
+Here $\Phi\leq_{\mathrm{CP}}\widetilde\Phi$ means that
+$\widetilde\Phi-\Phi$ is completely positive.  This is equivalent to a
+positive-semidefinite comparison of their Choi matrices
+\cite{q:Choi1975}.  The reference
+map need not preserve the trace.  A sandwich
+$a\Psi\leq_{\mathrm{CP}}\Phi\leq_{\mathrm{CP}}b\Psi$, with $0<a\leq b$,
+is centered by replacing $\Psi$ with $(a+b)\Psi/2$ and setting
+$\delta=(b-a)/(b+a)$.
+
+Tensor products preserve CP order.  Consequently
+\begin{equation}
+ T_v^*T_v\geq
+ \left[\prod_{e\ni v}(1-\delta_{v,e})\right]
+ \operatorname{tr}\!\left[
+   \left(\bigotimes_{e\ni v}\tau_{v,e}\right)C_v\right]
+ \bigotimes_{e\ni v}R_{v,e}>0.
+ \label{q:injectivity}
+\end{equation}
+Thus every block map is injective, even when the original core has rank
+one.  Their tensor product is injective as well: it sends the nonzero
+product of internal edge vectors and any nonzero boundary vector to a
+nonzero physical state.  This proves frustration-freeness without an
+assumption that a general tensor contraction avoids cancellation.
+All estimates below are independent of the condition number of $C_v$.
+
+For $e=uv$, contract the fixed edge vector between $T_u$ and $T_v$,
+leaving their other exposed legs free, and denote the resulting regional
+image by $\mathcal R_e$.  Let $G_e$ be its orthogonal projector in the
+two physical blocks, extended by the identity elsewhere.  Define the
+norm-one-projector parent
+\begin{equation}
+ H_{\mathrm{block}}=\sum_{e\in E}(I-G_e).
+ \label{q:block-parent}
+\end{equation}
+Its ground space retains all outer virtual degrees of freedom when the
+graph describes an open region.
+
+\begin{theorem}[Two-port CP gap criterion]
+\label{q:thm-wire-gap}
+Under \eqref{q:cp-sandwich}, set
+\begin{equation}
+ \mathcal B(x,y)=\frac{2xy(1+xy)}{(1-x)^2(1-y)^2}.
+ \label{q:Bxy}
+\end{equation}
+Let $C$ be the symmetric matrix indexed by edges, with zero diagonal,
+with $C_{ef}=0$ for disjoint edges, and with
+$C_{ef}=\mathcal B(\delta_{v,e},\delta_{v,f})$ when $e,f$ meet at $v$.
+If its spectral radius satisfies $\rho(C)<1$, then
+\begin{equation}
+ H_{\mathrm{block}}\geq
+ [1-\rho(C)](I-G_{\mathrm{all}}),
+ \label{q:block-gap}
+\end{equation}
+where $G_{\mathrm{all}}$ projects onto its full ground space.
+The same statement holds uniformly for a family of finite graphs if
+their matrices $C$ have a common spectral-radius upper bound below one.
+\end{theorem}
+
+The simpler sufficient condition is the row bound
+
+\fig{fig09_quantum_networks}{Completely positive wire estimates give
+finite gap certificates. (a) A schematic network has arbitrary nonzero
+cores and mixing half-wires; four sites per original edge are drawn only
+to illustrate the construction. (b) The exact two-port estimate
+$\mathcal B(\delta_i,\delta_j)$ is quadratic at the origin, reflecting
+cancellation when either wire is exactly rank one. (c) Substitution of
+$\delta_\ell=2/(3^\ell+(-1)^\ell)$ into the degree bound gives
+$1-2(\Delta-1)\mathcal B(\delta_\ell,\delta_\ell)$ for a norm-one
+blocked parent. Negative lower bounds are plotted as zero, meaning that
+this criterion provides no positive certificate there. A microscopic
+AKLT gap additionally includes the finite-patch gap and coverage factors
+proved in the text.}{fig:networks}
+\begin{equation}
+ q=\max_{e=uv}\left[
+ \sum_{\substack{f\ni u\\f\ne e}}
+       \mathcal B(\delta_{u,e},\delta_{u,f})+
+ \sum_{\substack{f\ni v\\f\ne e}}
+       \mathcal B(\delta_{v,e},\delta_{v,f})\right]<1,
+ \label{q:row-criterion}
+\end{equation}
+which gives gap at least $1-q$.  Rational positive-vector certificates
+$Cw\leq rw$, $w>0$, $r<1$, can improve the row bound while avoiding any
+floating-point eigenvalue calculation.  Finite edge types suffice when
+their incidence counts give a uniform finite comparison matrix.
+
+\subsection{The quadratic cancellation}
+
+For subspaces $M,N$, their Friedrichs cosine is the largest overlap of
+unit vectors in $M\ominus(M\cap N)$ and $N\ominus(M\cap N)$.
+Removing the entire intersection is essential for degenerate local
+ground spaces.
+
+\begin{lemma}[A quotient-metric estimate]
+\label{q:lem-schur}
+Let $p,q$ be commuting orthogonal projections.  Suppose
+\[
+ G=I+A+B+D>0,\qquad [A,q]=[B,p]=0,
+\]
+\[
+ \|A\|\leq x,\quad \|B\|\leq y,\quad \|D\|\leq xy,
+ \qquad G\geq mI,\quad m=(1-x)(1-y)>0.
+\]
+The Friedrichs cosine between $G^{1/2}\operatorname{ran}p$ and
+$G^{1/2}\operatorname{ran}q$ is at most $\mathcal B(x,y)$.
+\end{lemma}
+
+\begin{proof}
+Put $W=\operatorname{ran}(pq)$,
+$U=\operatorname{ran}(p(I-q))$, and
+$V=\operatorname{ran}((I-p)q)$.  They are mutually orthogonal.  The
+quotient by the common image of $W$ is represented by minimizing over
+the $W$ coordinate in the $G$-metric.  Its $U,V$ cross block is therefore
+\[
+ S_{UV}=G_{UV}-G_{UW}G_{WW}^{-1}G_{WV}.
+\]
+Only $W$ is eliminated: the sector
+$\operatorname{ran}((I-p)(I-q))$ is not part of the intersection.
+The commutation assumptions imply
+\[
+ G_{UV}=D_{UV},\qquad
+ G_{UW}=B_{UW}+D_{UW},\qquad
+ G_{WV}=A_{WV}+D_{WV}.
+\]
+Hence
+\[
+ \|S_{UV}\|\leq xy+\frac{(y+xy)(x+xy)}m.
+\]
+For $u\in U$, the diagonal quotient metric obeys
+\[
+ \inf_{w\in W}\langle u+w,G(u+w)\rangle
+ \geq m\inf_{w\in W}(\|u\|^2+\|w\|^2)=m\|u\|^2,
+\]
+and similarly on $V$.  The cosine equals
+$\|S_{UU}^{-1/2}S_{UV}S_{VV}^{-1/2}\|$ and is at most
+\[
+ \frac{xy}{m}+
+ \frac{xy(1+x)(1+y)}{m^2}
+ =\frac{2xy(1+xy)}{(1-x)^2(1-y)^2}.
+\]
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{q:thm-wire-gap}]
+First restrict each block to its image under $T_v$ and remove its
+isometric polar factor.  This identifies the network with independent
+edge vectors acted on by invertible positive block filters.  An invertible
+map preserves intersections of subspaces; hence the common kernel in
+these block images is exactly the image of the product of fixed internal
+edge vectors, with all dangling boundary factors arbitrary.  Consider
+two edges meeting at $v$, and label their ports $i,j$.  Keep the actual
+attachment map $\mathcal R$ on every unselected port.  With
+$D_i=\Phi_i-\Psi_i$ and $D_j=\Phi_j-\Psi_j$, take the reference metric
+\[
+ G_0=(\Psi_i\otimes\Psi_j\otimes\mathcal R)(C_v).
+\]
+It is faithful by \eqref{q:injectivity}, and has product form
+$R_i\otimes R_j\otimes R_{\mathrm{rest}}$.  Whitening therefore
+acts separately on the selected ports and on the remaining ones.
+The filters at the two outside endpoints can be absorbed into two
+reference subspaces supported on disjoint sets of factors.  Their
+orthogonal projectors $p,q$ commute.  The factor acting on the retained
+ports preserves both subspaces.
+
+After whitening the exact metric has the expansion
+\[
+ G=G_0^{-1/2}(\Phi_i\otimes\Phi_j\otimes\mathcal R)(C_v)G_0^{-1/2}
+   =I+A+B+D.
+\]
+Here $A$ uses $D_i\otimes\Psi_j$, $B$ uses
+$\Psi_i\otimes D_j$, and $D$ uses $D_i\otimes D_j$.
+The first two terms have identity on the opposite selected port, so
+$[A,q]=[B,p]=0$.  The single-port sandwiches imply
+$\|A\|\leq x$, $\|B\|\leq y$, for $x=\delta_i$, $y=\delta_j$.
+For the mixed term use the exact CP inequalities
+\[
+ -xy\,\Psi_i\otimes\Psi_j
+ \leq_{\mathrm{CP}}D_i\otimes D_j
+ \leq_{\mathrm{CP}}xy\,\Psi_i\otimes\Psi_j.
+\]
+For example, the upper inequality is the average of the two CP maps
+\[
+ (x\Psi_i+D_i)\otimes(y\Psi_j-D_j),\qquad
+ (x\Psi_i-D_i)\otimes(y\Psi_j+D_j).
+\]
+The other pair of signs gives the lower inequality.  Tensoring with
+$\mathcal R$, applying the result to $C_v$, and whitening gives
+$\|D\|\leq xy$.  Tensoring the lower single-port bounds also gives
+$G\geq(1-x)(1-y)I$.  Lemma~\ref{q:lem-schur} now bounds the
+Friedrichs cosine by $C_{ef}$.
+
+Put $h_e=I-G_e$.  The two-projection decomposition implies
+\begin{equation}
+ \operatorname{Re}\langle h_e\xi,h_f\xi\rangle
+ \geq-C_{ef}\|h_e\xi\|\|h_f\xi\|.
+ \label{q:projection-cross}
+\end{equation}
+For completeness, the components of $h_e\xi$ and $h_f\xi$ in their
+common range coincide.  Removing this component leaves vectors whose
+overlap is controlled by the nontrivial principal angles.  These angles
+are the same for a pair of projections and for their complements.
+The removed common component contributes a nonnegative squared norm.
+This proves \eqref{q:projection-cross}; commuting disjoint constraints
+have zero cosine and a nonnegative cross term.
+
+With $z_e=\|h_e\xi\|$, summing yields
+\[
+ \|H_{\mathrm{block}}\xi\|^2
+ \geq z^{\mathsf T}(I-C)z
+ \geq[1-\rho(C)]\langle\xi,H_{\mathrm{block}}\xi\rangle.
+\]
+The spectral theorem gives the desired gap on the product of block
+images.  In the full physical space, every one-block image projector
+commutes with each $G_e$.  A sector outside any block image has an
+incident term equal to the identity, and hence energy at least one.
+This proves the stated bound on the full Hilbert space.
+\end{proof}
+
+The matrix step is a form of the established subspace-angle method
+\cite{q:Kassabov2011}.  Its representation-theoretic interpretation is
+useful: averaging over a finite subgroup projects onto its fixed vectors,
+and a matrix of pairwise angles controls the gap of the sum of the
+corresponding averaging Laplacians.  Here CP transport supplies concrete
+entries of that matrix for tensor-network subspaces.
+
+\subsection{Microscopic normalization and decorated AKLT models}
+
+\begin{lemma}[Finite-patch comparison]
+\label{q:lem-seed}
+Let $H_{\mathrm{micro}}=\sum_a h_a$ be a frustration-free microscopic
+Hamiltonian with $h_a\geq0$.  For every coarse edge $e$, let $P_e$ be
+its two-block patch and let $H_{P_e}$ be the sum of microscopic terms
+contained in it.  Assume
+\[
+ \ker H_{P_e}=\mathcal R_e,\qquad
+ H_{P_e}\geq g_* (I-G_e),\qquad g_*>0.
+\]
+Suppose every microscopic term lies in at least one and at most $m$
+patches.  Then the two Hamiltonians have the same full kernel and
+\begin{equation}
+ \operatorname{gap}H_{\mathrm{micro}}
+ \geq \frac{g_*}{m}\operatorname{gap}H_{\mathrm{block}}.
+ \label{q:seed-comparison}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Positivity and patch coverage give
+$\ker H_{\mathrm{micro}}=\bigcap_e\ker H_{P_e}
+=\bigcap_e\mathcal R_e=\ker H_{\mathrm{block}}$.
+The operator inequality
+$mH_{\mathrm{micro}}\geq\sum_eH_{P_e}\geq g_*H_{\mathrm{block}}$
+then proves the claim above their common kernel.
+\end{proof}
+
+In the standard AKLT model \cite{q:AKLT1988}, a vertex of full graph degree $D_v$ carries
+spin $D_v/2$, and every interaction is the norm-one projector onto the
+maximal total spin of its two endpoints.  The spin-one wire channel is
+\[
+ \Phi(X)=\frac13\sum_{a=1}^3\sigma_aX\sigma_a
+ =\frac23\operatorname{tr}(X)I-\frac13X.
+\]
+Let $\Psi(X)=\operatorname{tr}(X)I/2$.  Then
+\[
+ \Phi^\ell=\Psi+\beta_\ell(\mathrm{id}-\Psi),\qquad
+ \beta_\ell=(-1/3)^\ell.
+\]
+Relative to the faithful Choi metric of $\Psi$, the Choi eigenvalues
+are $1+3\beta_\ell$ once and $1-\beta_\ell$ three times.  Centering
+them gives
+\begin{equation}
+ \delta_\ell=\frac{2}{3^\ell+(-1)^\ell},\qquad\ell\geq2.
+ \label{q:aklt-radius}
+\end{equation}
+
+\begin{corollary}[Logarithmic sufficient decoration]
+\label{q:cor-aklt}
+Let $\mathcal G$ be a simple graph of maximum degree $\Delta\geq2$.
+Replace every edge by a chain with $n=2\ell$ additional spin-one
+vertices, and give each original degree-$d$ vertex spin $d/2$.
+For connected finite regions made of whole half-wire blocks, with at
+least two blocks, suppose
+\[
+ 2(\Delta-1)\mathcal B(\delta_\ell,\delta_\ell)<1.
+\]
+Then the standard microscopic AKLT Hamiltonians have the uniform bound
+\begin{equation}
+ \operatorname{gap}H_{\mathrm{AKLT}}
+ \geq\frac{g_*(\Delta,\ell)}\Delta
+       \left[1-2(\Delta-1)
+                    \mathcal B(\delta_\ell,\delta_\ell)\right]>0,
+ \label{q:aklt-gap}
+\end{equation}
+where $g_*(\Delta,\ell)>0$ is the minimum positive gap of the finitely
+many two-block patch Hamiltonians with these parameters.  In particular,
+\begin{equation}
+ \ell=\left\lceil\log_9(144\Delta)\right\rceil,
+ \qquad n=2\ell
+ \quad\Longrightarrow\quad
+ \operatorname{gap}H_{\mathrm{AKLT}}
+ \geq\frac{g_*(\Delta,\ell)}{2\Delta}>0.
+ \label{q:log-decoration}
+\end{equation}
+Thus $n<\log_3(144\Delta)+2$ is a sufficient even decoration count.
+\end{corollary}
+
+\begin{proof}
+The only microscopic input not yet verified is the regional kernel.
+Realize spin $D_v/2$ as the homogeneous binary polynomials of degree
+$D_v$ in $(x_v,y_v)$.  For an included edge $vw$, the kernel of the
+maximal-spin projector consists precisely of polynomials divisible by
+\[
+ b_{vw}=x_vy_w-y_vx_w.
+\]
+Indeed, multiplication by this invariant bracket is injective and
+$SU(2)$-equivariant from degrees $(D_v-1,D_w-1)$.  Its image has dimension
+$D_vD_w$ and contains no maximal-spin summand.  This equals the
+dimension of the complement of that summand in
+$(D_v+1)(D_w+1)$ dimensions.  Distinct edge brackets are nonassociate
+irreducibles in a polynomial unique factorization domain.  Simultaneous
+divisibility is therefore divisibility by their product.  The remaining
+degrees are exactly the free boundary virtual degrees, proving the
+regional tensor-image identity.
+
+On a half-wire patch, every boundary wire vertex has one omitted edge
+and one free virtual leg.  In particular no boundary corner imposes an
+additional symmetrization kernel.  The local degree and wire-length
+bounds give only finitely many two-block patch types; each finite
+positive matrix has a positive least nonzero eigenvalue.  Their minimum
+$g_*(\Delta,\ell)$ is positive.  Internal-block microscopic terms occur
+in at most $\Delta$ two-block patches, and a term crossing a block
+interface occurs once.  Hence Lemma~\ref{q:lem-seed} applies with
+$m\leq\Delta$.
+
+Every edge meets at most $2(\Delta-1)$ others, proving
+\eqref{q:aklt-gap}.  For the explicit choice
+\eqref{q:log-decoration}, one has $\ell\geq3$,
+$\delta_\ell\leq3^{1-\ell}\leq1/9$, and
+\[
+ \mathcal B(\delta_\ell,\delta_\ell)
+ \leq4\delta_\ell^2.
+\]
+The last inequality follows by monotonicity and
+$2(1+(1/9)^2)/(1-1/9)^4=3321/1024<4$.  Therefore
+\[
+ 2(\Delta-1)\mathcal B(\delta_\ell,\delta_\ell)
+ \leq\frac{72(\Delta-1)}{9^\ell}<\frac12.
+\]
+\end{proof}
+
+The coefficient $g_*(\Delta,\ell)$ fixes the microscopic energy
+normalization.  The result asserts a positive constant for each fixed
+degree and decoration; it does not assert a degree-uniform physical
+gap.  At small degree one can use the exact criterion rather than the
+closed bound: $\ell=2$ gives $\delta=1/5$, $\mathcal B=13/64$, and
+coarse gap at least $3/16$ for $\Delta=3$.  At $\ell=3$,
+$\mathcal B=85/5184$, and the criterion holds through $\Delta=31$.
+These values are sufficient bounds, not optimal-decoration claims.
+
+For any fixed primitive finite-dimensional wire channel, normalized
+powers converge to a faithful rank-one map.  Since its limiting Choi
+matrix is positive definite, there are $C_0>0$ and $0<\theta<1$ such
+that $\delta_\ell\leq C_0\theta^\ell$ for all sufficiently large
+$\ell$; a Jordan polynomial is absorbed by increasing $\theta$.
+The same theorem then gives sufficient total wire length
+\[
+ n=\frac{\log\Delta}{|\log\theta|}+O(1).
+\]
+This conclusion concerns the canonical blocked parent for arbitrary
+nonzero cores.  A specified microscopic interaction is covered whenever
+the finite regional-kernel and seed-gap hypotheses of
+Lemma~\ref{q:lem-seed} hold.
+
+\section{Compatible idempotents as local gap certificates}
+\label{q:sec-oblique}
+
+The preceding construction starts from independent edge constraints and
+changes their metric.  A related algebraic description starts from
+commuting, generally nonorthogonal idempotents.  Orthogonalizing their
+ranges produces the physical parent Hamiltonian.  Exact compatibility
+is useful because a small commutator of arbitrary orthogonal projections
+does not distinguish nearly perpendicular subspaces from nearly parallel
+ones.
+
+\begin{theorem}[A compatible-idempotent certificate]
+\label{q:thm-oblique}
+Let $P_i^2=P_i$ and $[P_i,P_j]=0$ on a finite-dimensional Hilbert space.
+Let $\Pi_i$ be the orthogonal projector onto $\operatorname{ran}P_i$,
+$H=\sum_i(I-\Pi_i)$, and set
+\[
+ a_i=\|P_i-P_i^*\|,\qquad
+ \kappa_i=\sqrt{1+a_i^2},\qquad
+ L_i=\kappa_i+2\kappa_i^2a_i,\qquad
+ \epsilon_{ij}=\|[P_i,P_j^*]\|.
+\]
+For $i\ne j$ define
+\begin{equation}
+ b_{ij}=\min\left\{
+ \frac{a_i}{\kappa_i},\frac{a_j}{\kappa_j},
+ 2\min(\kappa_i,\kappa_j)L_iL_j\epsilon_{ij}\right\},
+ \qquad b_{ii}=0.
+ \label{q:oblique-b}
+\end{equation}
+If the symmetric matrix $B=(b_{ij})$ has $\rho(B)<1$, then
+\[
+ H\geq[1-\rho(B)](I-\Pi_{\mathcal K}),\qquad
+ \mathcal K=\bigcap_i\operatorname{ran}P_i.
+\]
+Only the individual nonorthogonality and pairwise adjoint-commutator
+norms enter the certificate.
+\end{theorem}
+
+\begin{proof}
+Relative to its range and its orthogonal complement, an idempotent has
+the form $P=\left(\begin{smallmatrix}I&A\\0&0\end{smallmatrix}\right)$.
+Direct multiplication gives
+\begin{equation}
+ \Pi(P)=PP^*[I-(P-P^*)^2]^{-1},\qquad
+ \|P\|\leq\sqrt{1+\|P-P^*\|^2}.
+ \label{q:orthogonalizer}
+\end{equation}
+The denominator is at least $I$.  For any operator $T$, product and
+inverse commutator identities consequently give
+\begin{equation}
+ \|[\Pi(P),T]\|
+ \leq (\kappa+2\kappa^2a)
+          \bigl(\|[P,T]\|+\|[P^*,T]\|\bigr).
+ \label{q:ortho-comm}
+\end{equation}
+Indeed the numerator costs $\kappa$ times the bracketed sum, and the
+commutator of $I-(P-P^*)^2$ costs $2a$ times that sum.  Applying
+\eqref{q:ortho-comm} twice and using exact compatibility gives
+\[
+ \|[\Pi_i,\Pi_j]\|\leq2L_iL_j\epsilon_{ij}.
+\]
+
+To control the nearly parallel possibility, quotient by
+$W=\operatorname{ran}P_i\cap\operatorname{ran}P_j$.  The two idempotents
+descend with norms no larger than $\kappa_i,\kappa_j$, and their product
+is zero.  For vectors $u,v$ in their respective quotient ranges,
+\[
+ \|u\|\leq\kappa_i\|u-tv\|\qquad(t\in\mathbb C).
+\]
+Minimizing in $t$ bounds their cosine by
+$\sqrt{1-\kappa_i^{-2}}=a_i/\kappa_i$, and symmetrically by
+$a_j/\kappa_j$.  On a nontrivial principal-angle block with cosine $c_r$,
+the orthogonal-projection commutator has norm
+$c_r\sqrt{1-c_r^2}$.  The preceding bounds imply
+$\sqrt{1-c_r^2}\geq1/\min(\kappa_i,\kappa_j)$.
+Taking the maximal cosine therefore gives
+\[
+ c_{ij}\leq\min(\kappa_i,\kappa_j)\|[\Pi_i,\Pi_j]\|
+ \leq2\min(\kappa_i,\kappa_j)L_iL_j\epsilon_{ij}.
+\]
+This proves $c_{ij}\leq b_{ij}$.  The argument
+\eqref{q:projection-cross} now gives $H^2\geq[1-\rho(B)]H$ and the
+claimed spectral consequence.
+\end{proof}
+
+\begin{corollary}[Filtered commuting-projector models]
+\label{q:cor-filtered}
+Let $E_i$ be commuting local orthogonal projections and let
+$L=\bigotimes_x L_x$ be any product of invertible site filters.  Then
+$P_i=LE_iL^{-1}$ are local compatible idempotents.  Theorem
+\ref{q:thm-oblique} applies to the physical Hamiltonian
+\[
+ H_L=\sum_i\bigl(I-\Pi_{L\operatorname{ran}E_i}\bigr),
+ \qquad
+ \ker H_L=L\bigcap_i\operatorname{ran}E_i.
+\]
+In particular, suppose every reference support has at most $s$ sites,
+meets at most $M$ other supports, and $L_x=e^{K_x}$ with
+$\|K_x\|\leq\varepsilon$.  If
+\[
+ 2M(e^{2s\varepsilon}-1)<1,
+\]
+then $\operatorname{gap}H_L\geq1-2M(e^{2s\varepsilon}-1)$.
+\end{corollary}
+
+\begin{proof}
+Factors of $L$ outside a reference support cancel in $P_i$, proving
+locality.  Similarity preserves idempotence, commutativity, and the
+intersection of the ranges.  On a support of at most $s$ sites,
+integration of the similarity derivative gives
+$\|P_i-E_i\|\leq e^{2s\varepsilon}-1=:\delta$.
+Thus $a_i\leq2\delta$, and \eqref{q:oblique-b} gives
+$b_{ij}\leq2\delta$.  Disjoint supports give $b_{ij}=0$, so the
+maximum row sum is at most $2M\delta$.
+\end{proof}
+
+The common ground space in this corollary may be degenerate, including
+commuting-projector code spaces.  The argument estimates a concrete
+finite family of local matrices; it does not require a bound on the
+condition number of the global product $L$.
+
+\subsection{A parent from integer modular conjugates}
+
+Let $\rho>0$ on $\bigotimes_x\mathbb C^{d_x}$ and use fixed product
+bases for vectorization.  On two copies of the system let $E_x$ be the
+normalized Bell projector at site $x$, and set
+\[
+ P_x=(\rho\otimes I)E_x(\rho^{-1}\otimes I).
+\]
+They are compatible idempotents with common range
+$\mathbb C|\rho\rangle\!\rangle$.  For a unitary Weyl basis
+$\{U_{x,a}\}_{a=1}^{d_x^2}$,
+\begin{equation}
+ P_x=\frac1{d_x^2}\sum_a
+       (\rho U_{x,a}\rho^{-1})\otimes\overline{U_{x,a}}.
+ \label{q:integer-parent}
+\end{equation}
+This is an exact finite-dimensional identity, so local estimates of the
+integer modular conjugates give the entries of
+\eqref{q:oblique-b} directly.  For example, if
+$\sigma_x=I_x/d_x\otimes\operatorname{tr}_x\rho$ and
+$Y_x=\rho\sigma_x^{-1}$, then for every one-site $O_x$,
+\begin{equation}
+ \rho O_x\rho^{-1}=Y_xO_xY_x^{-1},
+ \label{q:ratio-modular}
+\end{equation}
+because $\sigma_x$ commutes with $O_x$.
+
+The normalized vector $|\rho\rangle\!\rangle$ purifies
+$\rho^2/\operatorname{tr}(\rho^2)$.  For a generic $\rho$ the operators
+in \eqref{q:integer-parent} can have large support; locality follows
+when the supplied modular conjugates are local or admit certified
+decaying approximations.  This construction is related to canonical
+purified parents and their mixing criteria \cite{q:LPP2025}, and to
+factorizations of exact KMS parent Hamiltonians used in quantum
+algorithms \cite{q:LJL2026}.  The additional input here is the explicit
+compatible-idempotent certificate \eqref{q:oblique-b}.
+
+\section{Positive modular response calculus}
+\label{q:sec-kms}
+
+For a differentiable positive matrix path, its right logarithmic
+derivative need not be Hermitian.  Keeping its Hermitian and
+anti-Hermitian parts together reveals a useful cancellation.  The
+functional calculus below uses positive-definite scalar kernels, a
+standard source of operator inequalities
+\cite{q:HK1999,q:BP2000}.  We give the kernels explicitly so that their
+norms, ancilla extensions, and composition rules are available without
+an implicit functional-calculus convention.
+
+Let $\rho_\lambda>0$, $K=\log\rho$, and
+\[
+ Q=\dot\rho\rho^{-1}=H+A=H+iJ,
+ \qquad H^*=H,\quad A^*=-A,\quad J^*=J.
+\]
+Throughout this section powers of $\rho$ are not renormalized to have
+trace one.  Renormalization adds the scalar derivative of their
+normalizing factor.
+
+\begin{theorem}[Exact response of fractional powers]
+\label{q:thm-powers}
+For $0\leq r\leq1$, let
+$Q_r=(\partial_\lambda\rho^r)\rho^{-r}=H_r+A_r$ be its Hermitian and
+anti-Hermitian decomposition.  With $\operatorname{ad}_K(O)=[K,O]$,
+\begin{align}
+ H_r&=\psi_r(\operatorname{ad}_K)H,
+ &\psi_r(x)&=\frac{\sinh(rx)}{\sinh x},\quad\psi_r(0)=r,
+ \label{q:power-H}\\
+ A_r&=\chi_r(\operatorname{ad}_K)A,
+ &\chi_r(x)&=\left(\frac{\sinh(rx/2)}{\sinh(x/2)}\right)^2,
+ \quad\chi_r(0)=r^2.
+ \label{q:power-A}
+\end{align}
+Both maps are completely positive, with completely bounded
+operator norms $r$ and $r^2$, respectively.  Consequently
+\[
+ \|H_r\|\leq r\|H\|,\qquad
+ \|A_r\|\leq r^2\|A\|.
+\]
+The estimates hold with an arbitrary ancillary system.  Moreover,
+\begin{equation}
+ \lim_{r\downarrow0}\frac{Q_r}{r}
+ =\dot K=f(\operatorname{ad}_K)H,
+ \qquad f(x)=\frac{x}{\sinh x},\quad f(0)=1.
+ \label{q:log-response}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Differentiation of the exponential gives
+\[
+ Q_r=\int_0^r e^{sK}\dot K e^{-sK}\,ds
+     =\frac{e^{r\operatorname{ad}_K}-I}
+                  {\operatorname{ad}_K}\dot K.
+\]
+Taking Hermitian and anti-Hermitian parts yields
+\[
+ H_r=\frac{\sinh(r\operatorname{ad}_K)}{\operatorname{ad}_K}\dot K,
+ \qquad
+ A_r=\frac{\cosh(r\operatorname{ad}_K)-I}
+                    {\operatorname{ad}_K}\dot K.
+\]
+Comparison with $r=1$ proves the formulas, using
+$\cosh(rx)-1=2\sinh^2(rx/2)$.  All quotients have their continuous
+value at zero.
+
+For $0<r<1$, the positive density
+\begin{equation}
+ p_r(t)=\frac{\sin(\pi r)}
+              {2[\cosh(\pi t)+\cos(\pi r)]}
+ \label{q:pr-kernel}
+\end{equation}
+satisfies
+\begin{equation}
+ \psi_r(x)=\int_{\mathbb R}p_r(t)e^{itx}\,dt,
+ \qquad \int_{\mathbb R}p_r(t)\,dt=r.
+ \label{q:pr-transform}
+\end{equation}
+One direct verification integrates
+$e^{ikz}/(\cosh z+\cos\alpha)$ around a rectangle of height $2\pi i$.
+The residues at $i(\pi-\alpha)$ and $i(\pi+\alpha)$ give
+\[
+ \int_{\mathbb R}\frac{e^{iku}}{\cosh u+\cos\alpha}\,du
+ =\frac{2\pi}{\sin\alpha}
+      \frac{\sinh(\alpha k)}{\sinh(\pi k)}.
+\]
+Evenness and continuity include $k\leq0$.  Taking $\alpha=\pi r$,
+$u=\pi t$, and $k=x/\pi$ proves \eqref{q:pr-transform}.
+Thus
+\[
+ \psi_r(\operatorname{ad}_K)(O)
+ =\int_{\mathbb R}p_r(t)e^{itK}Oe^{-itK}\,dt
+\]
+is a positive mixture of unitary conjugations of mass $r$.  It is
+completely positive with completely bounded norm $r$, attained on $I$.
+Since $\chi_r(x)=\psi_r(x/2)^2$, its positive Fourier density is
+$(\widetilde p_r*\widetilde p_r)(t)$, where
+$\widetilde p_r(t)=2p_r(2t)$, and its total mass is $r^2$.
+The endpoints are the zero and identity maps.  Finally
+$p_r/r$ converges in $L^1$ to
+\[
+ p_0(t)=\frac\pi4\operatorname{sech}^2(\pi t/2),
+\]
+a probability density with Fourier transform $f$.  Alternatively the
+limit in \eqref{q:log-response} follows directly by differentiating
+$\rho^r=I+rK+O(r^2)$.
+\end{proof}
+
+The full response obeys the exact KMS compatibility relation
+\begin{equation}
+ Q^*=e^{-\operatorname{ad}_K}Q,
+ \qquad A=\tanh(\operatorname{ad}_K/2)H.
+ \label{q:kms-compatibility}
+\end{equation}
+Thus its anti-Hermitian part is constrained by its Hermitian part and
+the modular generator.  It is not an independent input.  The
+fractional-power maps compose coherently:
+\[
+ \psi_s(rx)\psi_r(x)=\psi_{rs}(x),\qquad
+ \chi_s(rx)\chi_r(x)=\chi_{rs}(x).
+\]
+In particular, square roots give
+\[
+ H_{1/2}=\tfrac12\operatorname{sech}(\operatorname{ad}_K/2)H,
+ \qquad
+ A_{1/2}=\tfrac14\operatorname{sech}^2(\operatorname{ad}_K/4)A.
+\]
+
+\begin{proposition}[A positive rotation generator]
+\label{q:prop-rotation}
+Define the even function
+\[
+ h(x)=\frac{1-x/\sinh x}{x\tanh(x/2)},\qquad h(0)=\frac13,
+ \qquad C=h(\operatorname{ad}_K)J.
+\]
+Then $C=C^*$ and
+\begin{equation}
+ \dot K=H+i[C,K],\qquad \|C\|\leq\frac13\|J\|.
+ \label{q:rotation}
+\end{equation}
+The map $h(\operatorname{ad}_K)$ is completely positive with completely
+bounded norm $1/3$.  Its Fourier density has finite exponentially
+weighted mass for every weight exponent $v<2\pi$.
+\end{proposition}
+
+\begin{proof}
+Differentiating the Mittag--Leffler expansion of $x\coth(x/2)$ gives
+\[
+ h(x)=\frac1x\frac{d}{dx}[x\coth(x/2)]
+     =8\sum_{n\geq1}
+       \frac{(2\pi n)^2}{[x^2+(2\pi n)^2]^2}.
+\]
+Its nonnegative Fourier density is
+\begin{align*}
+ k(t)
+ &=\sum_{n\geq1}\left(\frac1{\pi n}+2|t|\right)e^{-2\pi n|t|}\\
+ &=-\frac1\pi\log(1-e^{-2\pi|t|})
+       +\frac{2|t|}{e^{2\pi|t|}-1}.
+\end{align*}
+The logarithmic singularity at zero is integrable, and its total mass
+is $h(0)=1/3$.  The positive-mixture argument proves the CP and norm
+claims.  For $0\leq v<2\pi$ its weighted mass is
+\[
+ 2\sum_{n\geq1}\left[
+ \frac1{\pi n(2\pi n-v)}+
+ \frac2{(2\pi n-v)^2}\right]<\infty.
+\]
+Equation \eqref{q:kms-compatibility} and the scalar identity
+$xh(x)\tanh(x/2)=1-f(x)$ give
+$i[C,K]=-[1-f(\operatorname{ad}_K)]H$, proving
+\eqref{q:rotation}.
+\end{proof}
+
+If $\dot U=iCU$ and $U(0)=I$, then
+\[
+ \frac{d}{d\lambda}(U^*KU)=U^*HU.
+\]
+This separates a positive path into Hermitian forcing and unitary
+rotation.  The operator-norm estimates are dimension independent.
+Spatial locality, however, depends on the support growth of the
+conjugations $e^{itK}(\cdot)e^{-itK}$.  The next two propositions
+describe precisely why ordinary norm contraction alone does not settle
+that spatial question.
+
+\section{Locality distinctions for conditional ratios and logarithms}
+\label{q:sec-obstructions}
+
+\subsection{Local conditional ratios with a three-body logarithm}
+
+An algebraic conditional ratio and a Hermitian conditional logarithm
+encode different forms of locality.  Their distinction is related to
+Belavkin--Staszewski quantum Markov chains, whose structure and recovery
+maps are studied in \cite{q:BCCRJ2026}.  The following small example
+quantifies the distinction and persists arbitrarily close to a product
+state.
+
+\begin{proposition}[Exact local ratios, nonlocal log difference]
+\label{q:prop-ratio-obstruction}
+There are faithful three-qubit states with every one-site conditional
+ratio supported on the closed star of that site in the path $A-B-C$,
+arbitrarily close to the maximally mixed state in operator norm, such that
+$\log\rho-\log\mathbb E_A\rho$ has a nonzero $ABC$ Pauli coefficient.
+Here $\mathbb E_A(T)=I_A/2\otimes\operatorname{tr}_A T$.
+\end{proposition}
+
+\begin{proof}
+For $0<a,b,t<1$, take
+\[
+ \sigma_B=\frac{I+tX_B}{2},\quad
+ U_{AB}=I+aZ_AZ_B,\quad V_{BC}=I+bZ_BZ_C,
+ \quad
+ \rho=\frac14\sigma_B^{1/2}U_{AB}V_{BC}\sigma_B^{1/2}.
+\]
+The middle factors commute and are positive, so $\rho$ is faithful.
+Partial traces give $\rho_B=\sigma_B$ and
+\[
+ \rho_{AB}=\tfrac12\sigma_B^{1/2}U_{AB}\sigma_B^{1/2},\qquad
+ \rho_{BC}=\tfrac12\sigma_B^{1/2}V_{BC}\sigma_B^{1/2}.
+\]
+Consequently
+\begin{equation}
+ \rho=\rho_{AB}\rho_B^{-1}\rho_{BC},\qquad
+ \rho(\mathbb E_A\rho)^{-1}
+       =\sigma_B^{1/2}U_{AB}\sigma_B^{-1/2}.
+ \label{q:bs-recovery}
+\end{equation}
+The ratio on the right, its inverse, and its matrix logarithm act on
+$AB$.  The analogous ratio at $C$ acts on $BC$.
+
+Set $a=b=s$ and put
+\[
+ g(u)=\frac{\operatorname{atanh}u}{u}
+      =\sum_{k\geq0}\frac{u^{2k}}{2k+1},\qquad
+ v=\sqrt{t^2+\frac{4s^2(1-t^2)}{(1+s^2)^2}}.
+\]
+In the $Z_A=z,Z_C=w$ block, $8\rho$ equals
+\[
+ (1+s^2zw)I+(1+s^2zw)tX_B
+           +s(z+w)\sqrt{1-t^2}\,Z_B.
+\]
+For a positive $2\times2$ matrix $cI+u\cdot\sigma$, the vector
+coefficient of its logarithm is
+$[\operatorname{atanh}(|u|/c)/|u|]u$.  Hence its $X_B$ coefficient is
+$tg(v)$ in the two blocks $z=w$ and $tg(t)$ in the other two.  For
+$P=Z_AX_BZ_C$, the signed average gives
+\begin{equation}
+ \frac18\operatorname{tr}(P\log\rho)
+ =\frac t2[g(v)-g(t)]
+ \geq\frac{2ts^2(1-t^2)}{3(1+s^2)^2}>0.
+ \label{q:three-body-coefficient}
+\end{equation}
+The logarithm of $\mathbb E_A\rho$ acts on $BC$, so it has zero
+$P$ coefficient.
+
+The endpoint ratio satisfies
+\[
+ \|\rho(\mathbb E_A\rho)^{-1}-I\|
+ =a\sqrt{\frac{1+t}{1-t}},
+\]
+and the middle ratio obeys
+\[
+ \|\rho(\mathbb E_B\rho)^{-1}-I\|
+ \leq t+\frac{\sqrt{1-t^2}(a+b)}{1-ab}.
+\]
+Taking $a=b=t\downarrow0$ proves the smallness assertion while
+\eqref{q:three-body-coefficient} stays strictly positive.
+\end{proof}
+
+The same construction on qutrits uses
+$Z=\operatorname{diag}(1,-1,0)$,
+$X=|0\rangle\langle1|+|1\rangle\langle0|$,
+$\sigma_B=(I_3+tX_B)/3$, and prefactor $1/9$ in $\rho$.
+It is real symmetric and invariant under spin-one time reversal in a
+Cartesian basis.  Restricting the endpoint eigenvalues to $\pm1$ gives
+the same nonzero normalized three-site coefficient.  Thus the
+distinction is also present in the time-reversal-invariant spin-one
+setting.  It concerns strict support; the generated distance-two term
+is fully consistent with an exponentially decaying support expansion.
+
+\subsection{A CP contraction need not contract an interaction norm}
+
+For $n$ sites and weights $w(m)\geq1$, $w(1)=1$, define the intrinsic
+interaction seminorm, modulo scalars, by
+\begin{equation}
+ \|O\|_w=
+ \inf_{O=cI+\sum_{\varnothing\ne S\subseteq[n]}O_S}
+ \sup_x\sum_{S\ni x}w(|S|)\|O_S\|,
+ \label{q:intrinsic-norm}
+\end{equation}
+where $O_S$ acts on $S$ and as identity elsewhere.  The infimum makes
+this a property of the operator, rather than of a particular expansion.
+
+\begin{proposition}[No generic same-norm modular bound]
+\label{q:prop-filter-obstruction}
+For every $a,b>0$ and every such sequence of weights, there are
+Hermitian $K_n,H_n$ with
+\[
+ \|K_n\|_w\leq a+b/n,\qquad\|H_n\|_w=1,
+\]
+but
+\begin{equation}
+ \|f(\operatorname{ad}_{K_n})H_n\|_w
+ \geq n\frac{ab}{a^2+b^2}[1-f(2b)]\longrightarrow\infty,
+ \qquad f(x)=x/\sinh x.
+ \label{q:interaction-blowup}
+\end{equation}
+In particular, no bound
+$\|f(\operatorname{ad}_K)H\|_w\leq C(\|K\|_w)\|H\|_w$
+with locally bounded $C$ holds on this full class, even near $K=0$.
+\end{proposition}
+
+\begin{proof}
+Set
+\[
+ D_n=\sum_{j=1}^n Z_j,\qquad V_n=X_1\cdots X_n,\qquad
+ e_n=\frac a{w(n)},\qquad
+ K_n=\frac bnD_n+e_nV_n,
+ \qquad H_n=D_n.
+\]
+These displayed decompositions give the upper bounds.  For $H_n$, its
+spectral diameter $2n$ gives the reverse bound one, since for any
+decomposition in \eqref{q:intrinsic-norm},
+\[
+ \tfrac12\operatorname{diam}\operatorname{spec}(O)
+ \leq\sum_S\|O_S\|
+ \leq n\sup_x\sum_{S\ni x}w(|S|)\|O_S\|.
+\]
+The subspace spanned by $|0^n\rangle,|1^n\rangle$ is reducing for
+$K_n,H_n$, on which they equal $bZ+e_nX$ and $nZ$.  Put
+$r_n=\sqrt{b^2+e_n^2}$.  The modular filter fixes the Bloch component
+parallel to $(e_n,0,b)$ and multiplies the perpendicular component by
+$f(2r_n)$.  Hence
+\[
+ \langle0^n|f(\operatorname{ad}_{K_n})H_n|1^n\rangle
+ =\frac{nbe_n}{r_n^2}[1-f(2r_n)].
+\]
+Every proper-support operator has zero matrix element between these
+two product vectors.  Thus every decomposition in
+\eqref{q:intrinsic-norm} has a full-support term of norm at least this
+matrix element.  Multiplying by $w(n)$ and using
+$b\leq r_n\leq\sqrt{a^2+b^2}$ and monotonic decrease of $f$ on
+$(0,\infty)$ proves \eqref{q:interaction-blowup}.
+\end{proof}
+
+This example also explains the role of KMS compatibility.  A Hermitian
+input $H$ determines the compatible tangent uniquely: in a $\rho$
+eigenbasis with eigenvalues $\lambda_i$,
+\[
+ \dot\rho_{ij}=\frac{2\lambda_i\lambda_j}{\lambda_i+\lambda_j}H_{ij}.
+\]
+The resulting full response is
+$Q=[I+\tanh(\operatorname{ad}_K/2)]H$.  In the reducing two-dimensional
+block above, its additional anti-Hermitian part is
+\[
+ -i\frac{ne_n}{r_n}\tanh(r_n)Y.
+\]
+Therefore $\|Q_n\|_w\geq na\tanh(r_n)/r_n$, which also diverges.
+Proposition~\ref{q:prop-filter-obstruction} concerns an arbitrary
+Hermitian input, and does not rule out spatial estimates that use a
+separately controlled full compatible response.  Together with
+Theorem~\ref{q:thm-powers}, it identifies this full response as the
+appropriate datum for positive-path reconstruction.
+
+\subsection{Computational verification and formalization interfaces}
+
+The proofs above are analytic finite-dimensional arguments.  Their
+supplementary computations serve two complementary roles.  Exact
+rational Choi comparisons and positive-vector inequalities are
+checkable certificates for concrete channels and graph types.  Floating
+point calculations independently test tensor conventions and matrix
+identities; they are not used to establish the universal bounds.
+
+The supplied two-port tests compare the quotient Schur formula with
+orthogonal projectors computed from the square-root metric.  In 600
+deterministically seeded examples, including nearly rank-one and
+ill-conditioned cores, their largest discrepancy was
+$2.75\times10^{-14}$.  Separately, direct contraction of physical AKLT
+star tensors at degrees $2,3,4$ and half-wire lengths $1,2$ agreed with
+\eqref{q:gram-channel} within $5\times10^{-16}$ relative error.
+The modular checks comprise 20 Fourier-integral comparisons, 28 matrix
+response comparisons, and 20 obstruction checks.  The supplement records
+the seeds, dimensions, formulas, and complete outputs.
+
+For formal verification, the main network proof separates into CP-order
+tensoring, a Schur-complement lemma, the two-projection angle inequality,
+and a polynomial divisibility proof for the AKLT regional kernel.  The
+modular proof separates scalar Fourier identities from finite-dimensional
+functional calculus.  This division exposes a small set of reusable
+lemmas; the numerical checks do not discharge their universally
+quantified proof obligations.

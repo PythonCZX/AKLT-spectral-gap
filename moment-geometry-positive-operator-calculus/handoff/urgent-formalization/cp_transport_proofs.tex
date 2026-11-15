@@ -1,0 +1,257 @@
+\section{Producing the angle certificate from CP transport}
+\label{urgent:cp}
+\noindent\textbf{Status.} This is an unchecked proof expansion of
+\texttt{q:lem-schur} and the geometric input to \texttt{q:thm-wire-gap}.
+No angle certificate is an assumption of the final producer below.
+All spaces in this section are finite-dimensional complex Hilbert spaces.
+Inner products are conjugate-linear in the first argument. Empty subspaces
+are allowed; an angle involving a zero reduced subspace is zero.
+
+\subsection{Primitive CP-order facts}
+A map $\Phi:M_d\to M_e$ is completely positive when all its matrix
+amplifications preserve positive semidefinite matrices. Equivalently in
+finite dimensions, $\Phi(X)=\sum_a K_aXK_a^*$ for a finite Kraus family.
+For two such maps the tensor map has Kraus family $K_a\otimes L_b$:
+\[
+ (\Phi\otimes\Theta)(X)=\sum_{a,b}(K_a\otimes L_b)X(K_a\otimes L_b)^*.
+\]
+This proves positivity on entangled inputs; positivity only on elementary
+tensors would not suffice. Composition, addition, and multiplication by a
+nonnegative real number preserve CP. If $0\le_{\rm CP}A\le_{\rm CP}B$
+and $0\le_{\rm CP}C\le_{\rm CP}D$, then
+\[
+ B\otimes D-A\otimes C=(B-A)\otimes D+A\otimes(D-C)\ge_{\rm CP}0.
+\]
+Induction gives the corresponding finite tensor-product order statement.
+These are foundational CP lemmas, not instances of the desired angle bound.
+
+Suppose $-x\Psi\le_{\rm CP}D\le_{\rm CP}x\Psi$ and
+$-y\Theta\le_{\rm CP}E\le_{\rm CP}y\Theta$. The identities
+\begin{align*}
+xy\Psi\otimes\Theta-D\otimes E
+ &=\tfrac12\big[(x\Psi+D)\otimes(y\Theta-E)
+                 +(x\Psi-D)\otimes(y\Theta+E)\big],\\
+xy\Psi\otimes\Theta+D\otimes E
+ &=\tfrac12\big[(x\Psi+D)\otimes(y\Theta+E)
+                 +(x\Psi-D)\otimes(y\Theta-E)\big]
+\end{align*}
+express both sides as CP maps. Thus
+\[
+ -xy\Psi\otimes\Theta\le_{\rm CP}D\otimes E
+                         \le_{\rm CP}xy\Psi\otimes\Theta.
+\tag{CP-MIX}
+\]
+No positivity of either defect $D,E$ is asserted or needed.
+
+\subsection{Strict Gram positivity and injectivity}
+Let $C=A^*A\ne0$, let $\tau_j,R_j>0$, and let
+$\Psi_j(X)=\operatorname{tr}(\tau_jX)R_j$. Suppose
+$(1-\delta_j)\Psi_j\le_{\rm CP}\Phi_j$, with $0\le\delta_j<1$.
+Finite tensor order gives
+\[
+ Q:=(\bigotimes_j\Phi_j)(C)\ \ge
+ \left[\prod_j(1-\delta_j)\right]
+ \operatorname{tr}[(\bigotimes_j\tau_j)C]\bigotimes_jR_j>0.
+\tag{CP-INJ}
+\]
+For strictness, write $T=\bigotimes_j\tau_j$. It is positive definite,
+so $T\ge tI$ for some $t>0$. Since $C\ge0$ and $C\ne0$,
+$\operatorname{tr}C>0$, and
+$\operatorname{tr}(TC)\ge t\operatorname{tr}C>0$; the inequality follows
+by taking the trace of $C^{1/2}(T-tI)C^{1/2}\ge0$.
+Every other factor in (CP-INJ) is strictly positive. If $Q=T_v^*T_v$,
+then $T_v\xi=0$ implies $\langle\xi,Q\xi\rangle=0$ and hence $\xi=0$.
+Tensor products of these injective maps are injective: each has a left
+inverse on its image, and their tensor product is a left inverse.
+A tensor product of nonzero edge and boundary vectors is nonzero, since
+its squared norm is the product of their positive squared norms. This
+also proves that the proposed common ground space is nonzero.
+
+The physical Gram identity must be proved in coordinates with the
+conjugation convention fixed. If $W_{p,a,b}$ is a wire amplitude, put
+$(K_p)_{b,a}=\overline{W_{p,a,b}}$. Direct finite summation gives
+\[
+ (T_v^*T_v)_{b',b}
+ =\sum_{p,a',a}\overline{W_{p,a',b'}}C_{a',a}W_{p,a,b}
+ =\sum_p(K_pCK_p^*)_{b',b}.
+\]
+Iterating over legs gives $T_v^*T_v=(\bigotimes_j\Phi_j)(C)$.
+There is no partial transpose of $C$.
+
+\subsection{Quotient metric: a proof with all subspaces specified}
+Let $p,q$ be commuting orthogonal projections and put
+\[
+ W=\operatorname{ran}(pq),\quad U=\operatorname{ran}(p(I-q)),\quad
+ V=\operatorname{ran}((I-p)q),\quad Z=\operatorname{ran}((I-p)(I-q)).
+\]
+The four products are mutually orthogonal self-adjoint projections summing
+to $I$. In particular $\operatorname{ran}p=W\oplus U$,
+$\operatorname{ran}q=W\oplus V$, and their intersection is $W$.
+For an invertible $L$, $L(M\cap N)=LM\cap LN$: apply $L^{-1}$ to both
+members of an equality $Lm=Ln$. Therefore the common image under $G^{1/2}$
+is exactly $G^{1/2}W$.
+
+Assume $G=I+A+B+D\ge mI>0$, $[A,q]=[B,p]=0$,
+$\|A\|\le x$, $\|B\|\le y$, $\|D\|\le xy$, where
+$0\le x,y<1$ and $m=(1-x)(1-y)$. For $E,F\in\{U,V,W\}$ set
+$G_{EF}=\pi_EG\iota_F$, with inclusion $\iota_F$ and orthogonal
+projection $\pi_E$. Compression gives $G_{WW}\ge mI_W$, so it is
+invertible on $W$ and $\|G_{WW}^{-1}\|\le m^{-1}$.
+For $u\in U$ define $w(u)=-G_{WW}^{-1}G_{WU}u$ and $j_Uu=u+w(u)$.
+Then
+\[
+ \pi_WGj_Uu=0,\qquad
+ \langle u+w,G(u+w)\rangle
+ =\langle j_Uu,Gj_Uu\rangle+
+   \langle w-w(u),G_{WW}(w-w(u))\rangle.
+\tag{SCHUR-MIN}
+\]
+This follows by expanding and using the displayed orthogonality; it proves
+both existence and uniqueness of the minimizer. Define $j_V$ identically.
+The maps $G^{1/2}j_U$ and $G^{1/2}j_V$ parametrize precisely the two
+subspaces after removing $G^{1/2}W$ orthogonally. Indeed, subtracting the
+minimizer is necessary and sufficient for orthogonality to that image.
+The $Z$ sector is never minimized over: it is not in the intersection.
+
+For $E,F\in\{U,V\}$ the resulting Gram blocks are
+\[
+ S_{EF}=G_{EF}-G_{EW}G_{WW}^{-1}G_{WF}.
+\tag{SCHUR-BLOCK}
+\]
+For example, expansion of $\langle j_Uu,Gj_Vv\rangle$ gives
+$\langle u,S_{UV}v\rangle$. Since $u\perp w(u)$,
+\[
+ \langle u,S_{UU}u\rangle
+ =\langle j_Uu,Gj_Uu\rangle\ge m\|j_Uu\|^2\ge m\|u\|^2,
+\]
+and likewise $S_{VV}\ge mI$. Thus the maps
+$G^{1/2}j_US_{UU}^{-1/2}$ and $G^{1/2}j_VS_{VV}^{-1/2}$ are isometries
+onto the reduced subspaces. Their cross-Gram matrix proves, by the
+definition of operator norm, that the Friedrichs cosine is exactly
+\[
+ \|S_{UU}^{-1/2}S_{UV}S_{VV}^{-1/2}\|.
+\tag{SCHUR-ANGLE}
+\]
+This identity is derived, not postulated as an angle certificate.
+
+Commutation implies that $A$ preserves the $q$-eigenspaces and $B$ the
+$p$-eigenspaces. The orthogonal blocks therefore satisfy
+\[
+ G_{UV}=D_{UV},\quad G_{UW}=B_{UW}+D_{UW},\quad
+ G_{WV}=A_{WV}+D_{WV}.
+\]
+Compression is contractive, and hence
+\[
+ \|S_{UV}\|\le xy+(y+xy)m^{-1}(x+xy).
+\]
+The spectral theorem applied to $S_{UU},S_{VV}$ gives inverse-square-root
+norms at most $m^{-1/2}$. Substitution into (SCHUR-ANGLE) yields
+\[
+ c_F\le\frac{xy}{m}+\frac{xy(1+x)(1+y)}{m^2}
+ =\frac{2xy(1+xy)}{(1-x)^2(1-y)^2}=:\mathcal B(x,y).
+\tag{SCHUR-FINAL}
+\]
+The last equality is ordinary field arithmetic. It does not require any
+spectral estimate beyond the stated compression coercivity.
+
+\subsection{Whitening and the actual physical edge subspaces}
+Consider distinct edges $e=uv$ and $f=vw$ of a simple graph, so $u\ne w$.
+Remove the isometric polar factors of the injective block maps. On the
+virtual block spaces the physical maps are the positive invertible filters
+$S_a=(T_a^*T_a)^{1/2}$. Let $E_e$ be the virtual subspace which fixes the
+edge vector on its two ports and leaves all other ports free; define $E_f$
+similarly. The physical two-block regional subspace, within the block
+images and with the third block free, is exactly
+\[
+ L E_e,\quad L E_f,\qquad L=S_u\otimes S_v\otimes S_w.
+\tag{PHYS-RANGE}
+\]
+This equality follows directly from contraction of the edge vector and
+surjectivity of every invertible outside filter on a free factor.
+It is not an assumption about orthogonal projectors.
+
+Keep all unselected wire maps at their actual values and denote their
+tensor product by $\mathcal R$. On the two selected ports set
+$D_i=\Phi_i-\Psi_i$, $D_j=\Phi_j-\Psi_j$, and
+\[
+ G_0=(\Psi_i\otimes\Psi_j\otimes\mathcal R)(C_v)
+     =R_i\otimes R_j\otimes R_0>0.
+\]
+The equality follows by taking the two weighted partial traces in the
+rank-one maps. Strictness follows from (CP-INJ); consequently $R_0>0$.
+The reference filter
+$L_0=S_u\otimes G_0^{1/2}\otimes S_w$ factors on the two selected ports
+and the remaining ports. Hence $L_0E_e$ constrains only block $u$ and
+port $i$, while $L_0E_f$ constrains only block $w$ and port $j$.
+These sets of tensor factors are disjoint. Their orthogonal projectors
+$p,q$ therefore commute. This is the exact point where the simple-graph
+hypothesis excludes the two outside endpoints from coinciding.
+
+Put $M=LL_0^{-1}$. Its Gram operator on the central block is
+\[
+ G=M^*M=G_0^{-1/2}(\Phi_i\otimes\Phi_j\otimes\mathcal R)(C_v)G_0^{-1/2}
+      =I+A+B+D.
+\]
+Its polar decomposition is $M=UG^{1/2}$ with $U$ unitary. Therefore the
+angle between $LE_e,LE_f$ equals that between
+$G^{1/2}\operatorname{ran}p,G^{1/2}\operatorname{ran}q$.
+The single-defect term $A$ has identity on selected port $j$ after
+whitening, and $B$ has identity on port $i$. Neither acts on the outside
+endpoint blocks. Thus $[A,q]=[B,p]=0$, even though the retained central
+ports may be mutually entangled.
+
+The single CP sandwiches, tensoring with the actual CP map $\mathcal R$,
+application to $C_v\ge0$, and congruence by $G_0^{-1/2}$ give
+$-xI\le A\le xI$, $-yI\le B\le yI$. For Hermitian matrices these imply
+the required operator-norm bounds. (CP-MIX) gives $-xyI\le D\le xyI$.
+Tensoring the lower bounds gives $G\ge(1-x)(1-y)I$. Thus all hypotheses
+of (SCHUR-FINAL) have now been produced from physical data.
+
+\subsection{Producing \texttt{hcross}, including complements}
+Let $P,Q$ be orthogonal projections. Diagonalize $PQP$ on
+$\operatorname{ran}P$. An eigenvector $a$ of eigenvalue $c^2\in(0,1)$
+produces the orthonormal partner
+\[
+ b=\frac{Qa-c^2a}{c\sqrt{1-c^2}}.
+\]
+Direct use of $Q^2=Q$ gives, on their span,
+\[
+ P=\begin{pmatrix}1&0\\0&0\end{pmatrix},\qquad
+ Q=\begin{pmatrix}c^2&cs\\cs&s^2\end{pmatrix},\quad
+ s=\sqrt{1-c^2}.
+\]
+Partners from orthogonal eigenvectors are orthogonal; the remaining
+summands are commuting $0/1$ blocks. Eigenvalue one corresponds precisely
+to the common range, which is removed in the Friedrichs cosine.
+For $\xi=(a_0,b_0)$ on a nontrivial block, set $t=sa_0-cb_0$. Then
+$(I-P)\xi=(0,b_0)$ and $(I-Q)\xi=(s,-c)t$, so
+\[
+ \operatorname{Re}\langle(I-P)\xi,(I-Q)\xi\rangle
+ \ge-c|b_0||t|.
+\]
+The commuting blocks contribute nonnegative cross terms. Summing and
+applying Cauchy--Schwarz to the block norms proves
+\[
+ \operatorname{Re}\langle(I-P)\xi,(I-Q)\xi\rangle
+ \ge-c_F(P,Q)\|(I-P)\xi\|\|(I-Q)\xi\|.
+\tag{HCROSS}
+\]
+Thus the preceding physical construction produces the swarm's
+\texttt{hcross} with $C_{ef}=\mathcal B(\delta_{v,e},\delta_{v,f})$;
+disjoint edge constraints commute and use $C_{ef}=0$.
+
+Finally, every block-image projection commutes with every regional
+projector: an incident regional image is contained in that block image,
+and a nonincident operator acts on disjoint factors. On a sector outside
+at least one block image, an incident complement term equals the
+identity, so the energy is at least one. Every block has an incident
+internal edge under the specified region hypotheses. Therefore the
+matrix-gap theorem applies on the block-image sector and the same bound
+extends to the full physical Hilbert space.
+
+\paragraph{Formal implementation boundary.}
+The reusable infrastructure needed is finite-dimensional spectral theory,
+Kraus/Choi equivalence, tensor-product Hilbert spaces, orthogonal projections,
+and positive square roots. The proof above derives the application-specific
+injectivity, Schur metric, physical-subspace identification and angle bound.
+None should be replaced by an assumed \texttt{hcross}.

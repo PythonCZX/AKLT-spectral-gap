@@ -1,0 +1,460 @@
+% UNCOMPILED MATHEMATICAL PROOF TEXT. No compilation or verification was run.
+% Intended as an insertion into the manuscript, using amsmath/amssymb/amsthm.
+% Source scope: publication_package/proofs/quantum_results.tex, Section 13.
+% Numbered local lemmas deliberately expose analytic dependencies for translation.
+
+\section{Expanded analytic proofs for the modular response calculus}
+\label{urgent:response}
+
+\paragraph{Status and conventions.}
+This text supplies expanded mathematical proofs, not a claim of
+proof-assistant verification. It has not been compiled or computationally
+checked. Matrices are finite-dimensional complex matrices, their norm is
+the operator norm, and all matrix integrals can be read entry by entry.
+For a self-adjoint matrix $K$, write $D=\operatorname{ad}_K$, so that
+$D(X)=KX-XK$. Our Fourier convention is
+$\widehat p(x)=\int_{\mathbb R}p(t)e^{itx}\,dt$.
+All paths below are differentiable at the parameter under consideration;
+continuously differentiable paths suffice throughout. No smooth choice of
+eigenvectors along the path is assumed.
+
+\subsection{Differentiation before spectral functional calculus}
+
+\paragraph{Lemma R1 (the logarithm is differentiable).}
+Let $X=X^*>0$, let $m>0$ satisfy $X\succeq mI$, and let $E=E^*$ with
+$\|E\|<m/2$. Then
+\[
+ \log(X+E)-\log X
+ =\int_0^\infty (X+sI)^{-1}E(X+E+sI)^{-1}\,ds,
+\]
+and
+\[
+ D\log_X(E)=\int_0^\infty(X+sI)^{-1}E(X+sI)^{-1}\,ds,
+ \qquad
+ \|\log(X+E)-\log X-D\log_X(E)\|
+ \leq \frac{\|E\|^2}{m^2}.
+\]
+In particular, a differentiable positive matrix path $\rho$ has
+$K=\log\rho$ differentiable, with
+\[
+ L:=\dot K=\int_0^\infty(\rho+sI)^{-1}\dot\rho
+                                      (\rho+sI)^{-1}\,ds=L^*.
+\]
+
+\paragraph{Proof.}
+The scalar identity, for $a>0$,
+\[
+ \log a=\int_0^\infty\left(\frac1{1+s}-\frac1{a+s}\right)ds
+\]
+follows by integrating to a finite endpoint and taking its limit.
+Diagonalization proves the corresponding matrix identity. Set
+$R_s=(X+sI)^{-1}$ and $R'_s=(X+E+sI)^{-1}$. The resolvent identity
+$R'_s-R_s=-R_sER'_s$ proves the first displayed difference formula.
+Its integrand is bounded by
+$\|E\|/[(m+s)(m/2+s)]$, an integrable function.
+Subtracting the candidate derivative gives exactly
+\[
+ \int_0^\infty R_sE(R'_s-R_s)\,ds
+ =-\int_0^\infty R_sER_sER'_s\,ds.
+\]
+Because $\|R_s\|\leq(m+s)^{-1}$ and
+$\|R'_s\|\leq2(m+s)^{-1}$, the norm of this remainder is at most
+\[
+ 2\|E\|^2\int_0^\infty(m+s)^{-3}\,ds=\|E\|^2/m^2.
+\]
+The proposed derivative is bounded and linear, with norm at most $1/m$.
+Apply this remainder bound to
+$E=\rho(\lambda+h)-\rho(\lambda)=h\dot\rho+o(h)$.
+Every integrand defining $L$ is self-adjoint. This also establishes the
+existence of $\dot K$, rather than assuming it as an input.\hfill$\square$
+
+\paragraph{Lemma R2 (exponential derivative and Duhamel formula).}
+For arbitrary complex matrices $K,L$,
+\[
+ D\exp_K(L)
+ =\sum_{n=1}^\infty\frac1{n!}\sum_{j=0}^{n-1}K^jLK^{n-1-j}
+ =\int_0^1e^{(1-u)K}Le^{uK}\,du.
+\]
+Consequently, for $r\geq0$ fixed and $\rho=e^K>0$,
+\begin{equation}
+ (\partial_\lambda\rho^r)\rho^{-r}
+ =\int_0^r e^{sK}\dot K e^{-sK}\,ds.
+ \label{urgent:duhamel}
+\end{equation}
+
+\paragraph{Proof.}
+The derivative of $K\mapsto K^n$ follows by the finite product rule;
+it is the inner sum in the statement. On every norm ball
+$\|K\|\leq R$, its norm is at most $nR^{n-1}\|L\|$.
+The series of these bounds divided by $n!$ is $e^R\|L\|$.
+The usual differentiation theorem for uniformly convergent derivative
+series therefore applies to the exponential power series. This theorem
+may also be applied entry by entry in the real and imaginary coordinates
+of the matrix space.
+For the integral expression, multiply the two absolutely uniformly
+convergent exponential series on $0\leq u\leq1$ and integrate.
+The elementary integer beta integral is
+\[
+ \int_0^1(1-u)^a u^b\,du=\frac{a!b!}{(a+b+1)!}
+ \quad(a,b\in\mathbb Z_{\geq0});
+\]
+integration by parts in $b$, followed by the case $b=0$, proves it.
+The coefficient of $K^aLK^b$ in the integral is thus
+$1/(a+b+1)!$, giving the same series as the derivative.
+Apply the derivative formula to $rK$, in direction $r\dot K$, and
+multiply on the right by $e^{-rK}$. The change of variable
+$s=r(1-u)$ proves \eqref{urgent:duhamel}; for $r=0$ both sides are zero.
+\hfill$\square$
+
+\paragraph{Lemma R3 (actual response and its spectral multipliers).}
+Put $Q_r=(\partial_\lambda\rho^r)\rho^{-r}$ and
+$H_r=(Q_r+Q_r^*)/2$, $A_r=(Q_r-Q_r^*)/2$. For real $x$, define
+\[
+ F_r(x)=\int_0^r e^{sx}\,ds,
+ \quad S_r(x)=\begin{cases}\sinh(rx)/x&x\ne0,\\r&x=0,\end{cases}
+ \quad T_r(x)=\begin{cases}(\cosh(rx)-1)/x&x\ne0,\\0&x=0.\end{cases}
+\]
+Then $Q_r=F_r(D)L$, $H_r=S_r(D)L$, and $A_r=T_r(D)L$.
+Writing $H=H_1$, $A=A_1$, one obtains, for $0\leq r\leq1$,
+\[
+ H_r=\psi_r(D)H,\qquad
+ A_r=\chi_r(D)A,
+\]
+where
+\[
+ \psi_r(x)=\frac{\sinh(rx)}{\sinh x},\quad\psi_r(0)=r,
+ \qquad
+ \chi_r(x)=\left(\frac{\sinh(rx/2)}{\sinh(x/2)}\right)^2,
+ \quad\chi_r(0)=r^2.
+\]
+Moreover $L=f(D)H$, where $f(x)=x/\sinh x$ and $f(0)=1$, and
+$Q_r/r\to L$ in norm as $r\downarrow0$.
+
+\paragraph{Proof.}
+At the single parameter value being differentiated, diagonalize $K$ with
+real eigenvalues $\kappa_i$. Then $D$ acts on the matrix unit $E_{ij}$
+by multiplication by $x=\kappa_i-\kappa_j$. Lemma R2 gives
+$(Q_r)_{ij}=F_r(x)L_{ij}$. Since $L=L^*$ and $F_r$ is real on the
+real line, $(Q_r^*)_{ij}=F_r(-x)L_{ij}$. Their half-sum and
+half-difference are $S_r(x)L_{ij}$ and $T_r(x)L_{ij}$.
+For $x\ne0$ the asserted ratios follow from
+$\cosh(rx)-1=2\sinh^2(rx/2)$; at $x=0$ one checks the displayed
+continuous values, with $T_r(0)=T_1(0)=0$.
+The function $S_1$ is strictly positive on the real line, so its inverse
+is $f$. Finally $F_r(x)/r\to1$ for every $x$. There are only finitely
+many spectral differences, so the multiplier convergence is norm
+convergence of matrix maps. This identifies the spectral expression with
+the actual path derivative and does not presuppose that identification.
+\hfill$\square$
+
+\subsection{The scalar Fourier transform, including contour limits}
+
+\paragraph{Lemma F1 (hyperbolic contour integral).}
+For $0<\alpha<\pi$ and $k\in\mathbb R$,
+\begin{equation}
+ \int_{\mathbb R}\frac{e^{iku}}{\cosh u+\cos\alpha}\,du
+ =\frac{2\pi}{\sin\alpha}\frac{\sinh(\alpha k)}{\sinh(\pi k)},
+ \label{urgent:contour}
+\end{equation}
+where the quotient at $k=0$ means $\alpha/\pi$.
+
+\paragraph{Proof.}
+First take $k>0$ and integrate
+$g(z)=e^{ikz}/(\cosh z+\cos\alpha)$ around the positively oriented
+rectangle with vertices $-R,R,R+2\pi i,-R+2\pi i$.
+The only poles inside are
+$z_-=i(\pi-\alpha)$ and $z_+=i(\pi+\alpha)$.
+Indeed the substitution $w=e^z$ reduces the denominator equation to
+$w^2+2\cos\alpha\,w+1=0$, whose two roots have unit modulus;
+the indicated arguments give exactly the roots in the open strip.
+Both poles are simple, with derivatives
+$\sinh z_-=i\sin\alpha$ and $\sinh z_+=-i\sin\alpha$.
+Their residue sum is
+\[
+ \frac{e^{-k(\pi-\alpha)}-e^{-k(\pi+\alpha)}}{i\sin\alpha}
+ =\frac{2e^{-\pi k}\sinh(\alpha k)}{i\sin\alpha}.
+\]
+The bottom integral is $I_R=\int_{-R}^R g(u)\,du$.
+Periodicity of $\cosh$ makes the top integral
+$-e^{-2\pi k}I_R$. On either vertical side,
+\[
+ |\cosh(\pm R+iy)|^2=\sinh^2R+\cos^2y,
+ \qquad |e^{ik(\pm R+iy)}|=e^{-ky}\leq1.
+\]
+Thus, for sufficiently large $R$, the absolute value of each side
+integral is at most $2\pi/(\sinh R-1)$, which tends to zero.
+On the real axis the integrand is absolutely integrable: its denominator
+is positive and is bounded below by a positive multiple of $e^{|u|}$
+outside a compact interval. The residue theorem and $R\to\infty$ give
+\[
+ (1-e^{-2\pi k})I
+ =\frac{4\pi e^{-\pi k}\sinh(\alpha k)}{\sin\alpha}.
+\]
+Divide using $1-e^{-2\pi k}=2e^{-\pi k}\sinh(\pi k)$ to obtain
+\eqref{urgent:contour}. The denominator on the real axis is even, so the
+sine part of the integral vanishes and $I(-k)=I(k)$.
+Dominated convergence gives continuity at $k=0$, while
+$\sinh(\alpha k)/\sinh(\pi k)\to\alpha/\pi$.
+This proves all real cases, including the zero-frequency integral
+$I(0)=2\alpha/\sin\alpha$.\hfill$\square$
+
+\paragraph{Lemma F2 (positive fractional-power kernels).}
+For $0<r<1$ define
+\[
+ p_r(t)=\frac{\sin(\pi r)}{2(\cosh(\pi t)+\cos(\pi r))}.
+\]
+Then $p_r\geq0$, $p_r\in L^1(\mathbb R)$, and
+\[
+ \widehat p_r(x)=\psi_r(x),\qquad \int p_r=r.
+\]
+The density $\widetilde p_r(t)=2p_r(2t)$ has transform
+$\psi_r(x/2)$, and $\widetilde p_r*\widetilde p_r$ has transform
+$\chi_r(x)$ and mass $r^2$.
+Furthermore
+\[
+ \frac{p_r}{r}\longrightarrow
+ p_0(t):=\frac\pi4\operatorname{sech}^2(\pi t/2)
+ \quad\hbox{in }L^1,\qquad
+ \widehat p_0(x)=f(x),\quad\int p_0=1.
+\]
+
+\paragraph{Proof.}
+Apply Lemma F1 with $\alpha=\pi r$, $u=\pi t$, $k=x/\pi$,
+including its $k=0$ conclusion. Positivity is immediate since
+$\sin(\pi r)>0$ and $\cosh(\pi t)+\cos(\pi r)>0$.
+The rescaling formula follows by $v=2t$; the convolution formula and
+mass statement follow by Fubini, justified by the product of the two
+$L^1$ norms. For $0<r\leq1/2$,
+\[
+ 0\leq p_r(t)/r\leq\pi/[2\cosh(\pi t)],
+\]
+because $\sin(\pi r)/r\leq\pi$ and $\cos(\pi r)\geq0$.
+This bound is integrable, and the pointwise limit is
+$\pi/[2(\cosh(\pi t)+1)]=p_0(t)$.
+Dominated convergence gives the stated $L^1$ convergence and mass.
+Fourier transforms converge under $L^1$ convergence; the scalar limit
+$\psi_r(x)/r\to f(x)$ identifies the transform.\hfill$\square$
+
+\paragraph{Corollary F3 (complete positivity and exact norms).}
+For self-adjoint $K$, the maps $\psi_r(D)$ and $\chi_r(D)$ are
+completely positive and have completely bounded operator norms $r$ and
+$r^2$, respectively. The map $f(D)$ is unital completely positive.
+
+\paragraph{Proof.}
+In the eigenbasis of $K$, Fourier inversion in the sense of Lemma F2
+(namely its forward integral identity) gives exactly
+\[
+ \psi_r(D)(X)=\int p_r(t)e^{itK}Xe^{-itK}\,dt.
+\]
+For every finite ancilla the same formula holds with
+$e^{itK}\otimes I$. A nonnegative integral of positive matrices is
+positive, proving positivity at every amplification. The operator-norm
+bound at each amplification is the mass of the density, by the triangle
+inequality and unitary invariance. Evaluation at the identity attains
+that mass. Apply the same argument to the convolution density and $p_0$.
+At $r=0$ the maps are zero; at $r=1$ both are the identity. Thus no
+endpoint density formula is needed.\hfill$\square$
+
+\subsection{Deriving the coth series instead of assuming it}
+
+\paragraph{Lemma C1 (an elementary partial-fraction identity).}
+For every real $x\ne0$,
+\begin{equation}
+ x\coth(x/2)=2+4\sum_{n=1}^\infty
+                         \frac{x^2}{x^2+(2\pi n)^2}.
+ \label{urgent:coth-series}
+\end{equation}
+The right-hand series and its first derivative converge uniformly on
+every bounded real interval after assigning the value $2$ at zero.
+
+\paragraph{Proof.}
+Fix $a>0$. Regard $t\mapsto\cosh(at)$ on $[-\pi,\pi]$ as a
+continuous $2\pi$-periodic function; its endpoint values agree.
+Its sine coefficients vanish by evenness. Direct integration gives
+\[
+ \frac1{2\pi}\int_{-\pi}^{\pi}\cosh(at)\,dt
+       =\frac{\sinh(a\pi)}{\pi a},
+\]
+and, for $n\geq1$,
+\[
+ \frac1\pi\int_{-\pi}^{\pi}\cosh(at)\cos(nt)\,dt
+       =\frac{2a\sinh(a\pi)(-1)^n}{\pi(a^2+n^2)}.
+\]
+For the second equality one differentiates the explicit antiderivative
+\[
+ \frac{a\sinh(at)\cos(nt)+n\cosh(at)\sin(nt)}{a^2+n^2}.
+\]
+The resulting cosine series is absolutely uniformly convergent, since
+its coefficients are bounded by a constant times $n^{-2}$.
+It equals the continuous periodic function: for example, the uniform
+Fej\'er convergence theorem identifies the Ces\`aro sums of its Fourier
+series with that function, while absolute uniform convergence identifies
+the same Ces\`aro limit with the displayed series.
+Evaluating at $t=\pi$ therefore gives
+\[
+ \cosh(a\pi)=\frac{\sinh(a\pi)}{\pi a}
+       +\frac{2a\sinh(a\pi)}\pi\sum_{n\geq1}\frac1{a^2+n^2}.
+\]
+Divide by $\sinh(a\pi)$ and put $x=2\pi a$. This is
+\eqref{urgent:coth-series} for $x>0$; both sides are even, giving $x<0$.
+Write $b_n=2\pi n$. On $|x|\leq R$, the summand
+$4x^2/(x^2+b_n^2)$ is bounded by $4R^2/b_n^2$, and its derivative
+$8xb_n^2/(x^2+b_n^2)^2$ by $8R/b_n^2$.
+The Weierstrass bounds prove both asserted uniform convergences and
+justify termwise differentiation.\hfill$\square$
+
+\paragraph{Lemma C2 (positive series for the rotation multiplier).}
+Define
+\[
+ h(x)=\frac{1-x/\sinh x}{x\tanh(x/2)}\quad(x\ne0),
+ \qquad h(0)=\frac13.
+\]
+Then, for all real $x$,
+\begin{equation}
+ h(x)=8\sum_{n=1}^\infty
+                    \frac{(2\pi n)^2}{(x^2+(2\pi n)^2)^2}.
+ \label{urgent:h-series}
+\end{equation}
+
+\paragraph{Proof.}
+For $x\ne0$, elementary hyperbolic identities give
+\[
+ \frac{1-x/\sinh x}{x\tanh(x/2)}
+ =\frac{\coth(x/2)}x-\frac12\operatorname{csch}^2(x/2)
+ =\frac1x\frac d{dx}\{x\coth(x/2)\}.
+\]
+Lemma C1 permits differentiating the series, giving
+\eqref{urgent:h-series} for nonzero $x$. Each summand is bounded
+in absolute value by $8/(2\pi n)^2$, so the series is continuous at zero.
+The ordinary Taylor expansions of $\sinh$ and $\cosh$, obtained from
+their exponential series with remainders, give
+$x\coth(x/2)=2+x^2/6+O(x^4)$ and
+$\frac d{dx}\{x\coth(x/2)\}=x/3+O(x^3)$.
+Thus its derivative divided by $x$ tends to $1/3$, establishing the
+zero value too. This also proves
+$\sum_{n\geq1}8/(2\pi n)^2=1/3$ without importing a Basel-sum value.
+\hfill$\square$
+
+\paragraph{Lemma C3 (explicit nonnegative Fourier density).}
+For $t\ne0$ let
+\[
+ k(t)=\sum_{n=1}^\infty
+       \left(\frac1{\pi n}+2|t|\right)e^{-2\pi n|t|};
+\]
+assign any finite value, for example zero, at $t=0$. Then $k\geq0$
+almost everywhere, $k\in L^1$, $\int k=1/3$, and
+\[
+ \widehat k(x)=h(x).
+\]
+For $t\ne0$ it also has the closed form
+\[
+ k(t)=-\frac1\pi\log(1-e^{-2\pi|t|})
+              +\frac{2|t|}{e^{2\pi|t|}-1}.
+\]
+For every real $v<2\pi$ its exponentially weighted mass is finite;
+for $0\leq v<2\pi$ it equals
+\begin{equation}
+ \int_{\mathbb R}e^{v|t|}k(t)\,dt
+ =2\sum_{n\geq1}\left\{
+ \frac1{\pi n(2\pi n-v)}+
+ \frac2{(2\pi n-v)^2}\right\}.
+ \label{urgent:weighted-mass}
+\end{equation}
+
+\paragraph{Proof.}
+For $a>0$, elementary exponential integration on each half-line yields
+\[
+ \int_{\mathbb R}e^{-a|t|}e^{itx}dt=\frac{2a}{a^2+x^2},
+\qquad
+ \int_{\mathbb R}|t|e^{-a|t|}e^{itx}dt
+       =\frac{2(a^2-x^2)}{(a^2+x^2)^2}.
+\]
+For completeness, integrate $e^{-(a-ix)t}$ and $t e^{-(a-ix)t}$
+on $[0,R]$, let $R\to\infty$, and add their complex conjugates;
+the boundary terms vanish since $a>0$. It follows that
+\[
+ \int_{\mathbb R}(2/a+2|t|)e^{-a|t|}e^{itx}dt
+     =\frac{8a^2}{(a^2+x^2)^2}.
+\]
+The mass of this nonnegative function is $8/a^2$.
+Set $a=2\pi n$ and sum. Tonelli and Lemma C2 give total mass $1/3$.
+The summed integrable masses justify exchanging the complex Fourier
+integral with the series, proving the transform identity.
+For the closed form use $\sum_{n\geq1}q^n=q/(1-q)$ and
+$\sum_{n\geq1}q^n/n=-\log(1-q)$ for $0<q<1$; the latter follows
+by integrating the geometric series on a compact subinterval of $[0,1)$.
+The value at the single point zero does not affect any integral.
+Finally Tonelli and direct exponential integration give
+\eqref{urgent:weighted-mass}. Since
+$2\pi n-v\geq(2\pi-v)n$ for $n\geq1$ and $0\leq v<2\pi$,
+its terms are bounded by a fixed constant times $n^{-2}$.
+Negative $v$ only decrease the integrand.\hfill$\square$
+
+\subsection{KMS compatibility and the rotation identity}
+
+\paragraph{Lemma K1 (compatibility of the actual derivative).}
+For $Q=\dot\rho\rho^{-1}=H+A$, with $H=H^*$ and $A^*=-A$,
+\[
+ Q^*=e^{-D}Q,\qquad A=\tanh(D/2)H.
+\]
+
+\paragraph{Proof.}
+Because $\rho$ and $\dot\rho$ are self-adjoint,
+$Q^*=\rho^{-1}\dot\rho=\rho^{-1}Q\rho=e^{-D}Q$.
+Substitute $Q=H+A$ and $Q^*=H-A$ to obtain
+$(I-e^{-D})H=(I+e^{-D})A$.
+In an eigenbasis of $K$, every eigenvalue of $I+e^{-D}$ is
+$1+e^{-(\kappa_i-\kappa_j)}>0$, so it is invertible.
+The quotient is $(1-e^{-x})/(1+e^{-x})=\tanh(x/2)$, proving the claim.
+\hfill$\square$
+
+\paragraph{Proposition K2 (positive rotation generator, with all inputs proved).}
+Put $J=-iA=J^*$ and $C=h(D)J$. Then
+\[
+ C=C^*,\qquad \|C\|\leq\tfrac13\|J\|,
+ \qquad \dot K=H+i[C,K].
+\]
+The map $h(D)$ is completely positive, has completely bounded norm
+$1/3$, and admits the exponentially weighted Fourier mass bounds of
+Lemma C3. If a differentiable unitary path solves $\dot U=iCU$, then
+\[
+ \frac d{d\lambda}(U^*KU)=U^*HU.
+\]
+
+\paragraph{Proof.}
+Lemma C3 gives
+$h(D)(X)=\int k(t)e^{itK}Xe^{-itK}\,dt$.
+The argument of Corollary F3 proves complete positivity, preservation
+of adjoints, and the exact norm $\int k=1/3$.
+By Lemma K1, $J=-i\tanh(D/2)H$. The scalar identity, including its
+continuous zero value, is
+$xh(x)\tanh(x/2)=1-f(x)$.
+Consequently
+\[
+ i[C,K]=-iD h(D)J
+       =-D h(D)\tanh(D/2)H
+       =f(D)H-H=\dot K-H,
+\]
+where the last equality uses Lemma R3. Finally the product rule and
+$\dot U^*=-iU^*C$ give
+\[
+ \frac d{d\lambda}(U^*KU)
+ =U^*\{\dot K-i[C,K]\}U=U^*HU.
+\]
+If $C$ is continuous, the standard finite-dimensional linear ODE theorem
+constructs $U$ with $U(0)=I$; differentiating $U^*U$ shows it remains
+unitary. The response and rotation conclusions themselves do not require
+that auxiliary ODE construction.\hfill$\square$
+
+\paragraph{Composition and square roots.}
+For $r,s\in[0,1]$, direct cancellation of hyperbolic ratios gives
+\[
+ \psi_s(rx)\psi_r(x)=\psi_{rs}(x),\qquad
+ \chi_s(rx)\chi_r(x)=\chi_{rs}(x).
+\]
+Check $x=0$ and $r=0$ from the prescribed continuous values.
+The identities $\sinh x=2\sinh(x/2)\cosh(x/2)$ then give
+$\psi_{1/2}(x)=\tfrac12\operatorname{sech}(x/2)$ and
+$\chi_{1/2}(x)=\tfrac14\operatorname{sech}^2(x/4)$.
+Thus the expanded proofs also recover the composition, endpoint,
+ancilla, and square-root statements in the report.

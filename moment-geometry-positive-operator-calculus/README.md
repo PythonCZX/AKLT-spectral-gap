@@ -15,16 +15,16 @@ undecorated hexagonal AKLT model has been formalized.
 
 ### Article and formalization guide
 
-- [Main report (99 pages)](release/moment-geometry-positive-operator-calculus/Moment_Geometry/main.pdf)
-- [Formalization and reproducibility guide (12 pages)](release/moment-geometry-positive-operator-calculus/Moment_Geometry/formalization.pdf)
-- [Formalization guide source](release/moment-geometry-positive-operator-calculus/Moment_Geometry/supplements/formalization_guide.tex)
-- [Theorem and dependency registry](release/moment-geometry-positive-operator-calculus/Moment_Geometry/supplements/theorem_registry.json)
-- [Figure-generation code](release/moment-geometry-positive-operator-calculus/Moment_Geometry/code/make_figures.py) and [figure PDFs](release/moment-geometry-positive-operator-calculus/Moment_Geometry/figures/)
-- [Verification source and driver](release/moment-geometry-positive-operator-calculus/Moment_Geometry/supplements/verify_all.py)
-- [Exact and certified verification records](release/moment-geometry-positive-operator-calculus/Moment_Geometry/supplements/results/)
-- [Current Lean coverage status](release/moment-geometry-positive-operator-calculus/status/COVERAGE.json) and [audit coverage](release/moment-geometry-positive-operator-calculus/status/coverage_74_audit.json)
+- [Main report (99 pages)](results/moment_geometry/Moment_Geometry/main.pdf)
+- [Formalization and reproducibility guide (12 pages)](results/moment_geometry/Moment_Geometry/formalization.pdf)
+- [Formalization guide source](results/moment_geometry/Moment_Geometry/supplements/formalization_guide.tex)
+- [Theorem and dependency registry](results/moment_geometry/Moment_Geometry/supplements/theorem_registry.json)
+- [Figure-generation code](results/moment_geometry/Moment_Geometry/code/make_figures.py) and [figure PDFs](results/moment_geometry/Moment_Geometry/figures/)
+- [Verification source and driver](results/moment_geometry/Moment_Geometry/supplements/verify_all.py)
+- [Exact and certified verification records](results/moment_geometry/Moment_Geometry/supplements/results/)
+- [Current Lean coverage status](results/moment_geometry/COVERAGE.json) and [audit coverage](results/moment_geometry/coverage_74_audit.json)
 
-The source TeX is in `release/moment-geometry-positive-operator-calculus/Moment_Geometry/`: `main.tex`, `sections/`, `proofs/`,
+The source TeX is in `results/moment_geometry/Moment_Geometry/`: `main.tex`, `sections/`, `proofs/`,
 `code/`, and `data/`. Article paths used in the guide and registry retain the
 original directory layout intentionally.
 
@@ -35,7 +35,7 @@ under construction. Run from the root of this package:
 
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
-  python3 release/moment-geometry-positive-operator-calculus/scripts/check_lean_moment_geometry.py
+  python3 scripts/check_lean_moment_geometry.py
 ```
 
 The scripted gate uses the pinned `/opt/lean/bin/lean` Lean 4.33.1 and installed
@@ -49,8 +49,8 @@ modules, not every helper declaration and not 201 completed source theorems.
 
 ### Current formalization coverage
 
-Read [release/moment-geometry-positive-operator-calculus/status/ROADMAP.md](release/moment-geometry-positive-operator-calculus/status/ROADMAP.md) for record-by-record gaps and
-[release/moment-geometry-positive-operator-calculus/status/coverage_74_audit.json](release/moment-geometry-positive-operator-calculus/status/coverage_74_audit.json) for the machine
+Read [results/moment_geometry/ROADMAP.md](results/moment_geometry/ROADMAP.md) for record-by-record gaps and
+[results/moment_geometry/coverage_74_audit.json](results/moment_geometry/coverage_74_audit.json) for the machine
 coverage table. At this export snapshot:
 
 - **1 source contract (`q:lem-seed`) is completed at operator level**, with the
@@ -70,16 +70,34 @@ prove the full physical CP tensor transport. The finite-patch comparison does
 not itself instantiate a nonzero physical AKLT gap, still less an undecorated
 hexagonal spectral-gap theorem. Those obligations are tracked, not hidden.
 
+### Urgent formalization handoff — unchecked drafts
+
+The separately supplied urgent handoff is preserved under
+[`handoff/urgent-formalization/`](handoff/urgent-formalization/). Begin with its
+[`README.txt`](handoff/urgent-formalization/README.txt),
+[`STATUS.json`](handoff/urgent-formalization/STATUS.json), and
+[`INTEGRATION_ORDER.md`](handoff/urgent-formalization/INTEGRATION_ORDER.md).
+It contains four mathematical proof expansions (CP transport, decorated AKLT,
+oblique/filter bounds, and response calculus), their machine-translation
+obligations, and three explicitly uncompiled partial Lean files.
+
+This material was added **without compiling or testing it, as requested**. It is
+not integrated into `lean/MomentGeometry/`, is not covered by the 28-module build
+and axiom audit, and does not change the registry coverage above. The TeX proof
+drafts do not themselves discharge `hcross`, `hcos`, the physical patch gap, or
+the fractional-power/Fourier interfaces. No complete formalization of those
+results is claimed.
+
 ### Finite computational evidence
 
 The supplied finite suite passes, in an isolated environment with the exact
-requirements in `release/moment-geometry-positive-operator-calculus/Moment_Geometry/supplements/requirements.txt`:
+requirements in `results/moment_geometry/Moment_Geometry/supplements/requirements.txt`:
 
 - **18 exact algebra**;
 - **3 certified arithmetic/enclosure**;
 - **4 bounded numerical diagnostics**.
 
-See [independent verification report](release/moment-geometry-positive-operator-calculus/status/verification_report.json).
+See [independent verification report](results/moment_geometry/verification_report.json).
 These results reproduce finite identities and certified bounds. They are
 **not universal proofs and not proof-assistant verification of the report**.
 
@@ -88,12 +106,12 @@ Recreate a project-local environment outside version control:
 ```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install \
-  -r release/moment-geometry-positive-operator-calculus/Moment_Geometry/supplements/requirements.txt pypdf
+  -r results/moment_geometry/Moment_Geometry/supplements/requirements.txt pypdf
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
-.venv/bin/python release/moment-geometry-positive-operator-calculus/Moment_Geometry/supplements/verify_all.py \
+.venv/bin/python results/moment_geometry/Moment_Geometry/supplements/verify_all.py \
   --jobs 1 --include-diagnostics \
   --output /tmp/moment-geometry-verification.json
-.venv/bin/python release/moment-geometry-positive-operator-calculus/Moment_Geometry/build.py
+.venv/bin/python results/moment_geometry/Moment_Geometry/build.py
 ```
 
 `pypdf` is required for the article build's page-count checks; a first isolated
@@ -120,7 +138,7 @@ retain explicit hypotheses for analytical or physical inputs such as tensor CP
 whitening, Choi spectra, Fourier densities and regional tensor kernels.
 
 ```sh
-python3 release/moment-geometry-positive-operator-calculus/scripts/moment_geometry_coverage.py
-python3 release/moment-geometry-positive-operator-calculus/scripts/moment_geometry_coverage_audit.py \
-  --out release/moment-geometry-positive-operator-calculus/status/coverage_74_audit.json
+python3 scripts/moment_geometry_coverage.py
+python3 scripts/moment_geometry_coverage_audit.py \
+  --out results/moment_geometry/coverage_74_audit.json
 ```

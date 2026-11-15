@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "package": "moment-geometry-positive-operator-calculus",
+  "base_revision": "ffba186bd30090539e53142b0fba92dcdae50787",
   "layout": "Original Moment_Geometry distribution-root plus direct Lean interface",
   "scope": "Curated public export, not a claim of all-74-record formal coverage or of an AKLT spectral gap certificate",
   "source_status": {
@@ -11,6 +12,20 @@
     "modules": 28,
     "directly_printed_standard_axiom_reports": 201
   },
+  "handoff_revision": {
+    "source_archive": "Urgent_Formalization_Handoff.zip",
+    "source_archive_sha256": "9a829dc767c5c1c3350760fec49067b0618a5a422b646be93042aebc8510f3d4",
+    "destination": "handoff/urgent-formalization/",
+    "files_copied_verbatim": 17,
+    "verification_performed": false,
+    "compiled": false,
+    "integrated_into_main_lean_gate": false,
+    "registry_coverage_changed": false,
+    "status": "Unchecked mathematical proof drafts and uncompiled partial Lean sources; see handoff/urgent-formalization/STATUS.json."
+  },
+  "manifest_excludes": [
+    "MANIFEST.json"
+  ],
   "source_template": "results/moment_geometry/Moment_Geometry (all except local build/tree caches) plus lean/MomentGeometry and scripts/",
   "exclusions": [
     ".git",
@@ -35,24 +50,104 @@
       "sha256": "3201293f4cf03b52997d8dbdc73008eefd75b28611ad594a3f7afde880efa82c"
     },
     {
-      "path": "MANIFEST.json",
-      "bytes": 62053,
-      "sha256": "ba86eff4469b3346333841c1f7dc0f613167d983c0779ea6558012e7bc988b87"
-    },
-    {
       "path": "PUBLICATION_README.md",
-      "bytes": 6115,
-      "sha256": "3d84e62da3cd5b833a5881720c9ea067a830d7fc716297b5a812676eead7798a"
+      "bytes": 7591,
+      "sha256": "6cba58e8f08a21e3569b9344428a83e8b29a81fc3592e239454404c7c03c88e0"
     },
     {
       "path": "README.md",
-      "bytes": 7339,
-      "sha256": "a61881411c84524cb3f1c0a536237647530c9414ae431cc19369c9e999cb91a1"
+      "bytes": 7591,
+      "sha256": "6cba58e8f08a21e3569b9344428a83e8b29a81fc3592e239454404c7c03c88e0"
     },
     {
       "path": "RELEASE_READINESS.md",
-      "bytes": 3958,
-      "sha256": "28a8eaf5eed7f26fa322e92204005f1b31eab18146bde3f9453477758d8a6628"
+      "bytes": 4849,
+      "sha256": "90b843d90b8b463fe68a1eb387a722cb79b54dbd93ca4cd93d82804620f151ed"
+    },
+    {
+      "path": "handoff/urgent-formalization/INTEGRATION_ORDER.md",
+      "bytes": 3113,
+      "sha256": "8e70327c1a8a8c1cde8d698fb722952f2596266c04028cf7f8ac0d7fb762c093"
+    },
+    {
+      "path": "handoff/urgent-formalization/README.txt",
+      "bytes": 1948,
+      "sha256": "0fb37d565cfe48bb24931f9fe8fc773aae00dd518916bbeeeb73aae12bff12d8"
+    },
+    {
+      "path": "handoff/urgent-formalization/STATUS.json",
+      "bytes": 440,
+      "sha256": "9a9be85512bbf7b5df67ada29fa26978a7fb84865e8340b7b68d73ec29089aae"
+    },
+    {
+      "path": "handoff/urgent-formalization/aklt_obligations.md",
+      "bytes": 7082,
+      "sha256": "2f5b6b2d43e662e9fb74ef077342541564b256252fa222370e4777bb36904de6"
+    },
+    {
+      "path": "handoff/urgent-formalization/aklt_proofs.tex",
+      "bytes": 13942,
+      "sha256": "8f49714c8005a6fb038173bc5e221eca57556958f42ba4d46ba5c0d383977166"
+    },
+    {
+      "path": "handoff/urgent-formalization/cp_contracts.md",
+      "bytes": 2212,
+      "sha256": "e198f0d64b57de96a88c9ae333a03eae94550cef2cd05ad1692b66e2fee597a7"
+    },
+    {
+      "path": "handoff/urgent-formalization/cp_transport_proofs.tex",
+      "bytes": 11334,
+      "sha256": "c4d4de0a350798e2c4fa2f1f9a18b06babe72aa1f15eafb5313f2b5b13f298e5"
+    },
+    {
+      "path": "handoff/urgent-formalization/lean/AKLT.lean",
+      "bytes": 1795,
+      "sha256": "80924e7c5183efea6b6d64c300809d2a0e8f4c5e72aae3f6b20d51b55f9a16ba"
+    },
+    {
+      "path": "handoff/urgent-formalization/lean/ObliqueAlgebra_uncompiled.lean",
+      "bytes": 2149,
+      "sha256": "031819c1bf3ed90e129049bf767b2f56ba97af159ee1c00c260d810ffbd55945"
+    },
+    {
+      "path": "handoff/urgent-formalization/lean/SchurScalar.lean",
+      "bytes": 2884,
+      "sha256": "4a7a6e066b17cd8bab4b3e7f7706f6122fa75a550cb6bbcbffded1cedf9b40cb"
+    },
+    {
+      "path": "handoff/urgent-formalization/oblique_obligations.md",
+      "bytes": 4819,
+      "sha256": "f4c69cf1c2d6847e421ba475f8c1349cdd2d1f0d0a70f9471847a0072322eec9"
+    },
+    {
+      "path": "handoff/urgent-formalization/oblique_proofs.tex",
+      "bytes": 15302,
+      "sha256": "12eea231e2f87c7536e3f48a70279a4fdc05e36a0f08a6860681b40350f0d1ed"
+    },
+    {
+      "path": "handoff/urgent-formalization/proof_insertions.tex",
+      "bytes": 898,
+      "sha256": "c4e4b9d8e5f19d9c95ba04c4cc36ffc268a72a07204593509cb417c8345339db"
+    },
+    {
+      "path": "handoff/urgent-formalization/response_obligations.md",
+      "bytes": 9971,
+      "sha256": "5142413694f85f55fb8c1fe8e7ed41bef660d8b016c10485833c95d28819646f"
+    },
+    {
+      "path": "handoff/urgent-formalization/response_proofs.tex",
+      "bytes": 17703,
+      "sha256": "da9e6ce189c080185aa199008cb22c9581d97dc443fa0d3927c7741411b04662"
+    },
+    {
+      "path": "handoff/urgent-formalization/source/report_quantum_refs.bib",
+      "bytes": 3488,
+      "sha256": "26c7c6f21e86d8ed1ed388e83e2e729ff5c31fceb575ac9e281b38883b4e2b41"
+    },
+    {
+      "path": "handoff/urgent-formalization/source/report_quantum_results.tex",
+      "bytes": 38620,
+      "sha256": "46a24a48c0da9deae54a5fef4d9648da598668bf4917d338f4f1e55bdb9b1a37"
     },
     {
       "path": "lean/MomentGeometry/AKLT/Bridge.lean",
@@ -1205,6 +1300,6 @@
       "sha256": "e8181c835eacef7c7a279dfb0ae2780b06c31545eaf823b696b85e6cbcfe479d"
     }
   ],
-  "file_count": 236,
-  "bytes": 5445692
+  "file_count": 251,
+  "bytes": 5523958
 }

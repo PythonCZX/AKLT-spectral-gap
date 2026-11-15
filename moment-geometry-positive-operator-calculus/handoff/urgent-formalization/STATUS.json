@@ -1,0 +1,12 @@
+{
+  "verification_performed": false,
+  "compiled": false,
+  "complete_lean_formalization": false,
+  "mathematical_proof_drafts": [
+    "CP quotient angle and hcross",
+    "microscopic AKLT realization and explicit patch lower bound",
+    "oblique/filter bounds and hcos",
+    "derivative, Fourier, contour, coth and response identifications"
+  ],
+  "lean_scope": "Uncompiled finite algebraic/scalar endpoints; see per-block obligations."
+}

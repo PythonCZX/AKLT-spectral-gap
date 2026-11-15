@@ -1,0 +1,324 @@
+% Uncompiled proof handoff. Intended as an input to a document using amsmath,
+% amssymb, amsthm and theorem/lemma/proposition environments.
+\section{The microscopic decorated-AKLT realization, in explicit coordinates}
+\label{urgent:aklt-realization}
+
+This module supplies the microscopic input to the two-port completely
+positive comparison theorem. It does not assume a positive patch gap.
+Instead it constructs the patch matrices and gives an explicit, very
+small, positive lower bound for their least nonzero eigenvalues. All
+interactions below are norm-one orthogonal projectors. The underlying
+core graph is finite and simple, has no isolated vertices in the regions
+under discussion, and has maximum degree at most $\Delta\geq2$.
+
+\subsection{Spin one, Kraus matrices, and the Choi constants}
+
+Put
+\[
+ X=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad
+ Y=\begin{pmatrix}0&-i\\i&0\end{pmatrix},\qquad
+ Z=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\]
+The symmetric two-qubit physical basis is
+$|00\rangle,(|01\rangle+|10\rangle)/\sqrt2,|11\rangle$.
+Represent its three coefficient matrices by
+$S_+=E_{00}$, $S_0=(E_{01}+E_{10})/\sqrt2$, and $S_-=E_{11}$.
+Contracting the second virtual leg with the invariant antisymmetric
+form $J=\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)$
+and multiplying the local tensor by $\sqrt{2/3}$ gives
+\[
+ A_+=\sqrt{2/3}\,E_{01},\qquad
+ A_0=-Z/\sqrt3,\qquad A_-=-\sqrt{2/3}\,E_{10}.
+\]
+The physical change of orthonormal basis
+\[
+ K_1=(A_+-A_-)/\sqrt2=X/\sqrt3,\quad
+ K_2=-i(A_++A_-)/\sqrt2=Y/\sqrt3,\quad
+ K_3=-A_0=Z/\sqrt3
+\]
+is unitary on the three Kraus labels. Thus it preserves the CP map.
+Changing the normalization of a virtual singlet or reversing its
+orientation changes only nonzero scalar normalizations or virtual
+unitaries; the displayed convention fixes these choices explicitly.
+
+For every complex matrix $B=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$,
+direct multiplication gives
+\[
+ XBX=\begin{pmatrix}d&c\\b&a\end{pmatrix},\quad
+ YBY=\begin{pmatrix}d&-c\\-b&a\end{pmatrix},\quad
+ ZBZ=\begin{pmatrix}a&-b\\-c&d\end{pmatrix}.
+\]
+Consequently, without a Hermiticity assumption,
+\[
+ \Phi(B):=\sum_{j=1}^3K_jBK_j^*
+ =\frac23\operatorname{tr}(B)I-\frac13B.
+\]
+Let $\Psi(B)=\operatorname{tr}(B)I/2$ and $\Pi=\mathrm{id}-\Psi$.
+Then $\Psi^2=\Psi$, $\Pi^2=\Pi$, $\Psi\Pi=\Pi\Psi=0$, whence
+\[
+ \Phi^\ell=\Psi+\beta_\ell\Pi,
+ \qquad \beta_\ell=(-1/3)^\ell.
+\]
+
+Use the unnormalized Choi convention
+$J(T)=\sum_{a,b=0}^1E_{ab}\otimes T(E_{ab})$ and
+$\Omega=|00\rangle+|11\rangle$. Then
+\[
+ J(\Psi)=I_4/2,\qquad J(\mathrm{id})=|\Omega\rangle\langle\Omega|,
+\]
+and the Choi matrix relative to the faithful reference metric is
+\[
+ J(\Psi)^{-1/2}J(\Phi^\ell)J(\Psi)^{-1/2}
+ =(1-\beta_\ell)I_4+4\beta_\ell|\omega\rangle\langle\omega|,
+ \qquad \omega=\Omega/\sqrt2.
+\]
+The one-dimensional space $\mathbb C\omega$ has eigenvalue
+$1+3\beta_\ell$; its orthogonal complement has dimension three and
+eigenvalue $1-\beta_\ell$. This proves both eigenvalues and multiplicities.
+The midpoint of the extreme eigenvalues is $1+\beta_\ell$, irrespective
+of parity. Accordingly the centered reference is
+\emph{$\widetilde\Psi_\ell=(1+\beta_\ell)\Psi$}, and
+\[
+ (1-\delta_\ell)\widetilde\Psi_\ell
+ \leq_{\rm CP}\Phi^\ell
+ \leq_{\rm CP}(1+\delta_\ell)\widetilde\Psi_\ell,
+ \qquad
+ \delta_\ell=\frac{2|\beta_\ell|}{1+\beta_\ell}
+ =\frac2{3^\ell+(-1)^\ell}.
+\]
+For $\ell\geq2$, the reference is faithful and $0<\delta_\ell<1$.
+For $\ell=1$ the lower Choi eigenvalue is zero, explaining the strict
+length restriction. The centering scalar must not be silently omitted.
+
+\subsection{The maximal-spin projector as multiplication followed by its adjoint}
+
+For $p\geq0$, write $V_p$ for binary homogeneous polynomials of degree
+$p$, and equip its monomial basis
+$e_i^{(p)}=x^{p-i}y^i$ with
+\[
+ \langle e_i^{(p)},e_j^{(p)}\rangle
+ =\delta_{ij}\binom pi^{-1}.
+\]
+This is the Hermitian form inherited from $\operatorname{Sym}^p\mathbb C^2$;
+it is invariant under $SU(2)$. For $p,q\geq1$ let
+\[
+ m_{p,q}:V_p\otimes V_q\longrightarrow V_{p+q},
+ \qquad F(x_v,y_v,x_w,y_w)\longmapsto F(x,y,x,y).
+\]
+Equivalently $m(e_i^{(p)}\otimes e_j^{(q)})=e_{i+j}^{(p+q)}$.
+The adjoint is therefore
+\[
+ m^*e_s^{(p+q)}
+ =\sum_{i+j=s}\frac{\binom pi\binom qj}{\binom{p+q}s}
+ e_i^{(p)}\otimes e_j^{(q)}.
+\]
+Vandermonde's identity gives $mm^*=I$. Hence $m^*$ is an isometry and
+$P_{p,q}:=m^*m$ is the orthogonal projector onto its image. Its matrix
+entries in this nonorthonormal monomial basis are the explicit rationals
+\begin{equation}
+ (P_{p,q})_{(i,j),(a,b)}
+ =\mathbf1_{i+j=a+b}
+   \frac{\binom pi\binom qj}{\binom{p+q}{i+j}}.
+ \label{urgent:projector-entries}
+\end{equation}
+
+To identify the image as the maximal-spin space, only elementary
+$SU(2)$ representation facts are needed. The diagonal action on binary
+polynomials differentiates to
+\[
+ H=x\partial_x-y\partial_y,\qquad E=x\partial_y,\qquad F=y\partial_x.
+\]
+Any nonzero invariant subspace of $V_r$ is invariant under these
+operators. The distinct $H$ eigenvalues isolate a monomial by a polynomial
+in $H$; repeated $E$ and $F$ then give every monomial. Thus $V_r$ is
+irreducible, of spin $r/2$. The multiplication map is equivariant, so its
+adjoint image is a copy of $V_{p+q}$. The weight $p+q$ space in
+$V_p\otimes V_q$ is one-dimensional. Therefore that copy is unique and
+is exactly the maximal total-spin summand. Formula
+\eqref{urgent:projector-entries} is the physical norm-one interaction.
+
+\subsection{One edge: the kernel is exactly the bracket ideal}
+
+Let $b_{vw}=x_vy_w-y_vx_w$. Multiplication by $b_{vw}$ maps
+$V_{p-1}\otimes V_{q-1}$ injectively into $V_p\otimes V_q$ because
+the polynomial ring is an integral domain. Its image lies in $\ker m$
+because setting the two pairs of variables equal annihilates the bracket.
+Its dimension is $pq$. On the other hand $m$ is surjective, so
+\[
+ \dim\ker m=(p+1)(q+1)-(p+q+1)=pq.
+\]
+Equality of dimensions proves
+\[
+ \ker P_{p,q}=\ker m=b_{vw}(V_{p-1}\otimes V_{q-1}).
+\]
+This argument uses neither an unproved Clebsch--Gordan decomposition nor
+an assumed tensor-network intersection property.
+
+\subsection{Distinct edge brackets are nonassociate primes}
+
+Work in the finite-variable polynomial ring
+$R=\mathbb C[x_v,y_v:v\in W]$. For distinct vertices $v,w$, view
+$b_{vw}$ as a polynomial in $y_w$ over
+$A=\mathbb C[x_v,y_v,x_w,\text{the other variables}]$.
+Its coefficients $x_v$ and $-y_vx_w$ are coprime: $x_v$ is a prime
+variable and divides neither $y_v$ nor $x_w$. Thus this linear polynomial
+is primitive. It is irreducible over the fraction field of $A$, since
+its degree is one. Gauss's lemma proves irreducibility in $A[y_w]=R$.
+As $R$ is a UFD, it is prime.
+
+Units of $R$ are nonzero complex scalars. The vertex multidegree of
+$b_{vw}$ is one at $v,w$ and zero elsewhere. Two brackets can be
+associates only if their unordered endpoint sets coincide. In a simple
+graph, brackets for distinct edges are therefore nonassociate. Choose
+one orientation per edge; reversing it changes only a sign. Simplicity
+is essential: parallel-edge brackets would be associates, and a loop
+would give the zero polynomial.
+
+It follows by induction using primality that, for a finite internal
+edge set $F$,
+\[
+ \bigl(\forall e\in F,\ b_e\mid f\bigr)
+ \quad\Longleftrightarrow\quad
+ \prod_{e\in F}b_e\mid f.
+\]
+For the induction step, a new prime divides $f$ and is nonassociate to
+every previous prime, hence does not divide their product and must
+divide the remaining quotient.
+
+\subsection{Regional ground space and the actual tensor image}
+
+Let a microscopic region have vertex set $W$, internal edge set $F$,
+and full physical degrees $D_v$. Full degrees include edges omitted at
+the regional boundary. The physical polynomial space has multidegree
+$(D_v)_{v\in W}$. Put $r_v=D_v-\deg_F(v)\geq0$.
+Since the local terms are positive orthogonal projectors,
+\[
+ \ker\sum_{e\in F}P_e=\bigcap_{e\in F}\ker P_e.
+\]
+The one-edge identity and prime-product argument give the exact space
+\begin{equation}
+ \ker H_W
+ =\left(\prod_{e\in F}b_e\right)
+      \bigotimes_{v\in W}V_{r_v}.
+ \label{urgent:regional-kernel}
+\end{equation}
+Indeed a quotient after division by the homogeneous product has exactly
+the residual multidegree $(r_v)$; uniqueness of multihomogeneous
+components proves this assertion without allowing extra degrees.
+
+The AKLT virtual construction produces exactly this space. An internal
+virtual singlet is the antisymmetric tensor with polynomial $b_e$.
+At a vertex the physical symmetrization is multiplication of its
+$D_v$ linear factors. Therefore contracting all internal singlets and
+leaving the boundary virtual tensor free gives, up to fixed nonzero
+normalization scalars, multiplication by $\prod_e b_e$. Each boundary
+symmetrization $(\mathbb C^2)^{\otimes r_v}\to V_{r_v}$ is surjective:
+every monomial is the image of a product of coordinate vectors. Taking
+tensor products proves surjectivity onto the residual factor in
+\eqref{urgent:regional-kernel}. Correlated boundary tensors are permitted,
+so their linear image is the entire displayed tensor product, not merely
+its decomposable vectors. This proves the regional tensor-image identity.
+
+For a region comprising whole half-wire blocks, every exposed boundary
+wire endpoint has $r_v=1$, and every other vertex has $r_v=0$. Thus the
+boundary symmetrization has no kernel in this case. Multiplication by
+the nonzero bracket product is injective. This also directly verifies
+the expected boundary-space dimension and excludes an additional
+boundary-corner kernel.
+
+\subsection{Explicit finite patch types and a positive numerical formula}
+
+A two-block patch joining original core degrees $d,e\in\{1,\ldots,\Delta\}$
+contains $\ell$ spin-one vertices on every incident half-wire. Its
+physical dimensions, site count, term count and ground-space dimension
+are respectively
+\[
+ D_{d,e}=(d+1)(e+1)3^{\ell(d+e)},\qquad
+ N_{d,e}=2+\ell(d+e),\qquad M_{d,e}=1+\ell(d+e),\qquad
+ \dim\ker H_{d,e}=2^{d+e-2}.
+\]
+The last formula follows from the $d+e-2$ exposed endpoint legs in
+\eqref{urgent:regional-kernel}. The patch is a tree: the two core stars
+are joined by their one central interface. Its type depends only on
+$(d,e,\ell)$, up to relabeling. There are at most $\Delta^2$ ordered
+types, whether or not every type occurs in a particular graph.
+
+Each $H_{d,e}$ is the sum of the explicitly specified projector matrices
+\eqref{urgent:projector-entries}, tensored with identities on other
+sites. These matrices are self-adjoint and positive in the physical
+weighted inner product. In a Euclidean coordinate basis they are
+similar, by the positive diagonal square root of the Gram matrix, to
+Hermitian positive matrices. Their rational monomial coordinates
+therefore have the same real nonnegative eigenvalues. There is at least
+one nonzero interaction, so $H_{d,e}\ne0$ and its rank is positive.
+
+For a fully explicit lower bound define the positive integer
+\[
+ C_\Delta=\operatorname{lcm}
+ \left\{\binom rs:0\leq s\leq r\leq\Delta+2\right\},\quad
+ R=(\Delta+1)^2 3^{2\ell\Delta},\quad M=2\ell\Delta+1.
+\]
+Every bond joins a core of degree $d\leq\Delta$ to degree two, or two
+degree-two wire sites. Thus its total polynomial degree is at most
+$\Delta+2$ (including $4\leq\Delta+2$). Formula
+\eqref{urgent:projector-entries} shows that every entry of
+$H_{d,e}$ lies in $C_\Delta^{-1}\mathbb Z$. There is no product of
+denominators over bonds: summing matrices with this common denominator
+preserves it.
+
+Let the positive eigenvalues of a patch be
+$0<\lambda_1\leq\cdots\leq\lambda_r$, where $1\leq r\leq D_{d,e}\leq R$.
+The coefficient of the lowest nonzero power in its characteristic
+polynomial, in absolute value, is $\prod_{j=1}^r\lambda_j$.
+Equivalently this is the $r$th elementary symmetric function of all
+eigenvalues, or the sum of the principal $r$-minors. Since the entries
+have denominator dividing $C_\Delta$, this coefficient belongs to
+$C_\Delta^{-r}\mathbb Z$. It is strictly positive, so
+\[
+ \prod_{j=1}^r\lambda_j\geq C_\Delta^{-r}.
+\]
+Each interaction is a norm-one projector, giving
+$\lambda_j\leq\|H_{d,e}\|\leq M_{d,e}\leq M$. Hence
+\[
+ \lambda_1\geq C_\Delta^{-r}M^{1-r}
+ \geq \underbrace{C_\Delta^{-R}M^{1-R}}_{=:g_{\mathrm{exp}}(\Delta,\ell)>0}.
+\]
+This is an explicit finite arithmetic expression. No spectral gap is
+assumed in obtaining it. If
+\[
+ g_*(\Delta,\ell)=\min_{1\leq d,e\leq\Delta}
+                  \lambda_{\min}^{+}(H_{d,e}),
+\]
+then $0<g_{\mathrm{exp}}\leq g_*$; these quantities are not asserted
+equal. Exact spectral or interval calculations can substantially improve
+this deliberately coarse lower bound, but are unnecessary for existence.
+
+\subsection{Coverage and microscopic comparison}
+
+For a connected region of at least two whole blocks, every internal
+microscopic bond lies in a two-block patch. A bond inside block $v$
+occurs in precisely the patches associated with included coarse edges
+incident to $v$, hence between one and $\Delta$ patches. A bond across
+a block interface occurs in its unique interface patch. Therefore
+\[
+ \Delta H_{\rm micro}\geq\sum_eH_{P_e}
+ \geq g_*\sum_e(I-G_e)
+ \geq g_{\rm exp}H_{\rm block}.
+\]
+The regional kernel identity and coverage show that both Hamiltonians
+have the same kernel. Consequently a coarse bound
+$H_{\rm block}\geq c(I-G)$ gives the actual normalized physical bound
+\[
+ H_{\rm micro}\geq\frac{c\,g_{\rm exp}}\Delta(I-G).
+\]
+In particular the independent CP-angle theorem's choice
+$\ell=\lceil\log_9(144\Delta)\rceil$, giving $c\geq1/2$, implies
+\[
+ \operatorname{gap}H_{\rm AKLT}
+ \geq \frac{C_\Delta^{-R}(2\ell\Delta+1)^{1-R}}{2\Delta}>0.
+\]
+The constant is uniform over the stated region family for fixed
+$\Delta,\ell$. It is not a degree-uniform estimate and says nothing
+about eliminating decoration. This microscopic implication is conditional
+only on the separately supplied coarse CP-angle theorem, not on an
+unproved microscopic seed gap.

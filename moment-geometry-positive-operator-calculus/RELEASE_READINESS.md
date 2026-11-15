@@ -6,24 +6,27 @@ The export is an **allowlist copy** of supplied public material, built directly
 after stopping the slow publication agent. Original supplied archives remain
 untouched. The two duplicate `-2` attachment variants were **not** included.
 Source materials (`main.tex`, `proofs/`, `sections/`, `data/`, original document
-code) retain the layout `Moment_Geometry/` required by the existing build scripts
-and theorem registry. Main Lean source names retain `lean/MomentGeometry/`.
+code) retain the layout `results/moment_geometry/Moment_Geometry/` required by
+the existing build scripts and theorem registry. Main Lean source names retain
+`lean/MomentGeometry/`.
 
 This export excludes local project history and irrelevant research directories;
-it does not claim a whole-repository push is appropriate. Nothing has been
-pushed or published.
+it does not claim a whole-repository push is appropriate. The initial curated package was published on the connected repository’s `main`
+branch. The subsequent urgent-handoff revision adds only the supplied handoff,
+reader-facing documentation and an updated manifest.
 
 ## Verified export contents checked
 
-- `Moment_Geometry/`: the rendered report (99 pages) and formalization guide
-  (12 pages), 13 PDF figures, TeX/article/proof sources, code and bibliography.
-- `Moment_Geometry/supplements/`: all executable finite verification sources,
-  exact/certificate inputs and supplied legitimate reports (with separate
-  evidence classes clearly labelled).
+- `results/moment_geometry/Moment_Geometry/`: the rendered report (99 pages) and
+  formalization guide (12 pages), 13 PDF figures, TeX/article/proof sources,
+  code and bibliography.
+- `results/moment_geometry/Moment_Geometry/supplements/`: all executable finite
+  verification sources, exact/certificate inputs and supplied legitimate
+  reports (with separate evidence classes clearly labelled).
 - `lean/MomentGeometry/`: 28 direct Lean source modules, not `.olean` caches.
 - `scripts/`: Lean module/axiom gate, main coverage updater and
   secondary declaration-resolving coverage auditor.
-- `status/`: curated current roadmap, coverage JSONs and latest primary logs.
+- `results/moment_geometry/`: curated current roadmap, coverage JSONs and latest primary logs.
 
 The article renders had no undefined references or overfull boxes. The supplied
 finite validation passed 18 exact, 3 certified arithmetic and four bounded
@@ -45,7 +48,7 @@ No inclusion of
   are already included;
 - `external/` local dependency trees/library caches;
 - `results/gap_closure/` and `results/coherent_continuation/` older unrelated
-  research directories, apart from directly relevant current status/review logs;
+  research directories, apart from directly relevant current results/moment_geometry/review logs;
 - unrelated root research workbenches and interactive state;
 - absolute local home paths, credentials or other secret material.
 
@@ -53,13 +56,13 @@ The `.git` status of the source repository is **not** used as implicit permissio
 to export all untracked contents. An allowlist rather than broad directory copy
 is the release policy.
 
-## Publication gating (not yet authorization to publish)
+## Review status for subsequent releases
 
 Review
 
-1. the public [README](README.md) and coverage in [status/ROADMAP.md](status/ROADMAP.md);
+1. the public [README](README.md) and coverage in [results/moment_geometry/ROADMAP.md](results/moment_geometry/ROADMAP.md);
 2. `MANIFEST.json` file/bytes/sha256 records and validation output;
-3. `status/COVERAGE.json` and `status/coverage_74_audit.json`, including precise
+3. `results/moment_geometry/COVERAGE.json` and `results/moment_geometry/coverage_74_audit.json`, including precise
    remaining analytic inputs and the actual single operator-level completed
    theorem (finite-patch `q:lem-seed`);
 4. whether kernel/cosine conditions such as `hcross`/`hcos` and Fourier-density
@@ -75,3 +78,14 @@ versions/ABIs are not an interchangeable substitute.
 The supplied verification environment requires its pinned packages plus
 `pypdf`; the environment itself is **never committed**. Environment versions
 and the validation log location belong in an eventual publication changelog.
+
+
+## Urgent-handoff revision
+
+`handoff/urgent-formalization/` is a verbatim extraction of
+`Urgent_Formalization_Handoff.zip` (the supplied archive itself is unchanged).
+It contains unchecked mathematical proof drafts and uncompiled partial Lean
+sources, with their original status and obligation documents. Per the request,
+these additions were not compiled or tested before publication. They are not
+part of the 28-module verified gate and do not change the formalization ledger.
+The manifest records file sizes and hashes, not another verification pass.
