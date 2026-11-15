@@ -1,0 +1,76 @@
+{
+  "status": "all exact finite checks passed",
+  "natural_posets_by_size": {
+    "1": 1,
+    "2": 2,
+    "3": 7,
+    "4": 40
+  },
+  "total_posets": 50,
+  "independent_coefficient_methods": 3,
+  "star_Bernoulli_values": [
+    {
+      "leaves": 0,
+      "coefficient": "1"
+    },
+    {
+      "leaves": 1,
+      "coefficient": "1/2"
+    },
+    {
+      "leaves": 2,
+      "coefficient": "1/6"
+    },
+    {
+      "leaves": 3,
+      "coefficient": "0"
+    },
+    {
+      "leaves": 4,
+      "coefficient": "-1/30"
+    },
+    {
+      "leaves": 5,
+      "coefficient": "0"
+    },
+    {
+      "leaves": 6,
+      "coefficient": "1/42"
+    },
+    {
+      "leaves": 7,
+      "coefficient": "0"
+    },
+    {
+      "leaves": 8,
+      "coefficient": "-1/30"
+    },
+    {
+      "leaves": 9,
+      "coefficient": "0"
+    },
+    {
+      "leaves": 10,
+      "coefficient": "5/66"
+    },
+    {
+      "leaves": 11,
+      "coefficient": "0"
+    },
+    {
+      "leaves": 12,
+      "coefficient": "-691/2730"
+    },
+    {
+      "leaves": 13,
+      "coefficient": "0"
+    },
+    {
+      "leaves": 14,
+      "coefficient": "7/6"
+    }
+  ],
+  "m128_pole_radius_rational_upper": "11/224",
+  "leaf_activity": "1/16",
+  "scope": "Exact finite enumeration and algebra; analytic inputs are identified."
+}

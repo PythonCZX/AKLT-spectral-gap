@@ -1,0 +1,5 @@
+{
+  "output": "/workspace/scratch/e041a694f3ed/publication_package/supplements/results/bessel_exact.json",
+  "exact_recurrences": 40,
+  "floating_diagnostics_run": false
+}

@@ -1,0 +1,5 @@
+-r supplements/requirements.txt
+matplotlib==3.10.8
+pypdf==6.21.4
+Pillow==13.0.0
+fonttools==4.61.1

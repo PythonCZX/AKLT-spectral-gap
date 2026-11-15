@@ -1,0 +1,87 @@
+{
+  "kind": "choi",
+  "input_dimension": 2,
+  "output_dimension": 2,
+  "sandwich_lower": "1",
+  "sandwich_upper": "5/4",
+  "center_scale": "9/8",
+  "delta": "1/9",
+  "exact_positivity_proofs": {
+    "R": {
+      "valid": true,
+      "kind": "positive_definite",
+      "rank": 2,
+      "dimension": 2,
+      "pivots": [
+        {
+          "index": 0,
+          "value": "1"
+        },
+        {
+          "index": 1,
+          "value": "8/9"
+        }
+      ],
+      "zero_indices": []
+    },
+    "L": {
+      "valid": true,
+      "kind": "positive_definite",
+      "rank": 2,
+      "dimension": 2,
+      "pivots": [
+        {
+          "index": 0,
+          "value": "1"
+        },
+        {
+          "index": 1,
+          "value": "15/16"
+        }
+      ],
+      "zero_indices": []
+    },
+    "lower_residual": {
+      "valid": true,
+      "kind": "positive_semidefinite",
+      "rank": 1,
+      "dimension": 4,
+      "pivots": [
+        {
+          "index": 0,
+          "value": "1/16"
+        }
+      ],
+      "zero_indices": [
+        1,
+        2,
+        3
+      ]
+    },
+    "upper_residual": {
+      "valid": true,
+      "kind": "positive_semidefinite",
+      "rank": 4,
+      "dimension": 4,
+      "pivots": [
+        {
+          "index": 0,
+          "value": "3/16"
+        },
+        {
+          "index": 1,
+          "value": "11/48"
+        },
+        {
+          "index": 2,
+          "value": "337/1584"
+        },
+        {
+          "index": 3,
+          "value": "40/337"
+        }
+      ],
+      "zero_indices": []
+    }
+  }
+}

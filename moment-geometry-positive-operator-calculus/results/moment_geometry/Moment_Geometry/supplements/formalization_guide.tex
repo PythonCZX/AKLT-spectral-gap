@@ -1,0 +1,619 @@
+\section{Purpose, evidence, and source conventions}
+
+This guide specifies reusable interfaces for the results in
+\emph{Moment geometry and positive operator calculus}. It is intended for
+independent verification and subsequent formalization. The paper contains
+the mathematical proofs. The accompanying \path{theorem_registry.json}
+records individual statements, assumptions, dependencies, external inputs,
+and relevant executable checks. Literal identifiers such as
+\texttt{geo:sharp} are the source labels in the paper; they are not theorem
+numbers in this document. Paths are relative to the distribution root.
+
+There are four distinct kinds of evidence. A \emph{mathematical proof}
+is the argument in the paper, with the cited external theorems. An
+\emph{exact finite check} evaluates an integer, rational, cyclotomic, or
+symbolic identity for specified inputs. A \emph{certified arithmetic
+check} supplies exact inequalities or outward enclosures for a specified
+finite certificate. A \emph{numerical diagnostic} checks finite matrices
+or samples with stated tolerances. The last three categories support
+reproduction and can expose errors, but do not replace an all-degree or
+analytic proof. No complete proof-assistant verification is claimed in
+this version. In particular, a successful symbolic calculation is not a
+formal verification of the symbolic algebra system.
+
+The registry therefore uses \texttt{proof\_supplied} for the mathematical
+status and separately sets \texttt{proof\_assistant\_verified} to false.
+These are independent of whether a finite script passed. Open questions
+are stored in a separate list and are never promoted to proved records.
+
+\section{Normalization dictionary}
+
+\renewcommand{\arraystretch}{1.14}
+\begin{longtable}{@{}p{.23\linewidth}p{.72\linewidth}@{}}
+\toprule
+Object & Convention and consequence\\
+\midrule\endhead
+Projective dimension & In the entropy theorem, $X=\mathbb P^d$ has
+complex dimension $d$ and Hilbert-space dimension $D=d+1$.
+The first-moment threshold is $d/(D-H_D)$. In the measurement section,
+$d$ instead denotes Hilbert-space dimension. Thus the projective plane
+and a qutrit refer to the same rays.\\
+Moment order & $M_t(\mu)=\int P_z^{\otimes t}\,d\mu$, acting on
+$\operatorname{Sym}^t\mathbb C^D$, and a projective $t$-design has
+$M_t=I/\binom{D+t-1}{t}$. The subscripts in the prospective quantities
+$\Gamma_1,\Gamma_2$ denote constraint order, not complex dimension.\\
+Entropy and energy & $H(\mu)=D(\mu\Vert\sigma)$ relative to probability
+Fubini--Study measure. The pluricomplex energy is the Legendre energy for
+$-K_X=(d+1)H$, normalized by $E(\sigma)=0$ and $E\ge0$.
+Changing the polarization rescales this energy and its threshold.\\
+Microscopic level & On $\mathbb P^2$, sections have degree $3k$,
+$N_k=\binom{3k+2}{2}$, and
+$E_k=-(kN_k)^{-1}\log\|\Delta_k\|^2$ for the orthonormal determinant.
+Its lower bound is $-\log N_k/k$, not zero.\\
+Temperature signs & Repulsion has weight $e^{-N\beta E_k}$,
+$\beta\ge0$, and rate $H+\beta E$. Attraction has weight
+$e^{+N\gamma E_k}$ and rate $H-\gamma E$. The full attractive LDP
+is proved for $\gamma<\alpha(\omega,\sigma)$; on anticanonical
+$\mathbb P^q$ this means $\gamma<1/(q+1)$. The first-moment
+macroscopic threshold $12/7$ does not replace this microscopic range.\\
+Concentration metric & The canonical-volume estimates use
+$G_X=i\partial\bar\partial\phi_0=2\pi\omega_0$.
+The gradient and Hessian constants in the tail bounds use $G_X$;
+no extra $2\pi$ may be inserted into the empirical covariance.\\
+Calabi--Yau potential & The averaged determinant potential uses $1/k$,
+whereas the scalar mean energy uses $1/(kN)$. Center against $\mu$;
+the target equation is $(\omega+dd^c\phi)^q/V=\mu$.\\
+Toric transport & Squared homogeneous coordinates lie in the probability
+simplex. Its reference $\lambda$ is uniform probability, and
+$E(\mu)=(q+1)\inf_{\Pi(\lambda,\eta)}\int D_{\rm KL}(a\Vert p)$.
+The finite assignment bounds the phase-averaged logarithm, not each
+individual determinant.\\
+Coherent Gram matrices & Here $q$ is complex dimension, $m$ polynomial
+degree, $D_m=\binom{m+q}{q}$ ambient feature dimension, and
+$n_m/D_m\to\rho>0$. The matrix has $n_m$ rows and
+$B_{ij}=\langle z_i,z_j\rangle^m$ without an additional $D_m^{-1}$
+factor. Its limiting mean eigenvalue is one.\\
+Modular variables & $K=\log\rho$. A relative tangent is
+$A_{\rm rel}=\rho^{-1/2}\dot\rho\rho^{-1/2}$, whereas
+$Q=\dot\rho\rho^{-1}=H+A_{\rm anti}=H+iJ$. The two uses of the
+letter $A$ in different sections must be typed separately in a formal
+development. The KMS relation fixes $A_{\rm anti}$ from $H$.\\
+Clock scale & For the relative tangent,
+$D\log_\rho(\dot\rho)=f(\operatorname{ad}_{K/2})A_{\rm rel}$,
+$f(x)=x/\sinh x$. The clock generator is $G=K/2$.
+For the Hermitian part $H$ of the right logarithmic derivative it is
+$f(\operatorname{ad}_K)H$. A sampled unitary is $e^{iTG}$.
+Fractional powers in \texttt{q:thm-powers} are not trace-normalized.\\
+Three orders & Choi positivity means completely positive order between
+maps; scalar multiplier inequalities imply order of fixed-state
+quadratic forms; Loewner order of parameter information matrices is a
+third realization. The Gauss--Radau bracket does not assert positive-map
+order between distinct unital channels.\\
+Energy scale of a gap & The blocked Hamiltonian is a sum of norm-one
+complement projections. A microscopic parent has its specified local
+terms. The comparison is
+$\operatorname{gap}H_{\rm micro}\ge(g_*/m_{\rm cov})
+\operatorname{gap}H_{\rm block}$, where $g_*$ is a finite-patch gap
+and $m_{\rm cov}$ a coverage multiplicity.\\
+Ensemble access & Each source request draws one hidden pure ray from
+$\mu$ and returns $P_z^{\otimes r}$ for the requested block size $r$;
+different requests are independent. Three independent copies of the
+average state do not implement $M_3(\mu)$. The Hesse protocol uses
+$3N_3+N_1$ physical copies, trusted measurements, and fixed sample sizes.\\
+\bottomrule
+\end{longtable}
+
+\section{Geometric and analytic theorem contracts}
+
+\paragraph{Positive moment repair and energy.}
+The finite-dimensional starting point is \texttt{prop:repair}, with
+the explicit coherent dual frame \texttt{eq:repairframe} and covariance
+spectrum \texttt{an:frame-spectrum}. A qutrit probability measure with
+second-moment error $\delta$ is mixed, with retained weight
+$(1+102\delta)^{-1}$, with a measure of density in $[1/2,3/2]$ to obtain
+an exact second design. The entropy estimate is a direct consequence of
+convexity. The exact verifier is
+\path{supplements/ensembles/verify_analytic_constants.py}.
+Its finite frame identities precede the separate pluripotential theorem
+\texttt{an:dilution}, which bounds the energy retained by that positive
+mixing. Formalization should keep the moment map, the positivity of the
+repair density, and the extended-valued energy inequality as separate
+interfaces. The frame calculation alone does not prove continuity of
+energy under arbitrary weak convergence.
+
+\paragraph{Sharp first-moment threshold.}
+\texttt{geo:sharp} asserts the sharp coefficient
+$d/(d+1-H_{d+1})$ for balanced measures on $\mathbb P^d$.
+Every strictly subcritical entropy inequality holds, and every strictly
+supercritical one fails. It does not claim an endpoint inequality.
+The proof has six interfaces: balanced allocation of monomials;
+the zero moment map for a determinant-twisted minimal-jet tensor;
+a semi-invariant from geometric invariant theory; a valuation estimate
+for the balanced basis ideal; exact fixed-degree Hilbert comparison;
+and a well-conditioned coupling followed by removal of a Haar floor.
+The sharpness construction is a separate family of balanced coordinate
+caps. This separation avoids identifying a basis-ideal calculation with
+an integrability statement for the full many-particle determinant.
+
+The jet chain rule must retain all lower-order terms until minimality
+annihilates them; its cost is measured together with the Jacobian
+discrepancy on a resolving chart. The finite checks are
+\path{supplements/projective_jets/verify_jet_moment_map.py},
+\path{supplements/projective_jets/verify_projective_jet_extension.py}, and
+\path{supplements/geometry/verify_truncated_jet_chain.py}.
+They check specified weights and symbolic chains, not resolution of
+singularities or all valuations.
+
+For \texttt{geo:exact-quantization}, the precise external input is the
+Hilbert-geodesic comparison in \citet[Proposition 4.1]{geo_zhang2024}.
+The absence of an error at fixed degree is a specialization proved in
+the paper: along the weak geodesic, the auxiliary curvature is
+$M(\omega_{\rm FS}+dd^c\psi_t)+(d+1)\omega_{\rm FS}\ge0$;
+the initial Bergman density is constant; and the affine Hilbert energy
+is compared with its initial derivative. One must not import the
+general asymptotic comparison in that reference as an epsilon-free
+fixed-degree assertion. The identical specialization underlies
+\texttt{an:lower-comparison}.
+
+\paragraph{Constrained entropy and equilibrium.}
+\texttt{an:entropy-projection} assumes a finite-energy potential,
+a bounded external field, and the finite second-design moment map.
+Exponential integrability, coercivity of the finite-dimensional dual,
+and strict convexity give a unique multiplier and a unique entropy
+projection for the fixed potential. The Pythagorean identity and the
+explicit multiplier bound are useful independent formalization targets.
+The external finite-energy integrability input is
+\citet[Proposition 1.4]{BBEGZ2019}.
+
+\texttt{an:equilibrium} combines this projection with
+\texttt{geo:sharp}, the variational pluripotential theory of
+\citet{BBGZ2013}, and elliptic regularity. For smooth $W$ and
+$0\le\gamma<12/7$, the second-design free energy
+$H-\gamma E+\int W$ attains its minimum; every minimizer has a smooth
+strictly positive density solving the displayed constrained
+Monge--Amp\`ere equation. Uniform estimates apply on compact parameter
+ranges with controlled smooth fields. Uniqueness of the minimizing
+measure is not part of this theorem. The threshold $12/7$ is sufficient
+here because second designs are balanced; it is not asserted to be the
+sharp second-design threshold.
+
+\texttt{an:lower-comparison} constructs continuous finite-test envelopes
+$E_r$ with
+$E_k\ge E_r(L_N)-(2\log k+C_r)/k$ on the projective plane.
+The proof combines the exact Hilbert comparison, a local Bergman bound,
+and Hadamard's determinant inequality. The bound includes determinant
+zeros by allowing $E_k=+\infty$. Its direction is essential in the
+repulsive large-deviation proof below.
+
+\paragraph{Algebraic supports, entanglement, and surfaces.}
+\texttt{geo:cubic} classifies ternary cubic zero sets carrying a
+projective second design up to \emph{unitary} change of coordinates.
+A linear determinantal representation produces a three-qutrit tensor.
+Two-factor balancing, a rank-two matrix inequality, and the second-design
+identity force balance on the third factor. The closed-orbit Cartan
+classification for the relevant $E_6$ grading is then an essential
+external theorem, not a numerical orbit test
+\citep{geo_sauerwein2018,geo_ditrani2023}. The smooth case has the unique
+uniform Hesse measure; the triangle case retains the stated phase-measure
+freedom. Determinant and tensor identities are checked by
+\path{supplements/ensembles/verify_cubic_classification.py}.
+
+The independent support certificate \texttt{geo:hesse-bound} needs no
+prior finite-support assumption: a positive three-copy witness controls
+distance to the Hesse support, while the one-copy SIC Gram matrix
+controls its weights. The general form \texttt{geo:general-cert}
+isolates exactly these two hypotheses. The confidence statement
+\texttt{geo:confidence} additionally requires the access model in the
+dictionary and fixed-size independent trials. Exact identities are in
+\path{supplements/ensembles/verify_hesse_rigidity.py} and
+\path{supplements/ensembles/verify_hesse_ensemble_certification.py}.
+The statistical implementation evaluates binomial quantiles numerically;
+it does not supply interval-certified quantiles.
+
+\texttt{geo:singer-nef} has a different purpose: the known ten-point
+design of \citet{geo_iosue2024} does not admit the stated nef nine-point
+coupling, and its Haar dilution admits one exactly for $t\le20/21$.
+The proof uses an occupancy inequality and an explicit extremal coupling.
+\texttt{geo:k3-lattice} constructs the associated K3 surface and
+identifies its transcendental lattice as $A_2(7)$. Polynomial and
+intersection computations are finite, whereas the final lattice
+identification uses the classification of the specified symplectic and
+non-symplectic actions
+\citep{geo_garbagnati_sarti2007,geo_artebani_sarti_taki2011}.
+The supporting program is
+\path{supplements/geometry/verify_singer_nef_obstruction.py}.
+
+\paragraph{Operational contact geometry.}
+\texttt{geo:operational} concerns fixed finite outcome number. At
+$\eta_d=(H_d-1)/(d-1)$ it gives a positive neighborhood of the
+projective-simulable set; for qutrits at $5/12$ it gives the larger
+neighborhood of the convex hull of reducible POVMs. The radius is
+qualitative and may depend on the outcome number. The anisotropic
+flagged-contact inequality \texttt{geo:flag-theorem}, the negative-cusp
+lemma \texttt{geo:cusp}, and deletion of zero labels supply the compactness
+argument. \texttt{geo:boundary} classifies contacts inside these center
+classes. The exact checks in \path{supplements/qutrit/} validate angular
+identities and rational coefficient margins; they do not compute a
+universal neighborhood radius or establish simulation of every
+irreducible qutrit POVM.
+
+\section{Probability and combinatorial theorem contracts}
+
+\paragraph{Coherent spectral law.}
+\texttt{lem:coherent-graph-integral} localizes the graph integral at its
+maximal-modulus diagonal. The pinned directed Laplacian is accretive,
+and its determinant is the rooted directed spanning-tree count.
+This analytic lemma leads to \texttt{thm:coherent-spectral-law}:
+\[
+ M_p(q,\rho)=\sum_{\pi\in\mathfrak P(p)}
+       \rho^{|\pi|-1}\tau(G_\pi)^{-q}.
+\]
+Parallel directed edges must be retained; loops do not contribute to
+the Laplacian. The convention for the single-vertex tree count is one.
+The proof establishes convergence of expected moments, variance
+$O(n_m^{-1})$, moment determinacy, and convergence in probability.
+Almost-sure convergence is asserted when $\sum_m n_m^{-1}<\infty$.
+Conditioning on a finite family of bounded moments preserves the law
+when the tube width obeys $n_m\epsilon_m^2\to\infty$.
+
+\texttt{lem:tree-one-noncrossing} identifies $\tau=1$ precisely with
+noncrossing partitions. \texttt{thm:coherent-free-limit} then proves
+unbounded support at every fixed finite $q$, an entire moment-generating
+function with a Poisson-type upper bound, and convergence to the
+mean-one Marchenko--Pastur law as $q\to\infty$. The aspect-ratio weight
+is $\rho^{|\pi|-1}$; Kreweras complementation reconciles it with the
+alternative standard convention. At $q=2,\rho=1$, the fourth moment is
+$57/4$, not $14$. Directed-tree methods connect the proof to spatial
+random-matrix moment expansions \citep{prob_bordenave2008}; the
+noncrossing layer uses standard free-probability combinatorics
+\citep{prob_nica_speicher2006}.
+
+\path{supplements/probability/verify_coherent_gram_moments.py} checks
+finite graph expansions. The independent
+\path{supplements/probability/verify_probability_extensions.py} checks
+5,295 partitions through order eight, Narayana counts, 124 pairings,
+and rational aspect-ratio formulas. The arbitrary-order analytic and
+combinatorial proofs remain necessary. No positive-moment assertion
+controls eigenvalues on exponentially small scales.
+
+\paragraph{Microscopic repair and repulsive pressure.}
+\texttt{lem:conditional-replacement} is a one-coordinate inverse-moment
+estimate with exponent $s<1/3$ on the projective plane. Along projective
+lines, the polynomial factors and H\"older's inequality gives the
+constant $2/[(1-3s)(2-3s)]$. Its iteration controls the energy cost of
+replacing $m$ coordinates. In
+\texttt{prop:microscopic-moment-repair}, positive finite-dimensional
+moment repair and two conditioning steps correct a fixed design order
+at entropy cost at most $m\log(3/2)+2\log2$, with $m=o(N)$.
+The exact constants are checked in
+\path{supplements/probability/verify_microscopic_repair.py}.
+
+\texttt{thm:repulsive-design-ldp} assumes fixed design order $t$,
+tube width $N^{-a}$ with $0<a<1/2$, and fixed $\beta\ge0$.
+It proves pressure convergence for every continuous empirical-law tilt
+and the full LDP with rate $H+\beta E$ restricted to the design fibre.
+Its lower bound imports the unrestricted positive-temperature LDP in
+\citet{prob_berman2017} and uses microscopic repair. Its upper bound
+uses constrained Sanov and \texttt{an:lower-comparison}. This import is
+for a positively polarized manifold and repulsive sign; it is not an
+attractive LDP theorem. The conditioned reference has probability
+tending to one, which also justifies its use in the coherent spectral
+law.
+
+\paragraph{Attractive pressure from compact conditionals.}
+The full proof is in \path{proofs/attractive_high_temperature.tex}.
+Its reusable core is \texttt{att:quadratic-pressure}: for a reference
+$\nu=g\sigma$ with a fixed $L^p$ bound, $p>1$, the centered pressure
+satisfies $0\le p_k(t)-t\mathbb E_{\nu^N}E_k\le Ct^2$ for
+\emph{both signs} of small $t$, uniformly in $k$. Full-conditional
+entropy tensorization is essential. Importing only the repulsive
+pressure then proves \texttt{att:general-product-energy}, the actual
+product-law mean and $L^1$ energy limit. This does not assume an
+attractive limit at the input stage.
+
+For $\gamma$ below the normalized-psh exponential threshold,
+\texttt{att:directing-class} puts attractive Gibbs conditionals in a
+compact $L^r$ family with a positive lower bound. Lipschitz empirical
+tilts have compact one-coordinate increments; arbitrary continuous
+tilts are handled only after uniform approximation. The exact spatial
+coarse-graining inequality \texttt{att:coarse-entropy} and finite type
+counts yield \texttt{att:entropy-chaos}. Finite smooth reference nets
+have uniformly controlled exponential constants. The summed conditional
+entropy identity then transfers product mean energy to the actual
+Gibbs laws in \texttt{att:gibbs-energy-limit}. Conditioning on the
+reference cells need not preserve conditional regularity; only the
+original Gibbs law uses that hypothesis.
+
+\texttt{att:good-rate} writes $H-\gamma E$ as an infimum over the
+compact normalized-psh family of relative entropy against
+$e^{-\gamma u}\sigma$ minus potential energy. This reference is
+unnormalized. Joint lower semicontinuity and the strict exponential
+margin justify the infimum and treat infinite entropy without subtracting
+infinities. The same lemma gives energy recovery whenever entropy
+converges. These inputs prove \texttt{att:full-laplace} and
+\texttt{att:design-laplace}, for every continuous empirical-law tilt.
+\texttt{att:polarized-extension} covers every positive polarized compact
+complex manifold for $\gamma<\alpha(\omega,\sigma)$; fixed-order design
+tubes are asserted on projective spaces, where unitary heat averaging
+preserves the constraint. This proof is analytic; no finite matrix test
+is offered as a replacement for collective energy convergence.
+
+\paragraph{Canonical curvature and exact response.}
+\path{proofs/attractive_concentration.tex} applies H\"ormander's
+minimal-solution estimate to top-degree forms valued in the
+anticanonical bundle \citep{Hormander1965}. The regularized determinant
+metric retains curvature at least $(1-\gamma)G_M$.
+\texttt{ac:variance}, \texttt{ac:concentration}, and \texttt{ac:tubes}
+hold whenever $\gamma<1$ and the finite-level partition exists;
+\texttt{ac:integrability} supplies the unconditional range
+$\gamma<1/(q+1)$. The exact Ward identity \texttt{ac:ward}
+comes from infinitesimal projective transformations and fixes the
+first-moment covariance. These assertions must distinguish integrability
+from curvature. Combined with the full LDP, exponential separation
+proves \texttt{att:haar-minimizer}: pressure zero and the unique Haar
+minimizer in the proved projective range. Mere empirical convergence
+would not establish uniqueness of the rate-zero set.
+
+\paragraph{Toric assignment certificates.}
+\path{proofs/toric_assignment.tex} gives an independent constructive
+bridge. \texttt{tor:vertices} exposes every assignment monomial by a
+sum-of-squares separation and uses one-circle Jensen to bound the
+phase-averaged log determinant. Exact multinomial modal probabilities
+give \texttt{tor:finite-certificate}, with error at most
+$2\log N/k$ in the energy. \texttt{tor:cost-limit} permits logarithmic
+boundary singularities under the explicit integrability assumption
+$\int\sum_j-\log p_j\,d\eta<\infty$; its truncated-cost proof controls
+all couplings by one marginal tail. Toric Legendre duality and
+Kantorovich duality identify the limit in \texttt{tor:energy-transport}
+\citep{BermanWittNystrom2014,BBGZ2013}. Neither these phase-average
+bounds nor positive spectral moments imply angular inverse-moment
+bounds. The general product-energy theorem and this assignment formula
+have different purposes: one supplies the LDP input, the other an
+explicit optimization problem.
+
+\paragraph{The nonlinear Green formula and interpolation sampling.}
+\path{proofs/nonlinear_green.tex} addresses the determinant instance of
+\citet[Problem 4.10 and Conjecture 6.1]{prob_berman2017}.
+In \texttt{cy:finite-convexity}, retain $N-2$ evaluation rows and reduce
+the remaining determinant to a two-section pencil. The exact Hessian
+\texttt{cy:hessian-hierarchy} is $(N-1)/k$ times an average of
+$\sum_{j\ge1}j^{-1}\|\int P^{\otimes j}\,d\eta\|_{\rm HS}^2$.
+Signed logarithmic integrability justifies the positive series; fixed
+bases must be used when varying the reference volume. Convex derivative
+convergence and normalized-psh compactness prove
+\texttt{cy:green-formula}. Yau's theorem identifies the limit
+\citep{Yau1978}; uniform exponential tails give every finite $L^p$
+topology. The equation is $(\omega+dd^c\phi)^q/V=\mu$, with
+$V=\int\omega^q$ and $\int\phi\,d\mu=0$.
+
+\texttt{cy:interpolation-sampling} averages the zero divisor of the
+section through $N-1$ independent points. Its currents converge weakly.
+Mean-zero section potentials have squared $L^2$ sampling error at most
+$2C_a(\mu)/(a^2M)$; $J$ independent calibration points per section
+replace exact centering with the factor $1+1/J$. Evaluation of sections,
+the Hermitian norm, and independent sample access to $\mu$ are the
+specified inputs. The polynomial-level bias has no effective rate, and
+no convergence of finite Hessians or of metric derivatives is claimed.
+The zero-free hypothesis used for the conditional predecessor in
+\citet[Theorems 3.2--3.3]{Berman2023zeta} is not a theorem input here.
+
+\paragraph{Ordered logarithms.}
+\texttt{op:heap} expresses the logarithm coefficient of a heap through
+the derivative of its order polynomial, or equivalently a signed
+descent sum over linear extensions. The dependence relation is symmetric
+and reflexive, and the identity is a formal graded identity. Standard
+heap theory and order-polynomial theory supply its algebraic foundations
+\citep{CartierFoata1969,Viennot1986,Stanley1986}.
+The finite example \texttt{op:root-response} demonstrates that a scalar
+polymer bound does not by itself control the absolute ordered Taylor
+series. This is a limitation on that inference, not a failure of the
+positive resummation used next.
+
+\section{Positive operator calculus and gap contracts}
+
+\paragraph{Clocks, metrics, and finite certificates.}
+For Hermitian $G$, \texttt{op:hyperbolic-clock} identifies
+$(\operatorname{ad}_G/\sinh\operatorname{ad}_G)^\tau$ with a positive
+Gamma-subordinated heat channel for every $\tau\ge0$.
+All ordinary operator-norm error estimates remain valid with an
+arbitrary ancillary identity channel. The mean-corrected truncation
+uses a fourth nested commutator, not a global bandwidth estimate.
+The probability input is the infinitely divisible hyperbolic product
+\citep{PitmanYor2003}.
+
+\texttt{op:metric-range} identifies exactly the Bessel parameters
+$\nu\ge-1/2$ for which the associated mean is operator monotone.
+The proof uses a positive beta mixture of powers; the converse violates
+operator concavity. Petz's correspondence supplies the metric
+interpretation \citep{Petz1996,HiaiKosakiPetzRuskai2013}.
+For \texttt{op:quadrature-theorem}, the input measure must be positive
+with bounded support and the required nondegenerate moment matrices.
+Gaussian and Radau interpolation yield positive finite clocks and
+observable-specific commutator errors. Finite-support degeneracies
+terminate exactly. The derived \texttt{op:information-bracket} is a
+fixed-state information-matrix bound; it does not declare every
+approximating rule a globally monotone metric.
+
+Reusable checks are the following programs.
+\begin{itemize}[nosep]
+\item \path{supplements/modular/positive_bessel_filters.py}
+\item \path{supplements/modular/finite_arithmetic_certificate.py}
+\item \path{supplements/modular/local_commutator_certificate.py}
+\item \path{supplements/modular/score_and_metric_audit.py}
+\end{itemize}
+The first supplies exact recurrence checks and separate diagnostics;
+the second isolates algebraic nodes by Sturm intervals and budgets
+rounding errors; the third combines Pauli coefficients before bounding
+commutator norms. \path{supplements/modular/lee_yang_compiler.py}
+exhibits the positive-zero-measure interface beyond the Bessel family.
+
+\paragraph{Compatible response and its boundaries.}
+\texttt{q:thm-powers} proves the exact response of unnormalized
+fractional powers along faithful differentiable matrix paths.
+The Hermitian and anti-Hermitian filters are completely positive with
+norms $r$ and $r^2$, respectively, for $0\le r\le1$.
+Their arguments are compatible through
+$Q^*=e^{-\operatorname{ad}_K}Q$; they cannot be prescribed independently.
+\texttt{q:prop-rotation} represents the logarithmic response as
+$\dot K=H+i[C,K]$ with $\|C\|\le\|J\|/3$.
+The finite response and obstruction checks are in
+\path{supplements/modular_response/verify_power_response_and_obstructions.py}.
+
+The explicit examples \texttt{q:prop-ratio-obstruction} and
+\texttt{q:prop-filter-obstruction} are distinct results.
+Local conditional ratios do not force exact locality of a logarithmic
+difference, and an operator-norm CP contraction does not force a bound
+in the same weighted interaction norm. Neither example rules out
+spatial decay under additional dynamical or geometric hypotheses.
+
+\paragraph{Network gaps and microscopic transfer.}
+\texttt{q:thm-wire-gap} assumes finite simple graphs, nonzero cores,
+full-Schmidt-rank bonds, and explicit CP sandwiches of each wire by a
+faithful rank-one map. The two-port estimate \texttt{q:lem-schur}
+converts these sandwiches into subspace angles, independently of core
+condition number. A nonnegative conflict matrix $C$ with $\rho(C)<1$
+gives blocked gap at least $1-\rho(C)$.
+\texttt{q:lem-seed} transfers this result only when each selected
+microscopic patch has the stated ground image and finite gap $g_*>0$.
+
+\texttt{q:cor-aklt} verifies these hypotheses for the specified
+decorated AKLT networks of maximum degree $\Delta$ and even decoration
+$n=2\ell$. The transfer radius is
+$2/[3^\ell+(-1)^\ell]$. The sufficient logarithmic decoration estimate
+is uniform in graph size, while its physical gap retains the finite-patch
+factor. This does not assert a gap for every undecorated AKLT lattice.
+The core-independent channel estimate and the polynomial
+ground-space argument should be formalized separately.
+The reusable certificate is
+\path{supplements/networks/channel_gap_compiler.py}, with exact tests
+in \path{supplements/networks/test_channel_gap_compiler.py}.
+\path{supplements/networks/verify_two_port_schur_angle.py} is a bounded
+floating diagnostic, not the proof of the quotient-metric lemma.
+
+\texttt{q:thm-oblique} is an independent certificate for commuting
+idempotents, expressed through their adjoint commutators and
+orthogonalization. \texttt{q:cor-filtered} specializes it to bounded,
+local, invertible product filters of commuting projectors. Here locality
+comes from the supplied product structure; it is not inferred from a
+generic modular conjugation.
+
+\section{Fields and their essential interfaces}
+
+The following catalogue distinguishes mathematical inputs by the work
+they perform. Several broad subjects appear more than once because their
+specific interfaces have different formalization requirements.
+
+{\small
+\begin{longtable}{@{}p{.29\linewidth}p{.66\linewidth}@{}}
+\toprule
+Field or subfield & Essential role in the results\\
+\midrule\endhead
+Coherent-state quantization; projective designs & Converts pure-state
+ensembles into finite tensor moments; defines the constrained fibres.\\
+Unitary representation theory; harmonic decomposition & Diagonalizes
+the qutrit coherent covariance into dimensions $1,8,27$ and constructs
+positive moment repair.\\
+Convex duality; relative entropy & Gives exponential projections,
+Pythagorean identities, multiplier coercivity, and variational pressure.\\
+Pluripotential theory; complex Monge--Amp\`ere energy & Defines the
+energy beyond smooth densities and supplies mixing, compactness, and
+variational equilibrium.\\
+K\"ahler geodesics; Bergman quantization & Converts fixed-degree
+determinant estimates into an exact comparison with continuous energy.\\
+Elliptic PDE; nonlinear regularity & Promotes finite-energy equilibria
+to smooth positive constrained solutions with uniform estimates.\\
+Integral flows; symmetric monomial allocation & Balances local jet
+data in every degree in the sharp entropy proof.\\
+Geometric invariant theory; moment maps & Turns balanced jet and
+three-qutrit tensors into nonzero semi-invariants or closed orbits.\\
+Valuations; discrepancies; log-canonical thresholds & Bounds the
+integrability of balanced basis ideals through resolving charts.\\
+Determinantal representations; Hermitian rank inequalities & Converts
+cubic support and second moments into full tensor balance.\\
+Exceptional Lie theory; Vinberg Cartan theory & Classifies the balanced
+$3\times3\times3$ tensors through the order-three grading of $E_6$.\\
+Plane cubics; Hesse pencils; Fourier analysis on circles & Identifies
+the smooth and triangle support cases and their admissible measures.\\
+Cyclotomic design theory; character sums & Verifies the weighted
+ten-point second design and its vanishing cubics exactly.\\
+Algebraic surfaces; intersection theory; nef cones & Converts incidence
+multiplicities into the exact nine-point coupling obstruction.\\
+K3 surfaces; integral lattices; finite automorphisms & Identifies the
+cyclic-cover surface and its transcendental lattice $A_2(7)$.\\
+Optimal transport; finite frames & Turns a positive support witness
+and an injective weight map into robust ensemble distance bounds.\\
+Statistical testing; quantum state ensembles & Converts matched-copy
+measurements into finite-sample confidence bounds.\\
+Large deviations; entropy methods; conditioning & Establishes both
+repulsive and subcritical attractive pressure on shrinking design tubes.\\
+Entropy tensorization; finite types; exchangeability & Converts compact
+full conditionals into exact limiting entropy and collective Gibbs energy.\\
+Plurisubharmonic compactness; exponential integrability & Controls both
+signs of the small-coupling pressure and supplies attractive good rates.\\
+Anticanonical curvature; $L^2$ methods; Ward identities & Gives explicit
+empirical concentration and exact first-moment covariance.\\
+Newton polytopes; Jensen--Mahler theory; assignment optimization & Bounds
+the phase-averaged determinant by its exposed assignment monomials.\\
+Toric Legendre duality; unbounded optimal transport & Identifies actual
+Slater energy with a relative-entropy transport cost on the simplex.\\
+Calabi--Yau equations; nonlinear Green representation & Recovers inverse
+Monge--Amp\`ere potentials from coherent-moment Hessians and mean energy.\\
+Random interpolation; divisor currents; Hilbert-space Monte Carlo &
+Gives a sample-only potential estimator and a uniform variance certificate.\\
+Spatial random matrices; complex Laplace asymptotics & Computes the
+coherent Gram law through diagonal localization of graph integrals.\\
+Directed graph theory; matrix-tree theorem & Supplies the exact rooted
+cofactor weights in every limiting spectral moment.\\
+Free probability; noncrossing partitions & Identifies the large-complex-
+dimension limit as Marchenko--Pastur and separates crossing corrections.\\
+Partially commutative algebra; heaps; poset polynomials & Keeps the
+signs and order in logarithmic cluster coefficients.\\
+Infinite divisibility; subordinators; special functions & Represents
+hyperbolic and Bessel response filters by positive random times.\\
+Orthogonal polynomials; positive quadrature; real algebra & Compresses
+clocks with signed errors, positive weights, and exact node isolation.\\
+Operator means; monotone quantum metrics & Identifies the metric range
+and interprets the fixed-state information brackets.\\
+POVM convex geometry; contact analysis; steering & Proves uniform
+simulation neighborhoods and classifies their boundary contacts.\\
+Completely positive maps; Choi order; modular analysis & Preserves
+positivity under response filters and controls primitive wire maps.\\
+Frustration-free quantum systems; tensor-network geometry & Converts
+local channel information into overlap angles and spectral gaps.\\
+Subspace geometry; oblique projections & Supplies compatible-idempotent
+gap estimates and filtered commuting-projector stability.\\
+Polynomial divisibility; unique factorization & Identifies the AKLT
+finite-patch ground space required for microscopic gap transfer.\\
+\bottomrule
+\end{longtable}}
+
+\section{Reproduction and a formalization order}
+
+From \path{supplements/}, run \path{verify_all.py} with the supplied
+dependency versions. The optional \texttt{-{}-include-diagnostics} switch
+adds bounded floating checks; Monte Carlo requires a separate explicit
+option. The aggregate record \path{supplements/results/verification_report.json}
+contains commands, arithmetic classes, versions, hashes, and output paths.
+Individual scripts and their finite domains are listed in the README.
+Assertions must remain enabled. An omitted optional arithmetic backend
+is recorded as an omission, rather than as a successful certificate.
+
+A useful formalization order begins with finite interfaces: coherent
+moments, rational polynomial identities, graph cofactors, Choi positivity,
+and exact quadrature transcripts. It then treats the finite-dimensional
+general lemmas---entropy projection, operator divided differences,
+completely positive functional calculus, subspace angles, and coupling
+inequalities. The next layer formalizes the all-degree combinatorics,
+the local graph asymptotic, and variational convergence. Resolution,
+K\"ahler-geodesic comparison, complex Monge--Amp\`ere regularity, and
+the quoted orbit and lattice classifications should remain explicit
+external theorem interfaces until their libraries are available.
+This order allows finite certificates to be independently checked
+without pretending that they settle the analytic dependencies.
+
+Two future targets remain separate from this ledger. Extending the
+attractive determinant LDP to a neighborhood of $\gamma=1$ requires
+collective control beyond the scalar section-integrability mechanism.
+The exact sharp threshold on the second-design fibre requires further
+geometric input. The proved attractive interval, the first-moment
+coefficient, and the positive Gram moment law do not settle either target.

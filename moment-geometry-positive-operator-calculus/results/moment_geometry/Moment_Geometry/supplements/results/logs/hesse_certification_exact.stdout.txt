@@ -1,0 +1,5 @@
+{
+  "exact_checks_passed": 18,
+  "numerical_minimum_margins": null,
+  "output": "/workspace/scratch/e041a694f3ed/publication_package/supplements/results/hesse_exact.json"
+}

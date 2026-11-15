@@ -1,0 +1,15 @@
+{
+  "output": "/workspace/scratch/e041a694f3ed/publication_package/supplements/results/coherent_gram_exact.json",
+  "moments": [
+    "1",
+    "2",
+    "5",
+    "57/4",
+    "89/2",
+    "21457/144",
+    "19007/36",
+    "5652121/2880",
+    "690178117/90720"
+  ],
+  "partitions_checked": 26442
+}

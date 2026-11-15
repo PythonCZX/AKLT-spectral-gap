@@ -1,0 +1,52 @@
+{
+  "channels": {
+    "short": {
+      "kind": "aklt",
+      "length": 2
+    }
+  },
+  "edges": [
+    {
+      "id": "e0",
+      "u": "v0",
+      "v": "v1",
+      "ports": {
+        "v0": "short",
+        "v1": "short"
+      }
+    },
+    {
+      "id": "e1",
+      "u": "v1",
+      "v": "v2",
+      "ports": {
+        "v1": "short",
+        "v2": "short"
+      }
+    },
+    {
+      "id": "e2",
+      "u": "v2",
+      "v": "v3",
+      "ports": {
+        "v2": "short",
+        "v3": "short"
+      }
+    },
+    {
+      "id": "e3",
+      "u": "v3",
+      "v": "v4",
+      "ports": {
+        "v3": "short",
+        "v4": "short"
+      }
+    }
+  ],
+  "certificate_weights": {
+    "e0": "5",
+    "e1": "8",
+    "e2": "8",
+    "e3": "5"
+  }
+}

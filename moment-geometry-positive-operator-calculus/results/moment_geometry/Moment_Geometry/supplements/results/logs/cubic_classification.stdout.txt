@@ -1,0 +1,31 @@
+{
+  "haar_coefficient_identities": {
+    "2x2x2": 24,
+    "2x2x3": 60,
+    "2x2x4": 112,
+    "3x3x2": 351,
+    "3x3x3": 864,
+    "3x3x4": 1602,
+    "4x4x2": 1200,
+    "4x4x3": 2976,
+    "4x4x4": 5536
+  },
+  "moore_determinant": true,
+  "all_singular_irreducible_representations": true,
+  "cartan_all_three_marginals_scalar": true,
+  "singular_hesse_orthogonal_triangle": true,
+  "triangle_first_two_fourier_conditions_suffice": true,
+  "hesse_nine_exact_second_moment": true,
+  "critical_integer_pairs_through_100": [
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      2
+    ]
+  ],
+  "critical_integer_pair_exhaustion": "(n-2)(d-1)=2",
+  "status": "All exact checks passed."
+}

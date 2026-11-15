@@ -1,0 +1,13 @@
+{
+  "status": "certified",
+  "N": 10,
+  "phase_mean_energy_enclosure": "[+/- 3.11]",
+  "finite_checks": {
+    "exposure_assignments": 720,
+    "minimum_positive_exposure_gap": 1,
+    "exact_multinomial_modes": 319,
+    "exhaustive_assignment_comparisons": 720,
+    "incorrect_assignment_rejected": true
+  },
+  "output": "/workspace/scratch/e041a694f3ed/publication_package/supplements/probability/toric_assignment_certificate.json"
+}

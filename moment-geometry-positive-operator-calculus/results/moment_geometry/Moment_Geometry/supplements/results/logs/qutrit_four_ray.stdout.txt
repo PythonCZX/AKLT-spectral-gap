@@ -1,0 +1,19 @@
+{
+  "adjacent_facet_squared_identity": true,
+  "lifted_vertical_deficit": true,
+  "paired_deficit_identity": true,
+  "final_sum_of_squares": true,
+  "q_derivative_sign_identity": true,
+  "N_derivative": true,
+  "coefficient_comparisons": true,
+  "middle_gap_coefficient": true,
+  "middle_gap_endpoint": true,
+  "middle_gap_strict_margin": "-623/100 + 18*sqrt(3)/5",
+  "two_large_gap_polynomial": true,
+  "two_large_gap_quadratic_discriminant": -47,
+  "radial_K_rational_bound": true,
+  "available_t_lower_bound": "2767/2970",
+  "margin_above_nine_tenths": "47/1485",
+  "all_checks_passed": true,
+  "scope": "Exact algebra only; geometric signs and analytic inequalities are proved in the companion note."
+}

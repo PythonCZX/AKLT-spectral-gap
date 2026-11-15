@@ -1,0 +1,346 @@
+\section{Directed trees and coherent-state spectral laws}
+\label{sec:coherent-spectrum}
+
+A projective coherent state carries considerably more structure than an
+isotropic random vector in its ambient Hilbert space.  This distinction
+survives when the number of samples and the Hilbert-space dimension grow
+at the same rate.  We describe the resulting spectral law by a sum over
+set partitions.  Its weights are directed spanning-tree counts.  The
+noncrossing partitions familiar from free probability emerge precisely
+when the complex dimension tends to infinity.
+
+This is a spatial-kernel moment calculation, in the sense of the
+Euclidean random-matrix framework of Bordenave~\cite{prob_bordenave2008}.
+The coherent phase is retained: after rescaling it produces a directed,
+rather than a symmetric, graph Laplacian.  Lowest-Landau-level random
+impurity models provide a related one-complex-dimensional setting
+\cite{prob_brezin1984}.  We give a direct proof on projective space,
+including arbitrary fixed sampling density.
+
+\subsection{The spectral law at fixed dimension and sampling density}
+
+Fix a positive integer $q$ and write
+\[
+ D_m=\dim H^0(\mathbb P^q,\mathcal O(m))=\binom{m+q}{q}.
+\]
+Let $n=n_m$ satisfy $n_m/D_m\longrightarrow\rho\in(0,\infty)$.
+Choose independent Fubini--Study distributed rays $z_1,\ldots,z_n$
+in $\mathbb P^q$ and arbitrary unit lifts.  Their degree-$m$ coherent
+Gram matrix and empirical spectral measure are
+\begin{equation}
+ B^{(m)}_{ij}=\langle z_i,z_j\rangle^m,
+ \qquad
+ \nu_m=\frac1n\sum_{j=1}^n\delta_{\lambda_j(B^{(m)})}.
+ \label{eq:coherent-gram-definition}
+\end{equation}
+Changing the phases of the lifts gives a diagonal unitary conjugation.
+In particular, the spectrum is intrinsic.  Moreover, $B^{(m)}\geq0$
+and $B^{(m)}_{ii}=1$.
+
+For a set partition $\pi$ of $\{1,\ldots,p\}$, identify the vertices
+of the directed cycle $1\to2\to\cdots\to p\to1$ according to the
+blocks of $\pi$.  Denote the resulting directed multigraph by $G_\pi$.
+Parallel edges are retained.  Loops contribute nothing to its
+outdegree Laplacian
+\[
+ L_{aa}=\sum_{b\ne a}n_{ab},\qquad L_{ab}=-n_{ab}\quad(a\ne b).
+\]
+The graph is connected and Eulerian.  Its rooted cofactor
+$\tau(G_\pi)=\det L^{(o)}$ is the number of directed spanning
+in-arborescences rooted at $o$.  It is a positive integer and is
+independent of $o$.  The one-vertex cofactor is defined to be one.
+
+\begin{theorem}[Coherent spectral law]
+\label{thm:coherent-spectral-law}
+There is a unique probability measure $\nu_{q,\rho}$ on $[0,\infty)$
+whose positive integer moments are
+\begin{equation}
+ M_p(q,\rho)=
+ \sum_{\pi\in\mathfrak P(p)}
+       \rho^{|\pi|-1}\tau(G_\pi)^{-q}.
+ \label{eq:coherent-tree-moments}
+\end{equation}
+For every fixed $p\geq1$,
+\[
+ \mathbb E\!\int x^p\,d\nu_m\longrightarrow M_p(q,\rho),
+ \qquad
+ \operatorname{Var}\!\left(\int x^p\,d\nu_m\right)=O_p(n_m^{-1}).
+\]
+Consequently $\nu_m$ converges weakly in probability to
+$\nu_{q,\rho}$, with convergence in probability of every fixed
+positive integer moment.  If $\sum_m n_m^{-1}<\infty$, these
+convergences hold almost surely on any probability space carrying
+the rows.  In particular this applies along all degrees when $q\geq2$.
+
+The same assertions hold after conditioning on any fixed finite
+collection of bounded empirical moments lying within distance
+$\epsilon_m$ of their Fubini--Study expectations, provided
+$n_m\epsilon_m^2\to\infty$.
+\end{theorem}
+
+The first four limiting moments are
+\begin{align}
+ M_1&=1,& M_2&=1+\rho,& M_3&=1+3\rho+\rho^2,\notag\\
+ M_4&=1+(6+2^{-q})\rho+6\rho^2+\rho^3.
+ \label{eq:coherent-first-moments}
+\end{align}
+At unit sampling density and complex dimension two they are
+$1,2,5,57/4$.  The sole crossing partition of four positions,
+$\{\{1,3\},\{2,4\}\}$, has two directed spanning trees and
+accounts for the excess $2^{-q}\rho$ in the fourth moment.
+
+\fig{fig06_gram_trees}{Directed trees distinguish coherent Gram spectra
+from the free limit. (a) Identifying equal-colored vertices of the directed
+four-cycle for the crossing partition gives two directed spanning trees.
+(b) At unit sampling density the fourth limiting moment is
+$14+2^{-d}$; complex dimension two gives $57/4$. (c) Exact integer
+cofactor enumeration gives the relative excess $M_p/C_p-1$ over Catalan moments at orders
+four through seven. The excess decreases as complex dimension grows,
+while higher moments retain more crossing contributions at fixed
+dimension. The figure uses exact partition formulas, without sampled
+eigenvalue data; $d$ in its axes is the complex dimension denoted $q$ in
+the text.}{fig:gram}
+
+\begin{lemma}[The local graph integral]
+\label{lem:coherent-graph-integral}
+Let $G$ be a fixed connected Eulerian directed multigraph on $r$
+vertices, with multiplicities $n_{ab}$.  Then
+\begin{equation}
+ I_m(G):=\int\prod_{a,b}\langle z_a,z_b\rangle^{m n_{ab}}
+                   \,d\sigma(z_1)\cdots d\sigma(z_r)
+ =D_m^{-(r-1)}\tau(G)^{-q}(1+o(1)).
+ \label{eq:coherent-graph-integral}
+\end{equation}
+Furthermore $|I_m(G)|\leq C_GD_m^{-(r-1)}$ for all sufficiently
+large $m$.
+\end{lemma}
+
+\begin{proof}
+The Eulerian condition makes the integrand independent of the lifts.
+Unitary invariance permits fixing $z_1=[1:0:\cdots:0]$.  The
+integrand has modulus at most one, with equality only when all rays
+coincide.  Indeed equality forces the endpoints of every edge to
+coincide projectively, and the graph is connected.  Away from a
+fixed neighborhood of this point, the integral is exponentially
+small in $m$.
+
+For the remaining rays use the lifts
+$(1,w_a)/(1+|w_a|^2)^{1/2}$, with $w_1=0$.  The integrand near
+zero is $\exp(m\Psi(w))$, where
+\[
+ \Psi(w)=\sum_{a,b}n_{ab}\log(1+\overline w_a\cdot w_b)
+       -\sum_a\left(\sum_b n_{ab}\right)\log(1+|w_a|^2).
+\]
+The Eulerian identity equates indegrees with outdegrees and accounts
+for the second sum.  For each of the $q$ complex coordinate
+directions the quadratic term is $-\overline w^{\,T}L^{(1)}w$.
+The Hermitian part of $L^{(1)}$ is the positive definite pinned
+Laplacian with undirected edge weights $(n_{ab}+n_{ba})/2$.
+Consequently $\operatorname{Re}\Psi(w)\leq-c\sum_a|w_a|^2$
+on a sufficiently small neighborhood.
+
+The affine Fubini--Study density is
+$(q!/\pi^q)(1+|w|^2)^{-(q+1)}d^{2q}w$.
+After $w_a=m^{-1/2}\xi_a$, Gaussian domination gives
+\[
+ I_m(G)=(q!)^{r-1}m^{-q(r-1)}\det(L^{(1)})^{-q}(1+o(1)).
+\]
+Here we used
+$\int_{\mathbb C^s}e^{-\overline\xi^{\,T}A\xi}d^{2s}\xi
+=\pi^s/\det A$ when the Hermitian part of $A$ is positive
+definite.  This identity follows by unitary Schur triangularization
+and successive one-variable Gaussian integration.  Since
+$D_m\sim m^q/q!$, the asserted asymptotic follows.  The same
+Gaussian domination and the exponentially small exterior contribution
+give the uniform bound.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:coherent-spectral-law}]
+Expanding the trace according to equality patterns of particle
+indices gives the exact identity
+\begin{equation}
+ \mathbb E\frac1n\operatorname{tr}\bigl[(B^{(m)})^p\bigr]
+ =\sum_{\pi\in\mathfrak P(p)}
+       \frac{(n)_{|\pi|}}n I_m(G_\pi).
+ \label{eq:coherent-exact-trace-expansion}
+\end{equation}
+For a partition with $r$ blocks, Lemma~\ref{lem:coherent-graph-integral}
+and $n/D_m\to\rho$ give its limit
+$\rho^{r-1}\tau(G_\pi)^{-q}$.
+
+For the variance, expand two trace words.  Disjoint label sets have
+zero covariance.  When the words share at least one label, their
+combined graph is connected and Eulerian.  If it has $r$ vertices,
+its integral is $O(D_m^{-(r-1)})$ and there are $O(n^r)$ labelings.
+The two trace normalizations leave $O(n^{-1})$.  Products of the
+separate means have the same or smaller order: if the separate words
+use $r_1,r_2$ vertices and share $s\geq1$, then
+$r=r_1+r_2-s$, giving $O(n^{-s})$.  There are only finitely many
+patterns for fixed $p$.
+
+The spectral measures are tight since their first moments equal one.
+The bounds on higher moments imply uniform integrability of every
+lower moment.  Thus subsequential limits of the expected spectral
+measures exist and have all the displayed moments.  Since
+$\tau\geq1$,
+\[
+ M_{2p}(q,\rho)
+ \leq \max(1,\rho^{2p-1})(2p)^{2p}.
+\]
+Carleman's criterion gives uniqueness of the moment problem.
+The variance estimate then gives weak and moment convergence in
+probability.  Chebyshev's inequality and Borel--Cantelli give the
+almost-sure assertion whenever $\sum_m n_m^{-1}<\infty$; no
+independence between different rows is required.
+
+For the final assertion let $\Omega_m$ be the prescribed moment
+event.  Boundedness and independence give
+$\Pr(\Omega_m^c)=O((n_m\epsilon_m^2)^{-1})=o(1)$.
+For $T_{m,p}=n_m^{-1}\operatorname{tr}\bigl[(B^{(m)})^p\bigr]$,
+\[
+ \mathbb E\bigl[|T_{m,p}-\mathbb ET_{m,p}|^2\mid\Omega_m\bigr]
+ \leq\frac{\operatorname{Var}(T_{m,p})}{\Pr(\Omega_m)}
+ =O_p(n_m^{-1}).
+\]
+This proves the same concentration, moment convergence, and
+summability assertions for the conditioned rows.
+\end{proof}
+
+\subsection{Unbounded support and the emergence of noncrossing partitions}
+
+The fixed-dimensional laws are not simply Marchenko--Pastur laws with
+a shifted parameter.  Their support is unbounded, even though the
+large-dimension limit has compact support.
+
+\begin{lemma}[The noncrossing layer]
+\label{lem:tree-one-noncrossing}
+For a cycle quotient, $\tau(G_\pi)=1$ if and only if $\pi$ is
+noncrossing in the cyclic order.
+\end{lemma}
+
+\begin{proof}
+A noncrossing partition with more than one block has a proper interval
+block.  Its quotient vertex has one nonloop incoming edge and one
+nonloop outgoing edge.  Deleting this vertex and joining these edges
+is a series reduction with Laplacian diagonal entry one; a Schur
+complement shows that a cofactor rooted elsewhere is unchanged.
+Induction ends with the one-vertex graph.
+
+Conversely, a crossing supplies blocks $a,b$ occurring in order
+$a,\ldots,b,\ldots,a,\ldots,b$.  At least two intervals between
+consecutive occurrences of $a$ contain $b$.  Follow each interval
+to its first $b$ and erase internal cycles.  This gives two simple
+directed paths from $a$ to $b$ with distinct initial edges; parallel
+edges are distinguished.  Each extends to an in-arborescence rooted
+at $b$, by attaching remaining vertices along paths to the current
+tree.  Such paths exist because a connected Eulerian graph is
+strongly connected.  The two arborescences choose different outgoing
+edges at $a$, so $\tau\geq2$.
+\end{proof}
+
+\begin{theorem}[Support, exponential moments, and the free limit]
+\label{thm:coherent-free-limit}
+For every finite positive integer $q$ and $\rho>0$, the support of
+$\nu_{q,\rho}$ is unbounded.  Nevertheless its moment-generating
+function is entire, and for $t\geq0$,
+\begin{equation}
+ \int e^{tx}\,d\nu_{q,\rho}(x)
+ \leq1+\frac{\exp\{\rho(e^t-1)\}-1}{\rho}.
+ \label{eq:coherent-entire-bound}
+\end{equation}
+In particular, for $R\geq\rho$,
+\begin{equation}
+ \nu_{q,\rho}([R,\infty))
+ \leq\max(1,\rho^{-1})
+       \exp\{-R\log(R/\rho)+R-\rho\}.
+ \label{eq:coherent-poisson-tail}
+\end{equation}
+As $q\to\infty$ through integers, $\nu_{q,\rho}$ converges weakly
+and in every fixed positive moment to the mean-one
+Marchenko--Pastur law of aspect ratio $\rho$.
+\end{theorem}
+
+\begin{proof}
+Consider all partitions of $2r$ positions into pairs.  Each quotient
+vertex has outdegree at most two, after ignoring loops.  An
+in-arborescence chooses one outgoing edge at every nonroot vertex,
+so $\tau\leq2^{r-1}$.  There are $(2r-1)!!$ pair partitions.
+Equation~\eqref{eq:coherent-tree-moments} therefore gives
+\begin{equation}
+ M_{2r}(q,\rho)
+ \geq (2r-1)!!\left(\frac{\rho}{2^q}\right)^{r-1}.
+ \label{eq:coherent-pairing-lower-bound}
+\end{equation}
+The $2r$-th root of the right side diverges with $r$.  A probability
+measure with bounded support could not satisfy this inequality.
+
+For the upper bound let
+$T_p(\rho)=\sum_{\pi\in\mathfrak P(p)}\rho^{|\pi|}$
+be the Touchard polynomial.  For $p\geq1$,
+$M_p(q,\rho)\leq T_p(\rho)/\rho$.
+The exponential generating function
+$\sum_{p\geq0}T_p(\rho)t^p/p!=\exp\{\rho(e^t-1)\}$,
+together with monotone convergence, proves
+\eqref{eq:coherent-entire-bound}.  Finiteness for every $t\geq0$
+also gives an entire complex moment-generating function.  The right
+side of \eqref{eq:coherent-entire-bound} is at most
+$\max(1,\rho^{-1})\exp\{\rho(e^t-1)\}$.
+Markov's inequality with $t=\log(R/\rho)$ proves
+\eqref{eq:coherent-poisson-tail}.
+
+Finally, Lemma~\ref{lem:tree-one-noncrossing} gives
+\[
+ M_p(q,\rho)=
+ \sum_{\pi\in NC(p)}\rho^{|\pi|-1}
+ +\sum_{\pi\notin NC(p)}\rho^{|\pi|-1}\tau(G_\pi)^{-q}.
+\]
+The second sum is at most
+$2^{-q}\sum_{\pi\notin NC(p)}\rho^{|\pi|-1}$.
+The first is the $p$-th mean-one Marchenko--Pastur moment:
+Kreweras complementation interchanges the exponents $|\pi|-1$
+and $p-|\pi|$ in the usual noncrossing formula
+\cite{prob_nica_speicher2006}.  The uniform Touchard bounds yield
+tightness and uniform integrability of fixed moments.  Moment
+determinacy of the compactly supported limiting law completes the
+proof.
+\end{proof}
+
+\subsection{Finite-degree identities and the logarithmic scale}
+
+The first moments admit simple exact checks before taking a limit.
+With $D=D_m$ and $D'=D_{2m}$, the identities
+$\int P_z^{\otimes m}d\sigma=I/D$ and
+$\int|\langle z,w\rangle|^{4m}d\sigma(w)=1/D'$ imply
+\begin{align}
+ \mathbb E T_{m,2}&=1+\frac{n-1}{D},\notag\\
+ \mathbb E T_{m,3}&=1+\frac{3(n-1)}D
+                     +\frac{(n-1)(n-2)}{D^2},\notag\\
+ \mathbb E T_{m,4}&=1+\frac{6(n-1)}D+\frac{n-1}{D'}
+   +\frac{6(n-1)(n-2)}{D^2}
+   +\frac{(n-1)(n-2)(n-3)}{D^3}.
+ \label{eq:coherent-finite-moments}
+\end{align}
+The supplemental verifier enumerates cycle partitions, computes all
+rooted cofactors by integer elimination, and checks the noncrossing
+criterion and the rational moment identities.  These checks concern
+finite combinatorics; numerical spectra provide illustrations of the
+limiting law.
+
+For anticanonical degree $m=(q+1)k$ and $n=D_m$, let $\Delta_k$
+be the Slater determinant of a Fubini--Study orthonormal basis.
+The evaluation kernel is $D_m\langle z,w\rangle^m$, so
+\begin{equation}
+ E_k:=-\frac1{kD_m}\log\|\Delta_k\|^2
+ =-\frac1k\int\log\lambda\,d\nu_m(\lambda)
+    -\frac{\log D_m}{k}.
+ \label{eq:coherent-logarithmic-energy}
+\end{equation}
+The spectral law consequently gives a precise object for investigating
+the collective determinant energy.  Its natural continuation is a
+logarithmic-tail theorem on scales $\lambda\asymp e^{-kt}$,
+and its analogue under attractive Gibbs reweighting.  Such a theorem
+would connect coherent spectral statistics with the moment-reduced
+large-deviation program for K\"ahler--Einstein measures
+\cite{AndreassonBermanSvensson2026}.  Equation~\eqref{eq:coherent-logarithmic-energy}
+also specifies the distinct scales involved: fixed positive eigenvalue
+scales contribute only $o(1)$ to this normalized energy.

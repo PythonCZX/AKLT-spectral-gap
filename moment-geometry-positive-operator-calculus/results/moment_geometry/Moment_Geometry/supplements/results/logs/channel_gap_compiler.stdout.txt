@@ -1,0 +1,10 @@
+{
+  "status": "all checks passed",
+  "exact_principal_minor_cross_checks": 12,
+  "zero_pivot_adversarial_check": "passed",
+  "complex_rank_one_sandwich": "passed",
+  "automatic_and_supplied_rational_vector_checks": "passed",
+  "uniform_AKLT_degree3_decoration4_gap": "3/16",
+  "uniform_AKLT_degree31_decoration6_gap": "7/432",
+  "path4_rational_spectral_gap": "343/512"
+}

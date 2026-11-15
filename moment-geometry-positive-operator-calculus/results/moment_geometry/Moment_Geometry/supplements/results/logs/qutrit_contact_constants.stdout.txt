@@ -1,0 +1,9 @@
+{
+  "status": "Exact symbolic equalities verified; no numerical proof claims",
+  "basis_Gram_lower_bound": "325/338724",
+  "kappa": "325/536313",
+  "binary_tail_moment": "1 - 2*sqrt(3)/9",
+  "naive_qubit_support_loss": "1/441",
+  "Gaussian_tail_expression": "beta*(beta + log(24/beta))/48",
+  "energy_dilution_coefficient_difference": "-3*(c - 1)/2"
+}

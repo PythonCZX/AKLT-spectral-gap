@@ -1,0 +1,418 @@
+\section{Curvature, concentration, and exact susceptibilities}
+\label{ac:section}
+
+The attractive determinant measure has a geometric positivity property
+before any mean-field limit is taken.  Its density is the canonical
+volume of a positively curved metric on the anticanonical line bundle
+of the full configuration space.  The resulting estimate controls
+empirical observables uniformly in the particle number, including
+shrinking projective-moment tubes.
+
+Write $X=\mathbb P^q$, $D=q+1$, $L=-K_X=\mathcal O(D)$,
+$N=N_k=\binom{Dk+q}{q}$, and let $\sigma$ be Fubini--Study
+probability.  Give $L$ its invariant metric $h_0=e^{-\phi_0}$, and
+choose an orthonormal basis of $H^0(X,L^k)$ for $(h_0^k,\sigma)$.
+Its evaluation determinant is a nonzero section $\Delta_k$ of
+$\boxtimes_{i=1}^N L^k$ on $M=X^N$.  Put
+\[
+ w_{k,\gamma}=\|\Delta_k\|_{h_0^{k\boxtimes N}}^{-2\gamma/k},
+ \qquad
+ Z_{k,\gamma}=\int_M w_{k,\gamma}\,d\sigma^{\otimes N},
+ \qquad
+ dP_{k,\gamma}=Z_{k,\gamma}^{-1}w_{k,\gamma}
+                                      \,d\sigma^{\otimes N}.
+\]
+The value on the zero divisor is immaterial whenever the partition
+function is finite.  Additive constants in $\phi_0$ or a constant
+rescaling of $\Delta_k$ do not change $P_{k,\gamma}$.
+
+The metric convention in the estimates below is explicit.  Set
+\[
+ G_X=i\partial\bar\partial\phi_0=2\pi\omega_0,
+ \qquad \omega_0=D\omega_{\rm FS},
+ \qquad G_M=\sum_{i=1}^N\pi_i^*G_X.
+\]
+Here $dd^c=i\partial\bar\partial/(2\pi)$.  All covector norms
+and Hessian comparisons in this section use the Hermitian metric with
+K\"ahler form $G_X$ or $G_M$, rather than $\omega_0$.
+
+\subsection{The anticanonical variance estimate}
+
+\begin{lemma}[Canonical-volume Poincar\'e inequality]
+\label{ac:canonical-poincare}
+Let $(M,G)$ be a connected compact K\"ahler manifold and let
+$e^{-\Phi}$ be a smooth metric on $-K_M$ satisfying
+$i\partial\bar\partial\Phi\ge aG$, where $a>0$.
+Let $\mu_\Phi$ be its canonical volume, normalized to mass one.
+Then every smooth complex-valued function $F$ satisfies
+\begin{equation}
+ \int_M|F-\mu_\Phi(F)|^2\,d\mu_\Phi
+ \le \frac1a\int_M|\bar\partial F|_G^2\,d\mu_\Phi.
+ \label{ac:canonical-poincare-eq}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Regard $F$ as a section of
+$K_M\otimes(-K_M)\simeq\mathcal O_M$.  In a holomorphic coordinate
+chart, its squared $L^2$ norm as a $(-K_M)$-valued top-degree form is
+$|F|^2e^{-\Phi}$ times coordinate volume: the metric factors from
+$K_M$ and the auxiliary volume of $G$ cancel.  The analogous norm
+of $\bar\partial F$ is
+$|\bar\partial F|_G^2e^{-\Phi}$ times coordinate volume.
+
+The Bochner--Kodaira identity on $(-K_M)$-valued $(\dim M,1)$-forms
+has curvature term $[i\Theta(-K_M),\Lambda_G]\ge aI$.
+Consequently the $L^2$ estimate for the minimal solution of
+$\bar\partial U=\bar\partial F$ gives
+\[
+ \|U\|_{L^2(e^{-\Phi})}^2
+ \le a^{-1}\|\bar\partial F\|_{L^2(G,e^{-\Phi})}^2.
+\]
+This is the compact K\"ahler form of H\"ormander's estimate
+\cite{Hormander1965}; it also follows directly from the preceding
+curvature lower bound and the Hilbert-space minimal-solution argument.
+The holomorphic sections of $K_M\otimes(-K_M)$ are exactly the
+constant functions.  Thus the minimal solution is
+$U=F-\mu_\Phi(F)$.  Dividing both sides by the mass of the canonical
+volume proves the assertion.
+\end{proof}
+
+\begin{proposition}[Attractive covariance and exponential tilts]
+\label{ac:variance}
+Suppose $0\le\gamma<1$ and $Z_{k,\gamma}<\infty$.
+Then, for every smooth function $F$ on $X^N$,
+\begin{equation}
+ \operatorname{Var}_{P_{k,\gamma}}(F)
+ \le\frac1{1-\gamma}
+       \int|\bar\partial F|_{G_M}^2\,dP_{k,\gamma}.
+ \label{ac:variance-eq}
+\end{equation}
+For a real $f\in C^\infty(X)$, put
+\[
+ A_f=\sup_X|\bar\partial f|_{G_X}^2,
+ \qquad
+ -C_fG_X\le i\partial\bar\partial f\le C_fG_X.
+\]
+Here $C_f$ is any nonnegative constant satisfying the displayed
+inequalities.  If
+$dP_{k,\gamma,t,f}\propto e^{t\sum_i f(x_i)}dP_{k,\gamma}$ and
+$|t|C_f<1-\gamma$, then
+\begin{equation}
+ \operatorname{Var}_{P_{k,\gamma,t,f}}
+          \left(\sum_{i=1}^N f(x_i)\right)
+ \le\frac{NA_f}{1-\gamma-|t|C_f}.
+ \label{ac:tilted-variance}
+\end{equation}
+Every one-particle marginal of $P_{k,\gamma}$ is exactly $\sigma$.
+\end{proposition}
+
+\begin{proof}
+Write $\Phi_0=\sum_i\phi_0(x_i)$ in a local frame of $-K_M$ and
+write $s$ for the corresponding holomorphic representative of
+$\Delta_k$.  The unnormalized density is the canonical volume of
+the singular metric
+\[
+ \Phi_\gamma=(1-\gamma)\Phi_0+\frac\gamma k\log|s|^2.
+\]
+For $\varepsilon>0$ use the smooth metric
+\begin{equation}
+ \Phi_{\gamma,\varepsilon}
+  =(1-\gamma)\Phi_0+\frac\gamma k
+                 \log\bigl(|s|^2+\varepsilon e^{k\Phi_0}\bigr).
+ \label{ac:regularization}
+\end{equation}
+Under a change of line-bundle frame the expression in parentheses
+changes by the appropriate squared transition factor, so this formula
+defines a global metric.  The logarithm is plurisubharmonic: it is
+the logarithmic sum of exponentials of the plurisubharmonic functions
+$\log|s|^2$ and $\log\varepsilon+k\Phi_0$.  It is smooth even at
+$s=0$.  Hence
+\[
+ i\partial\bar\partial\Phi_{\gamma,\varepsilon}
+                          \ge(1-\gamma)G_M.
+\]
+Its canonical density, relative to $\sigma^{\otimes N}$ up to an
+irrelevant constant, is
+$(\|\Delta_k\|^2+\varepsilon)^{-\gamma/k}$.
+As $\varepsilon\downarrow0$, these densities increase to
+$w_{k,\gamma}$, and their integrals increase to $Z_{k,\gamma}<\infty$.
+The resulting probability measures therefore converge in total
+variation.  Apply Lemma~\ref{ac:canonical-poincare} to the regularized
+metrics and pass to the limit.  Both the integrands on the right and
+the first two moments on the left are bounded for a fixed smooth $F$.
+This proves \eqref{ac:variance-eq} without applying a smooth theorem
+directly to a singular metric.
+
+Multiplication of the density by $e^{t\sum_i f(x_i)}$ changes the
+metric in \eqref{ac:regularization} to
+$\Phi_{\gamma,\varepsilon}-t\sum_i f(x_i)$.  Its curvature is at
+least $(1-\gamma-|t|C_f)G_M$.  In the product metric,
+\[
+ \left|\bar\partial\sum_i f(x_i)\right|_{G_M}^2
+             =\sum_i|\bar\partial f(x_i)|_{G_X}^2\le NA_f.
+\]
+The same approximation proves \eqref{ac:tilted-variance}.
+
+Finally, the diagonal action of $SU(D)$ preserves the product reference
+measure and the squared determinant norm.  Indeed, it acts unitarily
+on $H^0(X,L^k)$, so the evaluation determinant changes only by the
+determinant of a unitary basis-change matrix.  Its modulus is unchanged.
+Every one-particle marginal is therefore $SU(D)$-invariant, and the
+unique invariant probability on $X$ is $\sigma$.
+\end{proof}
+
+\subsection{An exact projective Ward identity}
+
+\begin{proposition}[Sharp covariance of the first moment]
+\label{ac:ward}
+Suppose $\gamma<1$ and $Z_{k,\gamma}<\infty$, using the same
+density formula also for negative $\gamma$.
+For traceless Hermitian $D\times D$ matrices $H,K$, let
+$f_H(z)=\operatorname{tr}(HP_z)$ and $S_H=\sum_i f_H(z_i)$.
+Then
+\begin{equation}
+ \operatorname{Cov}_{P_{k,\gamma}}(S_H,S_K)
+ =\frac{N\operatorname{tr}(HK)}{D(D+1)(1-\gamma)}.
+ \label{ac:ward-covariance}
+\end{equation}
+In the attractive range $0\le\gamma<1$, the constant
+$1/(1-\gamma)$ in \eqref{ac:variance-eq} is therefore optimal.
+For two distinct labels,
+\begin{equation}
+ \mathbb E_{P_{k,\gamma}}\operatorname{tr}(P_{z_1}P_{z_2})
+ =\frac1D+
+   \frac{(D-1)\gamma}{D(N-1)(1-\gamma)}.
+ \label{ac:pair-overlap}
+\end{equation}
+Equivalently, with $M_1=N^{-1}\sum_iP_{z_i}$,
+\begin{equation}
+ \mathbb E_{P_{k,\gamma}}
+      \left\|M_1-\frac{I}{D}\right\|_{\rm HS}^2
+       =\frac{D-1}{DN(1-\gamma)}.
+ \label{ac:first-moment-variance}
+\end{equation}
+Consequently finiteness of the partition function in this range
+requires $\gamma<1-1/N$.
+\end{proposition}
+
+\begin{proof}
+For $A\in SL(D,\mathbb C)$ the projective map
+$g_A(z)=Az/\|Az\|$ has Jacobian $\|Az\|^{-2D}$ relative to
+$\sigma$.  The determinant of the $SL(D,\mathbb C)$ representation
+on $\operatorname{Sym}^{Dk}\mathbb C^D$ is one.  Multihomogeneity
+of the evaluation determinant therefore gives
+\[
+ \|\Delta_k(g_Az_1,\ldots,g_Az_N)\|^2
+ =\|\Delta_k(z_1,\ldots,z_N)\|^2
+                  \prod_i\|Az_i\|^{-2Dk}.
+\]
+Change variables by $g_A$ in the finite partition function.  Taking
+$A=e^{tH/2}$ gives the exact identity
+\begin{equation}
+ \mathbb E_{P_{k,\gamma}}
+ \exp\!\left[-D(1-\gamma)
+       \sum_i\log(z_i^*e^{tH}z_i)\right]=1.
+ \label{ac:ward-identity}
+\end{equation}
+For $t$ in a compact interval the exponent and its first two
+derivatives are bounded, so differentiation is justified by the
+already assumed finiteness of $Z_{k,\gamma}$.
+The first derivative vanishes, and the second gives
+\[
+ D(1-\gamma)\mathbb E S_H^2
+ =\mathbb E\sum_i
+       \left[\operatorname{tr}(H^2P_{z_i})-f_H(z_i)^2\right].
+\]
+Every one-particle marginal is Haar.  Its second-moment identities are
+\[
+ \mathbb E_\sigma\operatorname{tr}(H^2P)=\frac{\operatorname{tr}H^2}{D},
+ \qquad
+ \mathbb E_\sigma f_H^2=\frac{\operatorname{tr}H^2}{D(D+1)}.
+\]
+Substitution and polarization prove \eqref{ac:ward-covariance}.
+Direct differentiation of $f_H$ in the invariant metric gives
+\[
+ |\bar\partial f_H|_{G_X}^2
+ =\frac1D\left[\operatorname{tr}(H^2P)-f_H^2\right].
+\]
+In the attractive range, equality therefore holds in
+\eqref{ac:variance-eq} for $F=S_H$ whenever $H\ne0$, proving
+sharpness.  The Ward-identity calculation itself is unchanged for
+negative $\gamma$, where the partition function is finite because
+the density is bounded on the compact configuration space.
+
+Permutation symmetry and the known one-particle covariance imply
+\[
+ \mathbb E f_H(z_1)f_K(z_2)
+ =\frac{\gamma\operatorname{tr}(HK)}
+ {(N-1)(1-\gamma)D(D+1)}.
+\]
+Sum over a Hilbert--Schmidt orthonormal basis of traceless Hermitian
+matrices and use
+$\operatorname{tr}(PQ)=D^{-1}+\sum_a
+\operatorname{tr}(H_aP)\operatorname{tr}(H_aQ)$ to obtain
+\eqref{ac:pair-overlap}.  Summing \eqref{ac:ward-covariance} in the
+same basis and dividing by $N^2$ proves
+\eqref{ac:first-moment-variance}.  For two distinct coordinate labels
+under a measure absolutely continuous with respect to
+$\sigma^{\otimes N}$, one has
+$\operatorname{tr}(P_{z_1}P_{z_2})<1$ almost surely.
+The right side of \eqref{ac:pair-overlap} must therefore be strictly
+less than one, which is equivalent to $\gamma<1-1/N$.
+\end{proof}
+
+\subsection{An unconditional attractive range}
+
+\begin{lemma}[Integrability by monomial degeneration]
+\label{ac:integrability}
+For every $k\ge1$ the partition function is finite whenever
+$0\le\gamma<1/D$.  More generally, every nonzero section of
+$\mathcal O(m,\ldots,m)$ on $(\mathbb P^q)^N$ has complex
+singularity exponent at least $1/m$.
+\end{lemma}
+
+\begin{proof}
+Expand a nonzero section in the multihomogeneous monomial basis.
+Choose integer weights on the homogeneous coordinates, independently
+in each factor, such that one monomial in its finite support uniquely
+minimizes the total weight.  Pullback by the corresponding toric
+one-parameter subgroup, followed by multiplication by the scalar
+power of the parameter that sets this minimum weight to zero, gives
+a holomorphic family whose limit is that single monomial.  For a
+nonzero parameter the global complex singularity exponent is unchanged:
+the transformation is an automorphism and the scalar is nonzero.
+
+The divisor of the limiting monomial is a sum of the coordinate
+hyperplanes, each with multiplicity at most $m$.  These hyperplanes
+form a simple normal-crossing divisor: in each projective factor at
+most $q$ of its $q+1$ coordinate hyperplanes meet.  In local coordinates
+integrability of a monomial is the product of the conditions
+$c\alpha_j<1$; its global exponent is therefore at least $1/m$.
+Lower semicontinuity of complex singularity exponents
+\cite{geo_demailly_kollar2001} shows that the original section has
+exponent at least that of this limit.  Smooth positive metric and
+volume factors do not affect local integrability.  Taking $m=Dk$
+and $c=\gamma/k$ proves the first assertion.
+\end{proof}
+
+\begin{theorem}[Attractive empirical concentration]
+\label{ac:concentration}
+Suppose $0\le\gamma<1$, and suppose $Z_{k,\gamma}<\infty$ for the
+values of $k$ under consideration.  For $f\in C^\infty(X,\mathbb R)$
+and $|t|C_f<1-\gamma$,
+\begin{equation}
+ \log\mathbb E_{P_{k,\gamma}}
+       \exp\!\left(t\sum_{i=1}^N[f(x_i)-\sigma(f)]\right)
+ \le\frac{NA_ft^2}{2(1-\gamma-|t|C_f)}.
+ \label{ac:mgf}
+\end{equation}
+In particular, if $A_f>0$, then for every $s>0$,
+\begin{equation}
+ P_{k,\gamma}\!\left(
+    \left|\frac1N\sum_i f(x_i)-\sigma(f)\right|\ge s\right)
+ \le 2\exp\!\left(
+    -\frac{N(1-\gamma)s^2}{2(A_f+C_fs)}\right).
+ \label{ac:tail}
+\end{equation}
+If $A_f=0$, then $f$ is constant and the deviation probability is
+zero.  These conclusions are unconditional for $0\le\gamma<1/D$.
+\end{theorem}
+
+\begin{proof}
+Let $S_f=\sum_i f(x_i)$ and
+$\psi(t)=\log\mathbb E_{P_{k,\gamma}}e^{tS_f}$.
+The random variable $S_f$ is bounded for fixed $N$, so differentiation
+under the integral gives
+$\psi''(t)=\operatorname{Var}_{P_{k,\gamma,t,f}}(S_f)$.
+By Proposition~\ref{ac:variance}, $\psi'(0)=N\sigma(f)$, and
+\eqref{ac:tilted-variance} bounds the second derivative on the segment
+between $0$ and $t$ by $NA_f/(1-\gamma-|t|C_f)$.
+Integrating twice proves \eqref{ac:mgf}.
+
+For the upper tail in \eqref{ac:tail}, apply Chernoff's inequality
+with
+$t=(1-\gamma)s/(A_f+C_fs)$, which lies in the allowed interval.
+Substitution in \eqref{ac:mgf} yields the exponent in
+\eqref{ac:tail}.  Apply the same argument to $-f$ for the lower tail
+and add the two bounds.  Lemma~\ref{ac:integrability} supplies the
+unconditional coupling range.
+\end{proof}
+
+\begin{corollary}[Moment tubes and propagation of chaos]
+\label{ac:tubes}
+Fix real smooth functions $f_1,\ldots,f_r$ and set
+$F=(f_1,\ldots,f_r)$,
+$A=\max_j A_{f_j}$, and $C=\max_j C_{f_j}$.
+Under the assumptions of Theorem~\ref{ac:concentration},
+\begin{equation}
+ P_{k,\gamma}\!\left(
+ \left\|\frac1N\sum_iF(x_i)-\sigma(F)\right\|_2\ge s\right)
+ \le 2r\exp\!\left(
+ -\frac{N(1-\gamma)s^2}{2(rA+\sqrt r\,Cs)}\right)
+ \label{ac:vector-tail}
+\end{equation}
+whenever $A>0$.  Thus every fixed-order projective moment tube of
+width $N^{-a}$, $0<a<1/2$, has probability at least
+$1-O(e^{-cN^{1-2a}})$, with constants independent of $k$ for fixed
+$q,\gamma$, and moment order.
+
+As $k\to\infty$, the empirical measure converges in probability,
+in the weak topology, to $\sigma$.  For every fixed $\ell$, the
+$\ell$-particle marginal converges weakly to $\sigma^{\otimes\ell}$.
+\end{corollary}
+
+\begin{proof}
+If the norm in \eqref{ac:vector-tail} is at least $s$, at least one
+coordinate has absolute value at least $s/\sqrt r$.  The union bound
+and \eqref{ac:tail} give the displayed estimate.
+For projective moments use the real coordinates
+$f_j(z)=\operatorname{tr}(H_jP_z^{\otimes t})$ in a Hilbert--Schmidt
+orthonormal basis of Hermitian operators on
+$\operatorname{Sym}^t\mathbb C^D$, omitting the fixed trace coordinate.
+These are a fixed finite family of smooth functions, and their
+Euclidean norm is the Hilbert--Schmidt moment error.  Substitute
+$s=N^{-a}$.
+
+Smooth functions are uniformly dense in the continuous functions on
+$X$, so the scalar bounds imply weak convergence of the empirical
+measure in probability.  The measures $P_{k,\gamma}$ are permutation
+invariant.  The difference between an expectation of a fixed product
+$\prod_{j=1}^{\ell}f_j(x_j)$ and the corresponding expectation under
+the $\ell$th power of the empirical measure is $O(\ell^2/N)$ for
+bounded $f_j$: it is precisely the error from sampling indices with
+replacement rather than without replacement.  Empirical convergence
+and boundedness then give the product limit.  Density of finite sums
+of products in $C(X^\ell)$ proves weak convergence of the marginals.
+\end{proof}
+
+\paragraph{Consequences for constrained partitions.}
+Let $\Omega_N$ be one of the preceding shrinking moment tubes and
+let $Q_N=\sigma^{\otimes N}(\,\cdot\mid\Omega_N)$.
+Its attractive partition function satisfies the exact relation
+\[
+ \int e^{N\gamma E_k}\,dQ_N
+ =Z_{k,\gamma}
+    \frac{P_{k,\gamma}(\Omega_N)}
+         {\sigma^{\otimes N}(\Omega_N)},
+ \qquad
+ E_k=-\frac1{kN}\log\|\Delta_k\|^2.
+\]
+Both probabilities tend to one at a stretched-exponential rate, by
+Corollary~\ref{ac:tubes} for $\gamma$ and for $\gamma=0$.
+Consequently conditioning on these tubes does not change any existing
+speed-$N$ pressure limit in this coupling range.
+
+\paragraph{Scope of the curvature argument.}
+The curvature argument supplies finite-particle variance estimates,
+exponential concentration of empirical observables, and propagation
+of chaos for the actual attractive determinant law.  The logarithmic
+energy control needed for pressure is provided by the compact-conditional
+entropy method in Theorem~\ref{att:gibbs-energy-limit}.
+Theorems~\ref{att:full-laplace} and \ref{att:design-laplace} establish
+the full attractive Laplace principle on $\mathbb P^2$ for
+$0\le\gamma<1/3$, and Corollary~\ref{att:polarized-extension}
+extends the unrestricted statement to positive polarized manifolds
+below their scalar section-integrability threshold.  The concentration
+constants above degenerate at $\gamma=1$; extending the logarithmic
+energy method toward that coupling is a separate question.

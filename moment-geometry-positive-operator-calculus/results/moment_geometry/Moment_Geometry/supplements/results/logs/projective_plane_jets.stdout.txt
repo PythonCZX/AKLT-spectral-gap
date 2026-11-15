@@ -1,0 +1,11 @@
+M= 1: N=  3, S=   0, support=   1, central=0, root-overlap=0 PASS
+M= 2: N=  6, S=   3, support=   2, central=1, root-overlap=0 PASS
+M= 4: N= 15, S=  18, support=   2, central=6, root-overlap=0 PASS
+M= 5: N= 21, S=  33, support=   2, central=11, root-overlap=0 PASS
+M= 7: N= 36, S=  84, support=   2, central=28, root-overlap=0 PASS
+M= 8: N= 45, S= 123, support=  10, central=41, root-overlap=0 PASS
+M=10: N= 66, S= 231, support=  10, central=77, root-overlap=0 PASS
+M=11: N= 78, S= 303, support=  10, central=101, root-overlap=0 PASS
+M=14: N=120, S= 606, support=  56, central=202, root-overlap=0 PASS
+M=2: explicit Cayley hyperdeterminant = 1; GL(2)^3 character check PASS
+Exact audit saved to /workspace/scratch/e041a694f3ed/publication_package/supplements/projective_jets/jet_moment_map_exact.json

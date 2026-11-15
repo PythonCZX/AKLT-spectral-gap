@@ -1,0 +1,1008 @@
+{
+  "status": "exact finite combinatorial verification",
+  "partitions_checked": 5295,
+  "pair_partitions_checked": 124,
+  "checks": [
+    "all rooted tree cofactors equal and positive",
+    "tree count one iff independently tested noncrossing",
+    "pair partition tree bound",
+    "Narayana noncrossing counts",
+    "arbitrary-aspect first-four-moment formula",
+    "Touchard upper bound and dimension-decay inequality"
+  ],
+  "scope": "Analytic limits and all-order inequalities use the written proofs.",
+  "tables": [
+    {
+      "p": 1,
+      "counts": [
+        {
+          "blocks": 1,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "moments": [
+        {
+          "q": 1,
+          "rho": "1/2",
+          "moment": "1",
+          "mp_moment": "1"
+        },
+        {
+          "q": 2,
+          "rho": "1/2",
+          "moment": "1",
+          "mp_moment": "1"
+        },
+        {
+          "q": 4,
+          "rho": "1/2",
+          "moment": "1",
+          "mp_moment": "1"
+        },
+        {
+          "q": 8,
+          "rho": "1/2",
+          "moment": "1",
+          "mp_moment": "1"
+        },
+        {
+          "q": 1,
+          "rho": "1",
+          "moment": "1",
+          "mp_moment": "1"
+        },
+        {
+          "q": 2,
+          "rho": "1",
+          "moment": "1",
+          "mp_moment": "1"
+        },
+        {
+          "q": 4,
+          "rho": "1",
+          "moment": "1",
+          "mp_moment": "1"
+        },
+        {
+          "q": 8,
+          "rho": "1",
+          "moment": "1",
+          "mp_moment": "1"
+        },
+        {
+          "q": 1,
+          "rho": "2",
+          "moment": "1",
+          "mp_moment": "1"
+        },
+        {
+          "q": 2,
+          "rho": "2",
+          "moment": "1",
+          "mp_moment": "1"
+        },
+        {
+          "q": 4,
+          "rho": "2",
+          "moment": "1",
+          "mp_moment": "1"
+        },
+        {
+          "q": 8,
+          "rho": "2",
+          "moment": "1",
+          "mp_moment": "1"
+        }
+      ]
+    },
+    {
+      "p": 2,
+      "counts": [
+        {
+          "blocks": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "blocks": 2,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "moments": [
+        {
+          "q": 1,
+          "rho": "1/2",
+          "moment": "3/2",
+          "mp_moment": "3/2"
+        },
+        {
+          "q": 2,
+          "rho": "1/2",
+          "moment": "3/2",
+          "mp_moment": "3/2"
+        },
+        {
+          "q": 4,
+          "rho": "1/2",
+          "moment": "3/2",
+          "mp_moment": "3/2"
+        },
+        {
+          "q": 8,
+          "rho": "1/2",
+          "moment": "3/2",
+          "mp_moment": "3/2"
+        },
+        {
+          "q": 1,
+          "rho": "1",
+          "moment": "2",
+          "mp_moment": "2"
+        },
+        {
+          "q": 2,
+          "rho": "1",
+          "moment": "2",
+          "mp_moment": "2"
+        },
+        {
+          "q": 4,
+          "rho": "1",
+          "moment": "2",
+          "mp_moment": "2"
+        },
+        {
+          "q": 8,
+          "rho": "1",
+          "moment": "2",
+          "mp_moment": "2"
+        },
+        {
+          "q": 1,
+          "rho": "2",
+          "moment": "3",
+          "mp_moment": "3"
+        },
+        {
+          "q": 2,
+          "rho": "2",
+          "moment": "3",
+          "mp_moment": "3"
+        },
+        {
+          "q": 4,
+          "rho": "2",
+          "moment": "3",
+          "mp_moment": "3"
+        },
+        {
+          "q": 8,
+          "rho": "2",
+          "moment": "3",
+          "mp_moment": "3"
+        }
+      ]
+    },
+    {
+      "p": 3,
+      "counts": [
+        {
+          "blocks": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "blocks": 2,
+          "trees": 1,
+          "count": 3
+        },
+        {
+          "blocks": 3,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "moments": [
+        {
+          "q": 1,
+          "rho": "1/2",
+          "moment": "11/4",
+          "mp_moment": "11/4"
+        },
+        {
+          "q": 2,
+          "rho": "1/2",
+          "moment": "11/4",
+          "mp_moment": "11/4"
+        },
+        {
+          "q": 4,
+          "rho": "1/2",
+          "moment": "11/4",
+          "mp_moment": "11/4"
+        },
+        {
+          "q": 8,
+          "rho": "1/2",
+          "moment": "11/4",
+          "mp_moment": "11/4"
+        },
+        {
+          "q": 1,
+          "rho": "1",
+          "moment": "5",
+          "mp_moment": "5"
+        },
+        {
+          "q": 2,
+          "rho": "1",
+          "moment": "5",
+          "mp_moment": "5"
+        },
+        {
+          "q": 4,
+          "rho": "1",
+          "moment": "5",
+          "mp_moment": "5"
+        },
+        {
+          "q": 8,
+          "rho": "1",
+          "moment": "5",
+          "mp_moment": "5"
+        },
+        {
+          "q": 1,
+          "rho": "2",
+          "moment": "11",
+          "mp_moment": "11"
+        },
+        {
+          "q": 2,
+          "rho": "2",
+          "moment": "11",
+          "mp_moment": "11"
+        },
+        {
+          "q": 4,
+          "rho": "2",
+          "moment": "11",
+          "mp_moment": "11"
+        },
+        {
+          "q": 8,
+          "rho": "2",
+          "moment": "11",
+          "mp_moment": "11"
+        }
+      ]
+    },
+    {
+      "p": 4,
+      "counts": [
+        {
+          "blocks": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "blocks": 2,
+          "trees": 1,
+          "count": 6
+        },
+        {
+          "blocks": 2,
+          "trees": 2,
+          "count": 1
+        },
+        {
+          "blocks": 3,
+          "trees": 1,
+          "count": 6
+        },
+        {
+          "blocks": 4,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "moments": [
+        {
+          "q": 1,
+          "rho": "1/2",
+          "moment": "47/8",
+          "mp_moment": "45/8"
+        },
+        {
+          "q": 2,
+          "rho": "1/2",
+          "moment": "23/4",
+          "mp_moment": "45/8"
+        },
+        {
+          "q": 4,
+          "rho": "1/2",
+          "moment": "181/32",
+          "mp_moment": "45/8"
+        },
+        {
+          "q": 8,
+          "rho": "1/2",
+          "moment": "2881/512",
+          "mp_moment": "45/8"
+        },
+        {
+          "q": 1,
+          "rho": "1",
+          "moment": "29/2",
+          "mp_moment": "14"
+        },
+        {
+          "q": 2,
+          "rho": "1",
+          "moment": "57/4",
+          "mp_moment": "14"
+        },
+        {
+          "q": 4,
+          "rho": "1",
+          "moment": "225/16",
+          "mp_moment": "14"
+        },
+        {
+          "q": 8,
+          "rho": "1",
+          "moment": "3585/256",
+          "mp_moment": "14"
+        },
+        {
+          "q": 1,
+          "rho": "2",
+          "moment": "46",
+          "mp_moment": "45"
+        },
+        {
+          "q": 2,
+          "rho": "2",
+          "moment": "91/2",
+          "mp_moment": "45"
+        },
+        {
+          "q": 4,
+          "rho": "2",
+          "moment": "361/8",
+          "mp_moment": "45"
+        },
+        {
+          "q": 8,
+          "rho": "2",
+          "moment": "5761/128",
+          "mp_moment": "45"
+        }
+      ]
+    },
+    {
+      "p": 5,
+      "counts": [
+        {
+          "blocks": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "blocks": 2,
+          "trees": 1,
+          "count": 10
+        },
+        {
+          "blocks": 2,
+          "trees": 2,
+          "count": 5
+        },
+        {
+          "blocks": 3,
+          "trees": 1,
+          "count": 20
+        },
+        {
+          "blocks": 3,
+          "trees": 2,
+          "count": 5
+        },
+        {
+          "blocks": 4,
+          "trees": 1,
+          "count": 10
+        },
+        {
+          "blocks": 5,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "moments": [
+        {
+          "q": 1,
+          "rho": "1/2",
+          "moment": "227/16",
+          "mp_moment": "197/16"
+        },
+        {
+          "q": 2,
+          "rho": "1/2",
+          "moment": "53/4",
+          "mp_moment": "197/16"
+        },
+        {
+          "q": 4,
+          "rho": "1/2",
+          "moment": "803/64",
+          "mp_moment": "197/16"
+        },
+        {
+          "q": 8,
+          "rho": "1/2",
+          "moment": "12623/1024",
+          "mp_moment": "197/16"
+        },
+        {
+          "q": 1,
+          "rho": "1",
+          "moment": "47",
+          "mp_moment": "42"
+        },
+        {
+          "q": 2,
+          "rho": "1",
+          "moment": "89/2",
+          "mp_moment": "42"
+        },
+        {
+          "q": 4,
+          "rho": "1",
+          "moment": "341/8",
+          "mp_moment": "42"
+        },
+        {
+          "q": 8,
+          "rho": "1",
+          "moment": "5381/128",
+          "mp_moment": "42"
+        },
+        {
+          "q": 1,
+          "rho": "2",
+          "moment": "212",
+          "mp_moment": "197"
+        },
+        {
+          "q": 2,
+          "rho": "2",
+          "moment": "409/2",
+          "mp_moment": "197"
+        },
+        {
+          "q": 4,
+          "rho": "2",
+          "moment": "1591/8",
+          "mp_moment": "197"
+        },
+        {
+          "q": 8,
+          "rho": "2",
+          "moment": "25231/128",
+          "mp_moment": "197"
+        }
+      ]
+    },
+    {
+      "p": 6,
+      "counts": [
+        {
+          "blocks": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "blocks": 2,
+          "trees": 1,
+          "count": 15
+        },
+        {
+          "blocks": 2,
+          "trees": 2,
+          "count": 15
+        },
+        {
+          "blocks": 2,
+          "trees": 3,
+          "count": 1
+        },
+        {
+          "blocks": 3,
+          "trees": 1,
+          "count": 50
+        },
+        {
+          "blocks": 3,
+          "trees": 2,
+          "count": 36
+        },
+        {
+          "blocks": 3,
+          "trees": 3,
+          "count": 3
+        },
+        {
+          "blocks": 3,
+          "trees": 4,
+          "count": 1
+        },
+        {
+          "blocks": 4,
+          "trees": 1,
+          "count": 50
+        },
+        {
+          "blocks": 4,
+          "trees": 2,
+          "count": 15
+        },
+        {
+          "blocks": 5,
+          "trees": 1,
+          "count": 15
+        },
+        {
+          "blocks": 6,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "moments": [
+        {
+          "q": 1,
+          "rho": "1/2",
+          "moment": "3637/96",
+          "mp_moment": "903/32"
+        },
+        {
+          "q": 2,
+          "rho": "1/2",
+          "moment": "18989/576",
+          "mp_moment": "903/32"
+        },
+        {
+          "q": 4,
+          "rho": "1/2",
+          "moment": "2437193/82944",
+          "mp_moment": "903/32"
+        },
+        {
+          "q": 8,
+          "rho": "1/2",
+          "moment": "48657969953/1719926784",
+          "mp_moment": "903/32"
+        },
+        {
+          "q": 1,
+          "rho": "1",
+          "moment": "1999/12",
+          "mp_moment": "132"
+        },
+        {
+          "q": 2,
+          "rho": "1",
+          "moment": "21457/144",
+          "mp_moment": "132"
+        },
+        {
+          "q": 4,
+          "rho": "1",
+          "moment": "2823793/20736",
+          "mp_moment": "132"
+        },
+        {
+          "q": 8,
+          "rho": "1",
+          "moment": "56868707233/429981696",
+          "mp_moment": "132"
+        },
+        {
+          "q": 1,
+          "rho": "2",
+          "moment": "3167/3",
+          "mp_moment": "903"
+        },
+        {
+          "q": 2,
+          "rho": "2",
+          "moment": "35219/36",
+          "mp_moment": "903"
+        },
+        {
+          "q": 4,
+          "rho": "2",
+          "moment": "4777385/5184",
+          "mp_moment": "903"
+        },
+        {
+          "q": 8,
+          "rho": "2",
+          "moment": "97192055585/107495424",
+          "mp_moment": "903"
+        }
+      ]
+    },
+    {
+      "p": 7,
+      "counts": [
+        {
+          "blocks": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "blocks": 2,
+          "trees": 1,
+          "count": 21
+        },
+        {
+          "blocks": 2,
+          "trees": 2,
+          "count": 35
+        },
+        {
+          "blocks": 2,
+          "trees": 3,
+          "count": 7
+        },
+        {
+          "blocks": 3,
+          "trees": 1,
+          "count": 105
+        },
+        {
+          "blocks": 3,
+          "trees": 2,
+          "count": 147
+        },
+        {
+          "blocks": 3,
+          "trees": 3,
+          "count": 28
+        },
+        {
+          "blocks": 3,
+          "trees": 4,
+          "count": 21
+        },
+        {
+          "blocks": 4,
+          "trees": 1,
+          "count": 175
+        },
+        {
+          "blocks": 4,
+          "trees": 2,
+          "count": 147
+        },
+        {
+          "blocks": 4,
+          "trees": 3,
+          "count": 21
+        },
+        {
+          "blocks": 4,
+          "trees": 4,
+          "count": 7
+        },
+        {
+          "blocks": 5,
+          "trees": 1,
+          "count": 105
+        },
+        {
+          "blocks": 5,
+          "trees": 2,
+          "count": 35
+        },
+        {
+          "blocks": 6,
+          "trees": 1,
+          "count": 21
+        },
+        {
+          "blocks": 7,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "moments": [
+        {
+          "q": 1,
+          "rho": "1/2",
+          "moment": "7051/64",
+          "mp_moment": "4279/64"
+        },
+        {
+          "q": 2,
+          "rho": "1/2",
+          "moment": "33563/384",
+          "mp_moment": "4279/64"
+        },
+        {
+          "q": 4,
+          "rho": "1/2",
+          "moment": "3965891/55296",
+          "mp_moment": "4279/64"
+        },
+        {
+          "q": 8,
+          "rho": "1/2",
+          "moment": "76999637531/1146617856",
+          "mp_moment": "4279/64"
+        },
+        {
+          "q": 1,
+          "rho": "1",
+          "moment": "1910/3",
+          "mp_moment": "429"
+        },
+        {
+          "q": 2,
+          "rho": "1",
+          "moment": "19007/36",
+          "mp_moment": "429"
+        },
+        {
+          "q": 4,
+          "rho": "1",
+          "moment": "2346023/5184",
+          "mp_moment": "429"
+        },
+        {
+          "q": 8,
+          "rho": "1",
+          "moment": "46269345383/107495424",
+          "mp_moment": "429"
+        },
+        {
+          "q": 1,
+          "rho": "2",
+          "moment": "5609",
+          "mp_moment": "4279"
+        },
+        {
+          "q": 2,
+          "rho": "2",
+          "moment": "59027/12",
+          "mp_moment": "4279"
+        },
+        {
+          "q": 4,
+          "rho": "2",
+          "moment": "7659881/1728",
+          "mp_moment": "4279"
+        },
+        {
+          "q": 8,
+          "rho": "2",
+          "moment": "153661072001/35831808",
+          "mp_moment": "4279"
+        }
+      ]
+    },
+    {
+      "p": 8,
+      "counts": [
+        {
+          "blocks": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "blocks": 2,
+          "trees": 1,
+          "count": 28
+        },
+        {
+          "blocks": 2,
+          "trees": 2,
+          "count": 70
+        },
+        {
+          "blocks": 2,
+          "trees": 3,
+          "count": 28
+        },
+        {
+          "blocks": 2,
+          "trees": 4,
+          "count": 1
+        },
+        {
+          "blocks": 3,
+          "trees": 1,
+          "count": 196
+        },
+        {
+          "blocks": 3,
+          "trees": 2,
+          "count": 448
+        },
+        {
+          "blocks": 3,
+          "trees": 3,
+          "count": 148
+        },
+        {
+          "blocks": 3,
+          "trees": 4,
+          "count": 146
+        },
+        {
+          "blocks": 3,
+          "trees": 5,
+          "count": 20
+        },
+        {
+          "blocks": 3,
+          "trees": 6,
+          "count": 8
+        },
+        {
+          "blocks": 4,
+          "trees": 1,
+          "count": 490
+        },
+        {
+          "blocks": 4,
+          "trees": 2,
+          "count": 784
+        },
+        {
+          "blocks": 4,
+          "trees": 3,
+          "count": 220
+        },
+        {
+          "blocks": 4,
+          "trees": 4,
+          "count": 184
+        },
+        {
+          "blocks": 4,
+          "trees": 5,
+          "count": 10
+        },
+        {
+          "blocks": 4,
+          "trees": 6,
+          "count": 12
+        },
+        {
+          "blocks": 4,
+          "trees": 8,
+          "count": 1
+        },
+        {
+          "blocks": 5,
+          "trees": 1,
+          "count": 490
+        },
+        {
+          "blocks": 5,
+          "trees": 2,
+          "count": 448
+        },
+        {
+          "blocks": 5,
+          "trees": 3,
+          "count": 84
+        },
+        {
+          "blocks": 5,
+          "trees": 4,
+          "count": 28
+        },
+        {
+          "blocks": 6,
+          "trees": 1,
+          "count": 196
+        },
+        {
+          "blocks": 6,
+          "trees": 2,
+          "count": 70
+        },
+        {
+          "blocks": 7,
+          "trees": 1,
+          "count": 28
+        },
+        {
+          "blocks": 8,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "moments": [
+        {
+          "q": 1,
+          "rho": "1/2",
+          "moment": "44191/128",
+          "mp_moment": "20793/128"
+        },
+        {
+          "q": 2,
+          "rho": "1/2",
+          "moment": "1127837/4608",
+          "mp_moment": "20793/128"
+        },
+        {
+          "q": 4,
+          "rho": "1/2",
+          "moment": "12005807177/66355200",
+          "mp_moment": "20793/128"
+        },
+        {
+          "q": 8,
+          "rho": "1/2",
+          "moment": "2250131899669143977/13759414272000000",
+          "mp_moment": "20793/128"
+        },
+        {
+          "q": 1,
+          "rho": "1",
+          "moment": "62381/24",
+          "mp_moment": "1430"
+        },
+        {
+          "q": 2,
+          "rho": "1",
+          "moment": "5652121/2880",
+          "mp_moment": "1430"
+        },
+        {
+          "q": 4,
+          "rho": "1",
+          "moment": "64328958781/41472000",
+          "mp_moment": "1430"
+        },
+        {
+          "q": 8,
+          "rho": "1",
+          "moment": "12359291544944463181/8599633920000000",
+          "mp_moment": "1430"
+        },
+        {
+          "q": 1,
+          "rho": "2",
+          "moment": "63061/2",
+          "mp_moment": "20793"
+        },
+        {
+          "q": 2,
+          "rho": "2",
+          "moment": "4640327/180",
+          "mp_moment": "20793"
+        },
+        {
+          "q": 4,
+          "rho": "2",
+          "moment": "113789923729/5184000",
+          "mp_moment": "20793"
+        },
+        {
+          "q": 8,
+          "rho": "2",
+          "moment": "22426133359878834829/1074954240000000",
+          "mp_moment": "20793"
+        }
+      ]
+    }
+  ]
+}

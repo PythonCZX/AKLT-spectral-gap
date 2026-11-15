@@ -1,0 +1,177 @@
+{
+  "arithmetic": "exact rational",
+  "cases": [
+    {
+      "complex_dimension": 3,
+      "centers": 4,
+      "degree": 3,
+      "section_dimension": 20,
+      "quota": 5,
+      "S_M": 20,
+      "all_tie_assignments": 81,
+      "nonzero_balanced_minors": 9,
+      "vector_squared_norm": "9/16",
+      "normalized_coordinate_moments": [
+        [
+          "5/3",
+          "5/3",
+          "5/3"
+        ],
+        [
+          "5/3",
+          "5/3",
+          "5/3"
+        ],
+        [
+          "5/3",
+          "5/3",
+          "5/3"
+        ],
+        [
+          "5/3",
+          "5/3",
+          "5/3"
+        ]
+      ],
+      "expected_coordinate_moment": "5/3",
+      "nonzero_root_images": 144,
+      "wedge_zero_root_images": 216,
+      "root_support_overlaps": 0,
+      "all_assertions_passed": true
+    },
+    {
+      "complex_dimension": 3,
+      "centers": 4,
+      "degree": 5,
+      "section_dimension": 56,
+      "quota": 14,
+      "S_M": 108,
+      "all_tie_assignments": 4096,
+      "nonzero_balanced_minors": 152,
+      "vector_squared_norm": "19/352638738432",
+      "normalized_coordinate_moments": [
+        [
+          "9",
+          "9",
+          "9"
+        ],
+        [
+          "9",
+          "9",
+          "9"
+        ],
+        [
+          "9",
+          "9",
+          "9"
+        ],
+        [
+          "9",
+          "9",
+          "9"
+        ]
+      ],
+      "expected_coordinate_moment": "9",
+      "nonzero_root_images": 5952,
+      "wedge_zero_root_images": 19584,
+      "root_support_overlaps": 0,
+      "all_assertions_passed": true
+    },
+    {
+      "complex_dimension": 4,
+      "centers": 5,
+      "degree": 2,
+      "section_dimension": 15,
+      "quota": 3,
+      "S_M": 10,
+      "all_tie_assignments": 1024,
+      "nonzero_balanced_minors": 24,
+      "vector_squared_norm": "24",
+      "normalized_coordinate_moments": [
+        [
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2"
+        ],
+        [
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2"
+        ]
+      ],
+      "expected_coordinate_moment": "1/2",
+      "nonzero_root_images": 480,
+      "wedge_zero_root_images": 240,
+      "root_support_overlaps": 0,
+      "all_assertions_passed": true
+    },
+    {
+      "complex_dimension": 4,
+      "centers": 5,
+      "degree": 3,
+      "section_dimension": 35,
+      "quota": 7,
+      "S_M": 40,
+      "all_tie_assignments": 59049,
+      "nonzero_balanced_minors": 954,
+      "vector_squared_norm": "477/512",
+      "normalized_coordinate_moments": [
+        [
+          "2",
+          "2",
+          "2",
+          "2"
+        ],
+        [
+          "2",
+          "2",
+          "2",
+          "2"
+        ],
+        [
+          "2",
+          "2",
+          "2",
+          "2"
+        ],
+        [
+          "2",
+          "2",
+          "2",
+          "2"
+        ],
+        [
+          "2",
+          "2",
+          "2",
+          "2"
+        ]
+      ],
+      "expected_coordinate_moment": "2",
+      "nonzero_root_images": 49800,
+      "wedge_zero_root_images": 64680,
+      "root_support_overlaps": 0,
+      "all_assertions_passed": true
+    }
+  ]
+}

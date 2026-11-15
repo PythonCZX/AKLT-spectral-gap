@@ -1,0 +1,9 @@
+.venv/
+.venv*/
+__pycache__/
+.scratch/
+*.pyc
+*.olean
+.ultramath/
+*.log
+build/

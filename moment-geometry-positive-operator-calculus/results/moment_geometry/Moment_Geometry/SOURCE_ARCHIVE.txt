@@ -1,0 +1,8 @@
+SOURCE DISTRIBUTION
+
+This smaller archive contains the complete LaTeX source, vector PDF figures,
+bibliography, figure-generation code and font notices, computational code,
+certificates, theorem registry, and formalization-guide source.
+The compiled article, compiled guide, and PNG figure previews are omitted.
+Run python3 build.py from this directory with the dependencies in README.txt.
+All relative source and executable paths match the complete distribution.

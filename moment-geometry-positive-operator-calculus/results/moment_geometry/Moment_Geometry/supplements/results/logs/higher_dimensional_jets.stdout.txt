@@ -1,0 +1,5 @@
+d=3, M=3, support=9, coordinate-moment=5/3, all-root-overlaps=0 PASS
+d=3, M=5, support=152, coordinate-moment=9, all-root-overlaps=0 PASS
+d=4, M=2, support=24, coordinate-moment=1/2, all-root-overlaps=0 PASS
+d=4, M=3, support=954, coordinate-moment=2, all-root-overlaps=0 PASS
+/workspace/scratch/e041a694f3ed/publication_package/supplements/projective_jets/projective_jet_extension_exact.json

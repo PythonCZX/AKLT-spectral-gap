@@ -1,0 +1,374 @@
+\section{Moment repair and constrained equilibria}
+\label{sec:equilibria}
+
+The geometric threshold becomes more useful when the constraint can be
+enforced stably and its equilibria can be described by an equation.
+This section provides those analytic interfaces on $X=\mathbb P^2$.
+It also explains which part of the determinant problem is controlled by
+ordinary compactness and which part requires information about very small
+singular values.
+
+We use $\omega_0=3\omega_{\rm FS}$, $V=\int\omega_0^2=9$,
+$\sigma=\omega_0^2/V$, and $dd^c=i\partial\bar\partial/(2\pi)$.
+Write $\mathcal A=\mathcal E_L$ and $E=E_L$ for the energies in
+\eqref{geo:energy}, and $H(\mu)=\Ent(\mu\mid\sigma)$. A positive
+K\"ahler potential changes the reference metric by
+$\omega_u=\omega_0+dd^cu>0$. Its normalized Monge--Amp\`ere measure is
+$\operatorname{MA}(u)=\omega_u^2/V$: in coordinates it is the determinant
+of the Hermitian metric matrix, normalized to mass one. The energy $E$ is
+the convex dual of the concave potential energy $\mathcal A$.
+
+The finite-energy completion $\mathcal E^1$ allows singular potentials
+with full Monge--Amp\`ere mass and finite Aubin--Mabuchi energy. We use the
+variational theorem of \citet{BBGZ2013}: a finite-energy measure has a
+normalized potential attaining the dual energy. We also use the strong
+compactness of entropy sublevels and continuity of the inverse
+Monge--Amp\`ere map from \citet[Theorem 2.17 and Corollary 2.19]{BBEGZ2019}.
+These results supply the analytic completion in which the elementary
+finite-dimensional moment correction can be used.
+
+\subsection{Quantitative stability of the constraint}
+
+We first record a uniform integrability estimate. If $u$ is
+$\omega_0$-plurisubharmonic and $\sup u=0$, then
+\begin{equation}
+ \int e^{-\alpha u}\,d\sigma\le
+ \frac{2}{(1-3\alpha)(2-3\alpha)},\qquad 0\le\alpha<1/3.
+ \label{an:alpha-baseline}
+\end{equation}
+Here is an elementary derivation of the constant. Fix a maximum point
+$a$ and disintegrate over complex lines through $a$, writing
+$z=\sqrt{x}\,a+e^{i\theta}\sqrt{1-x}\,b$. The conditional density is
+$2(1-x)dx\,d\theta/(2\pi)$. The line potential $u/3$ is a positive
+average of logarithms of normalized linear forms plus a nonnegative
+constant, by the Riesz representation and its value at $a$. Jensen
+reduces the estimate to one form $\ell$.
+If $b_0=|\ell(a)|^2$ and $s<1$, direct integration gives
+\[
+ \int|\ell|^{-2s}d\sigma_{\text{line},a}
+ =\frac{2(1-s+sb_0)}{(1-s)(2-s)}
+ \le\frac2{(1-s)(2-s)}.
+\]
+Setting $s=3\alpha$ proves \eqref{an:alpha-baseline}. Its derivative
+at zero gives $\int(-u)d\sigma\le9/2$. Thus a mean-zero potential
+satisfies $\int|u|d\sigma\le9$. Entropy duality, with $\alpha=1/6$,
+also gives the global bound
+\begin{equation}
+ E(\mu)\le6H(\mu)+6\log(8/3).
+ \label{an:entropy-to-energy}
+\end{equation}
+This ensures finite energy for every finite-entropy measure, before any
+moment constraint is imposed.
+
+\begin{proposition}[Energy retained by positive dilution]
+\label{an:dilution}
+Let $0<p\le1$, let $1/2\le d\nu/d\sigma\le3/2$, and put
+\[
+ c=c(p)=\frac{3-\sqrt{9-8p}}2,\qquad p=\frac{c(3-c)}2.
+\]
+For every probability $\mu$, allowing infinite energy,
+\begin{equation}
+ E(p\mu+(1-p)\nu)\ge pcE(\mu)-\frac92c(1-p).
+ \label{an:dilution-bound}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For a smooth test normalized by $\int u\,d\sigma=0$, write
+$J(u)=-\mathcal A(u)$ and
+\[
+ a=V^{-1}\int du\wedge d^cu\wedge\omega_0,\qquad
+ b=V^{-1}\int du\wedge d^cu\wedge\omega_u.
+\]
+Both are nonnegative. Integration by parts gives
+$J(u)=(2a+b)/3$ and $J(cu)=c^2[(3-c)a+cb]/3$. Therefore
+$pcJ(u)-J(cu)=c^2(1-c)b/2\ge0$. Also
+$|\int u\,d\nu|\le\tfrac12\int|u|d\sigma\le9/2$.
+Testing the diluted measure at $cu$ and taking the supremum proves
+\eqref{an:dilution-bound}, including the infinite case.
+\end{proof}
+
+Suppose $H\ge qE-K$ on the exact second-design fibre, with $q>0$.
+For every $\gamma<q$ this inequality persists, with a smaller coefficient
+still above $\gamma$, on an explicit moment neighborhood. Indeed choose
+$\delta_0>0$ so that, with $p_0=(1+102\delta_0)^{-1}$,
+$q_0=q\,c(p_0)>\gamma$. Positive repair
+(Proposition~\ref{prop:repair}) and \eqref{an:dilution-bound} give
+\begin{equation}
+ H(\mu)\ge q_0E(\mu)-K_1,
+ \qquad
+ K_1=\frac{K+\log(3/2)+9q/2}{p_0},
+ \label{an:robust-coercivity}
+\end{equation}
+whenever $\|M_2(\mu)-I_6/6\|_{\rm HS}\le\delta_0$ and $H(\mu)<\infty$.
+In particular $H-\gamma E\ge(1-\gamma/q_0)H-\gamma K_1/q_0$ there.
+Theorem~\ref{geo:sharp} supplies every $q<12/7$, since every second
+design is balanced. Thus this neighborhood result and the equilibrium
+theorems below hold unconditionally for $\gamma<12/7$.
+
+\subsection{Entropy projection and the finite multiplier}
+
+A constrained equilibrium has an infinite-dimensional potential but only
+a finite-dimensional correction enforcing its moments. This correction
+is an exponential-family parameter, determined by a strictly convex
+optimization problem.
+
+Let $\mathfrak a=\operatorname{Herm}_0(\Sym^2\mathbb C^3)$ and
+$h_Y(z)=\tr(YQ_z)$, with $Q_z=P_z^{\otimes2}$. For
+$u\in\mathcal E^1$, $\sup u=0$, a bounded real $W$, and $\gamma\ge0$,
+define
+\[
+ J_u(Y)=\log Z_u(Y),\qquad
+ Z_u(Y)=\int e^{-\gamma u-W+h_Y}\,d\sigma.
+\]
+
+\begin{theorem}[Exact constrained entropy projection]
+\label{an:entropy-projection}
+The function $J_u$ has a unique minimizer $Y_u\in\mathfrak a$.
+The probability
+\begin{equation}
+ d\eta_u=Z_u(Y_u)^{-1}e^{-\gamma u-W+h_{Y_u}}d\sigma
+ \label{an:exponential-family}
+\end{equation}
+is an exact second design of finite entropy and energy. It uniquely
+minimizes $H(\nu)+\int(\gamma u+W)d\nu$ among finite-entropy measures
+on that fibre, and
+\begin{equation}
+ \Ent(\nu\mid\eta_u)
+ =H(\nu)+\int(\gamma u+W)d\nu+\log Z_u(Y_u)
+ \label{an:pythagoras}
+\end{equation}
+for every finite-entropy second design $\nu$.
+\end{theorem}
+
+\begin{proof}
+Full-mass finite-energy potentials have $e^{-a u}\in L^1(\sigma)$
+for every finite $a$ \citep[Proposition 1.4]{BBEGZ2019}. Entropy duality
+then makes all potential pairings in \eqref{an:pythagoras} finite.
+The finite-dimensional parameter derivatives are bounded coherent symbols,
+so $J_u$ is smooth by dominated differentiation on bounded parameter sets.
+
+The coherent frame in \eqref{an:frame-spectrum} has least eigenvalue
+$1/90$. If $\|Y\|_{\rm HS}=1$, then $\int h_Y=0$, $|h_Y|\le1$, and
+$\int h_Y^2\ge1/90$. Thus $\int(h_Y)_+\ge1/180$ and
+$\sigma\{h_Y\ge1/360\}\ge1/360$. Since $u\le0$,
+\begin{equation}
+ J_u(Y)\ge\frac{\|Y\|_{\rm HS}}{360}-\|W\|_\infty-\log360.
+ \label{an:multiplier-coercivity}
+\end{equation}
+This proves existence. Its Hessian is
+$D^2J_u(Y)[A,B]=\operatorname{Cov}_{\eta_Y}(h_A,h_B)$.
+The density is positive almost everywhere; zero variance would make
+$h_A$ constant everywhere, hence zero by its Haar mean, and then $A=0$
+by frame invertibility. Strict convexity gives uniqueness.
+The stationarity condition is $M_2(\eta_u)=I_6/6$.
+Exponential integrability gives finite entropy, and
+\eqref{an:entropy-to-energy} gives finite energy. Finally substitute
+\eqref{an:exponential-family} into relative entropy; the multiplier term
+vanishes on the design fibre. Nonnegativity and the equality condition
+of relative entropy prove the minimization assertion.
+\end{proof}
+
+Comparison with $J_u(0)$ gives the useful explicit bound
+\begin{equation}
+ \|Y_u\|_{\rm HS}\le360\left(
+ 2\|W\|_\infty+\log\int e^{-\gamma u}d\sigma+\log360\right).
+ \label{an:multiplier-bound}
+\end{equation}
+This finite covariance Hessian is available to numerical solvers. The
+positive repair radius guarantees an interior moment target, while
+\eqref{an:multiplier-coercivity} prevents the multiplier from escaping
+to infinity.
+
+\subsection{Existence and smoothness of attractive macroscopic equilibria}
+
+Define $\mathcal D_2=\{\mu:M_2(\mu)=I_6/6\}$ and, for
+$0\le\gamma<12/7$,
+\[
+ \mathcal F_{\gamma,W}(\mu)=H(\mu)-\gamma E(\mu)+\int W\,d\mu
+\]
+on finite-entropy measures in $\mathcal D_2$, with value $+\infty$
+elsewhere. The minus sign makes the interaction attractive.
+
+\begin{theorem}[Smooth constrained equilibria]
+\label{an:equilibrium}
+For $0\le\gamma<12/7$ and $W\in C^\infty(X,\R)$,
+$\mathcal F_{\gamma,W}$ attains its minimum. Every minimizer is smooth
+and strictly positive. Its Monge--Amp\`ere potential, normalized by
+$\sup_Xu=0$, and unique traceless multiplier satisfy
+\begin{equation}
+ \operatorname{MA}(u)=
+ \frac{e^{-\gamma u-W+h_Y}}
+ {\int e^{-\gamma u-W+h_Y}d\sigma}\,\sigma.
+ \label{an:equilibrium-pde}
+\end{equation}
+For $\gamma$ in a compact subinterval of $[0,12/7)$ and $W$ in a bounded
+subset of $C^\infty$, the potentials, densities, and multipliers have
+uniform bounds in every smooth norm, and the densities have a common
+positive lower bound. The minimizer itself is not asserted to be unique.
+\end{theorem}
+
+\begin{proof}
+Choose $q$ strictly between the largest considered $\gamma$ and $12/7$.
+Coercivity gives $H-\gamma E\ge(1-\gamma/q)H-\gamma K/q$ on
+$\mathcal D_2$. Hence a minimizing sequence has bounded entropy.
+Entropy sublevels are compact for weak convergence together with
+convergence of $E$ \citep{BBEGZ2019}. The limiting measure remains in
+the closed moment fibre, and lower semicontinuity of $H$ proves existence.
+
+Let $u$ be the finite-energy potential of a minimizer $\mu$. Energy
+duality gives $E(\nu)\ge\mathcal A(u)-\int u\,d\nu$, with equality at
+$\mu$. Therefore
+\[
+ \mathcal F_{\gamma,W}(\nu)
+ \le H(\nu)+\int(\gamma u+W)d\nu-\gamma\mathcal A(u),
+\]
+again with equality at $\mu$. If $\mu$ differed from the entropy projection
+$\eta_u$, identity \eqref{an:pythagoras} would strictly lower this
+majorizer, and hence the original functional. This contradiction proves
+\eqref{an:equilibrium-pde} without differentiating energy on singular
+measures.
+
+For uniform estimates, comparison with $\sigma$ bounds the entropy of
+all minimizers. Their normalized potentials form a strongly compact
+family. Exponential integrability is uniform on this family, by
+\citet[Proposition 1.4]{BBEGZ2019}. Equation
+\eqref{an:multiplier-bound} bounds $Y$; its coherent symbol then has
+uniform derivatives of every order. The densities in
+\eqref{an:equilibrium-pde} are uniformly bounded in every finite $L^p$
+and bounded below. The H\"older estimate of
+\citet[Theorem A*]{DemaillyEtAl2014} gives a uniform $C^{\alpha_0}$ bound
+on $u$, for example with $\alpha_0=1/4$.
+
+To justify higher regularity before applying smooth PDE estimates,
+average $u$ against the $SU(3)$ heat kernel, obtaining smooth
+$u_\epsilon\to u$ uniformly with $\omega_0+dd^cu_\epsilon\ge0$.
+Put $F=h_Y-W$ and solve the smooth auxiliary equation
+\[
+ \operatorname{MA}(v_\epsilon)=
+ \frac{e^{-\gamma u_\epsilon+F}}
+ {\int e^{-\gamma u_\epsilon+F}d\sigma}\,\sigma,
+ \qquad\sup v_\epsilon=0.
+\]
+The classical smooth solution and bounded-solution uniqueness are supplied
+by \citet[Theorems A and B]{EGZ2009}, specialized to a positive class
+and no divisorial singularities. The right sides have uniform positive
+lower bounds and H\"older norms. In the Laplacian estimate of
+\citet[Theorem B.1]{BBEGZ2019}, use
+$\psi^+=F-\log\int e^{-\gamma u_\epsilon+F}d\sigma$ and
+$\psi^-=\gamma u_\epsilon$. Their complex Hessians are bounded below,
+$\psi^+$ is bounded above, and $e^{-\psi^-}$ has uniform $L^p$ bounds.
+It follows that
+$\omega_{v_\epsilon}\le C e^{-\gamma u_\epsilon}\omega_0\le C'\omega_0$.
+The determinant equation gives the lower ellipticity bound.
+
+The same $L^2$ density estimate gives a uniform $C^0$ bound for
+$v_\epsilon$. The $C^{2,\beta}$ theorem of \citet[Theorem 1.1]{TWWY2015} now applies
+to the already smooth $v_\epsilon$: their potentials, Laplacians, and
+H\"older log densities are uniformly bounded. A convergent subsequence
+has limit $u$, by uniqueness of the bounded normalized solution.
+Thus $u$ is $C^{2,\beta'}$ for $0<\beta'<\beta$. Differentiating
+\eqref{an:equilibrium-pde} gives a uniformly elliptic linear equation
+for each first derivative; Schauder bootstrapping yields all higher
+bounds. The positive lower bound on the density is retained throughout.
+\end{proof}
+
+The same compactness argument proves that the extended functional has
+compact sublevels and that a minimizer exists after adding any continuous
+functional of $\mu$. Smoothness above requires the displayed smooth
+one-body tilt $\int Wd\mu$. There is also an exact potential-side dual:
+\begin{equation}
+ \inf_{\mathcal D_2}\mathcal F_{\gamma,W}
+ =\inf_{u\in\mathcal E^1}
+ \left[-\gamma\mathcal A(u)-\min_{Y\in\mathfrak a}J_u(Y)\right].
+ \label{an:dual-equilibrium}
+\end{equation}
+Write $-\gamma E$ as an infimum of affine tests and interchange two
+infima; Theorem~\ref{an:entropy-projection} then gives the formula.
+The two sides are attained by a minimizing measure and its potential.
+
+\subsection{Continuous energy envelopes and deterministic lower comparison}
+
+The topology used above can be made useful for finite determinant
+ensembles. Choose a countable $C^2$-dense sequence of smooth positive
+potentials $u_0=0,u_1,\ldots$ and let
+\begin{equation}
+ E_r(\mu)=\max_{0\le j\le r}
+ \left(\mathcal A(u_j)-\int u_j\,d\mu\right).
+ \label{an:continuous-envelopes}
+\end{equation}
+These are continuous, nonnegative, and increase to $E$. Convergence is
+uniform on every entropy sublevel by strong compactness and Dini's
+theorem. Averaging measures over the unitary heat kernel preserves exact
+design moments and decreases both entropy and energy. Lower
+semicontinuity then shows that every finite-entropy exact design is
+approximable by smooth strictly positive exact designs with convergence
+of both functionals.
+
+The smooth-test and finite-energy versions of the dual agree here.
+Indeed, after fixing the heat-time normalization,
+$\Delta_{\omega_0}u\ge-2$ implies that $S_tu+2t$ decreases to $u$ as
+$t\downarrow0$. Its K\"ahler form is strictly positive, since the group
+heat kernel has a positive minimum and the Haar average of the current
+is $\omega_0$. Monotone continuity of energy and of potential integrals
+then identifies the two suprema, including infinite values.
+
+Let $N_k=\binom{3k+2}{2}$ and let $\Delta_k$ be the evaluation
+determinant of an orthonormal basis of $H^0(X,\mathcal O(3k))$.
+For a particle tuple put $L_k=N_k^{-1}\sum_i\delta_{z_i}$ and
+$E_k=-(kN_k)^{-1}\log\|\Delta_k\|^2$.
+
+\begin{theorem}[Lower comparison with explicit finite-test error]
+\label{an:lower-comparison}
+For each fixed finite collection in \eqref{an:continuous-envelopes}
+there is a finite constant $C_r$ such that, on every configuration,
+\begin{equation}
+ E_k\ge E_r(L_k)-\frac{2\log k+C_r}{k},
+ \qquad E_k\ge-\frac{\log N_k}{k}.
+ \label{an:LC}
+\end{equation}
+The inequalities include determinant-zero configurations, where
+$E_k=+\infty$.
+\end{theorem}
+
+\begin{proof}
+Let $G_k(u)$ be the Hilbert matrix with weight $e^{-ku}$. Put
+\[
+ \mathcal L_k(u)=-\frac{1}{kN_k}\log\det G_k(u).
+\]
+The exact adjoint
+Hilbert comparison is
+$\mathcal L_k(u)\ge\mathcal A(u)$. To see the normalization directly,
+join $0$ to $u$ by a weak geodesic $u_t$. The adjoint metric on
+$kL-K_X$ has nonnegative curvature:
+\[
+ k(\pi^*\omega_0+dd^cu_t)+\pi^*\operatorname{Ric}(\sigma)\ge0,
+ \qquad\operatorname{Ric}(\sigma)=\omega_0.
+\]
+Thus the maximum principle of
+\citet[Proposition 4.1]{geo_zhang2024} gives
+$G_k(u)^t\le G_k(u_t)$. Differentiate the logarithmic determinant at
+$t=0$. The reference Bergman density is exactly $N_k$, and the
+potential energy is affine along the geodesic. This proves the comparison
+with no error in its energy coefficient.
+
+The weighted Bergman function satisfies $\sup_XB_{k,u}\le C_uk^2$.
+In a holomorphic chart, subtract the constant and real-linear part of the
+metric weight; its remainder is bounded by $C|z|^2$. The holomorphic
+submean inequality on a radius $k^{-1/2}$ ball gives the bound, uniformly
+for potentials in a bounded $C^2$ set. Changing to a weighted orthonormal
+basis and applying Hadamard to its evaluation determinant now yields
+\[
+ E_k\ge\mathcal L_k(u)-\int u\,dL_k
+          -k^{-1}\log\sup_X B_{k,u}.
+\]
+Take a finite maximum. At $u=0$ the exact value $B_{k,0}=N_k$ gives
+the second inequality.
+\end{proof}
+
+This lower comparison is deterministic, hence can be combined with
+ordinary constrained Sanov theory on the repulsive side. Attractive
+reweighting instead rewards configurations with very large $E_k$;
+its pressure requires upper-tail information beyond the deterministic
+inequality. The next section supplies a spectral description of the
+coherent kernel, followed by the constrained repulsive Laplace principle.

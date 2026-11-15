@@ -1,0 +1,111 @@
+{
+  "output": "/workspace/scratch/e041a694f3ed/publication_package/supplements/modular/lee_yang_compiler.json",
+  "models": 9,
+  "selected": {
+    "graph": "cycle",
+    "spins": 8,
+    "q": "2",
+    "variance": "820/3281",
+    "first_four_zero_power_sums": [
+      "410/3281",
+      "1844743/516718128",
+      "16405193573/108502539389952",
+      "8453004069618103/1196149354641133240320"
+    ],
+    "distribution": {
+      "-1": "128/3281",
+      "-3/4": "256/3281",
+      "-1/2": "416/3281",
+      "-1/4": "32/193",
+      "0": "593/3281",
+      "1/4": "32/193",
+      "1/2": "416/3281",
+      "3/4": "256/3281",
+      "1": "128/3281"
+    },
+    "rules": [
+      {
+        "order": 1,
+        "max_bracket_width": null,
+        "error_at_x4": null,
+        "gauss_error_coefficient": "1000621937/61014076554240",
+        "radau_error_coefficient": "272044708308833/1639829925201771233280",
+        "nodes_positive": true,
+        "weights_positive": true,
+        "exact_rational_root_isolation": true
+      },
+      {
+        "order": 2,
+        "max_bracket_width": null,
+        "error_at_x4": null,
+        "gauss_error_coefficient": "6656141382415568269/4482945847944155741080780800",
+        "radau_error_coefficient": "543354655040144079590813807/46334040564536456909407604027110195200",
+        "nodes_positive": true,
+        "weights_positive": true,
+        "exact_rational_root_isolation": true
+      },
+      {
+        "order": 3,
+        "max_bracket_width": null,
+        "error_at_x4": null,
+        "gauss_error_coefficient": "4255932385365328782665305235408201/60522273741464079079258590229303369339502592000",
+        "radau_error_coefficient": "4649924463866437771135377993815193766134293/14093297426945820379789676292656535521852037278176641024000",
+        "nodes_positive": true,
+        "weights_positive": true,
+        "exact_rational_root_isolation": true
+      },
+      {
+        "order": 4,
+        "max_bracket_width": null,
+        "error_at_x4": null,
+        "gauss_error_coefficient": "17826949035809879508441169037031937623919748659/13617317076350404876755967917687784501944273842346643697958912000",
+        "radau_error_coefficient": "2216885429288792550985551637831442546996863399372995480413207/598368690870714140695287714341600883165987540640310441633876876673573747425280000",
+        "nodes_positive": true,
+        "weights_positive": true,
+        "exact_rational_root_isolation": true
+      }
+    ]
+  },
+  "adverse": {
+    "distribution": {
+      "-1": "1/20",
+      "0": "9/10",
+      "1": "1/20"
+    },
+    "representing_mean": "(t^0+t^1)/20 + 9*t^(1/2)/10",
+    "log_rho_eigenvalues_up_to_scalar": [
+      "-2*log(2)",
+      "0",
+      "2*log(2)"
+    ],
+    "modular_half_generator_eigenvalues": [
+      "-log(2)",
+      "0",
+      "log(2)"
+    ],
+    "kernel": [
+      [
+        "1",
+        "40/41",
+        "80/89"
+      ],
+      [
+        "40/41",
+        "1",
+        "40/41"
+      ],
+      [
+        "80/89",
+        "40/41",
+        "1"
+      ]
+    ],
+    "rational_witness_vector": [
+      1,
+      -2,
+      1
+    ],
+    "quadratic_form": "-26/3649",
+    "conclusion": "A valid power-mixture Petz metric need not have a CP relative-score filter. The Lee--Yang condition supplies additional content."
+  }
+}

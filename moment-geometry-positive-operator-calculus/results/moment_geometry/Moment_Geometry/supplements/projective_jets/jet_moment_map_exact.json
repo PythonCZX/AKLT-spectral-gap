@@ -1,0 +1,263 @@
+{
+  "arithmetic": "exact integers and rational fractions",
+  "coordinate_norm": "a! b! / (a+b)!",
+  "tested_assertion": "zero moment map after determinant twist S_M/6 at each GL(2) factor",
+  "cases": [
+    {
+      "M": 1,
+      "N": 3,
+      "quota": 1,
+      "S_M": 0,
+      "S_over_MN": "0",
+      "anticanonical_threshold": null,
+      "number_of_tied_monomials": 0,
+      "assignments_enumerated": 1,
+      "nonzero_balanced_minors": 1,
+      "vector_squared_norm": "1",
+      "normalized_local_cartan_expectations": [
+        "0",
+        "0",
+        "0"
+      ],
+      "normalized_center_degree_expectations": [
+        "0",
+        "0",
+        "0"
+      ],
+      "expected_center_degree": "0",
+      "root_nonzero_images": 0,
+      "root_wedge_zero_images": 0,
+      "root_support_overlaps": 0,
+      "all_assertions_passed": true
+    },
+    {
+      "M": 2,
+      "N": 6,
+      "quota": 2,
+      "S_M": 3,
+      "S_over_MN": "1/4",
+      "anticanonical_threshold": "8/3",
+      "number_of_tied_monomials": 3,
+      "assignments_enumerated": 8,
+      "nonzero_balanced_minors": 2,
+      "vector_squared_norm": "2",
+      "normalized_local_cartan_expectations": [
+        "0",
+        "0",
+        "0"
+      ],
+      "normalized_center_degree_expectations": [
+        "1",
+        "1",
+        "1"
+      ],
+      "expected_center_degree": "1",
+      "root_nonzero_images": 6,
+      "root_wedge_zero_images": 0,
+      "root_support_overlaps": 0,
+      "all_assertions_passed": true
+    },
+    {
+      "M": 4,
+      "N": 15,
+      "quota": 5,
+      "S_M": 18,
+      "S_over_MN": "3/10",
+      "anticanonical_threshold": "20/9",
+      "number_of_tied_monomials": 3,
+      "assignments_enumerated": 8,
+      "nonzero_balanced_minors": 2,
+      "vector_squared_norm": "1/4",
+      "normalized_local_cartan_expectations": [
+        "0",
+        "0",
+        "0"
+      ],
+      "normalized_center_degree_expectations": [
+        "6",
+        "6",
+        "6"
+      ],
+      "expected_center_degree": "6",
+      "root_nonzero_images": 6,
+      "root_wedge_zero_images": 24,
+      "root_support_overlaps": 0,
+      "all_assertions_passed": true
+    },
+    {
+      "M": 5,
+      "N": 21,
+      "quota": 7,
+      "S_M": 33,
+      "S_over_MN": "11/35",
+      "anticanonical_threshold": "70/33",
+      "number_of_tied_monomials": 3,
+      "assignments_enumerated": 8,
+      "nonzero_balanced_minors": 2,
+      "vector_squared_norm": "1/108",
+      "normalized_local_cartan_expectations": [
+        "0",
+        "0",
+        "0"
+      ],
+      "normalized_center_degree_expectations": [
+        "11",
+        "11",
+        "11"
+      ],
+      "expected_center_degree": "11",
+      "root_nonzero_images": 12,
+      "root_wedge_zero_images": 36,
+      "root_support_overlaps": 0,
+      "all_assertions_passed": true
+    },
+    {
+      "M": 7,
+      "N": 36,
+      "quota": 12,
+      "S_M": 84,
+      "S_over_MN": "1/3",
+      "anticanonical_threshold": "2",
+      "number_of_tied_monomials": 3,
+      "assignments_enumerated": 8,
+      "nonzero_balanced_minors": 2,
+      "vector_squared_norm": "1/40310784",
+      "normalized_local_cartan_expectations": [
+        "0",
+        "0",
+        "0"
+      ],
+      "normalized_center_degree_expectations": [
+        "28",
+        "28",
+        "28"
+      ],
+      "expected_center_degree": "28",
+      "root_nonzero_images": 12,
+      "root_wedge_zero_images": 84,
+      "root_support_overlaps": 0,
+      "all_assertions_passed": true
+    },
+    {
+      "M": 8,
+      "N": 45,
+      "quota": 15,
+      "S_M": 123,
+      "S_over_MN": "41/120",
+      "anticanonical_threshold": "80/41",
+      "number_of_tied_monomials": 6,
+      "assignments_enumerated": 64,
+      "nonzero_balanced_minors": 10,
+      "vector_squared_norm": "1/515978035200",
+      "normalized_local_cartan_expectations": [
+        "0",
+        "0",
+        "0"
+      ],
+      "normalized_center_degree_expectations": [
+        "41",
+        "41",
+        "41"
+      ],
+      "expected_center_degree": "41",
+      "root_nonzero_images": 78,
+      "root_wedge_zero_images": 552,
+      "root_support_overlaps": 0,
+      "all_assertions_passed": true
+    },
+    {
+      "M": 10,
+      "N": 66,
+      "quota": 22,
+      "S_M": 231,
+      "S_over_MN": "7/20",
+      "anticanonical_threshold": "40/21",
+      "number_of_tied_monomials": 6,
+      "assignments_enumerated": 64,
+      "nonzero_balanced_minors": 10,
+      "vector_squared_norm": "1/217678233600000000000000000",
+      "normalized_local_cartan_expectations": [
+        "0",
+        "0",
+        "0"
+      ],
+      "normalized_center_degree_expectations": [
+        "77",
+        "77",
+        "77"
+      ],
+      "expected_center_degree": "77",
+      "root_nonzero_images": 90,
+      "root_wedge_zero_images": 900,
+      "root_support_overlaps": 0,
+      "all_assertions_passed": true
+    },
+    {
+      "M": 11,
+      "N": 78,
+      "quota": 26,
+      "S_M": 303,
+      "S_over_MN": "101/286",
+      "anticanonical_threshold": "572/303",
+      "number_of_tied_monomials": 6,
+      "assignments_enumerated": 64,
+      "nonzero_balanced_minors": 10,
+      "vector_squared_norm": "1/6803723659622400000000000000000000000",
+      "normalized_local_cartan_expectations": [
+        "0",
+        "0",
+        "0"
+      ],
+      "normalized_center_degree_expectations": [
+        "101",
+        "101",
+        "101"
+      ],
+      "expected_center_degree": "101",
+      "root_nonzero_images": 108,
+      "root_wedge_zero_images": 1092,
+      "root_support_overlaps": 0,
+      "all_assertions_passed": true
+    },
+    {
+      "M": 14,
+      "N": 120,
+      "quota": 40,
+      "S_M": 606,
+      "S_over_MN": "101/280",
+      "anticanonical_threshold": "560/303",
+      "number_of_tied_monomials": 9,
+      "assignments_enumerated": 512,
+      "nonzero_balanced_minors": 56,
+      "vector_squared_norm": "1/52738593478521861330501028726974754134847244589858816000000000000000000000000000000",
+      "normalized_local_cartan_expectations": [
+        "0",
+        "0",
+        "0"
+      ],
+      "normalized_center_degree_expectations": [
+        "202",
+        "202",
+        "202"
+      ],
+      "expected_center_degree": "202",
+      "root_nonzero_images": 768,
+      "root_wedge_zero_images": 10152,
+      "root_support_overlaps": 0,
+      "all_assertions_passed": true
+    }
+  ],
+  "M2_explicit_semi_invariant": {
+    "tensor_coordinates": {
+      "010": 1,
+      "101": 1
+    },
+    "Cayley_hyperdeterminant": 1,
+    "invariant_degree": 4,
+    "determinant_character_at_each_center": 2,
+    "predicted_character_qS_over_6": "2",
+    "exact_nondiagonal_change_of_basis_hyperdeterminant": 196,
+    "exact_expected_transformed_hyperdeterminant": 196,
+    "all_assertions_passed": true
+  }
+}

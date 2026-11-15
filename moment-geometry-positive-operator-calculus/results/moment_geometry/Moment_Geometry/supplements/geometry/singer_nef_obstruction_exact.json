@@ -1,0 +1,79 @@
+{
+  "exact_second_moment": "Matrix([[1/6, 0, 0, 0, 0, 0], [0, 1/6, 0, 0, 0, 0], [0, 0, 1/6, 0, 0, 0], [0, 0, 0, 1/6, 0, 0], [0, 0, 0, 0, 1/6, 0], [0, 0, 0, 0, 0, 1/6]])",
+  "symmetric_square_characters_mod_7": [
+    0,
+    2,
+    6,
+    1,
+    3,
+    4
+  ],
+  "cuspidal_cubics": [
+    "x**3 - y*z**2",
+    "-x**2*z + y**3",
+    "-x*y**2 + z**3"
+  ],
+  "torus_omission_cubic": "x**2*y + x**2*z + x*y**2 + x*y*z + x*z**2 + y**2*z + y*z**2",
+  "smooth_chart_checks": [
+    [
+      "torus_omission_cubic",
+      "x",
+      "unit gradient ideal"
+    ],
+    [
+      "torus_omission_cubic",
+      "y",
+      "unit gradient ideal"
+    ],
+    [
+      "torus_omission_cubic",
+      "z",
+      "unit gradient ideal"
+    ],
+    [
+      "basis_pencil_member",
+      "x",
+      "unit gradient ideal"
+    ],
+    [
+      "basis_pencil_member",
+      "y",
+      "unit gradient ideal"
+    ],
+    [
+      "basis_pencil_member",
+      "z",
+      "unit gradient ideal"
+    ]
+  ],
+  "cubic_intersection_matrix": [
+    [
+      -3,
+      0,
+      0
+    ],
+    [
+      0,
+      -3,
+      0
+    ],
+    [
+      0,
+      0,
+      -3
+    ]
+  ],
+  "haar_dilution_threshold": "1/21",
+  "boundary_mixture_weights": [
+    "4/7",
+    "3/7"
+  ],
+  "boundary_marginals": {
+    "each_basis": "5/63",
+    "each_torus": "5/49",
+    "haar": "1/21"
+  },
+  "distinct_coupling_bad_mass": "3/4",
+  "arbitrary_coupling_minimum_bad_mass": "1/4",
+  "status": "all exact checks passed"
+}

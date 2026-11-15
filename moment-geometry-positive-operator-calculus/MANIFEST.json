@@ -1,0 +1,1210 @@
+{
+  "schema_version": 1,
+  "package": "moment-geometry-positive-operator-calculus",
+  "layout": "Original Moment_Geometry distribution-root plus direct Lean interface",
+  "scope": "Curated public export, not a claim of all-74-record formal coverage or of an AKLT spectral gap certificate",
+  "source_status": {
+    "registry_records": 74,
+    "source_contracts_verified": 1,
+    "additional_component_bearing_records": 9,
+    "assigned": 64,
+    "modules": 28,
+    "directly_printed_standard_axiom_reports": 201
+  },
+  "source_template": "results/moment_geometry/Moment_Geometry (all except local build/tree caches) plus lean/MomentGeometry and scripts/",
+  "exclusions": [
+    ".git",
+    ".ultramath",
+    ".scratch",
+    ".venv",
+    "external local dependency trees",
+    "attachments ZIPs and -2 redundant files",
+    "memory/context/orchestration transcripts",
+    "results/gap_closure",
+    "results/coherent_continuation",
+    "old review/rejection/OOM artifacts",
+    "__pycache__",
+    "*.olean",
+    "*.pyc",
+    "absolute local credentials"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 77,
+      "sha256": "3201293f4cf03b52997d8dbdc73008eefd75b28611ad594a3f7afde880efa82c"
+    },
+    {
+      "path": "MANIFEST.json",
+      "bytes": 62053,
+      "sha256": "ba86eff4469b3346333841c1f7dc0f613167d983c0779ea6558012e7bc988b87"
+    },
+    {
+      "path": "PUBLICATION_README.md",
+      "bytes": 6115,
+      "sha256": "3d84e62da3cd5b833a5881720c9ea067a830d7fc716297b5a812676eead7798a"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7339,
+      "sha256": "a61881411c84524cb3f1c0a536237647530c9414ae431cc19369c9e999cb91a1"
+    },
+    {
+      "path": "RELEASE_READINESS.md",
+      "bytes": 3958,
+      "sha256": "28a8eaf5eed7f26fa322e92204005f1b31eab18146bde3f9453477758d8a6628"
+    },
+    {
+      "path": "lean/MomentGeometry/AKLT/Bridge.lean",
+      "bytes": 1173,
+      "sha256": "b159f1e0338592c97d580a251effb1c8cc43146f054bded9dabfbc40d1821f00"
+    },
+    {
+      "path": "lean/MomentGeometry/AKLT/Decoration.lean",
+      "bytes": 11362,
+      "sha256": "50392ae79e2a5f389b41cb43c352371204d34847e2733a27e0ca3e6af539b842"
+    },
+    {
+      "path": "lean/MomentGeometry/AKLT/Finite.lean",
+      "bytes": 3166,
+      "sha256": "ded863416c6c6bdd18f40ce1625f80c9982065b6ecd817d2148800643b745b9b"
+    },
+    {
+      "path": "lean/MomentGeometry/AKLT/Radius.lean",
+      "bytes": 8834,
+      "sha256": "4fb4f2c0131f5a30918cdba0ff87420c4f23c8c7f483641bfb5845f0494efb56"
+    },
+    {
+      "path": "lean/MomentGeometry/AKLT/Wire.lean",
+      "bytes": 5869,
+      "sha256": "3665db94c9d6023134e58aec8bd2111babb63ecf06270e3f7956f41ef42a0f1c"
+    },
+    {
+      "path": "lean/MomentGeometry/Coherent/Axioms.lean",
+      "bytes": 1082,
+      "sha256": "f32e5cf471b5f0e17299544dab2471b4b17698ec65cff840edf64baeb1b26451"
+    },
+    {
+      "path": "lean/MomentGeometry/Coherent/CycleCofactor.lean",
+      "bytes": 6862,
+      "sha256": "262d8e4abaaf52797659cf4050f9084af520bd4c79428656b765a625f6ff29de"
+    },
+    {
+      "path": "lean/MomentGeometry/Coherent/Moments.lean",
+      "bytes": 9262,
+      "sha256": "1d597724eb750dcddec6fbf10795fda7b0cfd39845b79217065098108993ce3f"
+    },
+    {
+      "path": "lean/MomentGeometry/Coherent/UnitDensity.lean",
+      "bytes": 2219,
+      "sha256": "60bc3e71791480806dba0cca4696a73c0a2b446a6a076765f7970fbfc76757f8"
+    },
+    {
+      "path": "lean/MomentGeometry/Composed.lean",
+      "bytes": 3879,
+      "sha256": "5e5fbbfe52331f2210cf1a36c8c20119ae54039667ff60fbea5da909fcc4f379"
+    },
+    {
+      "path": "lean/MomentGeometry/Frozen/Statements.lean",
+      "bytes": 12443,
+      "sha256": "3bb50ce49d2d7d0759d33446471e9a24d612a877ce4b9b8f895b71f54dcd244a"
+    },
+    {
+      "path": "lean/MomentGeometry/Network/CPOrder.lean",
+      "bytes": 3158,
+      "sha256": "ddbacb4bb173f54661b3ab8930a78bd5183a63434629869e5268e7742452b321"
+    },
+    {
+      "path": "lean/MomentGeometry/Network/GapAssembly.lean",
+      "bytes": 5771,
+      "sha256": "0c265022ab67d43d0ae52263c0581f94cd2cc71df75f9dae94dcc78ef11ff5d7"
+    },
+    {
+      "path": "lean/MomentGeometry/Network/GapSpectral.lean",
+      "bytes": 5770,
+      "sha256": "f912f5c528c1ee8bc984aca6e7a52adc399f4f232c44c94821a9ab058cf9b6ab"
+    },
+    {
+      "path": "lean/MomentGeometry/Network/ProjBasics.lean",
+      "bytes": 4446,
+      "sha256": "5146de7deee1df95135a2e957c2e76346019d9547e1db5ca9be56f1f91528393"
+    },
+    {
+      "path": "lean/MomentGeometry/Network/RowCriterion.lean",
+      "bytes": 2727,
+      "sha256": "d003ec3045287747b3f730a95a0c1b352f8018ae405b016c0be9df75858abdb1"
+    },
+    {
+      "path": "lean/MomentGeometry/Network/SchurConstant.lean",
+      "bytes": 2195,
+      "sha256": "de6f551a61d95d38dd377f4f790ba4bf7cda82cbb78071edf65c1349a9807eb9"
+    },
+    {
+      "path": "lean/MomentGeometry/Network/WireGap.lean",
+      "bytes": 4134,
+      "sha256": "997765c0c5da02a53d947fa3b54d95f6a6fb5edcdf4f47bb0ebdfb89ca076616"
+    },
+    {
+      "path": "lean/MomentGeometry/Operator/CP/Base.lean",
+      "bytes": 43938,
+      "sha256": "d287654cd33ec98b18a31377838e7e0d91d5a3abe5ad67c64efcf8d362060c96"
+    },
+    {
+      "path": "lean/MomentGeometry/Operator/CP/Closure.lean",
+      "bytes": 41170,
+      "sha256": "8c094fe06ad2e8e1fdf186bd11e43e0a6be91f89fe08df1262b5d6ceabe43957"
+    },
+    {
+      "path": "lean/MomentGeometry/Operator/CP/Kraus.lean",
+      "bytes": 2878,
+      "sha256": "94b24b2c84026c6b3a08ca5a1dde87ae419af4d4aa8125d6ab8600618c3d297f"
+    },
+    {
+      "path": "lean/MomentGeometry/Operator/Clock.lean",
+      "bytes": 1855,
+      "sha256": "dff82a27f11fe0a93cac2ec3421a5a8c21bad601dbb51b4ea1c5913b04d3a035"
+    },
+    {
+      "path": "lean/MomentGeometry/Operator/KMS.lean",
+      "bytes": 5354,
+      "sha256": "26536583dfb3ef226709151e901fdd5ba564b2f4a4da5628883713119f612266"
+    },
+    {
+      "path": "lean/MomentGeometry/Operator/Powers.lean",
+      "bytes": 40191,
+      "sha256": "1f1319dd1151db1f5817d4fc65334d24c480bf8f125f721c07d8ae2ff5dc1875"
+    },
+    {
+      "path": "lean/MomentGeometry/Repair/Frame.lean",
+      "bytes": 10003,
+      "sha256": "3a1c989cd194c3f02ee72f69bd0dad42d24f173ef0adc29576ccbdc66805551d"
+    },
+    {
+      "path": "lean/MomentGeometry/Swarm/Filtered.lean",
+      "bytes": 4553,
+      "sha256": "5409dc55dd1ef4fb64b17dd2a8421b6b0c422d3b440f97bf35476505aaafce35"
+    },
+    {
+      "path": "lean/MomentGeometry/Swarm/Oblique.lean",
+      "bytes": 14954,
+      "sha256": "a3c31f576a792991f852f930b04d67f3516a291748de0a82616f29b21b67776c"
+    },
+    {
+      "path": "lean/MomentGeometry/Swarm/Seed.lean",
+      "bytes": 12306,
+      "sha256": "c014687454b38cba8885f4d5a3d7c2248c5b94d5d8c18b01e0c646e4ec8b3d3d"
+    },
+    {
+      "path": "results/moment_geometry/COVERAGE.json",
+      "bytes": 153285,
+      "sha256": "9f81a2650804464a832c3935a14d59e5e29167ac390430e5dda6b76292765e02"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/AKLT_Audience_First.pdf",
+      "bytes": 142265,
+      "sha256": "5194e1764db3393f7edf12835560b6f2cdcf3cc381c0551422172dc291e6aaf3"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/MANIFEST.sha256",
+      "bytes": 14512,
+      "sha256": "f8ea1d2f122534e8b193f1567bc9c103be9d38c6df98339e724794ee2c4f01cd"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/README.txt",
+      "bytes": 1048,
+      "sha256": "66af776d80773338b734f77e86a70d8f7d4e47968a027b47ebd2848a90b4363f"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/SOURCE_ARCHIVE.txt",
+      "bytes": 464,
+      "sha256": "8075311de1181562d73481d840bf548555f4d85c14b41cfd64c8b235704b8f85"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/build.py",
+      "bytes": 1999,
+      "sha256": "5c922752824fa9f933d325fd4e20d27ab71c5e8ccc51ce2105b8cc550aa8188b"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/IDENTITY_KIT_NOTICE.txt",
+      "bytes": 354,
+      "sha256": "818662773690e7bd80ae068f490d96cafb529ebf263e65e48ee93c1de0686bf0"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/build_bibliography.py",
+      "bytes": 6822,
+      "sha256": "c199ec3e2c9379c06efb1d0b30a50cd2331ac1d096c7a8ba89b53906e4e7b49b"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/make_figures.py",
+      "bytes": 27989,
+      "sha256": "cbee66762cff525ef73055f679cabfb306b742214093ccd3a60e4cc8cfefa82c"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/paper_identity/__init__.py",
+      "bytes": 536,
+      "sha256": "e7513989bca4221fa4f053a66892274f93f00c06844f2fe190027670d80d6d58"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/paper_identity/fonts/DERIVED-FONT-NOTICE.txt",
+      "bytes": 951,
+      "sha256": "47497fbef8ccd76cfafcbe2c12e0532fa950d6a00e74a5b16e8d595728640a30"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/paper_identity/fonts/FONT-LICENSE.txt",
+      "bytes": 7335,
+      "sha256": "5e385a99d447892ae5e2010e60b3cd45fe395d4fc93394b643f1b5591b53fd50"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/paper_identity/fonts/README.txt",
+      "bytes": 586,
+      "sha256": "21ae45af70b36f63927610f4b1443cc8cf57757812248e13c5c45a159f4a3506"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/paper_identity/fonts/lmroman10-bolditalic.otf",
+      "bytes": 118204,
+      "sha256": "c37a28eed7a6e03f792b98b5e5f637b2fcda378bb4855f99284f1a88fe35f124"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/paper_identity/fonts/lmroman10-italic.otf",
+      "bytes": 118828,
+      "sha256": "c1fce25075567bb8dbf2151658c3b442690041db17a2d49fc9e55905ea5b7169"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/paper_identity/fonts/paperpanel-bolditalic.ttf",
+      "bytes": 219804,
+      "sha256": "15bc79312fcbd9fc88c23234b1ee94c43bb315ae6a27f85c2d8b6825e42d35ec"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/paper_identity/fonts/paperpanel-italic.ttf",
+      "bytes": 221632,
+      "sha256": "1717917d49d3e4572c84dc1571dd4dae1e5ac9fd69d59d31032f947bbcbd7cdd"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/paper_identity/paper.mplstyle",
+      "bytes": 901,
+      "sha256": "a80cefe510fb9c2afbad0e7370b7d80db200ec468b5c69473542122e5764aa4a"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/paper_identity/style.py",
+      "bytes": 12348,
+      "sha256": "b043265afd57bad023646dad0df585edddc6b6fe4984f72007aa1850723f760a"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/code/paper_identity/surface.py",
+      "bytes": 7483,
+      "sha256": "a6ea25aad5d4b84c8fcc9e2b0ffd82a3bff97b3bb703b8fc6f7fdcf96c72d966"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/data/bibliography_audit.json",
+      "bytes": 12020,
+      "sha256": "d26a9b50f13ccd099703cdd13235c6c4f8984fa5a15d0e0b3c71f8390ae8b7b7"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/data/build_summary.json",
+      "bytes": 239,
+      "sha256": "8c96c04d5fa56f0fda8921dbc68c72d26e7fe821247deff1c54062de6cbd233a"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/data/document_review.json",
+      "bytes": 2896,
+      "sha256": "eee83a403a0b51a51f116c2d2dfa70c40f0b7c5683e7ddc6089a90c749887291"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/data/figure_metadata.json",
+      "bytes": 10881,
+      "sha256": "c0621a63ffa268cf81e3202d94d0ca2f7d56828613e6296a1d055a074a3919d3"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/figures/fig01_moment_fibres.pdf",
+      "bytes": 21720,
+      "sha256": "73b75ed98cb4ec00d259e425481d73fdd769168d0c973990b3becfcf07af5f29"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/figures/fig02_cubic_witness.pdf",
+      "bytes": 161121,
+      "sha256": "0f6e6f936dcc36c277621a6e7734dd4715ec278bd5b533591237ef536d6cc97b"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/figures/fig03_tensor_balance.pdf",
+      "bytes": 20135,
+      "sha256": "02598e56519fdd6ded7d74294821e5f7136e65341cd9bb798ac489ddb9682b3b"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/figures/fig04_jet_geometry.pdf",
+      "bytes": 26921,
+      "sha256": "74245dd8171f361a67edfca08fa341e513742f53b9f80bf4603c632db1f7c906"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/figures/fig05_singer_cover.pdf",
+      "bytes": 25669,
+      "sha256": "15be89ae810194b6ce14ba859d274fd6ba2693e97cce4d31de83356b0ece6ca2"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/figures/fig06_gram_trees.pdf",
+      "bytes": 26953,
+      "sha256": "fc2683b2ff591e2f9f399e727182e41e6f42f833f09d582ff7b1b4fd6e797df5"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/figures/fig07_ordered_heaps.pdf",
+      "bytes": 27313,
+      "sha256": "b779657a2329d75bf668d67fe6883752e93515517124a258192dc797581fbdd3"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/figures/fig08_modular_clocks.pdf",
+      "bytes": 61477,
+      "sha256": "3ba658ea520b104121f9866d773cf34ebd4a424bc57200477b7b6d805217a074"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/figures/fig09_quantum_networks.pdf",
+      "bytes": 80844,
+      "sha256": "e939793498cf0be5b7b9ee0cbc7f8bf2333004cfe274733ebbe35a8e67110b2c"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/figures/fig10_measurement_cells.pdf",
+      "bytes": 21707,
+      "sha256": "2208f0bb605c01ab342b354393b04b8f9f28738c8d7f23c530583c9e691976cb"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/figures/fig11_multipoles.pdf",
+      "bytes": 41376,
+      "sha256": "a324156b6e1ce66512795b50a074bec545a80a38c276c6a16da490edbee648c7"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/figures/fig12_information_clocks.pdf",
+      "bytes": 60580,
+      "sha256": "dc6a3814706b11f6f3d2705a172bedfe4be94127e7e57ab1d711ee36cfb3f00a"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/figures/fig13_toric_transport.pdf",
+      "bytes": 70296,
+      "sha256": "1336340a33c58c8d63d47b32cf7deccf9c05a924efeba6b102a3d5ac5298af06"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/formalization.pdf",
+      "bytes": 369918,
+      "sha256": "14465f261b963758d3d7f5c785a4f271ffe2604d0538a947308f7e47d823fed7"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/formalization.tex",
+      "bytes": 482,
+      "sha256": "dafaeaa0280624f11866efb31f8d80361ef8d9b9a178404ff84ac0adfb3e4df1"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/main.pdf",
+      "bytes": 1592398,
+      "sha256": "805924d8c90993357f9bb9e5dd35af94f97ce6686f5e8730aa7e4bd32c5a2276"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/main.tex",
+      "bytes": 3670,
+      "sha256": "16e2dc4a72baf21832f376e4fea67274e67c334cea0e4a012f3bf00de14be031"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/preamble.tex",
+      "bytes": 2489,
+      "sha256": "b3e3c87c842442d01f114e23ff3107dbdbb8ca8b693ef5e970d8d31a3251c3e9"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/analytic_references.bib",
+      "bytes": 3294,
+      "sha256": "06270c1810bd0ed193a85c7263e3a42fa413168a8f813af9e47f226aa3b41807"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/attractive_concentration.tex",
+      "bytes": 17274,
+      "sha256": "83ccf7cb9753335f32f80833d6530ed1a15cb753157d316aa686a22d693a6e1a"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/attractive_concentration_refs.bib",
+      "bytes": 344,
+      "sha256": "39b0528f2c887cd7d4b29213315c1af6eaff6964f5facef52ee421513bd463ac"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/attractive_high_temperature.tex",
+      "bytes": 33815,
+      "sha256": "5e885c7828cc51adc9044e0384a0d48b1bc378de36ed9a7030f52a7342b59c77"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/coherent_gram.tex",
+      "bytes": 14807,
+      "sha256": "72ea1eac98eeef5b5c86f1415c16a45e1c6f86a947a96b86a44982185b79132b"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/context_references.bib",
+      "bytes": 5522,
+      "sha256": "8e94c972fe5dde6a7ec504ee19bffe14d534d0c7fa9a34b37529b284a00ff742"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/geometry_cubic.tex",
+      "bytes": 9809,
+      "sha256": "e9a8925f12f9fef59e06b78c344c159f31125f585dfd13ff2e1b039f1e79744c"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/geometry_hesse.tex",
+      "bytes": 8985,
+      "sha256": "3bffd4b9102653b43a1b7c2adecde9034c139862f06fde8892d72f6e39b7e33d"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/geometry_qutrit.tex",
+      "bytes": 18628,
+      "sha256": "55bc25084730083baa4e4844c0357ddd9a8c3d7f3867b5fe37b5d414bd00ab17"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/geometry_qutrit_angles.tex",
+      "bytes": 8074,
+      "sha256": "1c5b9415227022aad8de21786dd353a447832791cc0924c8dfda8ccde248a6f0"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/geometry_references.bib",
+      "bytes": 5463,
+      "sha256": "f36491d9991a8aa996844d99a4921f6714677f42ce18dcea595de2c34c98468e"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/geometry_results.tex",
+      "bytes": 15600,
+      "sha256": "d1125d4ec3de71e6da241ff323f7dcfb839d362a9db20f1dc20dfc95a099615e"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/geometry_singer.tex",
+      "bytes": 13058,
+      "sha256": "c94240a79fe0dd5492258cbe4496fd9f1437f9b4489b621cdd267f265adfc92b"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/nonlinear_green.tex",
+      "bytes": 14296,
+      "sha256": "a81a20baf78901fb69337cacaf9f26be820499ae025f5766d9f7f40e13624a17"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/nonlinear_green_refs.bib",
+      "bytes": 701,
+      "sha256": "3b2831cffe6ef70226797b60df56bf9bd70b804cca537ad690223ac86d68182d"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/probability_references.bib",
+      "bytes": 1932,
+      "sha256": "30dd88c4586e3730284ff806d607ee3f36f8eb4f1ce396a46b0f4ed8e3c5e54e"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/probability_repulsive.tex",
+      "bytes": 9521,
+      "sha256": "34597b9ae4572960db6d9ec9750fd43512d56b529745a585c1aec2bc16c6c2b9"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/probability_results.tex",
+      "bytes": 212,
+      "sha256": "be45e8c038ecc39f9dda60b86cd87b4e9c72ffe40bf8236c0a4c68b2fa876cbe"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/quantum_refs.bib",
+      "bytes": 3488,
+      "sha256": "26c7c6f21e86d8ed1ed388e83e2e729ff5c31fceb575ac9e281b38883b4e2b41"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/quantum_results.tex",
+      "bytes": 38620,
+      "sha256": "46a24a48c0da9deae54a5fef4d9648da598668bf4917d338f4f1e55bdb9b1a37"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/proofs/toric_assignment.tex",
+      "bytes": 14566,
+      "sha256": "cf0588c9d161a79979fa618aa9683b784b97700858fe9dd5f3b6c6fc01480c02"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/references.bib",
+      "bytes": 20102,
+      "sha256": "be66149a64f467b5310d08ec234770198245e1391f622b92c68179e57a51196d"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/requirements.txt",
+      "bytes": 98,
+      "sha256": "df008eb78e1fe933e49b86a049ba954170f664503da545deeff20d80e893de1f"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/sections/ai_acknowledgements.tex",
+      "bytes": 2348,
+      "sha256": "091954f0436642fe82fd2672bcf0a7cf3e66a72d5a53c4fa68be8d494a196b42"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/sections/coherent_foundations.tex",
+      "bytes": 7435,
+      "sha256": "96e9fe51868b492d8c75f34777e275f61e37f27cc3ffef6487f03109d40fc71b"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/sections/equilibria.tex",
+      "bytes": 16485,
+      "sha256": "17c994a2bc6b9a733eadf9d48667457e452f664db419987148c6a1f301c84813"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/sections/future.tex",
+      "bytes": 6538,
+      "sha256": "ea578a712c060f51604201dedcdcba60215ec212bc6e67134df36a7b6852d4f7"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/sections/geometry.tex",
+      "bytes": 36,
+      "sha256": "69f2898e512520d63cf054ff63b6fe24cbe1ea499bc32876ca252bf860b50b53"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/sections/introduction.tex",
+      "bytes": 15609,
+      "sha256": "2a57511729a90b53b9c78dc594182ba7c3f1fd33d778178581ce8ff78d6e2548"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/sections/measurement.tex",
+      "bytes": 35,
+      "sha256": "2b359f9b21ce1fbb19c221693835405602bfc899c597bb2048ef56a20d42c69c"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/sections/positive_calculus.tex",
+      "bytes": 22029,
+      "sha256": "af105d261565fd0138ef7c2944794e31e1392a259b369d13d6a7e017688f26e4"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/sections/probability.tex",
+      "bytes": 39,
+      "sha256": "c05c3875cb6af5b55f229882a456c1298df65d0c41f04038be3e1e3145422ee8"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/sections/quantum.tex",
+      "bytes": 35,
+      "sha256": "181ff4b199f413936ea30d4ff204983097a766d6fd557ee2fc44d7020c638d4f"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/sections/verification.tex",
+      "bytes": 13802,
+      "sha256": "e7b6da30d1fa7c278346638afbe51b3c961df9ba86ea76e61c5c9b7a1058c375"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/README.txt",
+      "bytes": 20502,
+      "sha256": "0a19121e3b5579b8f19020e5dda459f03716849338359ad3d31868fc0fb180c6"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/ensembles/analytic_constants_verified.json",
+      "bytes": 607,
+      "sha256": "0f3cbc330d1bd66b92a6971e09da2b925b7ac783633d7b941163ecffc2775662"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/ensembles/cubic_classification_verified.json",
+      "bytes": 677,
+      "sha256": "4ed1e310af034c23c11de718d7e96194ac92a830828a5747f399c0e17adb6ff4"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/ensembles/hesse_ensemble_certifier.py",
+      "bytes": 7488,
+      "sha256": "d89624ad2a7aa9a7ea29d1e521b6c37824b8d788e0777de2987f8fa4374e4163"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/ensembles/hesse_rigidity_verified.json",
+      "bytes": 431,
+      "sha256": "267fc1144e0a6f7ae7924242a9458e5f0d4d3f7cd56c5bc5ebf4458342ae5b48"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/ensembles/verify_analytic_constants.py",
+      "bytes": 3627,
+      "sha256": "01a44152445ba616475c6887b94552604696b2d30ab384673aaecdfe026c1d5c"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/ensembles/verify_cubic_classification.py",
+      "bytes": 5010,
+      "sha256": "61a131c7eb2f246b56081310556c4afcb8e86cb579ff15dc399edc9af04405fe"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/ensembles/verify_hesse_ensemble_certification.py",
+      "bytes": 8130,
+      "sha256": "3ca2fd8335c8aaa82d6f734625e260daae7fa7543970e1cf60a0e31773735b9a"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/ensembles/verify_hesse_rigidity.py",
+      "bytes": 2739,
+      "sha256": "85b00d04be135adbba2dd18f31e6fe95bc4dda1415e1855f32a5fc75f6209500"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/formalization_guide.tex",
+      "bytes": 35804,
+      "sha256": "14c38d869aeaf179e8556a341fdc67791bbef23a705da08c49266666c08b8f0a"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/geometry/singer_nef_obstruction_exact.json",
+      "bytes": 1440,
+      "sha256": "44f3e86d75b42c818e9629e79820abf68669c956399069f86080fcbfdc9d6fde"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/geometry/truncated_jet_chain_exact.json",
+      "bytes": 8938,
+      "sha256": "60130c6109c153d755ecbde0b9a79c06dff855ef9719846b9ef9c1c290672acd"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/geometry/verify_singer_nef_obstruction.py",
+      "bytes": 2718,
+      "sha256": "299e51dc04e6a8583a4ddcc8bcca068ade41f2f366ec0ac2fa134a69e6c2e760"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/geometry/verify_truncated_jet_chain.py",
+      "bytes": 4094,
+      "sha256": "96d50e4087c5150fcbbca56d934b7aa66b03d5dc9d4a14cc0bd8443273abe630"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular/finite_arithmetic_certificate.json",
+      "bytes": 95981,
+      "sha256": "07bd84526c91095117831deadfd8d72964f6ed0ae85a003729655e1be79dc262"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular/finite_arithmetic_certificate.py",
+      "bytes": 10680,
+      "sha256": "2801d9d3ebcb67c50b5000d0b6d25cb91b80976ff4e96a5335d48c7ed8ce2deb"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular/lee_yang_compiler.json",
+      "bytes": 22853,
+      "sha256": "f6fca7b77c89beb2edd584d26490543669ea690e5f2d5c631e98d1e10106acbb"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular/lee_yang_compiler.py",
+      "bytes": 6303,
+      "sha256": "ceab0365e5e0756eaead02be9d2073f7e90103c78ca098e834b5681be9f0efb5"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular/local_commutator_certificate.json",
+      "bytes": 6274,
+      "sha256": "69f376cb2f3b9f1b533b99de1f129aa6096d5e88c190002408c6ad0f14014641"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular/local_commutator_certificate.py",
+      "bytes": 3637,
+      "sha256": "97f8c2fc2318cfe4ad436c60b3bfe472ec8038e79dfafc96067b75f4443afbce"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular/ordered_heaps_verified.json",
+      "bytes": 1273,
+      "sha256": "b32bc9ed27a90363ad1fb5aa450d340a83f24835ae6daf67e26657cd85012848"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular/positive_bessel_filters.py",
+      "bytes": 15011,
+      "sha256": "495593e349b25ef536e86c1657070e7f8a9d9611e58e9e5213321d9487e090a1"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular/score_and_metric_audit.json",
+      "bytes": 2444,
+      "sha256": "87eee4bfac6b5c15bf32bb8ada666487afc14f7464494b61e5af3695c238f2c6"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular/score_and_metric_audit.py",
+      "bytes": 3223,
+      "sha256": "87690ba3d6ceccd1887617e146a614302fa8e8fb01d0aa504bcd2b2fe06ee96a"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular/verify_ordered_heaps.py",
+      "bytes": 4073,
+      "sha256": "ef27657a43149069acb5367f40c8fb5936887a8610ac78fcff0f78cc0f4db8f0"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular_response/power_response_and_obstructions_verified.json",
+      "bytes": 21454,
+      "sha256": "1313e53e1a6dcd8c29a4a2e75c08834f6cbaa7b418c6413bc12f850edda4c5af"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular_response/verify_modular_obstructions.py",
+      "bytes": 7851,
+      "sha256": "8501631a1307b3141b718170f0a676df7f823fa1a5737710f8e144a5f8ba1d47"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/modular_response/verify_power_response_and_obstructions.py",
+      "bytes": 6629,
+      "sha256": "32b6f475b870dcf98a5797fe2db9e8988ec2f0e10f3ba3df59e6fca2dfc48b8c"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/networks/channel_gap_compiler.py",
+      "bytes": 19188,
+      "sha256": "a8f43ea85dcd424a8ce0119cda5b272d5094b3ecb1cf44c7e60fe424558a74e5"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/networks/channel_gap_compiler_verified.json",
+      "bytes": 372,
+      "sha256": "7cf6f63411ceffb16982351d542b3fe6ac1e4bc500a6b2c7124a04403ce30fdd"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/networks/compiler_examples/aklt_degree3_decoration4.output.json",
+      "bytes": 1423,
+      "sha256": "16e958be942b151bc051212c1dcb8ff7f754cc05b869cd89cf02afeaba2ec442"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/networks/compiler_examples/complex_choi.json",
+      "bytes": 921,
+      "sha256": "826a60929561592db9d26bba25b1d22c7121d011380361ebdcf69a87387f81e6"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/networks/compiler_examples/complex_choi.output.json",
+      "bytes": 1551,
+      "sha256": "a13827a8dffe7b7ccf14e105cff3179905304f2237fc8f3b2ebe7aac1991a9ed"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/networks/compiler_examples/mixed_channels.json",
+      "bytes": 635,
+      "sha256": "14be63bf801f53c5825492e50083a65a7e3751f4a354956e597bfeb93ee2b4e0"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/networks/compiler_examples/mixed_channels.output.json",
+      "bytes": 4976,
+      "sha256": "9cfb83b16204847eb19bca81af059633cd5201eacabef5e11e982dc8219b9b4c"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/networks/compiler_examples/path4_aklt.json",
+      "bytes": 733,
+      "sha256": "5237bde75bdd6bf8d86b17d2c5717550c9ffd24447c8536f03e180ef7b564a25"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/networks/compiler_examples/path4_aklt.output.json",
+      "bytes": 2808,
+      "sha256": "33ea770fa7e561c4d6a11117a2077ca67aad86fa5d9d2cec3af79ecf7f4a2cf6"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/networks/compiler_examples/plan_degree31.output.json",
+      "bytes": 1707,
+      "sha256": "4c16059421c5025c0cf0917f199990e944bf842bc6d9c521212a464c0c605fc6"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/networks/test_channel_gap_compiler.py",
+      "bytes": 4724,
+      "sha256": "a39b34e224f73b9582b7320af1ccd97d9526edacab13d180c745b7b023432818"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/networks/verify_two_port_schur_angle.py",
+      "bytes": 9920,
+      "sha256": "e92f68c3ca3191b4ed806bb06a814f17d0537cfd0877d6308bde0aaea38d446b"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/probability/microscopic_repair_verified.json",
+      "bytes": 455,
+      "sha256": "eec1f7c25d99ca8fbe8f0f3146e59f4589f93886c54c27375bf5b003b412ec4c"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/probability/probability_extensions_verified.json",
+      "bytes": 19226,
+      "sha256": "2b9c34cd95eae3c69973ddb560d15848287716d7e40d8ae5f6ea8ebe50b89b87"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/probability/toric_assignment_certificate.json",
+      "bytes": 2402,
+      "sha256": "b097cc7f22ed83f2f0d7b93f5f80ba44b9866161414e0be703062dd9ca0ae1ae"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/probability/toric_assignment_certificate.py",
+      "bytes": 8242,
+      "sha256": "d9784b3d39f21897a2b78d3642ad03406510bb99552c666fa16d12ef83926fac"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/probability/verify_coherent_gram_moments.py",
+      "bytes": 7633,
+      "sha256": "0dc1ede9a52bd7c9c87e37e9b3f3de8984d8876a5690f20a7a350d165d72d880"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/probability/verify_microscopic_repair.py",
+      "bytes": 3011,
+      "sha256": "540930f4792c786aed09b65251f247d285a4996faac2d1de16b1f8dfb400d9f6"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/probability/verify_probability_extensions.py",
+      "bytes": 5147,
+      "sha256": "9ee5855cbaa30f68c744c90e0c4ada645353049f6855853b85283f734318cfef"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/projective_jets/jet_moment_map_exact.json",
+      "bytes": 6741,
+      "sha256": "28a92630a37f6749de94f34c68f7fbdd04a221c20bcd7036395a8af8a0fe361e"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/projective_jets/projective_jet_extension_exact.json",
+      "bytes": 3415,
+      "sha256": "1801a2fd53f1a88ba5f828b64f71f3aa3c98750d701d744568a0f5d2be95b9c3"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/projective_jets/verify_jet_moment_map.py",
+      "bytes": 10418,
+      "sha256": "6e043099aca939c10bcf47fec3b6e805eb65843deaf28de37f61031d6272a939"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/projective_jets/verify_projective_jet_extension.py",
+      "bytes": 4401,
+      "sha256": "278016cdb1187939c9d55e5ec53c10ac84721bf44ffbafceff7a91cb496030f7"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/qutrit/exact_verification.json",
+      "bytes": 352,
+      "sha256": "5dfb23c5c2a440c1ea4318c085e339cac140fb28e83824e27781f85cd587da76"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/qutrit/four_ray_flag_exact_verification.json",
+      "bytes": 707,
+      "sha256": "15e4ef70e4e4253480ec826e04eca15500d0366ab755bab35f20e220b19abb33"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/qutrit/three_ray_flag_exact_verification.json",
+      "bytes": 396,
+      "sha256": "efbc5dd6c01e746f5d35fdc5790d9dba05a37f7ef55f26b86ccc10dd1f452cbc"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/qutrit/verify_four_ray_flag.py",
+      "bytes": 3803,
+      "sha256": "4be0cc1bcafe881eb593a3420b6c41465106ad4ecf3812a866e24d314c2d45f4"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/qutrit/verify_qutrit_packet.py",
+      "bytes": 1584,
+      "sha256": "0a6da1d95ad8c2ef3b10e1a2f2cf2c9281d22672f586e29cd9b8e9c9960ea142"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/qutrit/verify_three_ray_flag.py",
+      "bytes": 2037,
+      "sha256": "e55e09aadd48bc9e2bae5490beada65b76581da88e596a38a1cb0a8823ab738f"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/requirements.txt",
+      "bytes": 131,
+      "sha256": "77c26a52d70f884ee7ab0de03eb6f8944d76f594441684ee8e4f67629dec7cd4"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/bessel_diagnostic.json",
+      "bytes": 88981,
+      "sha256": "5ca243ca5cc75ef0f1f9b7f4fcac70befd6047c91f5a490bdf18fb8b40bf0378"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/bessel_exact.json",
+      "bytes": 8874,
+      "sha256": "e50ae0801c543824e7fe0220d3be4128bd7beec23e5c00ff89b6e5e25de139de"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/coherent_gram_exact.json",
+      "bytes": 13967,
+      "sha256": "2a18a9da359929d5700b4988ebebb460cde44a124329e0094c9a7cb4469c5f36"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/hesse_budget_example.json",
+      "bytes": 325,
+      "sha256": "69066980439443e7d204ebedb148d2912cc0fac678335e6dcd22947b512c396f"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/hesse_count_example.json",
+      "bytes": 969,
+      "sha256": "c1d9f908239d5736f4689024e861a81b6ccb5b1a375254d469efbb025ee662ce"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/hesse_exact.json",
+      "bytes": 2978,
+      "sha256": "17d469da0b8078df788f6df6083729186423984eec6be2ee2a3f221991f4a3cf"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/bessel_matrix_diagnostic.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/bessel_matrix_diagnostic.stdout.txt",
+      "bytes": 609,
+      "sha256": "856dae5bfd27d49fe34a9216c31b18297686a425db00dc82eb4b66a2b1d979ec"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/bessel_rational_recurrences.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/bessel_rational_recurrences.stdout.txt",
+      "bytes": 172,
+      "sha256": "2d9c920fe61c5a3d43e7dcb4a9f510bfc591256b5515d376a5ecaef011c30473"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/channel_gap_compiler.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/channel_gap_compiler.stdout.txt",
+      "bytes": 372,
+      "sha256": "7cf6f63411ceffb16982351d542b3fe6ac1e4bc500a6b2c7124a04403ce30fdd"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/coherent_frame_constants.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/coherent_frame_constants.stdout.txt",
+      "bytes": 607,
+      "sha256": "0f3cbc330d1bd66b92a6971e09da2b925b7ac783633d7b941163ecffc2775662"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/coherent_gram_combinatorics.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/coherent_gram_combinatorics.stdout.txt",
+      "bytes": 292,
+      "sha256": "e7afd7a75f88bab93f89148f227a68c821b7b402c61c7230ff3ca4693a7242e4"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/coherent_spectral_extensions.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/coherent_spectral_extensions.stdout.txt",
+      "bytes": 195,
+      "sha256": "382a8227b4396834ec943e2b105f42dbf96152aef2cdddb58c7bfd056a228a6e"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/cubic_classification.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/cubic_classification.stdout.txt",
+      "bytes": 677,
+      "sha256": "4ed1e310af034c23c11de718d7e96194ac92a830828a5747f399c0e17adb6ff4"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/finite_arithmetic_quadrature.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/finite_arithmetic_quadrature.stdout.txt",
+      "bytes": 12425,
+      "sha256": "d9cca527f4e387a9f2c776b213db4a2241f777868d47bae72d42df301252a992"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/hesse_certification_exact.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/hesse_certification_exact.stdout.txt",
+      "bytes": 173,
+      "sha256": "afe28c3c897a250bc7fcaa25925de68a6c1ce751831c3c785e003efad58d54af"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/hesse_rigidity.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/hesse_rigidity.stdout.txt",
+      "bytes": 431,
+      "sha256": "267fc1144e0a6f7ae7924242a9458e5f0d4d3f7cd56c5bc5ebf4458342ae5b48"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/higher_dimensional_jets.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/higher_dimensional_jets.stdout.txt",
+      "bytes": 393,
+      "sha256": "e9972d63919a8e638db727053cde4ca4b3649a75427fb2c8dcb0ed5b58d0f74e"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/lee_yang_quadrature.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/lee_yang_quadrature.stdout.txt",
+      "bytes": 3264,
+      "sha256": "b4a619ec14641dd10607888fe455ad8f7218acde55bafe7282be4ecad21bd942"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/local_commutator_certificates.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/local_commutator_certificates.stdout.txt",
+      "bytes": 6269,
+      "sha256": "66e5dd4092ddf5516d321eb59c53303eb86d894a50026e067a184e83ba4e611a"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/microscopic_moment_repair.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/microscopic_moment_repair.stdout.txt",
+      "bytes": 455,
+      "sha256": "eec1f7c25d99ca8fbe8f0f3146e59f4589f93886c54c27375bf5b003b412ec4c"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/nonlinear_jet_chain.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/nonlinear_jet_chain.stdout.txt",
+      "bytes": 551,
+      "sha256": "a5f520776e5563398be53b861f8b6672bf2c19016a4949c2e8df24b885ac5abf"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/ordered_heaps.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/ordered_heaps.stdout.txt",
+      "bytes": 1273,
+      "sha256": "b32bc9ed27a90363ad1fb5aa450d340a83f24835ae6daf67e26657cd85012848"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/power_response_diagnostic.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/power_response_diagnostic.stdout.txt",
+      "bytes": 295,
+      "sha256": "63fb6f404448f00eba04aceed9e77e233297e38a32c3838a1059939a21833d6f"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/projective_plane_jets.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/projective_plane_jets.stdout.txt",
+      "bytes": 801,
+      "sha256": "447bafcaa56a004f03f1ed6cffd1446db7c1775b1c045c450d35aa6909854be2"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/qutrit_contact_constants.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/qutrit_contact_constants.stdout.txt",
+      "bytes": 352,
+      "sha256": "5dfb23c5c2a440c1ea4318c085e339cac140fb28e83824e27781f85cd587da76"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/qutrit_four_ray.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/qutrit_four_ray.stdout.txt",
+      "bytes": 707,
+      "sha256": "15e4ef70e4e4253480ec826e04eca15500d0366ab755bab35f20e220b19abb33"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/qutrit_three_ray.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/qutrit_three_ray.stdout.txt",
+      "bytes": 396,
+      "sha256": "efbc5dd6c01e746f5d35fdc5790d9dba05a37f7ef55f26b86ccc10dd1f452cbc"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/score_metric_diagnostic.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/score_metric_diagnostic.stdout.txt",
+      "bytes": 2441,
+      "sha256": "b580dd0a59570c559dfad6b5006712f4527346d04ec0079513037ccf4645b4c3"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/singer_nef_coupling.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/singer_nef_coupling.stdout.txt",
+      "bytes": 1440,
+      "sha256": "44f3e86d75b42c818e9629e79820abf68669c956399069f86080fcbfdc9d6fde"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/toric_assignment_certificate.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/toric_assignment_certificate.stdout.txt",
+      "bytes": 434,
+      "sha256": "e39158fd2fd05393b190c8b0f72f474f20ee022d7f0c33fde1128367b697b3a5"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/two_port_schur_diagnostic.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/logs/two_port_schur_diagnostic.stdout.txt",
+      "bytes": 2594,
+      "sha256": "551ab98821b79a0194a2b12d6d809de3334dbc0a81c33f60898f4c5aa12edb9f"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/two_port_schur_diagnostic.json",
+      "bytes": 4585,
+      "sha256": "a546e919aea22fd61c915124d0547e56c981c921995a2fd567d64e1cc503093e"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/results/verification_report.json",
+      "bytes": 29835,
+      "sha256": "ff55fd4a2c3a278051707ee9259cb990d831d05d9503cd8008f1879d98d1398c"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/theorem_registry.json",
+      "bytes": 152319,
+      "sha256": "0623a06de80e2d2e366875429fecfbd4a3e4b223e9d7f42f1554546b1b8176eb"
+    },
+    {
+      "path": "results/moment_geometry/Moment_Geometry/supplements/verify_all.py",
+      "bytes": 16349,
+      "sha256": "30aa9e1767b332b83aef0b185ee147a6d6f1b26e96db9af55a0877367882d027"
+    },
+    {
+      "path": "results/moment_geometry/README.md",
+      "bytes": 4973,
+      "sha256": "ae0e79b5e354151dd827d30fecdf1bc802f1af89d711875d41b07a21f6fcaf15"
+    },
+    {
+      "path": "results/moment_geometry/ROADMAP.md",
+      "bytes": 45696,
+      "sha256": "a315ec495271f2273914e5e3a1c3583aeb413d82510dd61ae87b79a07614c92c"
+    },
+    {
+      "path": "results/moment_geometry/coverage_74_audit.json",
+      "bytes": 46669,
+      "sha256": "8c0bb378ebe8b1d553f2cc63d5f55ea02a43f6f2e5178813527689d60ad708d8"
+    },
+    {
+      "path": "results/moment_geometry/integrate_build.log",
+      "bytes": 91211,
+      "sha256": "f09f66c2f6d92a364993cbb3e7c857d59395619777919cf594de02ab85045416"
+    },
+    {
+      "path": "results/moment_geometry/verification_report.json",
+      "bytes": 36085,
+      "sha256": "39ff31bcc796b35c4b0ba8a02be805e0d402ff8a47cd1dc6dcaa3bdb4bfc8537"
+    },
+    {
+      "path": "scripts/check_lean_moment_geometry.py",
+      "bytes": 5289,
+      "sha256": "f9621ce057d9d94682c8511889e0efc2950f25282cd3152e1d1ac241a4608c76"
+    },
+    {
+      "path": "scripts/moment_geometry_coverage.py",
+      "bytes": 14882,
+      "sha256": "88ceb36ff99136861f24486a49e8663954592f2968e7c4b3eacae2aa745283fb"
+    },
+    {
+      "path": "scripts/moment_geometry_coverage_audit.py",
+      "bytes": 12990,
+      "sha256": "e8181c835eacef7c7a279dfb0ae2780b06c31545eaf823b696b85e6cbcfe479d"
+    }
+  ],
+  "file_count": 236,
+  "bytes": 5445692
+}

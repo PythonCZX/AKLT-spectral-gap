@@ -1,0 +1,2743 @@
+{
+  "schema_version": 1,
+  "source_registry_sha256": "0623a06de80e2d2e366875429fecfbd4a3e4b223e9d7f42f1554546b1b8176eb",
+  "lean_toolchain": "Lean 4.33.1, installed /opt/mathlib",
+  "registry_records": 74,
+  "source_contracts_verified": 1,
+  "integrated_component_contracts": 9,
+  "source_contracts_assigned": 64,
+  "component_build_pass": true,
+  "component_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "future_problems_not_in_scope": [
+    {
+      "id": "conj:attractive",
+      "status": "open_problem",
+      "source": "sections/future.tex",
+      "title": "Attractive reduced Laplace principle near gamma=1",
+      "scope": "Extend the proved range gamma<1/3 on CP2 to a neighborhood of gamma=1 on first-moment-balanced shrinking tubes, with all continuous empirical-law tilts.",
+      "missing_mathematical_input": "A replacement for uniform scalar-section conditional Lr compactness above the alpha threshold, or another collective logarithmic-energy mechanism. The full high-temperature LDP is a proved record; near-one attraction is not."
+    },
+    {
+      "id": "future:second-design-threshold",
+      "status": "open_problem",
+      "source": "sections/future.tex",
+      "title": "Sharp second-design entropy threshold",
+      "scope": "Determine the exact optimal entropy-energy coefficient on the second-design fibre; the proposed value Gamma_2=3 is not a proved record.",
+      "missing_mathematical_input": "Additional geometric concentration control beyond first-moment balance and the supplied support classifications."
+    }
+  ],
+  "records": [
+    {
+      "title": "Positive repair",
+      "kind": "proposition",
+      "statement_latex": "\\label{prop:repair}\nLet $\\delta=\\|M_2(\\mu)-\\tau\\|_{\\mathrm{HS}}>0$ and\n$p=(1+102\\delta)^{-1}$. There is a probability $\\nu$ with\n$1/2\\le d\\nu/d\\sigma\\le3/2$ such that\n$\\mu^*=p\\mu+(1-p)\\nu$ is a second design. Moreover,\n\\[\n\\Ent(\\mu^*\\mid\\sigma)\n\\le p\\Ent(\\mu\\mid\\sigma)+(1-p)\\log(3/2).\n\\]",
+      "proof_source": "sections/coherent_foundations.tex",
+      "id": "prop:repair",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Borel probability on CP2; Hilbert--Schmidt second-moment error delta>0."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Unitary-invariant projective tensor integration / symmetric-power Haar moments",
+          "bibliography_keys": [
+            "geo_scott2006"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/ensembles/verify_analytic_constants.py",
+          "evidence_class": "exact_algebra",
+          "scope": "All 36 qutrit frame matrix units; covariance sectors; repair and dilution constants."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "Mix at retained weight (1+102 delta)^(-1) with a density in [1/2,3/2] to obtain an exact second design, with the stated entropy bound.",
+      "review_status": "integrated_component",
+      "review_lean_modules": [
+        "MomentGeometry/Repair/Frame.lean"
+      ],
+      "review_verified": "Reviewed prop:repair finite frame algebra: moment map linearity, density bounds [1/2,3/2], normalization, the (1-p)k=p scalar law and exact moment cancellation at p=(1+102\u03b4)^{-1}. Rebuilt both independently and main-tree.",
+      "review_missing": "eq:repairframe Haar fourth moments and its Hilbert--Schmidt norm bound, the Borel probability-measure lift, and the convex relative-entropy inequality.",
+      "review_provenance": "Integrated from accepted scoped integration smwi6zlvo/m8/d6, with an independently rebuilt coverage_74_audit.json."
+    },
+    {
+      "title": "Exact coherent covariance spectrum",
+      "kind": "derived_result",
+      "proof_source": "sections/coherent_foundations.tex",
+      "id": "an:frame-spectrum",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Coherent covariance on Herm(Sym^2 C^3), normalized Haar probability."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Unitary-invariant projective tensor integration / symmetric-power Haar moments",
+          "bibliography_keys": [
+            "geo_scott2006"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/ensembles/verify_analytic_constants.py",
+          "evidence_class": "exact_algebra",
+          "scope": "All 36 qutrit frame matrix units; covariance sectors; repair and dilution constants."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "Covariance eigenvalues 1/6, 1/24, 1/90 on irreducible dimensions 1,8,27.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Energy retained by positive dilution",
+      "kind": "proposition",
+      "statement_latex": "\\label{an:dilution}\nLet $0<p\\le1$, let $1/2\\le d\\nu/d\\sigma\\le3/2$, and put\n\\[\n c=c(p)=\\frac{3-\\sqrt{9-8p}}2,\\qquad p=\\frac{c(3-c)}2.\n\\]\nFor every probability $\\mu$, allowing infinite energy,\n\\begin{equation}\n E(p\\mu+(1-p)\\nu)\\ge pcE(\\mu)-\\frac92c(1-p).\n \\label{an:dilution-bound}\n\\end{equation}",
+      "proof_source": "sections/equilibria.tex",
+      "id": "an:dilution",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "0<p<=1; comparison density between 1/2 and 3/2; anticanonical energy on CP2."
+      ],
+      "internal_dependencies": [
+        "prop:repair"
+      ],
+      "external_inputs": [
+        {
+          "input": "Finite-energy Monge--Ampere variational theory and convex duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/ensembles/verify_analytic_constants.py",
+          "evidence_class": "exact_algebra",
+          "scope": "All 36 qutrit frame matrix units; covariance sectors; repair and dilution constants."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "With c=(3-sqrt(9-8p))/2, E(p mu+(1-p) nu)>=p c E(mu)-(9/2)c(1-p), including infinite energies.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Sharp balanced entropy threshold",
+      "kind": "theorem",
+      "statement_latex": "\\label{geo:sharp}\nLet \\(H_D=\\sum_{j=1}^D j^{-1}\\). The supremum of the coefficients\n\\(\\gamma\\) for which\n\\[\n \\operatorname{Ent}(\\mu\\mid\\sigma)\\ge\\gamma E_L(\\mu)-C_\\gamma\n\\]\nholds uniformly over balanced finite-entropy measures is\n\\begin{equation}\n \\Gamma_d^{\\rm bal}=\\frac{d}{D-H_D}.\n \\label{geo:gamma}\n\\end{equation}\nEvery strict subcritical coefficient admits such a constant; every strict\nsupercritical coefficient fails. In particular, the first-moment constant\non \\(\\mathbb P^2\\) is \\(12/7\\). The assertion concerns the supremal\ncoefficient and does not require boundedness at the endpoint.",
+      "proof_source": "proofs/geometry_results.tex",
+      "id": "geo:sharp",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "d>=1; X=CP^d; L=-K_X=(d+1)O(1); balanced finite-entropy probability measures."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Kempf--Ness moment-map criterion and existence of a nonvanishing invariant for semistable vectors",
+          "bibliography_keys": []
+        },
+        {
+          "input": "Resolution of ideals, discrepancy transformation, and complex singularity exponents",
+          "bibliography_keys": [
+            "geo_demailly_kollar2001"
+          ]
+        },
+        {
+          "input": "Zhang Proposition 4.1 Hilbert-geodesic comparison; exact fixed-degree specialization proved in the paper",
+          "bibliography_keys": [
+            "geo_zhang2024"
+          ]
+        },
+        {
+          "input": "Finite-energy Monge--Ampere variational theory and convex duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/projective_jets/verify_jet_moment_map.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Specified finite minimal-jet allocations, determinant twists, and moment maps; not an all-degree proof."
+        },
+        {
+          "path": "supplements/projective_jets/verify_projective_jet_extension.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Finite projective-dimension and jet-weight identities; not resolution or all valuations."
+        },
+        {
+          "path": "supplements/geometry/verify_truncated_jet_chain.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Symbolic truncated chain rules and vanishing of lower-order terms."
+        }
+      ],
+      "scope_limits": [
+        "No endpoint boundedness claim.",
+        "No identification of the higher-design sharp threshold.",
+        "Balanced basis-ideal valuations are not a theorem about all singular strata of the many-particle determinant."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Balanced basis-ideal singularity bound",
+      "kind": "derived_result",
+      "proof_source": "proofs/geometry_results.tex",
+      "id": "geo:basis-lct",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Fixed degree; balanced minimal-jet allocation and the specified balanced basis ideal."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Kempf--Ness moment-map criterion and existence of a nonvanishing invariant for semistable vectors",
+          "bibliography_keys": []
+        },
+        {
+          "input": "Resolution of ideals, discrepancy transformation, and complex singularity exponents",
+          "bibliography_keys": [
+            "geo_demailly_kollar2001"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/projective_jets/verify_jet_moment_map.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Specified finite minimal-jet allocations, determinant twists, and moment maps; not an all-degree proof."
+        },
+        {
+          "path": "supplements/projective_jets/verify_projective_jet_extension.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Finite projective-dimension and jet-weight identities; not resolution or all valuations."
+        },
+        {
+          "path": "supplements/geometry/verify_truncated_jet_chain.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Symbolic truncated chain rules and vanishing of lower-order terms."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "Jet semi-invariance and discrepancy accounting give lct at least D*d/S_M for the balanced basis ideal.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Exact fixed-degree Hilbert comparison",
+      "kind": "derived_result",
+      "proof_source": "proofs/geometry_results.tex",
+      "id": "geo:exact-quantization",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Fubini--Study reference; fixed positive degree M; weak geodesic with the stated auxiliary curvature positivity."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Zhang Proposition 4.1 Hilbert-geodesic comparison; exact fixed-degree specialization proved in the paper",
+          "bibliography_keys": [
+            "geo_zhang2024"
+          ]
+        },
+        {
+          "input": "Finite-energy Monge--Ampere variational theory and convex duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "The epsilon-free conclusion uses constant Bergman density and the endpoint derivative argument; it is not the general asymptotic theorem."
+      ],
+      "statement_summary": "Normalized Hilbert energy at the endpoint dominates continuous energy exactly at fixed degree.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Exact constrained entropy projection",
+      "kind": "theorem",
+      "statement_latex": "\\label{an:entropy-projection}\nThe function $J_u$ has a unique minimizer $Y_u\\in\\mathfrak a$.\nThe probability\n\\begin{equation}\n d\\eta_u=Z_u(Y_u)^{-1}e^{-\\gamma u-W+h_{Y_u}}d\\sigma\n \\label{an:exponential-family}\n\\end{equation}\nis an exact second design of finite entropy and energy. It uniquely\nminimizes $H(\\nu)+\\int(\\gamma u+W)d\\nu$ among finite-entropy measures\non that fibre, and\n\\begin{equation}\n \\Ent(\\nu\\mid\\eta_u)\n =H(\\nu)+\\int(\\gamma u+W)d\\nu+\\log Z_u(Y_u)\n \\label{an:pythagoras}\n\\end{equation}\nfor every finite-entropy second design $\\nu$.",
+      "proof_source": "sections/equilibria.tex",
+      "id": "an:entropy-projection",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Finite-energy normalized potential u on CP2; bounded real W; gamma>=0; exact second-design fibre."
+      ],
+      "internal_dependencies": [
+        "an:frame-spectrum"
+      ],
+      "external_inputs": [
+        {
+          "input": "Finite-energy zero-Lelong-number exponential integrability",
+          "bibliography_keys": [
+            "BBEGZ2019"
+          ]
+        },
+        {
+          "input": "Finite-energy Monge--Ampere variational theory and convex duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/ensembles/verify_analytic_constants.py",
+          "evidence_class": "exact_algebra",
+          "scope": "All 36 qutrit frame matrix units; covariance sectors; repair and dilution constants."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "Unique exponential-family multiplier, unique constrained entropy projection, Pythagorean identity, and explicit multiplier bound.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Smooth constrained equilibria",
+      "kind": "theorem",
+      "statement_latex": "\\label{an:equilibrium}\nFor $0\\le\\gamma<12/7$ and $W\\in C^\\infty(X,\\R)$,\n$\\mathcal F_{\\gamma,W}$ attains its minimum. Every minimizer is smooth\nand strictly positive. Its Monge--Amp\\`ere potential, normalized by\n$\\sup_Xu=0$, and unique traceless multiplier satisfy\n\\begin{equation}\n \\operatorname{MA}(u)=\n \\frac{e^{-\\gamma u-W+h_Y}}\n {\\int e^{-\\gamma u-W+h_Y}d\\sigma}\\,\\sigma.\n \\label{an:equilibrium-pde}\n\\end{equation}\nFor $\\gamma$ in a compact subinterval of $[0,12/7)$ and $W$ in a bounded\nsubset of $C^\\infty$, the potentials, densities, and multipliers have\nuniform bounds in every smooth norm, and the densities have a common\npositive lower bound. The minimizer itself is not asserted to be unique.",
+      "proof_source": "sections/equilibria.tex",
+      "id": "an:equilibrium",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "0<=gamma<12/7; smooth real W; second-design probability fibre on CP2."
+      ],
+      "internal_dependencies": [
+        "geo:sharp",
+        "an:entropy-projection",
+        "an:dilution"
+      ],
+      "external_inputs": [
+        {
+          "input": "Finite-energy Monge--Ampere variational theory and convex duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        },
+        {
+          "input": "Finite-energy zero-Lelong-number exponential integrability",
+          "bibliography_keys": [
+            "BBEGZ2019"
+          ]
+        },
+        {
+          "input": "Complex Monge--Ampere Lp, Holder, and higher elliptic regularity",
+          "bibliography_keys": [
+            "DemaillyEtAl2014",
+            "EGZ2009",
+            "TWWY2015"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/ensembles/verify_analytic_constants.py",
+          "evidence_class": "exact_algebra",
+          "scope": "All 36 qutrit frame matrix units; covariance sectors; repair and dilution constants."
+        }
+      ],
+      "scope_limits": [
+        "Every minimizer is smooth, but uniqueness of the minimizer is not asserted.",
+        "Uniform estimates require a compact gamma range and uniformly controlled smooth W."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Lower comparison with explicit finite-test error",
+      "kind": "theorem",
+      "statement_latex": "\\label{an:lower-comparison}\nFor each fixed finite collection in \\eqref{an:continuous-envelopes}\nthere is a finite constant $C_r$ such that, on every configuration,\n\\begin{equation}\n E_k\\ge E_r(L_k)-\\frac{2\\log k+C_r}{k},\n \\qquad E_k\\ge-\\frac{\\log N_k}{k}.\n \\label{an:LC}\n\\end{equation}\nThe inequalities include determinant-zero configurations, where\n$E_k=+\\infty$.",
+      "proof_source": "sections/equilibria.tex",
+      "id": "an:lower-comparison",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "CP2 anticanonical determinants at degree 3k; fixed finite family of smooth test potentials."
+      ],
+      "internal_dependencies": [
+        "geo:exact-quantization"
+      ],
+      "external_inputs": [
+        {
+          "input": "Finite-energy Monge--Ampere variational theory and convex duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "One-sided lower energy comparison; not an attractive pressure upper bound."
+      ],
+      "statement_summary": "E_k>=E_r(L_N)-(2 log k+C_r)/k; also E_k>=-log N_k/k.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Complete cubic-support classification",
+      "kind": "theorem",
+      "statement_latex": "\\label{geo:cubic}\nFor a nonzero homogeneous ternary cubic \\(F\\), a projective second design\nsupported on \\(\\{F=0\\}\\) exists if and only if, after a unitary coordinate\nchange and multiplication by a nonzero scalar, \\(F\\) is either\n\\[\n z_0^3+z_1^3+z_2^3-\\lambda z_0z_1z_2,\\qquad \\lambda^3\\ne27,\n\\]\nor \\(z_0z_1z_2\\).\nIn the smooth case the measure is uniquely \\(\\mu_{\\mathcal H}\\), in the\ncorresponding unitary coordinates. On the coordinate triangle every such\nmeasure is\n\\[\n \\mu=\\frac13(\\nu_0+\\nu_1+\\nu_2),\n\\]\nwhere \\(\\nu_i\\) is supported on \\(z_i=0,\\ |z_j|=|z_k|\\), and its\nfirst two phase Fourier coefficients vanish.",
+      "proof_source": "proofs/geometry_cubic.tex",
+      "id": "geo:cubic",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Nonzero homogeneous ternary cubic; a positive projective second-design measure on its zero set."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Unitary-invariant projective tensor integration / symmetric-power Haar moments",
+          "bibliography_keys": [
+            "geo_scott2006"
+          ]
+        },
+        {
+          "input": "Kempf--Ness moment-map criterion and existence of a nonvanishing invariant for semistable vectors",
+          "bibliography_keys": []
+        },
+        {
+          "input": "Closed-orbit / Cartan classification for complex 3-qutrit tensors and the E6 order-three grading",
+          "bibliography_keys": [
+            "geo_sauerwein2018",
+            "geo_ditrani2023"
+          ]
+        },
+        {
+          "input": "Hesse normal form for smooth plane cubics",
+          "bibliography_keys": [
+            "geo_hesse2009"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/ensembles/verify_cubic_classification.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Determinants, tensor marginal contractions, and phase identities; external closed-orbit classification not mechanized."
+        },
+        {
+          "path": "supplements/ensembles/verify_hesse_rigidity.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Finite Hesse moments, Gram matrices, and witness identities."
+        }
+      ],
+      "scope_limits": [
+        "Classification is unitary rather than arbitrary projective equivalence.",
+        "Smooth case has unique Hesse measure; triangle case permits the specified continuous phase measures."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Robust Hesse ensemble certificate",
+      "kind": "theorem",
+      "statement_latex": "\\label{geo:hesse-bound}\nFor any Borel probability measure \\(\\mu\\) on \\(\\mathbb P^2\\), put\n\\[\n \\epsilon_Q=\\operatorname{tr}(QM_3(\\mu)),\\qquad\n \\delta_1=\\|M_1(\\mu)-I_3/3\\|_{\\rm HS},\\qquad K=1+\\frac3{\\sqrt2}.\n\\]\nThen\n\\begin{equation}\n W_1(\\mu,\\mu_{\\mathcal H})\n \\le K\\sqrt{\\frac{27}{4}\\epsilon_Q}+\\frac32\\delta_1.\n \\label{geo:robust}\n\\end{equation}\nIn particular, \\(M_1(\\mu)=I_3/3\\) and \\(\\epsilon_Q=0\\) characterize\n\\(\\mu_{\\mathcal H}\\) among all probability ensembles.",
+      "proof_source": "proofs/geometry_hesse.tex",
+      "id": "geo:hesse-bound",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Arbitrary Borel pure-qutrit ensemble; specified calibrated positive rank-two cubic witness Q; chordal transport metric."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Unitary-invariant projective tensor integration / symmetric-power Haar moments",
+          "bibliography_keys": [
+            "geo_scott2006"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/ensembles/verify_hesse_rigidity.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Finite Hesse moments, Gram matrices, and witness identities."
+        },
+        {
+          "path": "supplements/ensembles/verify_hesse_ensemble_certification.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Finite positive-witness and reconstruction identities with exact-only mode; statistical confidence proof remains analytic."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "W1(mu,mu_H)<= (1+3/sqrt(2))*sqrt(27 tr(Q M3)/4)+(3/2)||M1-I/3||HS.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Hesse third moment and exposed coherent face",
+      "kind": "derived_result",
+      "proof_source": "proofs/geometry_hesse.tex",
+      "id": "geo:hesse-third",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Uniform ensemble of the nine displayed Hesse rays."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [],
+      "computational_checks": [
+        {
+          "path": "supplements/ensembles/verify_hesse_rigidity.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Finite Hesse moments, Gram matrices, and witness identities."
+        },
+        {
+          "path": "supplements/ensembles/verify_hesse_ensemble_certification.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Finite positive-witness and reconstruction identities with exact-only mode; statistical confidence proof remains analytic."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "M3=(I_10-Q)/8; its coherent support generates the exposed simplex face described in the text.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Finite-sample Hesse confidence certificate",
+      "kind": "derived_result",
+      "proof_source": "proofs/geometry_hesse.tex",
+      "id": "geo:confidence",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Independent source requests; matched copies within each request; trusted qutrit dimension, calibrated Q and SIC measurements; fixed sample sizes and confidence level."
+      ],
+      "internal_dependencies": [
+        "geo:hesse-bound"
+      ],
+      "external_inputs": [],
+      "computational_checks": [
+        {
+          "path": "supplements/ensembles/verify_hesse_ensemble_certification.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Finite positive-witness and reconstruction identities with exact-only mode; statistical confidence proof remains analytic."
+        }
+      ],
+      "scope_limits": [
+        "Not device independent.",
+        "Independent copies of the averaged density do not give matched replica access.",
+        "SciPy quantile evaluation is numerical, not an interval-certified implementation."
+      ],
+      "statement_summary": "Binomial witness confidence bound and SIC moment confidence bound imply the stated Wasserstein confidence certificate; physical copy budget 3N3+N1.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "General support-and-weight ensemble certificate",
+      "kind": "derived_result",
+      "proof_source": "proofs/geometry_hesse.tex",
+      "id": "geo:general-cert",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Finite coherent target S; global support estimate d(z,S)^2<=C q(z); injective weight-moment map with specified least singular value."
+      ],
+      "internal_dependencies": [
+        "geo:hesse-bound"
+      ],
+      "external_inputs": [],
+      "computational_checks": [],
+      "scope_limits": [
+        "The global support estimate and injective weight map must be supplied for a new ensemble."
+      ],
+      "statement_summary": "A positive degree-k support witness and degree-r weight moment give the stated quantitative transport bound.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "An exact coupling obstruction and repair threshold",
+      "kind": "theorem",
+      "statement_latex": "\\label{geo:singer-nef}\nThere is no coupling with all marginals \\(\\mu_{\\rm S}\\) supported on\nnine distinct points whose blowup of \\(\\mathbb P^2\\) has nef\nanticanonical class. For\n\\[\n \\mu_t=t\\mu_{\\rm S}+(1-t)\\sigma,\n\\]\nsuch a coupling exists if and only if \\(t\\le20/21\\).\nThe coupling may always be taken exchangeable.",
+      "proof_source": "proofs/geometry_singer.tex",
+      "id": "geo:singer-nef",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "The specified weighted ten-point design; couplings of nine distinct rays; nef anticanonical blowup support."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Known weighted ten-point projective-toric design; new claims concern its geometry",
+          "bibliography_keys": [
+            "geo_iosue2024"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/geometry/verify_singer_nef_obstruction.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Character sums, vanishing cubics, intersection and lattice arithmetic, and threshold coupling weights."
+        }
+      ],
+      "scope_limits": [
+        "The underlying ten-point design is attributed to the literature."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "The lattice of the design cover",
+      "kind": "theorem",
+      "statement_latex": "\\label{geo:k3-lattice}\nThe K3 surface obtained from this ten-point configuration satisfies\n\\[\n \\rho(X)=20,\\qquad\n T_X\\cong A_2(7)=\n \\begin{pmatrix}14&-7\\\\-7&14\\end{pmatrix},\\qquad\n \\operatorname{disc}T_X=147.\n\\]\nIt admits a symplectic automorphism group \\(C_7\\rtimes C_3\\) and a\ncommuting non-symplectic deck transformation of order three with\nexactly three isolated fixed points.",
+      "proof_source": "proofs/geometry_singer.tex",
+      "id": "geo:k3-lattice",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "The stated triple cover and resolution/contraction; integral intersection and automorphism data."
+      ],
+      "internal_dependencies": [
+        "geo:singer-nef"
+      ],
+      "external_inputs": [
+        {
+          "input": "Symplectic and non-symplectic prime-order K3 automorphism lattices",
+          "bibliography_keys": [
+            "geo_garbagnati_sarti2007",
+            "geo_artebani_sarti_taki2011"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/geometry/verify_singer_nef_obstruction.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Character sums, vanishing cubics, intersection and lattice arithmetic, and threshold coupling weights."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "The resolved design cover is a singular K3 with transcendental lattice A2(7), Gram [[14,-7],[-7,14]], discriminant 147.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Arbitrary contacts on a flagged qutrit frame",
+      "kind": "theorem",
+      "statement_latex": "\\label{geo:flag-theorem}\nLet \\(\\mathbb C^3=H\\oplus\\mathbb Cf\\), \\(\\dim H=2\\), and let\n\\(P_i\\) be finitely many rays in \\(H\\) with\n\\(\\sum_i t_iP_i=I_H\\), \\(t_i\\ge0\\). Include \\(P_f\\).\nFor every collection of positive matrices \\(C_i,C_f\\) with\n\\(C_iP_i=0\\) and \\(C_fP_f=0\\), one has\n\\[\n F_3(C)\\le0,\\qquad \\eta_3=\\frac5{12},\\quad c_3=\\frac7{36}.\n\\]",
+      "proof_source": "proofs/geometry_qutrit.tex",
+      "id": "geo:flag-theorem",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Qutrit reducing decomposition C2 plus a flag; finite weighted qubit frame; arbitrary positive anisotropic contact matrices satisfying the stated kernel conditions."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Haar steering body and projective-simulable POVM convex geometry",
+          "bibliography_keys": [
+            "geo_nguyen2018",
+            "geo_oszmaniec2017"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/qutrit/verify_qutrit_packet.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Haar-cell and contact identities; no explicit uniform neighborhood radius."
+        },
+        {
+          "path": "supplements/qutrit/verify_three_ray_flag.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Three-ray angular coefficients and polynomial identities."
+        },
+        {
+          "path": "supplements/qutrit/verify_four_ray_flag.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Four-ray coefficient identities and exact rational SOS margins under the proved geometric hypotheses."
+        }
+      ],
+      "scope_limits": [
+        "Geometric flagged support is required."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "A negative cusp for pinched clusters",
+      "kind": "lemma",
+      "statement_latex": "\\label{geo:cusp}\nSuppose a balanced \\(m\\)-ray frame is partitioned into \\(d\\) nonempty\ngroups, with actual maximum within-group projector distance\n\\(\\delta\\le1/(2d)\\). Suppose\n\\[\n a(I-P_i)\\preceq C_i\\preceq b(I-P_i),\\qquad 0<a\\le b.\n\\]\nFor a constant \\(\\kappa_d>0\\) depending only on dimension,\n\\begin{equation}\n F_d(C)\\le9\\eta_db\\delta^2-\\frac{\\kappa_da}{m}\\delta.\n \\label{geo:negative-cusp}\n\\end{equation}\nOne may take \\(\\kappa_3=325/536313\\).",
+      "proof_source": "proofs/geometry_qutrit.tex",
+      "id": "geo:cusp",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Pinched positive contact clusters with the stated normalization and scales."
+      ],
+      "internal_dependencies": [
+        "geo:flag-theorem"
+      ],
+      "external_inputs": [],
+      "computational_checks": [
+        {
+          "path": "supplements/qutrit/verify_qutrit_packet.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Haar-cell and contact identities; no explicit uniform neighborhood radius."
+        },
+        {
+          "path": "supplements/qutrit/verify_three_ray_flag.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Three-ray angular coefficients and polynomial identities."
+        },
+        {
+          "path": "supplements/qutrit/verify_four_ray_flag.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Four-ray coefficient identities and exact rational SOS margins under the proved geometric hypotheses."
+        }
+      ],
+      "scope_limits": [
+        "The coefficient margin is not a numerical neighborhood radius."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Uniform operational neighborhoods",
+      "kind": "theorem",
+      "statement_latex": "\\label{geo:operational}\nFor every fixed \\(d\\ge2\\) and finite \\(m\\), there exists \\(r_{d,m}>0\\)\nsuch that\n\\[\n E\\in\\mathsf Q_{d,m},\\quad\n \\operatorname{dist}(E,\\mathsf P_{d,m})<r_{d,m}\n \\quad\\Longrightarrow\\quad\n \\Phi_{\\eta_d}(E)\\in\\mathcal H_{d,m}.\n \\tag{i}\n\\]\nFor \\(d=3\\), there exists \\(r_m>0\\) with the stronger conclusion\n\\[\n E\\in\\mathsf Q_{3,m},\\quad\n \\operatorname{dist}(E,\\mathsf K_m)<r_m\n \\quad\\Longrightarrow\\quad\n \\Phi_{5/12}(E)\\in\\mathcal H_{3,m}.\n \\tag{ii}\n\\]\nAny fixed norm on tuples can define distance. Zero labelled effects\nare allowed, and nearby POVMs may be irreducible and have arbitrary\neffect ranks. The radii are qualitative; no value uniform in\nunbounded \\(m\\) is asserted.",
+      "proof_source": "proofs/geometry_qutrit.tex",
+      "id": "geo:operational",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Fixed Hilbert dimension d>=2 and finite labelled outcome number m; perturbations are valid POVMs."
+      ],
+      "internal_dependencies": [
+        "geo:flag-theorem",
+        "geo:cusp"
+      ],
+      "external_inputs": [
+        {
+          "input": "Haar steering body and projective-simulable POVM convex geometry",
+          "bibliography_keys": [
+            "geo_nguyen2018",
+            "geo_oszmaniec2017"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/qutrit/verify_qutrit_packet.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Haar-cell and contact identities; no explicit uniform neighborhood radius."
+        },
+        {
+          "path": "supplements/qutrit/verify_three_ray_flag.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Three-ray angular coefficients and polynomial identities."
+        },
+        {
+          "path": "supplements/qutrit/verify_four_ray_flag.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Four-ray coefficient identities and exact rational SOS margins under the proved geometric hypotheses."
+        }
+      ],
+      "scope_limits": [
+        "Radius is qualitative and depends on d,m.",
+        "Qutrit extension is around conv(reducible POVMs), not every irreducible qutrit POVM.",
+        "Zero labelled effects are allowed."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Exact boundary within the center classes",
+      "kind": "corollary",
+      "statement_latex": "\\label{geo:boundary}\nAfter deleting zero effects, a POVM in \\(\\mathsf P_{d,m}\\), or in\n\\(\\mathsf K_m\\) for \\(d=3\\), maps to the boundary of the Haar\npostprocessing body at the stated visibility if and only if it is\na projective refinement of one orthonormal basis:\n\\[\n E_i=s_iP_{a(i)},\\qquad s_i>0,\\qquad\n \\sum_{i:a(i)=a}s_i=1.\n\\]\nEvery other such POVM admits a pointwise increase in visibility.",
+      "proof_source": "proofs/geometry_qutrit.tex",
+      "id": "geo:boundary",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "POVM belongs to the center classes in geo:operational; delete zero effects before classifying the boundary."
+      ],
+      "internal_dependencies": [
+        "geo:operational",
+        "geo:flag-theorem",
+        "geo:cusp"
+      ],
+      "external_inputs": [],
+      "computational_checks": [
+        {
+          "path": "supplements/qutrit/verify_qutrit_packet.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Haar-cell and contact identities; no explicit uniform neighborhood radius."
+        },
+        {
+          "path": "supplements/qutrit/verify_three_ray_flag.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Three-ray angular coefficients and polynomial identities."
+        },
+        {
+          "path": "supplements/qutrit/verify_four_ray_flag.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Four-ray coefficient identities and exact rational SOS margins under the proved geometric hypotheses."
+        }
+      ],
+      "scope_limits": [],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "The local graph integral",
+      "kind": "lemma",
+      "statement_latex": "\\label{lem:coherent-graph-integral}\nLet $G$ be a fixed connected Eulerian directed multigraph on $r$\nvertices, with multiplicities $n_{ab}$.  Then\n\\begin{equation}\n I_m(G):=\\int\\prod_{a,b}\\langle z_a,z_b\\rangle^{m n_{ab}}\n                   \\,d\\sigma(z_1)\\cdots d\\sigma(z_r)\n =D_m^{-(r-1)}\\tau(G)^{-q}(1+o(1)).\n \\label{eq:coherent-graph-integral}\n\\end{equation}\nFurthermore $|I_m(G)|\\leq C_GD_m^{-(r-1)}$ for all sufficiently\nlarge $m$.",
+      "proof_source": "proofs/coherent_gram.tex",
+      "id": "lem:coherent-graph-integral",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Fixed connected directed Eulerian graph; q>=1 fixed; coherent kernel degree m tends to infinity; normalized Haar probability."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Directed matrix-tree theorem and accretive complex Gaussian integral",
+          "bibliography_keys": []
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/probability/verify_coherent_gram_moments.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Directed cofactors and finite-degree trace expectations; optional Monte Carlo is separate."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "Graph integral is D_m^(-(v-1))*tau(G)^(-q)*(1+o(1)), with uniform fixed-graph O(D_m^(-(v-1))) bound.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Coherent spectral law",
+      "kind": "theorem",
+      "statement_latex": "\\label{thm:coherent-spectral-law}\nThere is a unique probability measure $\\nu_{q,\\rho}$ on $[0,\\infty)$\nwhose positive integer moments are\n\\begin{equation}\n M_p(q,\\rho)=\n \\sum_{\\pi\\in\\mathfrak P(p)}\n       \\rho^{|\\pi|-1}\\tau(G_\\pi)^{-q}.\n \\label{eq:coherent-tree-moments}\n\\end{equation}\nFor every fixed $p\\geq1$,\n\\[\n \\mathbb E\\!\\int x^p\\,d\\nu_m\\longrightarrow M_p(q,\\rho),\n \\qquad\n \\operatorname{Var}\\!\\left(\\int x^p\\,d\\nu_m\\right)=O_p(n_m^{-1}).\n\\]\nConsequently $\\nu_m$ converges weakly in probability to\n$\\nu_{q,\\rho}$, with convergence in probability of every fixed\npositive integer moment.  If $\\sum_m n_m^{-1}<\\infty$, these\nconvergences hold almost surely on any probability space carrying\nthe rows.  In particular this applies along all degrees when $q\\geq2$.\n\nThe same assertions hold after conditioning on any fixed finite\ncollection of bounded empirical moments lying within distance\n$\\epsilon_m$ of their Fubini--Study expectations, provided\n$n_m\\epsilon_m^2\\to\\infty$.",
+      "proof_source": "proofs/coherent_gram.tex",
+      "id": "thm:coherent-spectral-law",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "IID Haar rays in CP^q; fixed integer q>=1; n_m/binom(m+q,q)->rho in (0,infinity)."
+      ],
+      "internal_dependencies": [
+        "lem:coherent-graph-integral"
+      ],
+      "external_inputs": [
+        {
+          "input": "Directed matrix-tree theorem and accretive complex Gaussian integral",
+          "bibliography_keys": []
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/probability/verify_coherent_gram_moments.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Directed cofactors and finite-degree trace expectations; optional Monte Carlo is separate."
+        },
+        {
+          "path": "supplements/probability/verify_probability_extensions.py",
+          "evidence_class": "exact_algebra",
+          "scope": "5295 partitions through order eight; 124 pairing bounds; noncrossing/tree criterion and rational aspect-ratio identities."
+        }
+      ],
+      "scope_limits": [
+        "Almost sure convergence requires sum_m 1/n_m<infinity.",
+        "Conditioning extension requires fixed bounded moment family and n_m epsilon_m^2->infinity.",
+        "No exponentially small eigenvalue or log determinant control."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "The noncrossing layer",
+      "kind": "lemma",
+      "statement_latex": "\\label{lem:tree-one-noncrossing}\nFor a cycle quotient, $\\tau(G_\\pi)=1$ if and only if $\\pi$ is\nnoncrossing in the cyclic order.",
+      "proof_source": "proofs/coherent_gram.tex",
+      "id": "lem:tree-one-noncrossing",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Partition of cyclically ordered positions; directed cycle quotient; rooted in-arborescence convention."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Directed matrix-tree theorem and accretive complex Gaussian integral",
+          "bibliography_keys": []
+        },
+        {
+          "input": "Noncrossing partitions, Kreweras complementation, and Marchenko--Pastur moments",
+          "bibliography_keys": [
+            "prob_nica_speicher2006"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/probability/verify_probability_extensions.py",
+          "evidence_class": "exact_algebra",
+          "scope": "5295 partitions through order eight; 124 pairing bounds; noncrossing/tree criterion and rational aspect-ratio identities."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "Rooted directed tree count is one exactly for noncrossing partitions.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Support, exponential moments, and the free limit",
+      "kind": "theorem",
+      "statement_latex": "\\label{thm:coherent-free-limit}\nFor every finite positive integer $q$ and $\\rho>0$, the support of\n$\\nu_{q,\\rho}$ is unbounded.  Nevertheless its moment-generating\nfunction is entire, and for $t\\geq0$,\n\\begin{equation}\n \\int e^{tx}\\,d\\nu_{q,\\rho}(x)\n \\leq1+\\frac{\\exp\\{\\rho(e^t-1)\\}-1}{\\rho}.\n \\label{eq:coherent-entire-bound}\n\\end{equation}\nIn particular, for $R\\geq\\rho$,\n\\begin{equation}\n \\nu_{q,\\rho}([R,\\infty))\n \\leq\\max(1,\\rho^{-1})\n       \\exp\\{-R\\log(R/\\rho)+R-\\rho\\}.\n \\label{eq:coherent-poisson-tail}\n\\end{equation}\nAs $q\\to\\infty$ through integers, $\\nu_{q,\\rho}$ converges weakly\nand in every fixed positive moment to the mean-one\nMarchenko--Pastur law of aspect ratio $\\rho$.",
+      "proof_source": "proofs/coherent_gram.tex",
+      "id": "thm:coherent-free-limit",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Fixed rho>0; coherent limiting law from thm:coherent-spectral-law; integer complex dimension q."
+      ],
+      "internal_dependencies": [
+        "thm:coherent-spectral-law",
+        "lem:tree-one-noncrossing"
+      ],
+      "external_inputs": [
+        {
+          "input": "Noncrossing partitions, Kreweras complementation, and Marchenko--Pastur moments",
+          "bibliography_keys": [
+            "prob_nica_speicher2006"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/probability/verify_probability_extensions.py",
+          "evidence_class": "exact_algebra",
+          "scope": "5295 partitions through order eight; 124 pairing bounds; noncrossing/tree criterion and rational aspect-ratio identities."
+        }
+      ],
+      "scope_limits": [
+        "Support is unbounded for every finite q; compact support is asserted only for the limiting Marchenko--Pastur law as q tends to infinity."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Finite-degree coherent Gram trace identities",
+      "kind": "derived_result",
+      "proof_source": "proofs/coherent_gram.tex",
+      "id": "eq:coherent-finite-moments",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "n IID coherent rows in Sym^m C^(q+1); D=D_m and Dprime=D_(2m)."
+      ],
+      "internal_dependencies": [
+        "lem:coherent-graph-integral"
+      ],
+      "external_inputs": [],
+      "computational_checks": [
+        {
+          "path": "supplements/probability/verify_coherent_gram_moments.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Directed cofactors and finite-degree trace expectations; optional Monte Carlo is separate."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "Exact finite first through fourth expected normalized Gram traces, including (n-1)/D_(2m) in the fourth trace.",
+      "review_status": "integrated_component",
+      "review_lean_modules": [
+        "MomentGeometry/Coherent/Moments.lean",
+        "MomentGeometry/Coherent/CycleCofactor.lean",
+        "MomentGeometry/Coherent/UnitDensity.lean"
+      ],
+      "review_verified": "Exact finite expected second/third/fourth trace books (definitions plus rational denominator algebra), including the independent-source-moment and finite-sample corrections and cubic limit expansion. Verified smwi6zlvo/m1/d2 adds asymptotic D-ratio forms with Dprime/D -> 2^q, quotient cycle outdegree Laplacians retaining parallel edges/discarding loops, restricted-growth partition words, and explicit order-<=(4) cofactor checks, \u03c4 hist {1:14,2:1}, noncrossing equivalence, root-independence and positivity. The m1 scoped review passed both new modules and 16 standard-axiom reports; current direct eight-module build passes 117 reports (including the independent headline audit module). No overall asymptotic spectral law is accepted.",
+      "review_missing": "Haar tensor moment construction; random coherent Gram matrices and their empirical laws; local graph integral, arbitrary-order cofactor-support formula, moment/variance and convergence with conditioned laws. Exact finite formulas do not certify any of these.",
+      "review_provenance": "Written against proofs/coherent_gram.tex; it does not upgrade a symbolic finite check to the spectral-law theorem."
+    },
+    {
+      "title": "Conditional replacement estimate",
+      "kind": "lemma",
+      "statement_latex": "\\label{lem:conditional-replacement}\nIf $\\Delta_k(\\boldsymbol x)\\ne0$ and a set of $m$ particle positions\nis replaced independently by laws having densities at most $3/2$\nagainst $\\sigma$, then the resulting tuple $\\boldsymbol Y$ satisfies\n\\[\n \\Pr\\!\\left(E_k(\\boldsymbol Y)>E_k(\\boldsymbol x)\n                   +c_*m/N\\right)\\leq e^{-m},\n \\qquad c_*=6(1+\\log4).\n\\]",
+      "proof_source": "proofs/probability_repulsive.tex",
+      "id": "lem:conditional-replacement",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "CP2; polynomial section of degree 3k; replacement density bounded above by 3/2; inverse exponent 0<s<1/3."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [],
+      "computational_checks": [
+        {
+          "path": "supplements/probability/verify_microscopic_repair.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Replacement constants and finite moment-repair algebra; not a large-deviation proof."
+        }
+      ],
+      "scope_limits": [
+        "The one-coordinate exponent does not reach the attractive target near gamma=1."
+      ],
+      "statement_summary": "Conditional polynomial inverse-moment estimate and exponential tail for replacing coordinates.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Entropy-controlled repair of microscopic moments",
+      "kind": "proposition",
+      "statement_latex": "\\label{prop:microscopic-moment-repair}\nSuppose $\\delta_N\\downarrow0$.  There are integers $m_N=o(N)$,\nwith $m_N\\to\\infty$, and measurable replacement kernels\n$\\mathcal R_N$ on nonzero-determinant configurations of moment defect\nat most $\\delta_N$, such that, almost surely under the kernel,\n\\[\n \\boldsymbol Y\\in\\Omega_N,\\qquad\n \\#\\{i:Y_i\\ne x_i\\}\\leq m_N,\\qquad\n E_k(\\boldsymbol Y)\\leq E_k(\\boldsymbol x)+c_*m_N/N.\n\\]\nFor every input law $R_N$ of finite relative entropy, its repaired law\n$S_N=R_N\\mathcal R_N$ satisfies\n\\begin{equation}\n \\Ent(S_N\\mid\\sigma^{\\otimes N})\n \\leq\\Ent(R_N\\mid\\sigma^{\\otimes N})\n           +m_N\\log(3/2)+2\\log2.\n \\label{eq:microscopic-repair-entropy}\n\\end{equation}\nThe empirical measures before and after repair have bounded-Lipschitz\ndistance at most $2m_N/N$.",
+      "proof_source": "proofs/probability_repulsive.tex",
+      "id": "prop:microscopic-moment-repair",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Fixed projective moment order t; approximate microscopic moment constraint; m=o(N) replacements with m tending to infinity; tube exponent a in (0,1/2)."
+      ],
+      "internal_dependencies": [
+        "lem:conditional-replacement",
+        "an:frame-spectrum"
+      ],
+      "external_inputs": [
+        {
+          "input": "Unitary-invariant projective tensor integration / symmetric-power Haar moments",
+          "bibliography_keys": [
+            "geo_scott2006"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/probability/verify_microscopic_repair.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Replacement constants and finite moment-repair algebra; not a large-deviation proof."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "Repair to the shrinking exact-design tube with energy increase O(m/N), empirical change O(m/N), and entropy cost <=m log(3/2)+2 log2.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Shrinking-design pressure and large deviations",
+      "kind": "theorem",
+      "statement_latex": "\\label{thm:repulsive-design-ldp}\nFor every $\\beta\\geq0$ and every continuous\n$\\Phi:\\mathcal P(X)\\to\\mathbb R$,\n\\begin{equation}\n \\lim_{k\\to\\infty}\\frac1N\\log\n       \\int e^{-N[\\beta E_k+\\Phi(L_N)]}\\,dQ_N\n =-\\inf_{\\mu\\in\\mathcal D_t}\n       [\\Ent(\\mu\\mid\\sigma)+\\beta E(\\mu)+\\Phi(\\mu)].\n \\label{eq:repulsive-design-laplace}\n\\end{equation}\nThe normalized empirical laws satisfy a full speed-$N$ LDP with good\nrate function\n\\[\n I_\\beta(\\mu)=\\Ent(\\mu\\mid\\sigma)+\\beta E(\\mu)\n                         +\\iota_{\\mathcal D_t}(\\mu).\n\\]\nIts unique minimizer is $\\sigma$, with minimum zero.  Here\n$\\iota_{\\mathcal D_t}$ is zero on the constraint and infinity outside it.",
+      "proof_source": "proofs/probability_repulsive.tex",
+      "id": "thm:repulsive-design-ldp",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "CP2 anticanonical determinant; fixed design order t>=1; tube width N^(-a), 0<a<1/2; fixed beta>=0; continuous empirical-law tilt."
+      ],
+      "internal_dependencies": [
+        "prop:microscopic-moment-repair",
+        "an:lower-comparison"
+      ],
+      "external_inputs": [
+        {
+          "input": "Unrestricted positive-temperature LDP for polarized compact complex manifolds",
+          "bibliography_keys": [
+            "prob_berman2017"
+          ]
+        },
+        {
+          "input": "Sanov theorem, entropy variational formula, and the bounded-continuous Laplace/LDP equivalence on a compact state space",
+          "bibliography_keys": []
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/probability/verify_microscopic_repair.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Replacement constants and finite moment-repair algebra; not a large-deviation proof."
+        }
+      ],
+      "scope_limits": [
+        "Repulsive sign only.",
+        "Does not establish attractive pressure or attractive LDP near gamma=1."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "The order-polynomial logarithm",
+      "kind": "proposition",
+      "statement_latex": "\\label{op:heap}\nFor every nonempty heap,\n\\begin{equation}\n [H](-\\log M)=\\Omega_H'(0),\\qquad\n [H]\\log Z=(-1)^{|H|+1}\\Omega_H'(0).\n \\label{op:heap-coefficient}\n\\end{equation}\nDisconnected heaps have zero coefficient. For a natural labeling of a heap\nwith $n$ elements, the first coefficient also equals\n\\begin{equation}\n \\Omega_H'(0)=\\sum_{\\pi\\in\\mathcal L(H)}\n \\frac{(-1)^{\\operatorname{des}(\\pi)}}\n {n\\binom{n-1}{\\operatorname{des}(\\pi)}},\n \\label{op:eulerian}\n\\end{equation}\nwhere $\\mathcal L(H)$ denotes its linear extensions.",
+      "proof_source": "sections/positive_calculus.tex",
+      "id": "op:heap",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Finite alphabet with symmetric reflexive dependence relation; formal graded completed heap algebra."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Cartier--Foata inversion, heap order polynomials, and Eulerian descent expansion",
+          "bibliography_keys": [
+            "CartierFoata1969",
+            "Viennot1986",
+            "Stanley1986",
+            "BandieraSchaetz2017"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/modular/verify_ordered_heaps.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Finite heap/order-polynomial and signed logarithm coefficients."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "Signed logarithm coefficient is the derivative of the heap order polynomial; equivalent signed descent sum; disconnected heaps vanish.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Ordered root-response obstruction",
+      "kind": "derived_result",
+      "proof_source": "sections/positive_calculus.tex",
+      "id": "op:root-response",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "The explicitly specified finite star-shaped positive operator gas and parameter values."
+      ],
+      "internal_dependencies": [
+        "op:heap"
+      ],
+      "external_inputs": [],
+      "computational_checks": [
+        {
+          "path": "supplements/modular/verify_ordered_heaps.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Finite heap/order-polynomial and signed logarithm coefficients."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "Scalar polymer/KP summability can coexist with failure of absolute convergence of the ordered logarithm Taylor series at the chosen construction point.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Positive hyperbolic clock and local error",
+      "kind": "theorem",
+      "statement_latex": "\\label{op:hyperbolic-clock}\nFor $\\tau\\ge0$,\n\\begin{equation}\n T_\\tau=\\left(\\frac{\\ad_G}{\\sinh\\ad_G}\\right)^\\tau\n =\\mathbb E e^{-S_\\tau L},\\qquad\n S_\\tau=\\sum_{j\\ge1}Y_j,\\quad\n Y_j\\sim\\operatorname{Gamma}\\left(\\tau,\\text{rate }\\pi^2j^2\\right)\n \\label{op:gamma-clock}\n\\end{equation}\nwith independent summands. It is a random-unitary semigroup. Put\n$S_{\\tau,R}=\\sum_{j\\le R}Y_j$ and\n$a_R=\\mathbb E(S_\\tau-S_{\\tau,R})$. The finite and mean-corrected channels\nobey\n\\begin{align}\n \\|\\mathbb Ee^{-S_{\\tau,R}L}A-T_\\tau A\\|\n &\\le\\frac{\\tau}{\\pi^2R}\\|\\ad_G^2A\\|,\\label{op:clock-first}\\\\\n \\|\\mathbb Ee^{-(S_{\\tau,R}+a_R)L}A-T_\\tau A\\|\n &\\le\\frac{\\tau}{6\\pi^4R^3}\\|\\ad_G^4A\\|.\n \\label{op:clock-mean}\n\\end{align}",
+      "proof_source": "sections/positive_calculus.tex",
+      "id": "op:hyperbolic-clock",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Finite-dimensional Hermitian G; tau>=0; arbitrary operator A and ancillary extension."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Infinite divisibility of the hyperbolic product and Gamma subordination",
+          "bibliography_keys": [
+            "PitmanYor2003"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/modular/positive_bessel_filters.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Exact Rayleigh recurrences and quadrature moments with --exact-only; dense diagnostics are separate."
+        }
+      ],
+      "scope_limits": [
+        "Norm contraction does not imply an interaction-norm locality bound."
+      ],
+      "review_status": "integrated_component",
+      "review_lean_modules": [
+        "MomentGeometry/Operator/CP/Base.lean",
+        "MomentGeometry/Operator/CP/Closure.lean",
+        "MomentGeometry/Operator/Clock.lean"
+      ],
+      "review_verified": "Choi-style multiplier criterion; CP of matrix conjugation; PSD Gaussian/resolvent kernels; Euler sine-product convergence; complete positivity of the hyperbolic clock kernel for every real exponent >=0 (dense identity at 0, actual CP at tau>0).",
+      "review_missing": "Gamma-subordinated heat-channel identity and its full functional-calculus realization; fourth-nested-commutator error bound; full contract in proofs/positive_calculus.tex.",
+      "review_provenance": "Copied from reviewed scoped packages results/coherent_continuation/review_smwhh7nna_m2/lean/{ModularCPBase,ModularCPClosure}.lean, with namespace/import adaptation and fresh build. Inherited declarations are not a certificate of the whole registered result."
+    },
+    {
+      "title": "Exact metric range",
+      "kind": "proposition",
+      "statement_latex": "\\label{op:metric-range}\nThe function \\eqref{op:bessel-mean} defines a symmetric normalized\noperator-monotone mean exactly for $\\nu\\ge-1/2$. In that range,\n\\begin{equation}\n \\mathcal J_{m_\\nu,\\rho}^{-1}(\\dot\\rho)\n =\\phi_\\nu(\\ad_K/2)A.\n \\label{op:bessel-score}\n\\end{equation}\nThe endpoint is the symmetric logarithmic derivative (SLD) metric;\n$\\nu=1/2$ is the Bogoliubov--Kubo--Mori (BKM) metric; the limit as\n$\\nu\\to\\infty$ is the geometric-mean metric.",
+      "proof_source": "sections/positive_calculus.tex",
+      "id": "op:metric-range",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Bessel parameter nu>-1; the explicitly normalized symmetric Bessel operator mean."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Petz correspondence between symmetric operator means and monotone quantum metrics",
+          "bibliography_keys": [
+            "Petz1996",
+            "HiaiKosakiPetzRuskai2013"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/modular/positive_bessel_filters.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Exact Rayleigh recurrences and quadrature moments with --exact-only; dense diagnostics are separate."
+        },
+        {
+          "path": "supplements/modular/score_and_metric_audit.py",
+          "evidence_class": "certified_arithmetic",
+          "scope": "Exact metric identities plus an explicitly scoped Arb enclosure; optional floating checks remain diagnostics."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "The mean is operator monotone exactly for nu>=-1/2; positive beta mixture yields the metric formula.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Finite positive quadrature with local certificates",
+      "kind": "theorem",
+      "statement_latex": "\\label{op:quadrature-theorem}\nLet $\\mu$ be a finite positive measure of bounded support in $[0,\\infty)$,\nwith the nondegenerate moment matrices needed for the following rules.\nFor its $r$-node Gaussian rule $(c_i,w_i)$, put\n\\[\n T_r^G(\\tau)=\\prod_{i=1}^r(I+c_iL)^{-\\tau w_i/c_i},\\qquad\n h_r=\\int p_r(\\lambda)^2\\,d\\mu(\\lambda),\n\\]\nwhere $p_r$ is the monic orthogonal polynomial. Then\n\\begin{equation}\n \\|(T_r^G(\\tau)-e^{-\\tau g(L)})A\\|\n \\le\\frac{\\tau h_r}{2r+1}\\|\\ad_G^{4r+2}A\\|.\n \\label{op:gauss-error}\n\\end{equation}\nFor the Gaussian rule $(c_i,v_i)$ of $\\lambda\\,d\\mu$, set\n$w_i=v_i/c_i$ and $w_0=\\mu([0,\\infty))-\\sum_iw_i\\ge0$. The Radau rule\n\\[\n T_r^R(\\tau)=e^{-\\tau w_0L}\n \\prod_{i=1}^r(I+c_iL)^{-\\tau w_i/c_i}\n\\]\nsatisfies, with $\\widetilde p_r$ monic orthogonal for $\\lambda\\,d\\mu$,\n\\begin{equation}\n \\|(T_r^R(\\tau)-e^{-\\tau g(L)})A\\|\n \\le\\frac{\\tau\\widetilde h_r}{2r+2}\\|\\ad_G^{4r+4}A\\|,\n \\quad\n \\widetilde h_r=\\int\\lambda\\widetilde p_r(\\lambda)^2\\,d\\mu.\n \\label{op:radau-error}\n\\end{equation}\nAll maps displayed are random-unitary channels for $\\tau\\ge0$. Their\nscalar multipliers obey $T_r^R(\\tau;s)\\le e^{-\\tau g(s)}\\le T_r^G(\\tau;s)$\nfor $s\\ge0$.",
+      "proof_source": "sections/positive_calculus.tex",
+      "id": "op:quadrature-theorem",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Finite positive measure with bounded support on [0,infinity); nondegenerate moment matrices for the specified Gaussian/Radau rules; Hermitian G; tau>=0."
+      ],
+      "internal_dependencies": [
+        "op:hyperbolic-clock"
+      ],
+      "external_inputs": [
+        {
+          "input": "Positive Gaussian/Radau quadrature and Peano-kernel Hermite interpolation remainder",
+          "bibliography_keys": []
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/modular/positive_bessel_filters.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Exact Rayleigh recurrences and quadrature moments with --exact-only; dense diagnostics are separate."
+        },
+        {
+          "path": "supplements/modular/finite_arithmetic_certificate.py",
+          "evidence_class": "certified_arithmetic",
+          "scope": "Rational Sturm root isolation, weight enclosures, and rounding budgets for the supplied finite rules."
+        },
+        {
+          "path": "supplements/modular/local_commutator_certificate.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Sparse Pauli integer/rational commutator coefficients and operator-norm upper bounds."
+        }
+      ],
+      "scope_limits": [
+        "Degenerate finite-support rules terminate exactly.",
+        "Scalar multiplier order is not positive-map order.",
+        "Implementation must add independently certified rounding error."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Fixed-state information-matrix bracket",
+      "kind": "derived_result",
+      "proof_source": "sections/positive_calculus.tex",
+      "id": "op:information-bracket",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Fixed faithful state; specified relative tangent features; G=K/2; the positive quadrature hypotheses."
+      ],
+      "internal_dependencies": [
+        "op:quadrature-theorem",
+        "op:metric-range"
+      ],
+      "external_inputs": [
+        {
+          "input": "Petz correspondence between symmetric operator means and monotone quantum metrics",
+          "bibliography_keys": [
+            "Petz1996",
+            "HiaiKosakiPetzRuskai2013"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/modular/score_and_metric_audit.py",
+          "evidence_class": "certified_arithmetic",
+          "scope": "Exact metric identities plus an explicitly scoped Arb enclosure; optional floating checks remain diagnostics."
+        },
+        {
+          "path": "supplements/modular/finite_arithmetic_certificate.py",
+          "evidence_class": "certified_arithmetic",
+          "scope": "Rational Sturm root isolation, weight enclosures, and rounding budgets for the supplied finite rules."
+        }
+      ],
+      "scope_limits": [
+        "Finite approximants are not claimed to define globally monotone metrics for every state."
+      ],
+      "statement_summary": "Radau and Gaussian scalar multipliers bracket the exact finite parameter-information matrix in Loewner order.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "One-node positive hyperbolic approximation",
+      "kind": "derived_result",
+      "proof_source": "sections/positive_calculus.tex",
+      "id": "op:one-clock",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Hyperbolic clock; Hermitian G; tau>=0."
+      ],
+      "internal_dependencies": [
+        "op:quadrature-theorem"
+      ],
+      "external_inputs": [],
+      "computational_checks": [
+        {
+          "path": "supplements/modular/positive_bessel_filters.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Exact Rayleigh recurrences and quadrature moments with --exact-only; dense diagnostics are separate."
+        },
+        {
+          "path": "supplements/modular/finite_arithmetic_certificate.py",
+          "evidence_class": "certified_arithmetic",
+          "scope": "Rational Sturm root isolation, weight enclosures, and rounding budgets for the supplied finite rules."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "One Gaussian node gives (I+ad_G^2/15)^(-5 tau/2) with error <=tau ||ad_G^6 A||/9450.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "A quotient-metric estimate",
+      "kind": "lemma",
+      "statement_latex": "\\label{q:lem-schur}\nLet $p,q$ be commuting orthogonal projections.  Suppose\n\\[\n G=I+A+B+D>0,\\qquad [A,q]=[B,p]=0,\n\\]\n\\[\n \\|A\\|\\leq x,\\quad \\|B\\|\\leq y,\\quad \\|D\\|\\leq xy,\n \\qquad G\\geq mI,\\quad m=(1-x)(1-y)>0.\n\\]\nThe Friedrichs cosine between $G^{1/2}\\operatorname{ran}p$ and\n$G^{1/2}\\operatorname{ran}q$ is at most $\\mathcal B(x,y)$.",
+      "proof_source": "proofs/quantum_results.tex",
+      "id": "q:lem-schur",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Commuting orthogonal p,q; positive G=I+A+B+D; stated commutation relations and x,y bounds with x,y<1."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [],
+      "computational_checks": [
+        {
+          "path": "supplements/networks/verify_two_port_schur_angle.py",
+          "evidence_class": "floating_diagnostic",
+          "scope": "Finite adversarial principal-angle checks; no certification of the universal lemma."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "The quotient-metric Friedrichs cosine is bounded by B(x,y)=2xy(1+xy)/((1-x)^2(1-y)^2).",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Two-port CP gap criterion",
+      "kind": "theorem",
+      "statement_latex": "\\label{q:thm-wire-gap}\nUnder \\eqref{q:cp-sandwich}, set\n\\begin{equation}\n \\mathcal B(x,y)=\\frac{2xy(1+xy)}{(1-x)^2(1-y)^2}.\n \\label{q:Bxy}\n\\end{equation}\nLet $C$ be the symmetric matrix indexed by edges, with zero diagonal,\nwith $C_{ef}=0$ for disjoint edges, and with\n$C_{ef}=\\mathcal B(\\delta_{v,e},\\delta_{v,f})$ when $e,f$ meet at $v$.\nIf its spectral radius satisfies $\\rho(C)<1$, then\n\\begin{equation}\n H_{\\mathrm{block}}\\geq\n [1-\\rho(C)](I-G_{\\mathrm{all}}),\n \\label{q:block-gap}\n\\end{equation}\nwhere $G_{\\mathrm{all}}$ projects onto its full ground space.\nThe same statement holds uniformly for a family of finite graphs if\ntheir matrices $C$ have a common spectral-radius upper bound below one.",
+      "proof_source": "proofs/quantum_results.tex",
+      "id": "q:thm-wire-gap",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Finite simple graph with no isolated vertices; nonzero arbitrary core maps; full-Schmidt-rank bonds; faithful rank-one CP reference maps; incidence sandwich constants below one; conflict spectral radius below one."
+      ],
+      "internal_dependencies": [
+        "q:lem-schur"
+      ],
+      "external_inputs": [
+        {
+          "input": "Choi criterion for complete positivity",
+          "bibliography_keys": [
+            "q:Choi1975"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/networks/channel_gap_compiler.py",
+          "evidence_class": "certified_arithmetic",
+          "scope": "Rational Choi-positive sandwiches and nonnegative graph spectral-radius certificates."
+        },
+        {
+          "path": "supplements/networks/test_channel_gap_compiler.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Finite rational certificates, singular-pivot cases, and coverage multipliers."
+        },
+        {
+          "path": "supplements/networks/verify_two_port_schur_angle.py",
+          "evidence_class": "floating_diagnostic",
+          "scope": "Finite adversarial principal-angle checks; no certification of the universal lemma."
+        }
+      ],
+      "scope_limits": [
+        "Gap refers to the sum of norm-one blocked complement projections.",
+        "Core dimension and core condition number do not enter the bound."
+      ],
+      "review_status": "integrated_component",
+      "review_lean_modules": [
+        "MomentGeometry/Network/CPOrder.lean",
+        "MomentGeometry/Network/WireGap.lean",
+        "MomentGeometry/Network/GapAssembly.lean",
+        "MomentGeometry/Network/GapSpectral.lean",
+        "MomentGeometry/Network/GapSpectral.lean"
+      ],
+      "review_verified": "Finite CP order algebra, conflict/Rayleigh matrix assembly and true finite-dimensional spectral proof of blocked gap from hcross and the full-ground-space projector. Rebuilt 14 standard-axiom declarations.",
+      "review_missing": "Full-Schmidt-rank CP transport, injectivity, CP-tensor sandwich, whitening/signed cancellation and physical edge-subspace identification. hcross is an explicit remaining input, not the finished Schur estimate.",
+      "review_provenance": "Accepted at finite matrix step, smwi6zlvo/m5/d5; unsupported angle/transport assumptions are not discharged."
+    },
+    {
+      "title": "Finite-patch comparison",
+      "kind": "lemma",
+      "statement_latex": "\\label{q:lem-seed}\nLet $H_{\\mathrm{micro}}=\\sum_a h_a$ be a frustration-free microscopic\nHamiltonian with $h_a\\geq0$.  For every coarse edge $e$, let $P_e$ be\nits two-block patch and let $H_{P_e}$ be the sum of microscopic terms\ncontained in it.  Assume\n\\[\n \\ker H_{P_e}=\\mathcal R_e,\\qquad\n H_{P_e}\\geq g_* (I-G_e),\\qquad g_*>0.\n\\]\nSuppose every microscopic term lies in at least one and at most $m$\npatches.  Then the two Hamiltonians have the same full kernel and\n\\begin{equation}\n \\operatorname{gap}H_{\\mathrm{micro}}\n \\geq \\frac{g_*}{m}\\operatorname{gap}H_{\\mathrm{block}}.\n \\label{q:seed-comparison}\n\\end{equation}",
+      "proof_source": "proofs/quantum_results.tex",
+      "id": "q:lem-seed",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Positive frustration-free microscopic local terms; each coarse patch has the stated regional kernel and gap at least g_*>0; term coverage between one and m_cov."
+      ],
+      "internal_dependencies": [
+        "q:thm-wire-gap"
+      ],
+      "external_inputs": [],
+      "computational_checks": [],
+      "scope_limits": [
+        "The finite-patch kernel and positive gap are hypotheses to verify in a new model."
+      ],
+      "statement_summary": "Physical gap is at least g_*/m_cov times the blocked gap; ground spaces agree.",
+      "review_status": "source_contract_verified",
+      "review_lean_modules": [
+        "MomentGeometry/Swarm/Seed.lean"
+      ],
+      "review_verified": "Complete operator-level q:lem-seed at its full assumptions: coverage reindexing, exact common kernel, (g/m)H_block \u2264 H_micro, and every gap certificate \u03b3 transfers to g_*\u03b3/m. The numerical gap is represented faithfully by its lower-bound certificates, not by an undefined gap functional.",
+      "review_missing": "Physical patch instantiations including AKLT tensor-image/kernel and actual g_*(\u0394,\u2113)>0. These are separate q:cor-aklt obligations, not a missing clause of the operator-level seed theorem.",
+      "review_provenance": "Independently rebuilt smwi6zlvo/m6/d3 and integrated. Source hypotheses and coverage are preserved; no physical nonzero gap is inferred from this algebraic comparison alone."
+    },
+    {
+      "title": "Logarithmic sufficient decoration",
+      "kind": "corollary",
+      "statement_latex": "\\label{q:cor-aklt}\nLet $\\mathcal G$ be a simple graph of maximum degree $\\Delta\\geq2$.\nReplace every edge by a chain with $n=2\\ell$ additional spin-one\nvertices, and give each original degree-$d$ vertex spin $d/2$.\nFor connected finite regions made of whole half-wire blocks, with at\nleast two blocks, suppose\n\\[\n 2(\\Delta-1)\\mathcal B(\\delta_\\ell,\\delta_\\ell)<1.\n\\]\nThen the standard microscopic AKLT Hamiltonians have the uniform bound\n\\begin{equation}\n \\operatorname{gap}H_{\\mathrm{AKLT}}\n \\geq\\frac{g_*(\\Delta,\\ell)}\\Delta\n       \\left[1-2(\\Delta-1)\n                    \\mathcal B(\\delta_\\ell,\\delta_\\ell)\\right]>0,\n \\label{q:aklt-gap}\n\\end{equation}\nwhere $g_*(\\Delta,\\ell)>0$ is the minimum positive gap of the finitely\nmany two-block patch Hamiltonians with these parameters.  In particular,\n\\begin{equation}\n \\ell=\\left\\lceil\\log_9(144\\Delta)\\right\\rceil,\n \\qquad n=2\\ell\n \\quad\\Longrightarrow\\quad\n \\operatorname{gap}H_{\\mathrm{AKLT}}\n \\geq\\frac{g_*(\\Delta,\\ell)}{2\\Delta}>0.\n \\label{q:log-decoration}\n\\end{equation}\nThus $n<\\log_3(144\\Delta)+2$ is a sufficient even decoration count.",
+      "proof_source": "proofs/quantum_results.tex",
+      "id": "q:cor-aklt",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Bounded-degree finite simple underlying graph; vertex spin degree/2; n=2 ell added spin-one sites on every edge; specified admissible finite regions; sufficient transfer-radius inequality."
+      ],
+      "internal_dependencies": [
+        "q:thm-wire-gap",
+        "q:lem-seed"
+      ],
+      "external_inputs": [
+        {
+          "input": "AKLT valence-bond representation and decorated-parent tensor conventions",
+          "bibliography_keys": [
+            "q:AKLT1988",
+            "q:ARLLNY2020",
+            "LuciaYoung2023"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/networks/channel_gap_compiler.py",
+          "evidence_class": "certified_arithmetic",
+          "scope": "Rational Choi-positive sandwiches and nonnegative graph spectral-radius certificates."
+        },
+        {
+          "path": "supplements/networks/test_channel_gap_compiler.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Finite rational certificates, singular-pivot cases, and coverage multipliers."
+        }
+      ],
+      "scope_limits": [
+        "Decorated networks; no universal undecorated AKLT gap theorem.",
+        "Physical lower bound retains the positive finite-patch factor g_*(Delta,ell)."
+      ],
+      "review_status": "integrated_component",
+      "review_lean_modules": [
+        "MomentGeometry/AKLT/Wire.lean",
+        "MomentGeometry/AKLT/Radius.lean",
+        "MomentGeometry/AKLT/Decoration.lean",
+        "MomentGeometry/AKLT/Finite.lean",
+        "MomentGeometry/AKLT/Bridge.lean"
+      ],
+      "review_verified": "Spin-one normalized wire/iteration algebra, centered transfer radius and bounds, two-port cosine arithmetic, minimal-level decoration inequalities, positive finite patch minima, dimension arithmetic, coprime product divisibility. 57 audited declarations in independent review.",
+      "review_missing": "Pauli/Kraus identity and Choi spectrum, edge-bracket irreducibility/nonassociativity, SU(2) regional tensor image, actual finite patch gaps and wire/seed input obligations.",
+      "review_provenance": "Arithmetic only, smwi6zlvo/m7/d7. g_*>0 stays a side condition; no undecorated spin-3/2 hexagonal gap is claimed."
+    },
+    {
+      "title": "A compatible-idempotent certificate",
+      "kind": "theorem",
+      "statement_latex": "\\label{q:thm-oblique}\nLet $P_i^2=P_i$ and $[P_i,P_j]=0$ on a finite-dimensional Hilbert space.\nLet $\\Pi_i$ be the orthogonal projector onto $\\operatorname{ran}P_i$,\n$H=\\sum_i(I-\\Pi_i)$, and set\n\\[\n a_i=\\|P_i-P_i^*\\|,\\qquad\n \\kappa_i=\\sqrt{1+a_i^2},\\qquad\n L_i=\\kappa_i+2\\kappa_i^2a_i,\\qquad\n \\epsilon_{ij}=\\|[P_i,P_j^*]\\|.\n\\]\nFor $i\\ne j$ define\n\\begin{equation}\n b_{ij}=\\min\\left\\{\n \\frac{a_i}{\\kappa_i},\\frac{a_j}{\\kappa_j},\n 2\\min(\\kappa_i,\\kappa_j)L_iL_j\\epsilon_{ij}\\right\\},\n \\qquad b_{ii}=0.\n \\label{q:oblique-b}\n\\end{equation}\nIf the symmetric matrix $B=(b_{ij})$ has $\\rho(B)<1$, then\n\\[\n H\\geq[1-\\rho(B)](I-\\Pi_{\\mathcal K}),\\qquad\n \\mathcal K=\\bigcap_i\\operatorname{ran}P_i.\n\\]\nOnly the individual nonorthogonality and pairwise adjoint-commutator\nnorms enter the certificate.",
+      "proof_source": "proofs/quantum_results.tex",
+      "id": "q:thm-oblique",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Finite family of commuting idempotents on a finite Hilbert space; the stated nonnegative defect matrix has spectral radius below one."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [],
+      "computational_checks": [],
+      "scope_limits": [],
+      "statement_summary": "Orthogonal projections onto the idempotent ranges produce a frustration-free gap at least one minus the defect spectral radius.",
+      "review_status": "integrated_component",
+      "review_lean_modules": [
+        "MomentGeometry/Swarm/Oblique.lean"
+      ],
+      "review_verified": "Defect-matrix assembly from hcos and Rayleigh hypotheses to (1-\u03c1)H\u2264H\u00b2, complement projection version and row/column-sum criterion. Independently rebuilt with standard axioms.",
+      "review_missing": "Orthogonalizer, adjoint-commutator bound, quotient construction of cosine matrix and input perturbation ODE/locality facts.",
+      "review_provenance": "Finite assembly only, smwi6zlvo/m6/d3. hcos remains an interface, not a supplied cosine theorem."
+    },
+    {
+      "title": "Filtered commuting-projector models",
+      "kind": "corollary",
+      "statement_latex": "\\label{q:cor-filtered}\nLet $E_i$ be commuting local orthogonal projections and let\n$L=\\bigotimes_x L_x$ be any product of invertible site filters.  Then\n$P_i=LE_iL^{-1}$ are local compatible idempotents.  Theorem\n\\ref{q:thm-oblique} applies to the physical Hamiltonian\n\\[\n H_L=\\sum_i\\bigl(I-\\Pi_{L\\operatorname{ran}E_i}\\bigr),\n \\qquad\n \\ker H_L=L\\bigcap_i\\operatorname{ran}E_i.\n\\]\nIn particular, suppose every reference support has at most $s$ sites,\nmeets at most $M$ other supports, and $L_x=e^{K_x}$ with\n$\\|K_x\\|\\leq\\varepsilon$.  If\n\\[\n 2M(e^{2s\\varepsilon}-1)<1,\n\\]\nthen $\\operatorname{gap}H_L\\geq1-2M(e^{2s\\varepsilon}-1)$.",
+      "proof_source": "proofs/quantum_results.tex",
+      "id": "q:cor-filtered",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Commuting local orthogonal projectors; invertible product filters L_x=exp(K_x); support size <=s; support-overlap degree <=M; ||K_x||<=epsilon; 2M(exp(2s epsilon)-1)<1."
+      ],
+      "internal_dependencies": [
+        "q:thm-oblique"
+      ],
+      "external_inputs": [],
+      "computational_checks": [],
+      "scope_limits": [
+        "Locality is supplied by product filters and bounded original supports."
+      ],
+      "statement_summary": "Norm-one filtered parent has gap at least 1-2M(exp(2s epsilon)-1).",
+      "review_status": "integrated_component",
+      "review_lean_modules": [
+        "MomentGeometry/Swarm/Filtered.lean",
+        "MomentGeometry/Swarm/Oblique.lean"
+      ],
+      "review_verified": "Similarity/filter transport of idempotence and commutativity, common kernel, and gap inequality from the conditional hcos and row/column defect inputs.",
+      "review_missing": "Product-filter locality and the perturbation bound ||P_i-E_i||\u2264exp(2s\u03b5)-1 used to instantiate the defect matrix; no physical nonzero gap is asserted from the arithmetic alone.",
+      "review_provenance": "Accepted with those explicit input obligations, smwi6zlvo/m6/d3."
+    },
+    {
+      "title": "Exact response of fractional powers",
+      "kind": "theorem",
+      "statement_latex": "\\label{q:thm-powers}\nFor $0\\leq r\\leq1$, let\n$Q_r=(\\partial_\\lambda\\rho^r)\\rho^{-r}=H_r+A_r$ be its Hermitian and\nanti-Hermitian decomposition.  With $\\operatorname{ad}_K(O)=[K,O]$,\n\\begin{align}\n H_r&=\\psi_r(\\operatorname{ad}_K)H,\n &\\psi_r(x)&=\\frac{\\sinh(rx)}{\\sinh x},\\quad\\psi_r(0)=r,\n \\label{q:power-H}\\\\\n A_r&=\\chi_r(\\operatorname{ad}_K)A,\n &\\chi_r(x)&=\\left(\\frac{\\sinh(rx/2)}{\\sinh(x/2)}\\right)^2,\n \\quad\\chi_r(0)=r^2.\n \\label{q:power-A}\n\\end{align}\nBoth maps are completely positive, with completely bounded\noperator norms $r$ and $r^2$, respectively.  Consequently\n\\[\n \\|H_r\\|\\leq r\\|H\\|,\\qquad\n \\|A_r\\|\\leq r^2\\|A\\|.\n\\]\nThe estimates hold with an arbitrary ancillary system.  Moreover,\n\\begin{equation}\n \\lim_{r\\downarrow0}\\frac{Q_r}{r}\n =\\dot K=f(\\operatorname{ad}_K)H,\n \\qquad f(x)=\\frac{x}{\\sinh x},\\quad f(0)=1.\n \\label{q:log-response}\n\\end{equation}",
+      "proof_source": "proofs/quantum_results.tex",
+      "id": "q:thm-powers",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Faithful C1 positive matrix path; 0<=r<=1; unnormalized matrix power; compatible right logarithmic derivative."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Positive-definite hyperbolic quotient functions and Schur multiplier inequalities",
+          "bibliography_keys": [
+            "q:HK1999",
+            "q:BP2000"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/modular_response/verify_power_response_and_obstructions.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Symbolic scalar response identities and explicit obstruction coefficients; numerical Fourier/matrix diagnostics are separately labeled."
+        }
+      ],
+      "scope_limits": [
+        "Hermitian and anti-Hermitian inputs obey the KMS compatibility relation.",
+        "Power is not renormalized to trace one."
+      ],
+      "review_status": "integrated_component",
+      "review_lean_modules": [
+        "MomentGeometry/Operator/KMS.lean"
+      ],
+      "review_verified": "Regular scalar Hermitian and anti-Hermitian response functions with limiting values r and r^2 and the exact square-ratio for chi_r. Component only.",
+      "review_missing": "The matrix exponential-divided-difference representation of fractional powers, actual H_r/A_r matrix parts, CP amplification and masses r and r\u00b2, and derivative-limit assembly.",
+      "review_provenance": "Registry matching validated by smwi6zlvo/m8/d6; scalar functions are not the final matrix theorem."
+    },
+    {
+      "title": "KMS-compatible tangent relation",
+      "kind": "derived_result",
+      "proof_source": "proofs/quantum_results.tex",
+      "id": "q:kms-compatibility",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Faithful differentiable positive matrix path; K=log rho; Q=dot rho rho^(-1)=H+A_anti."
+      ],
+      "internal_dependencies": [
+        "q:thm-powers"
+      ],
+      "external_inputs": [],
+      "computational_checks": [
+        {
+          "path": "supplements/modular_response/verify_power_response_and_obstructions.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Symbolic scalar response identities and explicit obstruction coefficients; numerical Fourier/matrix diagnostics are separately labeled."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "Q*=exp(-ad_K)Q and A_anti=tanh(ad_K/2)H.",
+      "review_status": "integrated_component",
+      "review_lean_modules": [
+        "MomentGeometry/Operator/KMS.lean"
+      ],
+      "review_verified": "Regular scalar Hermitian and anti-Hermitian divided-difference ratios (values r and r^2 at zero), auxilliary half-angle identities, and chi_r(x)*tanh(x/2)=tanh(r*x/2)*psi_r(x). The wrong earlier scalar identity was corrected before integration.",
+      "review_missing": "Matrix-valued divided-difference integral representation, right-derivative KMS compatibility, and complete-power response Q_r. Those are differential/functional-calculus obligations, not scalar arithmetic.",
+      "review_provenance": "Written for the new source contract; not an inference from the separate hyperbolic-clock kernel."
+    },
+    {
+      "title": "A positive rotation generator",
+      "kind": "proposition",
+      "statement_latex": "\\label{q:prop-rotation}\nDefine the even function\n\\[\n h(x)=\\frac{1-x/\\sinh x}{x\\tanh(x/2)},\\qquad h(0)=\\frac13,\n \\qquad C=h(\\operatorname{ad}_K)J.\n\\]\nThen $C=C^*$ and\n\\begin{equation}\n \\dot K=H+i[C,K],\\qquad \\|C\\|\\leq\\frac13\\|J\\|.\n \\label{q:rotation}\n\\end{equation}\nThe map $h(\\operatorname{ad}_K)$ is completely positive with completely\nbounded norm $1/3$.  Its Fourier density has finite exponentially\nweighted mass for every weight exponent $v<2\\pi$.",
+      "proof_source": "proofs/quantum_results.tex",
+      "id": "q:prop-rotation",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Faithful differentiable positive matrix path; compatible decomposition Q=H+iJ."
+      ],
+      "internal_dependencies": [
+        "q:thm-powers",
+        "q:kms-compatibility"
+      ],
+      "external_inputs": [
+        {
+          "input": "Positive-definite hyperbolic quotient functions and Schur multiplier inequalities",
+          "bibliography_keys": [
+            "q:HK1999",
+            "q:BP2000"
+          ]
+        }
+      ],
+      "computational_checks": [
+        {
+          "path": "supplements/modular_response/verify_power_response_and_obstructions.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Symbolic scalar response identities and explicit obstruction coefficients; numerical Fourier/matrix diagnostics are separately labeled."
+        }
+      ],
+      "scope_limits": [],
+      "statement_summary": "dot K=H+i[C,K] with Hermitian C=h(ad_K)J and ||C||<=||J||/3; h defines a completely positive multiplier.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Exact local ratios, nonlocal log difference",
+      "kind": "proposition",
+      "statement_latex": "\\label{q:prop-ratio-obstruction}\nThere are faithful three-qubit states with every one-site conditional\nratio supported on the closed star of that site in the path $A-B-C$,\narbitrarily close to the maximally mixed state in operator norm, such that\n$\\log\\rho-\\log\\mathbb E_A\\rho$ has a nonzero $ABC$ Pauli coefficient.\nHere $\\mathbb E_A(T)=I_A/2\\otimes\\operatorname{tr}_A T$.",
+      "proof_source": "proofs/quantum_results.tex",
+      "id": "q:prop-ratio-obstruction",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "The explicitly constructed faithful three-qubit path, arbitrarily close to the identity."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [],
+      "computational_checks": [
+        {
+          "path": "supplements/modular_response/verify_power_response_and_obstructions.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Symbolic scalar response identities and explicit obstruction coefficients; numerical Fourier/matrix diagnostics are separately labeled."
+        }
+      ],
+      "scope_limits": [
+        "Failure of exact log-difference locality does not rule out decay with additional assumptions."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "No generic same-norm modular bound",
+      "kind": "proposition",
+      "statement_latex": "\\label{q:prop-filter-obstruction}\nFor every $a,b>0$ and every such sequence of weights, there are\nHermitian $K_n,H_n$ with\n\\[\n \\|K_n\\|_w\\leq a+b/n,\\qquad\\|H_n\\|_w=1,\n\\]\nbut\n\\begin{equation}\n \\|f(\\operatorname{ad}_{K_n})H_n\\|_w\n \\geq n\\frac{ab}{a^2+b^2}[1-f(2b)]\\longrightarrow\\infty,\n \\qquad f(x)=x/\\sinh x.\n \\label{q:interaction-blowup}\n\\end{equation}\nIn particular, no bound\n$\\|f(\\operatorname{ad}_K)H\\|_w\\leq C(\\|K\\|_w)\\|H\\|_w$\nwith locally bounded $C$ holds on this full class, even near $K=0$.",
+      "proof_source": "proofs/quantum_results.tex",
+      "id": "q:prop-filter-obstruction",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "The stated intrinsic weighted interaction norm with nondecreasing weights at least one and w(1)=1; explicit finite-register sequence."
+      ],
+      "internal_dependencies": [
+        "q:thm-powers"
+      ],
+      "external_inputs": [],
+      "computational_checks": [
+        {
+          "path": "supplements/modular_response/verify_power_response_and_obstructions.py",
+          "evidence_class": "exact_algebra",
+          "scope": "Symbolic scalar response identities and explicit obstruction coefficients; numerical Fourier/matrix diagnostics are separately labeled."
+        }
+      ],
+      "scope_limits": [
+        "Obstructs a generic locally bounded estimate in the same interaction norm; does not obstruct ordinary operator-norm CP contraction."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "An exact coarse-graining bound",
+      "kind": "lemma",
+      "statement_latex": "\\label{att:coarse-entropy}\nLet $P_N\\ll\\sigma^{\\otimes N}$ have finite relative entropy, and let\n$f_{i,x_{-i}}$ be its full one-coordinate conditional density relative\nto $\\sigma$. Denote the law of its cell labels by $P_N^{(j)}$ and the\nreference cell probabilities by $\\sigma_j$. Then\n\\begin{align}\n 0&\\le D(P_N\\Vert\\sigma^{\\otimes N})-\n               D(P_N^{(j)}\\Vert\\sigma_j^{\\otimes N})\\\\\n &\\le\\sum_{i=1}^N\\mathbb E_{P_{N,-i}}\n    \\left[\\operatorname{Ent}_\\sigma(f_{i,x_{-i}})\n              -\\operatorname{Ent}_\\sigma(\\mathbb E_j f_{i,x_{-i}})\\right].\n \\label{att:coarse-bound}\n\\end{align}\nHere $\\operatorname{Ent}_\\sigma(f)=\\int f\\log f\\,d\\sigma$ for a\nprobability density $f$.",
+      "proof_source": "proofs/attractive_high_temperature.tex",
+      "id": "att:coarse-entropy",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Product probability reference and finite relative entropy; full one-coordinate conditionals; finite measurable partition."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Product-reference entropy tensorization, chain rule, finite-alphabet type bounds, and entropy variational formula; needed inequalities are proved in the manuscript",
+          "bibliography_keys": []
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [],
+      "statement_summary": "Fine entropy minus cell-label entropy is bounded by the sum of conditional one-site entropy losses under the same spatial coarse graining.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Entropy chaos from compact conditional densities",
+      "kind": "lemma",
+      "statement_latex": "\\label{att:entropy-chaos}\nSuppose $P_N$ is exchangeable and every full one-coordinate conditional\ndensity belongs to a fixed relatively compact subset $\\mathcal F$ of\n$L^r(\\sigma)$ for some $r>1$. Suppose the empirical laws converge to\n$\\Gamma\\in\\mathcal P(\\mathcal P(X))$, and partition boundaries have\nzero mass for the limiting first marginal. Then\n\\[\n \\lim_N\\frac1N D(P_N\\Vert\\sigma^{\\otimes N})\n =\\int D(\\mu\\Vert\\sigma)\\,d\\Gamma(\\mu).\n\\]\nIn particular, if empirical measures converge in probability to\n$\\sigma$, the relative entropy per particle tends to zero.",
+      "proof_source": "proofs/attractive_high_temperature.tex",
+      "id": "att:entropy-chaos",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Exchangeable laws; full conditional densities in a fixed relatively compact subset of Lr, r>1; empirical-law convergence; partition boundaries null for the limiting first marginal."
+      ],
+      "internal_dependencies": [
+        "att:coarse-entropy"
+      ],
+      "external_inputs": [
+        {
+          "input": "Product-reference entropy tensorization, chain rule, finite-alphabet type bounds, and entropy variational formula; needed inequalities are proved in the manuscript",
+          "bibliography_keys": []
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "The limiting empirical law may be a nontrivial mixture; this is not restricted to a deterministic directing measure."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Compact attractive conditionals",
+      "kind": "lemma",
+      "statement_latex": "\\label{att:conditional-compactness}\nFix $0\\le\\gamma<1/3$. The full one-coordinate conditional densities\nof $P_{k,\\gamma}$, for all $k$, lie in a fixed compact subset of\n$L^r(\\sigma)$ for some $r>1$.",
+      "proof_source": "proofs/attractive_high_temperature.tex",
+      "id": "att:conditional-compactness",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "CP2 anticanonical determinant; fixed 0<=gamma<1/3; Fubini--Study product reference."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Compactness of normalized plurisubharmonic potentials, upper semicontinuity of extended Aubin--Mabuchi energy, and measure-energy duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Compactness uses a strict exponent margin r*gamma<1/3 with r>1."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "A small-coupling exponential estimate",
+      "kind": "lemma",
+      "statement_latex": "\\label{att:quadratic-pressure}\nLet $\\nu=g\\sigma$ be a probability measure with $g\\in L^p(\\sigma)$\nfor some $p>1$. There are $t_0>0$ and $C_\\nu<\\infty$, independent\nof $k$, such that\n\\begin{equation}\n t\\,\\mathbb E_{\\nu^{\\otimes N}}E_k\n \\le \\frac1N\\log\\int e^{tN E_k}\\,d\\nu^{\\otimes N}\n \\le t\\,\\mathbb E_{\\nu^{\\otimes N}}E_k+C_\\nu t^2,\n \\qquad |t|\\le t_0.\n \\label{att:quadratic-bound}\n\\end{equation}\nThe constants can be chosen uniformly when the exponent $p>1$ and the $L^p$ bound of $g$ are fixed. The assertion includes finiteness of the integrals and mean energies.",
+      "proof_source": "proofs/attractive_high_temperature.tex",
+      "id": "att:quadratic-pressure",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Reference nu=g sigma with a fixed Lp bound, p>1; normalized section potentials with a uniform exponential moment; actual determinant energy."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Product-reference entropy tensorization, chain rule, finite-alphabet type bounds, and entropy variational formula; needed inequalities are proved in the manuscript",
+          "bibliography_keys": []
+        },
+        {
+          "input": "Compactness of normalized plurisubharmonic potentials, upper semicontinuity of extended Aubin--Mabuchi energy, and measure-energy duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Bound applies to both signs of sufficiently small t; constants are uniform in k and in references with the fixed Lp bound.",
+        "Negative-t conditionals need not have a uniform positive lower bound."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Product-law mean energy from repulsive pressure",
+      "kind": "theorem",
+      "statement_latex": "\\label{att:general-product-energy}\nFor every smooth strictly positive probability density $\\nu$ on\n$\\mathbb P^2$,\n\\[\n \\mathbb E_{\\nu^{\\otimes N_k}}E_k\\longrightarrow E(\\nu).\n\\]\nTogether with the deterministic lower comparison, this convergence\nalso holds in $L^1$.",
+      "proof_source": "proofs/attractive_high_temperature.tex",
+      "id": "att:general-product-energy",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Smooth strictly positive product reference on CP2; actual anticanonical determinant with the fixed metric and normalization."
+      ],
+      "internal_dependencies": [
+        "att:quadratic-pressure",
+        "an:lower-comparison"
+      ],
+      "external_inputs": [
+        {
+          "input": "Unrestricted positive-temperature LDP for polarized compact complex manifolds",
+          "bibliography_keys": [
+            "prob_berman2017"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Only repulsive pressure is imported.",
+        "A change to a reference-adapted orthonormal basis changes energy by O(1/k)."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "A compact class for all directing densities",
+      "kind": "lemma",
+      "statement_latex": "\\label{att:directing-class}\nFor these laws there are $r>1$, $c>0$, and a compact convex set\n$\\mathcal K\\subset L^r(\\sigma)$ of probability densities, all at least\n$c$, with the following properties. Every full one-coordinate conditional\ndensity belongs to $\\mathcal K$. Every subsequential empirical limit\n$\\Pi$ is supported on the measures $g\\sigma$ with $g\\in\\mathcal K$.\nWeak probability topology and $L^r$ topology coincide on this compact set.",
+      "proof_source": "proofs/attractive_high_temperature.tex",
+      "id": "att:directing-class",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Fixed 0<gamma<1/3; empirical tilt Lipschitz for W1 on the compact state space."
+      ],
+      "internal_dependencies": [
+        "att:conditional-compactness"
+      ],
+      "external_inputs": [
+        {
+          "input": "Compactness of normalized plurisubharmonic potentials, upper semicontinuity of extended Aubin--Mabuchi energy, and measure-energy duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Arbitrary continuous tilts enter only after uniform approximation at the pressure level."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Uniform smooth reference approximation",
+      "kind": "lemma",
+      "statement_latex": "\\label{att:smooth-net}\nFor every $\\epsilon>0$, the compact set $\\mathcal K$ above has a\nfinite set of smooth positive reference densities $g_1,\\ldots,g_M$\nsuch that every $g\\in\\mathcal K$ is assigned a reference satisfying\n\\[\n D(g\\sigma\\Vert g_a\\sigma)<\\epsilon,\n \\qquad |E(g\\sigma)-E(g_a\\sigma)|<\\epsilon.\n\\]\nThe references can always have the same positive lower bound $c$ and\na common $L^r$ bound, independently of $\\epsilon$.",
+      "proof_source": "proofs/attractive_high_temperature.tex",
+      "id": "att:smooth-net",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Compact convex Lr family of densities with a common positive lower bound, r>1."
+      ],
+      "internal_dependencies": [
+        "att:directing-class"
+      ],
+      "external_inputs": [
+        {
+          "input": "Positive smooth heat kernels for elliptic diffusions with prescribed smooth invariant probability, Lp contraction, and strong continuity",
+          "bibliography_keys": []
+        },
+        {
+          "input": "Compactness of normalized plurisubharmonic potentials, upper semicontinuity of extended Aubin--Mabuchi energy, and measure-energy duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Reference Lr bounds and positive lower bounds remain uniform as the approximation net is refined."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Entropy and energy limits of attractive Gibbs laws",
+      "kind": "theorem",
+      "statement_latex": "\\label{att:gibbs-energy-limit}\nFor fixed $0<\\gamma<1/3$ and Lipschitz $\\Phi$, suppose a subsequence\nof the empirical laws of $P_{k,\\gamma,\\Phi}$ converges to $\\Pi$.\nThen\n\\begin{align}\n \\frac1N D(P_{k,\\gamma,\\Phi}\\Vert\\sigma^N)\n       &\\longrightarrow\\int H(\\mu)\\,d\\Pi(\\mu),\\\\\n \\mathbb E_{P_{k,\\gamma,\\Phi}}E_k\n       &\\longrightarrow\\int E(\\mu)\\,d\\Pi(\\mu).\n \\label{att:gibbs-energy-limit-eq}\n\\end{align}\nThe statements concern the actual attractive Gibbs laws. They do not\nassert microscopic energy compactness for all symmetric laws of\nbounded entropy and energy.",
+      "proof_source": "proofs/attractive_high_temperature.tex",
+      "id": "att:gibbs-energy-limit",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Actual attractive tilted Gibbs laws; fixed 0<gamma<1/3; Lipschitz empirical tilt; a convergent subsequence of empirical laws."
+      ],
+      "internal_dependencies": [
+        "att:entropy-chaos",
+        "att:directing-class",
+        "att:smooth-net",
+        "att:quadratic-pressure",
+        "att:general-product-energy"
+      ],
+      "external_inputs": [
+        {
+          "input": "Product-reference entropy tensorization, chain rule, finite-alphabet type bounds, and entropy variational formula; needed inequalities are proved in the manuscript",
+          "bibliography_keys": []
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Does not assert microscopic energy compactness for arbitrary symmetric laws with bounded entropy and energy.",
+        "Cell-conditioned laws need not retain the compact conditional-density property."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Good rate and entropy-continuous energy recovery",
+      "kind": "lemma",
+      "statement_latex": "\\label{att:good-rate}\nFor $0\\le\\gamma<\\alpha$, $F_\\gamma$ is lower semicontinuous and\nhas compact sublevels. For every $\\gamma<a<\\alpha$,\n\\begin{equation}\n F_\\gamma(\\mu)\\ge(1-\\gamma/a)H(\\mu)\n                          -(\\gamma/a)\\log C_a,\n \\label{att:coercivity}\n\\end{equation}\nwhere $C_a$ bounds $\\int e^{-au}\\,d\\sigma$ over all normalized psh\npotentials. If $\\mu_j\\to\\mu$ weakly and\n$H(\\mu_j)\\to H(\\mu)<\\infty$, then $E(\\mu_j)\\to E(\\mu)$.",
+      "proof_source": "proofs/attractive_high_temperature.tex",
+      "id": "att:good-rate",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Positive polarized compact manifold, smooth positive reference, normalized-psh exponential threshold alpha>0; fixed 0<=gamma<alpha."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Compactness of normalized plurisubharmonic potentials, upper semicontinuity of extended Aubin--Mabuchi energy, and measure-energy duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        },
+        {
+          "input": "Product-reference entropy tensorization, chain rule, finite-alphabet type bounds, and entropy variational formula; needed inequalities are proved in the manuscript",
+          "bibliography_keys": []
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Relative entropy in the compact-potential dual is against an unnormalized finite reference measure.",
+        "Infinite entropy is assigned free energy +infinity; the Renyi coercivity proves that this equals the compact infimum."
+      ],
+      "statement_summary": "H-gamma E is lower semicontinuous with compact sublevels; convergence of finite entropies together with weak convergence implies energy convergence.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Full attractive determinant Laplace principle",
+      "kind": "theorem",
+      "statement_latex": "\\label{att:full-laplace}\nFor every fixed $0\\le\\gamma<1/3$ and every\n$\\Phi\\in C(\\mathcal P(\\mathbb P^2))$,\n\\begin{equation}\n \\lim_{k\\to\\infty}\\frac1N\\log\\int\n       e^{N[\\gamma E_k-\\Phi(L_N)]}\\,d\\sigma^N\n =-\\inf_{\\mu\\in\\mathcal P(X)}[F_\\gamma(\\mu)+\\Phi(\\mu)].\n \\label{att:full-laplace-eq}\n\\end{equation}\nThe empirical laws of the normalized attractive ensemble satisfy a\nfull speed-$N$ LDP with good rate\n$F_\\gamma-\\inf F_\\gamma$.",
+      "proof_source": "proofs/attractive_high_temperature.tex",
+      "id": "att:full-laplace",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "CP2 anticanonical determinant; fixed 0<=gamma<1/3; every continuous empirical-law tilt."
+      ],
+      "internal_dependencies": [
+        "att:gibbs-energy-limit",
+        "att:general-product-energy",
+        "att:good-rate"
+      ],
+      "external_inputs": [
+        {
+          "input": "Sanov theorem, entropy variational formula, and the bounded-continuous Laplace/LDP equivalence on a compact state space",
+          "bibliography_keys": []
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "The range is a strict subinterval of the scalar section integrability threshold."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Full attractive LDP on shrinking design tubes",
+      "kind": "theorem",
+      "statement_latex": "\\label{att:design-laplace}\nFix any design order $t\\ge1$ and $0<a<1/2$. Let\n\\[\n \\begin{aligned}\n \\mathcal D_t&=\\{\\mu:M_t(\\mu)=I/\\tbinom{t+2}{2}\\},\\\\\n \\Omega_N&=\\{\\|M_t(L_N)-I/\\tbinom{t+2}{2}\\|_{\\rm HS}<N^{-a}\\},\n \\qquad Q_N=\\sigma^N(\\cdot\\mid\\Omega_N).\n \\end{aligned}\n\\]\nFor every fixed $0\\le\\gamma<1/3$ and every continuous empirical tilt,\n\\begin{equation}\n \\lim_{k\\to\\infty}\\frac1N\\log\\int\n e^{N[\\gamma E_k-\\Phi(L_N)]}\\,dQ_N\n =-\\inf_{\\mu\\in\\mathcal D_t}[H(\\mu)-\\gamma E(\\mu)+\\Phi(\\mu)].\n \\label{att:design-laplace-eq}\n\\end{equation}\nThe normalized empirical laws satisfy the full LDP with good rate\n$F_\\gamma+\\iota_{\\mathcal D_t}-\\inf_{\\mathcal D_t}F_\\gamma$.",
+      "proof_source": "proofs/attractive_high_temperature.tex",
+      "id": "att:design-laplace",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "CP2; fixed design order t>=1; shrinking Hilbert--Schmidt moment tube N^(-a), 0<a<1/2; fixed 0<=gamma<1/3; continuous empirical-law tilt."
+      ],
+      "internal_dependencies": [
+        "att:full-laplace",
+        "att:general-product-energy",
+        "att:good-rate"
+      ],
+      "external_inputs": [
+        {
+          "input": "Positive smooth heat kernels for elliptic diffusions with prescribed smooth invariant probability, Lp contraction, and strong continuity",
+          "bibliography_keys": []
+        },
+        {
+          "input": "Sanov theorem, entropy variational formula, and the bounded-continuous Laplace/LDP equivalence on a compact state space",
+          "bibliography_keys": []
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "The unconditioned LDP gives the upper bound on fixed closed tubes, followed by tube radius tending to zero.",
+        "The lower bound uses exact-design smooth product references and L1 energy convergence."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Polarized manifolds and all projective dimensions",
+      "kind": "corollary",
+      "statement_latex": "\\label{att:polarized-extension}\nLet $Y$ be a compact connected complex manifold, let $(L,h)$ be a\npositive Hermitian line bundle with curvature $\\omega$, and let $\\sigma$\nbe a smooth strictly positive probability volume. For all sufficiently large $k$, choose an $L^2(h^k,\\sigma)$\northonormal basis of $H^0(Y,L^k)$ and let $\\Delta_k$ be its determinant,\n$N_k=h^0(Y,L^k)$, and $E_k=-(kN_k)^{-1}\\log\\|\\Delta_k\\|^2$.\nWrite $E_\\omega$ for the pluricomplex measure energy with potential\nenergy normalized to vanish at zero, and put\n\\[\n \\alpha(\\omega,\\sigma)=\\sup\\left\\{a>0:\n \\sup_{\\substack{u\\in\\operatorname{PSH}(Y,\\omega)\\\\ \\sup u=0}}\n             \\int e^{-au}\\,d\\sigma<\\infty\\right\\}.\n\\]\nFor every fixed $0\\le\\gamma<\\alpha(\\omega,\\sigma)$, the unrestricted\nattractive determinant ensemble has the full speed-$N_k$ LDP with good\nrate\n\\[\n H_\\sigma-\\gamma E_\\omega-\\inf(H_\\sigma-\\gamma E_\\omega).\n\\]\nIts Laplace principle holds for every continuous empirical-law tilt.\nFor $Y=\\mathbb P^q$, $q\\ge1$, $L=\\mathcal O(q+1)$, and Fubini--Study probability,\nthe admissible range is $0\\le\\gamma<1/(q+1)$; in that range the same\nshrinking-tube conclusion holds for every fixed projective design order,\nwith target $I/\\binom{q+t}{q}$.",
+      "proof_source": "proofs/attractive_high_temperature.tex",
+      "id": "att:polarized-extension",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Compact connected complex manifold; positive Hermitian line bundle; smooth positive probability reference; orthonormal evaluation determinant; fixed gamma below normalized-psh alpha threshold."
+      ],
+      "internal_dependencies": [
+        "att:quadratic-pressure",
+        "att:gibbs-energy-limit",
+        "att:good-rate",
+        "att:full-laplace",
+        "att:design-laplace"
+      ],
+      "external_inputs": [
+        {
+          "input": "Unrestricted positive-temperature LDP for polarized compact complex manifolds",
+          "bibliography_keys": [
+            "prob_berman2017"
+          ]
+        },
+        {
+          "input": "Compactness of normalized plurisubharmonic potentials, upper semicontinuity of extended Aubin--Mabuchi energy, and measure-energy duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        },
+        {
+          "input": "Positive smooth heat kernels for elliptic diffusions with prescribed smooth invariant probability, Lp contraction, and strong continuity",
+          "bibliography_keys": []
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Unrestricted full LDP on every stated polarized manifold.",
+        "Shrinking fixed-design constraints are asserted on CPq with anticanonical polarization and gamma<1/(q+1), using unitary averaging.",
+        "The general-manifold statement does not assert arbitrary moment-constrained recovery without an additional repair."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Zero pressure and the unique Haar equilibrium",
+      "kind": "corollary",
+      "statement_latex": "\\label{att:haar-minimizer}\nOn $\\mathbb P^q$ with anticanonical polarization, let\n$0\\le\\gamma<1/(q+1)$. Then\n\\[\n \\lim_k N_k^{-1}\\log Z_{k,\\gamma}=0,\n \\qquad H(\\mu)-\\gamma E(\\mu)\\ge0,\n\\]\nand equality in the second assertion holds exactly for $\\mu=\\sigma$.\nThe unconditioned attractive rate is therefore $F_\\gamma$ itself.\nFor every fixed-order shrinking design tube the rate is\n$F_\\gamma+\\iota_{\\mathcal D_t}$, and its unnormalized pressure is also\nzero.",
+      "proof_source": "proofs/attractive_high_temperature.tex",
+      "id": "att:haar-minimizer",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "CPq, q>=1, anticanonical polarization and Fubini--Study reference; fixed 0<=gamma<1/(q+1)."
+      ],
+      "internal_dependencies": [
+        "att:gibbs-energy-limit",
+        "att:polarized-extension",
+        "att:full-laplace",
+        "att:design-laplace",
+        "ac:tubes",
+        "ac:concentration"
+      ],
+      "external_inputs": [],
+      "computational_checks": [],
+      "scope_limits": [
+        "Strict uniqueness uses exponential separation, not only convergence in probability."
+      ],
+      "statement_summary": "Attractive pressure is zero and H-gamma E has the unique zero sigma; projective design rates have no additional normalization constant.",
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "The assignment vertices",
+      "kind": "lemma",
+      "statement_latex": "\\label{tor:vertices}\nEvery monomial in $\\det(z_i^\\alpha)_{i,\\alpha\\in\\mathcal A_m}$\nis an exposed vertex of its Newton polytope. Consequently, if\n\\[\n A_m(\\boldsymbol p)=\n \\max_{\\pi:\\{1,\\ldots,N\\}\\simeq\\mathcal A_m}\n \\prod_{i=1}^N N\\binom m{\\pi(i)}p_i^{\\pi(i)},\n\\]\nthen\n\\begin{equation}\n \\log A_m(\\boldsymbol p)\n \\le \\int\\log\\|\\Delta_k(\\boldsymbol z)\\|^2\\,d\\boldsymbol\\theta\n \\le \\log A_m(\\boldsymbol p)+\\log N!.\n \\label{tor:phase-squeeze}\n\\end{equation}\nThe logarithm is integrable for every such $\\boldsymbol p$.",
+      "proof_source": "proofs/toric_assignment.tex",
+      "id": "tor:vertices",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Degree-m homogeneous monomial evaluation determinant; strictly positive squared moduli; independent uniform phase variables."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "One-variable Jensen formula, phase orthogonality, and the strong law; the assignment-vertex and modal-probability reductions are proved in the manuscript",
+          "bibliography_keys": []
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Bounds concern the phase-averaged logarithm, not pointwise determinant values."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Finite assignment certificate",
+      "kind": "proposition",
+      "statement_latex": "\\label{tor:finite-certificate}\nFor every $\\boldsymbol p\\in(\\Delta_q^\\circ)^N$,\n\\begin{equation}\n D C_m(\\boldsymbol p)-\\frac{\\log N}{k}\n                       -\\frac{\\log N!}{kN}\n \\le\\int E_k(\\boldsymbol z)\\,d\\boldsymbol\\theta\n \\le D C_m(\\boldsymbol p).\n \\label{tor:finite-certificate-bound}\n\\end{equation}\nIn particular the error is at most $2\\log N/k$.",
+      "proof_source": "proofs/toric_assignment.tex",
+      "id": "tor:finite-certificate",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "CPq, anticanonical degree m=(q+1)k; all squared moduli strictly positive; N=binom(m+q,q)."
+      ],
+      "internal_dependencies": [
+        "tor:vertices"
+      ],
+      "external_inputs": [],
+      "computational_checks": [],
+      "scope_limits": [
+        "The energy error is at most log(N)/k + log(N!)/(kN), hence at most 2log(N)/k.",
+        "No phase inverse-moment estimate is asserted."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Convergence of the unbounded assignment cost",
+      "kind": "lemma",
+      "statement_latex": "\\label{tor:cost-limit}\nLet $\\eta$ be a probability on $\\Delta_q^\\circ$ such that\n\\begin{equation}\n \\int b(p)\\,d\\eta(p)<\\infty,\n \\qquad b(p)=\\sum_{j=0}^q-\\log p_j.\n \\label{tor:log-moment}\n\\end{equation}\nFor iid $p_1,p_2,\\ldots$ with law $\\eta$,\n\\[\n C_m(p_1,\\ldots,p_N)\\longrightarrow\n C(\\eta):=\\inf_{\\kappa\\in\\Pi(\\lambda,\\eta)}\n                   \\int c(a,p)\\,d\\kappa(a,p)\n\\]\nalmost surely and in $L^1$ as $m\\to\\infty$ (along $m=Dk$ or all\ninteger degrees).",
+      "proof_source": "proofs/toric_assignment.tex",
+      "id": "tor:cost-limit",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "IID simplex samples with integral sum_j -log p_j finite; uniform degree-m lattice first marginal."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "One-variable Jensen formula, phase orthogonality, and the strong law; the assignment-vertex and modal-probability reductions are proved in the manuscript",
+          "bibliography_keys": []
+        },
+        {
+          "input": "Toric Legendre/Monge--Ampere correspondence and Kantorovich duality; the unbounded-cost extension is proved with marginal tail control",
+          "bibliography_keys": [
+            "BermanWittNystrom2014",
+            "BBGZ2013"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Boundary singularities are controlled by a coupling-independent marginal logarithmic tail.",
+        "No uniform positive lower bound on all coordinates is assumed."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Relative-entropy transport formula",
+      "kind": "proposition",
+      "statement_latex": "\\label{tor:energy-transport}\nLet $\\mu$ be invariant under the standard projective torus, and let\n$\\eta$ be its squared-modulus pushforward. Under\n\\eqref{tor:log-moment}, its anticanonical pluricomplex energy is\n\\begin{equation}\n E(\\mu)=D C(\\eta).\n \\label{tor:energy-transport-formula}\n\\end{equation}",
+      "proof_source": "proofs/toric_assignment.tex",
+      "id": "tor:energy-transport",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Torus-invariant probability on CPq; squared-modulus pushforward has the stated logarithmic boundary moment; anticanonical energy normalization."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Toric Legendre/Monge--Ampere correspondence and Kantorovich duality; the unbounded-cost extension is proved with marginal tail control",
+          "bibliography_keys": [
+            "BermanWittNystrom2014",
+            "BBGZ2013"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Energy equals (q+1) times the KL optimal transport cost; both simplex marginals are probability measures."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Actual Slater mean energy for toric reference laws",
+      "kind": "theorem",
+      "statement_latex": "\\label{tor:mean-energy}\nLet $\\mu$ satisfy the hypotheses of Proposition~\\ref{tor:energy-transport}.\nThen, for iid particles with law $\\mu$,\n\\begin{equation}\n \\lim_{k\\to\\infty}\\mathbb E_{\\mu^{\\otimes N_k}}E_k=E(\\mu).\n \\label{tor:mean-energy-limit}\n\\end{equation}\nWhenever the deterministic continuous-envelope lower comparison is\navailable for this polarization, $E_k\\to E(\\mu)$ also in $L^1$ under\nthese product laws. In particular, for Haar probability on $\\mathbb P^q$,\n\\[\n \\mathbb E_{\\sigma^{\\otimes N_k}}|E_k|\\longrightarrow0.\n\\]\nOn $\\mathbb P^2$ this remains true after conditioning on any fixed-order\nprojective moment tube of width $N^{-a}$, $0<a<1/2$.",
+      "proof_source": "proofs/toric_assignment.tex",
+      "id": "tor:mean-energy",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Torus-invariant reference satisfying the logarithmic boundary moment; IID product particles."
+      ],
+      "internal_dependencies": [
+        "tor:finite-certificate",
+        "tor:cost-limit",
+        "tor:energy-transport"
+      ],
+      "external_inputs": [],
+      "computational_checks": [],
+      "scope_limits": [
+        "L1 convergence for a general toric reference invokes deterministic lower comparison for its polarization.",
+        "For Haar reference the elementary universal lower bound alone gives L1 convergence in every dimension.",
+        "The theorem identifies product mean energy, not angular exponential inverse moments."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Canonical-volume Poincar\\'e inequality",
+      "kind": "lemma",
+      "statement_latex": "\\label{ac:canonical-poincare}\nLet $(M,G)$ be a connected compact K\\\"ahler manifold and let\n$e^{-\\Phi}$ be a smooth metric on $-K_M$ satisfying\n$i\\partial\\bar\\partial\\Phi\\ge aG$, where $a>0$.\nLet $\\mu_\\Phi$ be its canonical volume, normalized to mass one.\nThen every smooth complex-valued function $F$ satisfies\n\\begin{equation}\n \\int_M|F-\\mu_\\Phi(F)|^2\\,d\\mu_\\Phi\n \\le \\frac1a\\int_M|\\bar\\partial F|_G^2\\,d\\mu_\\Phi.\n \\label{ac:canonical-poincare-eq}\n\\end{equation}",
+      "proof_source": "proofs/attractive_concentration.tex",
+      "id": "ac:canonical-poincare",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Connected compact Kahler manifold; smooth metric on its anticanonical bundle with curvature at least aG, a>0; normalized canonical volume."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Compact Kahler minimal L2 solution of dbar for positive line bundles, via Bochner--Kodaira curvature inequality",
+          "bibliography_keys": [
+            "Hormander1965"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "The norm uses the specified Hermitian metric G; top-form and background-volume factors cancel."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Attractive covariance and exponential tilts",
+      "kind": "proposition",
+      "statement_latex": "\\label{ac:variance}\nSuppose $0\\le\\gamma<1$ and $Z_{k,\\gamma}<\\infty$.\nThen, for every smooth function $F$ on $X^N$,\n\\begin{equation}\n \\operatorname{Var}_{P_{k,\\gamma}}(F)\n \\le\\frac1{1-\\gamma}\n       \\int|\\bar\\partial F|_{G_M}^2\\,dP_{k,\\gamma}.\n \\label{ac:variance-eq}\n\\end{equation}\nFor a real $f\\in C^\\infty(X)$, put\n\\[\n A_f=\\sup_X|\\bar\\partial f|_{G_X}^2,\n \\qquad\n -C_fG_X\\le i\\partial\\bar\\partial f\\le C_fG_X.\n\\]\nHere $C_f$ is any nonnegative constant satisfying the displayed\ninequalities.  If\n$dP_{k,\\gamma,t,f}\\propto e^{t\\sum_i f(x_i)}dP_{k,\\gamma}$ and\n$|t|C_f<1-\\gamma$, then\n\\begin{equation}\n \\operatorname{Var}_{P_{k,\\gamma,t,f}}\n          \\left(\\sum_{i=1}^N f(x_i)\\right)\n \\le\\frac{NA_f}{1-\\gamma-|t|C_f}.\n \\label{ac:tilted-variance}\n\\end{equation}\nEvery one-particle marginal of $P_{k,\\gamma}$ is exactly $\\sigma$.",
+      "proof_source": "proofs/attractive_concentration.tex",
+      "id": "ac:variance",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "CPq anticanonical determinant; 0<=gamma<1; finite partition function; smooth observable and one-body exponential tilt with |t| Cf<1-gamma."
+      ],
+      "internal_dependencies": [
+        "ac:canonical-poincare"
+      ],
+      "external_inputs": [
+        {
+          "input": "Compact Kahler minimal L2 solution of dbar for positive line bundles, via Bochner--Kodaira curvature inequality",
+          "bibliography_keys": [
+            "Hormander1965"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Integrability is an explicit hypothesis beyond the independently supplied unconditional range.",
+        "Curvature comparison and covector norms use G=2pi omega0."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Sharp covariance of the first moment",
+      "kind": "proposition",
+      "statement_latex": "\\label{ac:ward}\nSuppose $\\gamma<1$ and $Z_{k,\\gamma}<\\infty$, using the same\ndensity formula also for negative $\\gamma$.\nFor traceless Hermitian $D\\times D$ matrices $H,K$, let\n$f_H(z)=\\operatorname{tr}(HP_z)$ and $S_H=\\sum_i f_H(z_i)$.\nThen\n\\begin{equation}\n \\operatorname{Cov}_{P_{k,\\gamma}}(S_H,S_K)\n =\\frac{N\\operatorname{tr}(HK)}{D(D+1)(1-\\gamma)}.\n \\label{ac:ward-covariance}\n\\end{equation}\nIn the attractive range $0\\le\\gamma<1$, the constant\n$1/(1-\\gamma)$ in \\eqref{ac:variance-eq} is therefore optimal.\nFor two distinct labels,\n\\begin{equation}\n \\mathbb E_{P_{k,\\gamma}}\\operatorname{tr}(P_{z_1}P_{z_2})\n =\\frac1D+\n   \\frac{(D-1)\\gamma}{D(N-1)(1-\\gamma)}.\n \\label{ac:pair-overlap}\n\\end{equation}\nEquivalently, with $M_1=N^{-1}\\sum_iP_{z_i}$,\n\\begin{equation}\n \\mathbb E_{P_{k,\\gamma}}\n      \\left\\|M_1-\\frac{I}{D}\\right\\|_{\\rm HS}^2\n       =\\frac{D-1}{DN(1-\\gamma)}.\n \\label{ac:first-moment-variance}\n\\end{equation}\nConsequently finiteness of the partition function in this range\nrequires $\\gamma<1-1/N$.",
+      "proof_source": "proofs/attractive_concentration.tex",
+      "id": "ac:ward",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "CPq anticanonical determinant; gamma<1, including repulsive gamma<0; finite partition; traceless Hermitian test matrices."
+      ],
+      "internal_dependencies": [
+        "ac:variance"
+      ],
+      "external_inputs": [
+        {
+          "input": "Unitary-invariant projective tensor integration / symmetric-power Haar moments",
+          "bibliography_keys": [
+            "geo_scott2006"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Uses the exact projective SL(D) Jacobian and the determinant-one symmetric-power representation.",
+        "Finiteness in the attractive range forces gamma<1-1/N."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Integrability by monomial degeneration",
+      "kind": "lemma",
+      "statement_latex": "\\label{ac:integrability}\nFor every $k\\ge1$ the partition function is finite whenever\n$0\\le\\gamma<1/D$.  More generally, every nonzero section of\n$\\mathcal O(m,\\ldots,m)$ on $(\\mathbb P^q)^N$ has complex\nsingularity exponent at least $1/m$.",
+      "proof_source": "proofs/attractive_concentration.tex",
+      "id": "ac:integrability",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Nonzero multihomogeneous section of O(m,...,m) on (CPq)^N; smooth positive metrics and volume."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [
+        {
+          "input": "Resolution of ideals, discrepancy transformation, and complex singularity exponents",
+          "bibliography_keys": [
+            "geo_demailly_kollar2001"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Gives complex singularity exponent at least 1/m by monomial degeneration.",
+        "For the anticanonical determinant it guarantees integrability for gamma<1/(q+1), not the near-one range."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Attractive empirical concentration",
+      "kind": "theorem",
+      "statement_latex": "\\label{ac:concentration}\nSuppose $0\\le\\gamma<1$, and suppose $Z_{k,\\gamma}<\\infty$ for the\nvalues of $k$ under consideration.  For $f\\in C^\\infty(X,\\mathbb R)$\nand $|t|C_f<1-\\gamma$,\n\\begin{equation}\n \\log\\mathbb E_{P_{k,\\gamma}}\n       \\exp\\!\\left(t\\sum_{i=1}^N[f(x_i)-\\sigma(f)]\\right)\n \\le\\frac{NA_ft^2}{2(1-\\gamma-|t|C_f)}.\n \\label{ac:mgf}\n\\end{equation}\nIn particular, if $A_f>0$, then for every $s>0$,\n\\begin{equation}\n P_{k,\\gamma}\\!\\left(\n    \\left|\\frac1N\\sum_i f(x_i)-\\sigma(f)\\right|\\ge s\\right)\n \\le 2\\exp\\!\\left(\n    -\\frac{N(1-\\gamma)s^2}{2(A_f+C_fs)}\\right).\n \\label{ac:tail}\n\\end{equation}\nIf $A_f=0$, then $f$ is constant and the deviation probability is\nzero.  These conclusions are unconditional for $0\\le\\gamma<1/D$.",
+      "proof_source": "proofs/attractive_concentration.tex",
+      "id": "ac:concentration",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "CPq anticanonical ensemble; 0<=gamma<1; finite partition function; real smooth test observable."
+      ],
+      "internal_dependencies": [
+        "ac:variance",
+        "ac:integrability"
+      ],
+      "external_inputs": [],
+      "computational_checks": [],
+      "scope_limits": [
+        "Unconditional for gamma<1/(q+1).",
+        "For larger gamma below one the partition finiteness must be established separately."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Moment tubes and propagation of chaos",
+      "kind": "corollary",
+      "statement_latex": "\\label{ac:tubes}\nFix real smooth functions $f_1,\\ldots,f_r$ and set\n$F=(f_1,\\ldots,f_r)$,\n$A=\\max_j A_{f_j}$, and $C=\\max_j C_{f_j}$.\nUnder the assumptions of Theorem~\\ref{ac:concentration},\n\\begin{equation}\n P_{k,\\gamma}\\!\\left(\n \\left\\|\\frac1N\\sum_iF(x_i)-\\sigma(F)\\right\\|_2\\ge s\\right)\n \\le 2r\\exp\\!\\left(\n -\\frac{N(1-\\gamma)s^2}{2(rA+\\sqrt r\\,Cs)}\\right)\n \\label{ac:vector-tail}\n\\end{equation}\nwhenever $A>0$.  Thus every fixed-order projective moment tube of\nwidth $N^{-a}$, $0<a<1/2$, has probability at least\n$1-O(e^{-cN^{1-2a}})$, with constants independent of $k$ for fixed\n$q,\\gamma$, and moment order.\n\nAs $k\\to\\infty$, the empirical measure converges in probability,\nin the weak topology, to $\\sigma$.  For every fixed $\\ell$, the\n$\\ell$-particle marginal converges weakly to $\\sigma^{\\otimes\\ell}$.",
+      "proof_source": "proofs/attractive_concentration.tex",
+      "id": "ac:tubes",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Fixed finite smooth moment family; assumptions of ac:concentration; tube width N^(-a), 0<a<1/2."
+      ],
+      "internal_dependencies": [
+        "ac:concentration"
+      ],
+      "external_inputs": [],
+      "computational_checks": [],
+      "scope_limits": [
+        "Fixed-order projective moments only; constants may depend on q, gamma, and the moment order.",
+        "Propagation of chaos is for each fixed number of particle labels."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Convexity of the product mean energy",
+      "kind": "lemma",
+      "statement_latex": "\\label{cy:finite-convexity}\nFor every sufficiently large fixed $k$, the functional\n$\\overline E_k$ is convex on smooth strictly positive probability\nvolumes. If $\\eta$ is a smooth signed measure of total mass zero and\n$\\mu_t=\\mu+t\\eta$ remains strictly positive, then\n\\begin{equation}\n \\frac{d}{dt}\\overline E_k(\\mu_t)\\bigg|_{t=0}\n =-\\int_X U_{k,\\mu}(x)\\,d\\eta(x),\\qquad\n U_{k,\\mu}(x)=\\frac1k\\int_{X^{N-1}}\n        \\log\\|\\Delta_k(x,\\mathbf y)\\|^2\\,d\\mu^{N-1}(\\mathbf y).\n \\label{cy:first-variation}\n\\end{equation}",
+      "proof_source": "proofs/nonlinear_green.tex",
+      "id": "cy:finite-convexity",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Positive polarized compact connected manifold; fixed k sufficiently large; determinant and metric fixed while smooth positive probability volumes vary on affine paths; signed variation has total mass zero."
+      ],
+      "internal_dependencies": [],
+      "external_inputs": [],
+      "computational_checks": [],
+      "scope_limits": [
+        "Rank-two pencil reduction is outside a proper analytic exceptional locus.",
+        "The coherent-moment Hessian identity is exact at fixed k; no convergence of the Hessians is asserted."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Nonlinear Green representation",
+      "kind": "theorem",
+      "statement_latex": "\\label{cy:green-formula}\nLet $\\mu$ be any smooth strictly positive probability volume on $X$.\nThere is a unique smooth potential $\\phi_\\mu$, normalized by\n$\\int_X\\phi_\\mu\\,d\\mu=0$, such that\n\\[\n \\frac{(\\omega+dd^c\\phi_\\mu)^q}{V}=\\mu,\n \\qquad \\omega+dd^c\\phi_\\mu>0.\n\\]\nThe mean-zero determinant potentials\n\\begin{equation}\n \\phi_{k,\\mu}(x)=\\frac1k\\int_{X^{N_k-1}}\n       \\log\\|\\Delta_k(x,\\mathbf y)\\|^2\\,d\\mu^{N_k-1}(\\mathbf y)\n      -C_{k,\\mu},\n \\quad\n C_{k,\\mu}=\\frac1k\\int_{X^{N_k}}\\log\\|\\Delta_k\\|^2\\,d\\mu^{N_k}\n \\label{cy:potential-formula}\n\\end{equation}\nconverge to $\\phi_\\mu$ in $L^p(X,\\sigma)$, equivalently in\n$L^p(X,\\mu)$, for every fixed $1\\le p<\\infty$. The formula is independent of the chosen basis after\nthe displayed centering.",
+      "proof_source": "proofs/nonlinear_green.tex",
+      "id": "cy:green-formula",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Positive Hermitian line bundle on compact connected complex manifold; smooth strictly positive probability volume mu; determinant potential centered to mean zero against mu."
+      ],
+      "internal_dependencies": [
+        "cy:finite-convexity",
+        "att:general-product-energy",
+        "att:polarized-extension"
+      ],
+      "external_inputs": [
+        {
+          "input": "Yau existence and uniqueness for the prescribed smooth positive Monge--Ampere probability volume, plus elliptic implicit-function differentiability modulo constants",
+          "bibliography_keys": [
+            "Yau1978"
+          ]
+        },
+        {
+          "input": "Compactness of normalized plurisubharmonic potentials, upper semicontinuity of extended Aubin--Mabuchi energy, and measure-energy duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Convergence in each finite Lp topology; no uniform-norm or metric-derivative convergence.",
+        "Solves the determinant instance of the cited mean-energy/Green representation questions, not the assertion for arbitrary singular Hamiltonians.",
+        "No complex zero-free partition-function assertion is made."
+      ],
+      "literature_context": [
+        {
+          "description": "The determinant mean-energy question and nonlinear Green representation proposed in Problem4.10 and Conjecture6.1; the broader arbitrary-Hamiltonian problem is not asserted.",
+          "bibliography_keys": [
+            "prob_berman2017"
+          ]
+        },
+        {
+          "description": "Theorems3.2\u20133.3 prove these conclusions under an N-independent complex zero-free neighborhood. This is a contextual conditional predecessor, not an assumption of the present theorem.",
+          "bibliography_keys": [
+            "Berman2023zeta"
+          ]
+        }
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Random interpolation divisors and sampling error",
+      "kind": "corollary",
+      "statement_latex": "\\label{cy:interpolation-sampling}\nDraw $\\mathbf Y=(Y_2,\\ldots,Y_N)$ independently from $\\mu$.\nAlmost surely the section\n$s_{\\mathbf Y}(x)=\\Delta_k(x,\\mathbf Y)$ is nonzero and is the unique\nsection vanishing at these $N-1$ points, up to scale. Define its\nmean-zero potential\n\\[\n u_{k,\\mathbf Y}(x)=\\frac1k\\log\\|s_{\\mathbf Y}(x)\\|^2\n                 -\\int_X\\frac1k\\log\\|s_{\\mathbf Y}\\|^2\\,d\\mu.\n\\]\nThen\n\\begin{equation}\n \\mathbb E\\frac1k[Z_{s_{\\mathbf Y}}]\n       =\\omega+dd^c\\phi_{k,\\mu}\n       \\longrightarrow\\omega+dd^c\\phi_\\mu\n \\label{cy:divisor-limit}\n\\end{equation}\nweakly as currents. Moreover, if $u^{(1)},\\ldots,u^{(M)}$ are independent\ncopies of $u_{k,\\mathbf Y}$, then, for every $a>0$ with\n\\[\n C_a(\\mu):=\\sup_{\\substack{v\\in\\operatorname{PSH}(X,\\omega)\\\\\\sup v=0}}\n                      \\int e^{-av}\\,d\\mu<\\infty,\n\\]\none has the uniform sampling estimate\n\\begin{equation}\n \\mathbb E\\left\\|\\frac1M\\sum_{j=1}^M u^{(j)}-\\phi_{k,\\mu}\n             \\right\\|_{L^2(\\mu)}^2\n       \\le\\frac{2C_a(\\mu)}{a^2M}.\n \\label{cy:sampling-bound}\n\\end{equation}\nOn the anticanonical projective plane, if $\\mu=g\\sigma$, one may take\n$a=1/6$, obtaining the explicit bound $192\\|g\\|_\\infty/M$.\n\nExact centering integrals can also be replaced by sampling. For each\nsection independently draw $J\\ge1$ calibration points from $\\mu$\nand subtract their mean log squared norm in place of its $\\mu$ integral.\nThen the left side of \\eqref{cy:sampling-bound} is bounded by\n\\begin{equation}\n \\frac{2C_a(\\mu)}{a^2M}\\left(1+\\frac1J\\right).\n \\label{cy:sample-centered-bound}\n\\end{equation}",
+      "proof_source": "proofs/nonlinear_green.tex",
+      "id": "cy:interpolation-sampling",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "assumptions": [
+        "Same polarized setup and smooth mu; iid interpolation tuples of N_k-1 points; M independent sections; uniform normalized-psh exponential constant Ca(mu); optionally J>=1 fresh independent calibration points per section."
+      ],
+      "internal_dependencies": [
+        "cy:green-formula"
+      ],
+      "external_inputs": [
+        {
+          "input": "Poincare--Lelong identity with dd^c=i partial barpartial/(2pi); basic Hilbert-space sample-variance identity",
+          "bibliography_keys": []
+        },
+        {
+          "input": "Compactness of normalized plurisubharmonic potentials, upper semicontinuity of extended Aubin--Mabuchi energy, and measure-energy duality",
+          "bibliography_keys": [
+            "BBGZ2013"
+          ]
+        }
+      ],
+      "computational_checks": [],
+      "scope_limits": [
+        "Zero-divisor currents converge weakly.",
+        "The explicit variance bound controls fixed-k sampling error, not the polynomial-level approximation bias.",
+        "Sample-only procedure assumes evaluation of sections and Hermitian norm, and independent sample access to mu; efficient sampling and finite-precision conditioning are not asserted."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    },
+    {
+      "title": "Finite Hessian as squared coherent-moment discrepancies",
+      "kind": "derived_result",
+      "id": "cy:hessian-hierarchy",
+      "mathematical_status": "proof_supplied",
+      "proof_assistant_verified": false,
+      "proof_source": "proofs/nonlinear_green.tex",
+      "statement_summary": "Along mu_t=mu+t eta, the second derivative of the product mean energy equals (N-1)/k times the expectation over N-2 retained points of sum_j>=1 (1/j) ||integral P_pencil(x)^(tensor j) d eta(x)||_HS^2.",
+      "assumptions": [
+        "Smooth positive affine volume path; smooth zero-mass signed variation; fixed metric and evaluation basis."
+      ],
+      "internal_dependencies": [
+        "cy:finite-convexity"
+      ],
+      "external_inputs": [],
+      "computational_checks": [],
+      "scope_limits": [
+        "Finite-k identity only; truncated sums give nonnegative lower bounds on the Hessian."
+      ],
+      "review_status": "assigned",
+      "review_lean_modules": [],
+      "review_verified": "",
+      "review_missing": "Complete source-contract formalization remains pending.",
+      "review_provenance": ""
+    }
+  ]
+}

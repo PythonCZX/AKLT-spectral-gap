@@ -1,0 +1,11 @@
+{
+  "all_exact_checks_pass": true,
+  "Moore_determinant_identity": true,
+  "Frobenius_trace_identity": true,
+  "acute_kernel_identity": true,
+  "all_36_SIC_overlaps_equal_one_quarter": true,
+  "uniform_Hesse_measure_exact_second_design": true,
+  "Heron_identity": true,
+  "degenerate_triangle_cubic_identity": true,
+  "scope": "Algebraic identities and SIC moment; measure-theoretic implication is proved in the companion note."
+}

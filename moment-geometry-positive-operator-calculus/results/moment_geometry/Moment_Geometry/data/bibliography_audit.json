@@ -1,0 +1,468 @@
+{
+  "status": "passed",
+  "entries": 56,
+  "unique_cited_keys": 56,
+  "missing_citation_keys": [],
+  "duplicate_work_identifiers": {},
+  "registry_citation_keys": [
+    "BBEGZ2019",
+    "BBGZ2013",
+    "BandieraSchaetz2017",
+    "Berman2023zeta",
+    "BermanWittNystrom2014",
+    "CartierFoata1969",
+    "DemaillyEtAl2014",
+    "EGZ2009",
+    "HiaiKosakiPetzRuskai2013",
+    "Hormander1965",
+    "LuciaYoung2023",
+    "Petz1996",
+    "PitmanYor2003",
+    "Stanley1986",
+    "TWWY2015",
+    "Viennot1986",
+    "Yau1978",
+    "geo_artebani_sarti_taki2011",
+    "geo_demailly_kollar2001",
+    "geo_ditrani2023",
+    "geo_garbagnati_sarti2007",
+    "geo_hesse2009",
+    "geo_iosue2024",
+    "geo_nguyen2018",
+    "geo_oszmaniec2017",
+    "geo_sauerwein2018",
+    "geo_scott2006",
+    "geo_zhang2024",
+    "prob_berman2017",
+    "prob_nica_speicher2006",
+    "q:AKLT1988",
+    "q:ARLLNY2020",
+    "q:BP2000",
+    "q:Choi1975",
+    "q:HK1999"
+  ],
+  "canonical_aliases": {
+    "ac:hormander1965": "Hormander1965",
+    "q:LY2023": "LuciaYoung2023",
+    "prob_abs2026": "AndreassonBermanSvensson2026",
+    "geo_abs2026": "AndreassonBermanSvensson2026"
+  },
+  "identical_component_records_collapsed": [
+    "Hormander1965",
+    "AndreassonBermanSvensson2026"
+  ],
+  "uncited_entries": [],
+  "sources": [
+    "proofs/analytic_references.bib",
+    "proofs/attractive_concentration_refs.bib",
+    "proofs/context_references.bib",
+    "proofs/geometry_references.bib",
+    "proofs/nonlinear_green_refs.bib",
+    "proofs/probability_references.bib",
+    "proofs/quantum_refs.bib"
+  ],
+  "record_origins": {
+    "AndreassonBermanSvensson2026": [
+      "proofs/geometry_references.bib",
+      "proofs/probability_references.bib"
+    ],
+    "BBEGZ2019": [
+      "proofs/analytic_references.bib"
+    ],
+    "BBGZ2013": [
+      "proofs/analytic_references.bib"
+    ],
+    "BandieraSchaetz2017": [
+      "proofs/context_references.bib"
+    ],
+    "Berman2018meanenergy": [
+      "proofs/analytic_references.bib"
+    ],
+    "Berman2023zeta": [
+      "proofs/nonlinear_green_refs.bib"
+    ],
+    "BermanWittNystrom2014": [
+      "proofs/analytic_references.bib"
+    ],
+    "BluhmCapelPerezHernandez2025": [
+      "proofs/context_references.bib"
+    ],
+    "CartierFoata1969": [
+      "proofs/context_references.bib"
+    ],
+    "Clark2026": [
+      "proofs/context_references.bib"
+    ],
+    "DemaillyEtAl2014": [
+      "proofs/analytic_references.bib"
+    ],
+    "EGZ2009": [
+      "proofs/analytic_references.bib"
+    ],
+    "GouveiaParriloThomas2010": [
+      "proofs/context_references.bib"
+    ],
+    "HiaiKosakiPetzRuskai2013": [
+      "proofs/context_references.bib"
+    ],
+    "Hormander1965": [
+      "proofs/analytic_references.bib",
+      "proofs/attractive_concentration_refs.bib"
+    ],
+    "Kastoryano2026": [
+      "proofs/analytic_references.bib"
+    ],
+    "KonstantopoulosPatieSarkar2024": [
+      "proofs/context_references.bib"
+    ],
+    "LuciaYoung2023": [
+      "proofs/quantum_refs.bib"
+    ],
+    "Petz1996": [
+      "proofs/context_references.bib"
+    ],
+    "PitmanYor2003": [
+      "proofs/context_references.bib"
+    ],
+    "PortoDesignollePokuttaQuintino2026": [
+      "proofs/context_references.bib"
+    ],
+    "Radcliffe1971": [
+      "proofs/context_references.bib"
+    ],
+    "Rao2024": [
+      "proofs/context_references.bib"
+    ],
+    "SAIROpenMathOS2026": [
+      "proofs/context_references.bib"
+    ],
+    "Stanley1986": [
+      "proofs/context_references.bib"
+    ],
+    "TWWY2015": [
+      "proofs/analytic_references.bib"
+    ],
+    "Viennot1986": [
+      "proofs/context_references.bib"
+    ],
+    "Yau1978": [
+      "proofs/nonlinear_green_refs.bib"
+    ],
+    "ZhouZou2026": [
+      "proofs/context_references.bib"
+    ],
+    "geo_artebani_sarti_taki2011": [
+      "proofs/geometry_references.bib"
+    ],
+    "geo_dang2013": [
+      "proofs/geometry_references.bib"
+    ],
+    "geo_demailly_kollar2001": [
+      "proofs/geometry_references.bib"
+    ],
+    "geo_ditrani2023": [
+      "proofs/geometry_references.bib"
+    ],
+    "geo_garbagnati_sarti2007": [
+      "proofs/geometry_references.bib"
+    ],
+    "geo_hesse2009": [
+      "proofs/geometry_references.bib"
+    ],
+    "geo_iosue2024": [
+      "proofs/geometry_references.bib"
+    ],
+    "geo_nguyen2018": [
+      "proofs/geometry_references.bib"
+    ],
+    "geo_oszmaniec2017": [
+      "proofs/geometry_references.bib"
+    ],
+    "geo_sauerwein2018": [
+      "proofs/geometry_references.bib"
+    ],
+    "geo_scott2006": [
+      "proofs/geometry_references.bib"
+    ],
+    "geo_strassen1965": [
+      "proofs/geometry_references.bib"
+    ],
+    "geo_yzhang2026": [
+      "proofs/geometry_references.bib"
+    ],
+    "geo_zhang2024": [
+      "proofs/geometry_references.bib"
+    ],
+    "prob_berman2017": [
+      "proofs/probability_references.bib"
+    ],
+    "prob_bordenave2008": [
+      "proofs/probability_references.bib"
+    ],
+    "prob_brezin1984": [
+      "proofs/probability_references.bib"
+    ],
+    "prob_nica_speicher2006": [
+      "proofs/probability_references.bib"
+    ],
+    "q:AKLT1988": [
+      "proofs/quantum_refs.bib"
+    ],
+    "q:ARLLNY2020": [
+      "proofs/quantum_refs.bib"
+    ],
+    "q:BCCRJ2026": [
+      "proofs/quantum_refs.bib"
+    ],
+    "q:BP2000": [
+      "proofs/quantum_refs.bib"
+    ],
+    "q:Choi1975": [
+      "proofs/quantum_refs.bib"
+    ],
+    "q:HK1999": [
+      "proofs/quantum_refs.bib"
+    ],
+    "q:Kassabov2011": [
+      "proofs/quantum_refs.bib"
+    ],
+    "q:LJL2026": [
+      "proofs/quantum_refs.bib"
+    ],
+    "q:LPP2025": [
+      "proofs/quantum_refs.bib"
+    ]
+  },
+  "citation_locations": {
+    "AndreassonBermanSvensson2026": [
+      "proofs/coherent_gram.tex",
+      "proofs/geometry_results.tex",
+      "sections/future.tex",
+      "sections/introduction.tex",
+      "sections/introduction.tex"
+    ],
+    "BBEGZ2019": [
+      "sections/equilibria.tex",
+      "sections/equilibria.tex",
+      "sections/equilibria.tex",
+      "sections/equilibria.tex",
+      "sections/equilibria.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "BBGZ2013": [
+      "proofs/attractive_high_temperature.tex",
+      "proofs/attractive_high_temperature.tex",
+      "proofs/toric_assignment.tex",
+      "sections/equilibria.tex",
+      "supplements/formalization_guide.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "BandieraSchaetz2017": [
+      "sections/positive_calculus.tex"
+    ],
+    "Berman2018meanenergy": [
+      "sections/introduction.tex"
+    ],
+    "Berman2023zeta": [
+      "proofs/nonlinear_green.tex",
+      "proofs/nonlinear_green.tex",
+      "sections/introduction.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "BermanWittNystrom2014": [
+      "proofs/toric_assignment.tex",
+      "sections/introduction.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "BluhmCapelPerezHernandez2025": [
+      "sections/future.tex"
+    ],
+    "CartierFoata1969": [
+      "sections/positive_calculus.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "Clark2026": [
+      "sections/positive_calculus.tex"
+    ],
+    "DemaillyEtAl2014": [
+      "sections/equilibria.tex"
+    ],
+    "EGZ2009": [
+      "sections/equilibria.tex"
+    ],
+    "GouveiaParriloThomas2010": [
+      "sections/coherent_foundations.tex",
+      "sections/introduction.tex"
+    ],
+    "HiaiKosakiPetzRuskai2013": [
+      "sections/positive_calculus.tex",
+      "sections/positive_calculus.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "Hormander1965": [
+      "proofs/attractive_concentration.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "Kastoryano2026": [
+      "sections/future.tex",
+      "sections/introduction.tex"
+    ],
+    "KonstantopoulosPatieSarkar2024": [
+      "sections/positive_calculus.tex"
+    ],
+    "LuciaYoung2023": [
+      "proofs/quantum_results.tex",
+      "sections/introduction.tex",
+      "sections/introduction.tex"
+    ],
+    "Petz1996": [
+      "sections/positive_calculus.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "PitmanYor2003": [
+      "sections/introduction.tex",
+      "sections/positive_calculus.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "PortoDesignollePokuttaQuintino2026": [
+      "sections/future.tex"
+    ],
+    "Radcliffe1971": [
+      "sections/coherent_foundations.tex"
+    ],
+    "Rao2024": [
+      "sections/coherent_foundations.tex",
+      "sections/introduction.tex"
+    ],
+    "SAIROpenMathOS2026": [
+      "sections/ai_acknowledgements.tex"
+    ],
+    "Stanley1986": [
+      "sections/positive_calculus.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "TWWY2015": [
+      "sections/equilibria.tex"
+    ],
+    "Viennot1986": [
+      "sections/positive_calculus.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "Yau1978": [
+      "proofs/nonlinear_green.tex",
+      "sections/introduction.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "ZhouZou2026": [
+      "sections/introduction.tex"
+    ],
+    "geo_artebani_sarti_taki2011": [
+      "proofs/geometry_singer.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "geo_dang2013": [
+      "proofs/geometry_cubic.tex"
+    ],
+    "geo_demailly_kollar2001": [
+      "proofs/attractive_concentration.tex",
+      "proofs/geometry_results.tex"
+    ],
+    "geo_ditrani2023": [
+      "proofs/geometry_cubic.tex",
+      "sections/introduction.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "geo_garbagnati_sarti2007": [
+      "proofs/geometry_singer.tex",
+      "proofs/geometry_singer.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "geo_hesse2009": [
+      "proofs/geometry_cubic.tex",
+      "proofs/geometry_cubic.tex",
+      "sections/introduction.tex"
+    ],
+    "geo_iosue2024": [
+      "proofs/geometry_singer.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "geo_nguyen2018": [
+      "proofs/geometry_qutrit.tex"
+    ],
+    "geo_oszmaniec2017": [
+      "proofs/geometry_qutrit.tex"
+    ],
+    "geo_sauerwein2018": [
+      "proofs/geometry_cubic.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "geo_scott2006": [
+      "proofs/geometry_results.tex"
+    ],
+    "geo_strassen1965": [
+      "proofs/geometry_qutrit.tex"
+    ],
+    "geo_yzhang2026": [
+      "proofs/geometry_qutrit.tex"
+    ],
+    "geo_zhang2024": [
+      "proofs/geometry_results.tex",
+      "sections/equilibria.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "prob_berman2017": [
+      "proofs/attractive_high_temperature.tex",
+      "proofs/attractive_high_temperature.tex",
+      "proofs/nonlinear_green.tex",
+      "proofs/nonlinear_green.tex",
+      "proofs/probability_repulsive.tex",
+      "proofs/probability_repulsive.tex",
+      "sections/introduction.tex",
+      "sections/introduction.tex",
+      "sections/introduction.tex",
+      "supplements/formalization_guide.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "prob_bordenave2008": [
+      "proofs/coherent_gram.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "prob_brezin1984": [
+      "proofs/coherent_gram.tex"
+    ],
+    "prob_nica_speicher2006": [
+      "proofs/coherent_gram.tex",
+      "supplements/formalization_guide.tex"
+    ],
+    "q:AKLT1988": [
+      "proofs/quantum_results.tex",
+      "sections/introduction.tex"
+    ],
+    "q:ARLLNY2020": [
+      "proofs/quantum_results.tex",
+      "sections/introduction.tex"
+    ],
+    "q:BCCRJ2026": [
+      "proofs/quantum_results.tex"
+    ],
+    "q:BP2000": [
+      "proofs/quantum_results.tex"
+    ],
+    "q:Choi1975": [
+      "proofs/quantum_results.tex"
+    ],
+    "q:HK1999": [
+      "proofs/quantum_results.tex"
+    ],
+    "q:Kassabov2011": [
+      "proofs/quantum_results.tex"
+    ],
+    "q:LJL2026": [
+      "proofs/quantum_results.tex"
+    ],
+    "q:LPP2025": [
+      "proofs/quantum_results.tex"
+    ]
+  },
+  "scope": "Citation-key and duplicate-work integrity. Primary-source metadata was checked separately; this offline generator does not claim a fresh network audit."
+}

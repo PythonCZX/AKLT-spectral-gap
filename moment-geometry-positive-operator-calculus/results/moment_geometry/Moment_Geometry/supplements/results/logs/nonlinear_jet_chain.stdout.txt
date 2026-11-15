@@ -1,0 +1,8 @@
+m=1, chart=['s', 's**2*(s + t)']: R=1, 38 complementary minors PASS
+m=2, chart=['s', 's**2*(s + t)']: R=4, 98 complementary minors PASS
+m=3, chart=['s', 's**2*(s + t)']: R=10, 98 complementary minors PASS
+m=1, chart=['s*t', 's*t**2']: R=1, 38 complementary minors PASS
+m=2, chart=['s*t', 's*t**2']: R=4, 98 complementary minors PASS
+m=3, chart=['s*t', 's*t**2']: R=10, 98 complementary minors PASS
+All finite threshold identities m=1,...,100 PASS
+/workspace/scratch/e041a694f3ed/publication_package/supplements/geometry/truncated_jet_chain_exact.json

@@ -1,0 +1,1 @@
+Figure style adapted from the user-supplied Matplotlib scientific-figure identity kit. The paper_identity package and its font notices are preserved. Example surrogate datasets and reference artwork are not used as research data. All paper figures are generated from explicit formulas, schematic constructions, or labeled reproducible numerical samples.

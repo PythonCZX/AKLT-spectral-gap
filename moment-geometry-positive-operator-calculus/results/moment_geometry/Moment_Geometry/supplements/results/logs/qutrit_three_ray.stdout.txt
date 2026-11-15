@@ -1,0 +1,11 @@
+{
+  "status": "All symbolic identities and rational margins passed",
+  "pair_deficit_identity": true,
+  "endpoint_sum_identity": true,
+  "middle_angle_margin": "1/100",
+  "I_lower_bound": "37/3888 + 19*pi/648",
+  "K_rational_lower_bound": "2767/21384",
+  "available_geometric_coefficient_lower_bound": "2767/2970",
+  "required_geometric_coefficient": "3/4",
+  "coefficient_margin": "1079/5940"
+}

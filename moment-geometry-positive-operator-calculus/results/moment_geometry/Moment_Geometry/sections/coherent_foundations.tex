@@ -1,0 +1,153 @@
+\section{Coherent states, moments, and the geometry of positivity}
+\label{sec:foundations}
+
+\subsection{From an ensemble to a bosonic moment state}
+
+Let $V=\C^D$ and $X=\Pp(V)$. For a probability measure $\mu$ on $X$ define
+\[
+M_t(\mu)=\int_X P_z^{\otimes t}\,d\mu(z)
+\quad\text{on }\Sym^t V,
+\qquad n_t=\binom{D+t-1}{t}.
+\]
+This is a trace-one positive operator. Schur's lemma and the trace give
+$M_t(\sigma)=I_{n_t}/n_t$ for the unitary-invariant measure $\sigma$.
+A weighted complex projective $t$-design is exactly a measure with this
+moment. Positivity of the weights is part of the definition.
+
+The vectors $z^{\otimes t}$ form the Veronese image. The set of possible
+moment states is the convex hull of their projectors, a structured subset
+of all density matrices. If $f$ is a homogeneous degree-$t$ polynomial
+represented in the coherent/Bombieri inner product by a vector $v_f$, then
+\[
+\tr\bigl(|v_f\rangle\langle v_f|M_t(\mu)\bigr)
+=\int|f(z)|^2\,d\mu(z).
+\]
+Thus a polynomial vanishes on the support exactly when its vector lies in
+the kernel of the moment state. This simple identity is the mechanism by
+which algebraic geometry becomes experimentally accessible through matched
+copies of a hidden pure preparation.
+
+More general Hermitian forms test inequalities on the support. One must
+distinguish a matrix that is positive on all vectors of $\Sym^t V$ from a
+matrix whose symbol is positive only on coherent vectors. The latter is a
+positivity problem on an algebraic realization variety. Sum-of-squares
+relaxations and ideal compression exploit that distinction
+\citep{Rao2024,GouveiaParriloThomas2010}.
+
+\fig{fig01_moment_fibres}{Moment equality preserves less information than
+the ensemble itself. (a) The map $[z]\mapsto(|z_0|^2,|z_1|^2,|z_2|^2)$ sends
+the nine Hesse rays to three edge midpoints, with three relative phases
+above each. It sends the seven noncoordinate Singer rays to the barycenter;
+the three other Singer rays are the vertices. This is a probability-simplex
+projection, not a drawing of complex projective incidence. Hesse weights are
+$1/9$; Singer vertex weights are $1/12$ and its other weights are $3/28$.
+(b) Both ensembles and Haar measure have $M_2=I_6/6$, but the rank-two
+three-copy projector $Q$ defined in the ensemble-certification theorem has
+expectations $0$, $5/18$, and $1/5$, respectively. All displayed expectation
+values are exact identities; decimals merely label the bars.}{fig:moments}
+
+\subsection{Positive moment repair as a finite-dimensional inverse problem}
+
+A useful feature of coherent moments is that small moment errors can be
+repaired by adding a positive density. On $\Pp^2$ let $Q_z=P_z^{\otimes2}$,
+$\tau=I_6/6$, and
+\[
+L(A)=(A\otimes I+I\otimes A)|_{\Sym^2\C^3},\qquad
+B_z=90Q_z-30L(P_z)+5I_6.
+\]
+For traceless Hermitian $D$ on $\Sym^2\C^3$, the coherent fourth-moment
+identity gives
+\begin{equation}\label{eq:repairframe}
+\int\tr(DB_z)\,d\sigma=0,\qquad
+\int\tr(DB_z)Q_z\,d\sigma=D,\qquad
+|\tr(DB_z)|\le51\|D\|_{\mathrm{HS}}.
+\end{equation}
+The number $51$ is a convenient rational upper bound: the eigenvalues of
+$B_z$ are $35,-25,-25,5,5,5$, whose squared sum is $2550<51^2$.
+Equation~\eqref{eq:repairframe} is an explicit right inverse of the moment
+map, with a positivity radius.
+
+\begin{proposition}[Positive repair]\label{prop:repair}
+Let $\delta=\|M_2(\mu)-\tau\|_{\mathrm{HS}}>0$ and
+$p=(1+102\delta)^{-1}$. There is a probability $\nu$ with
+$1/2\le d\nu/d\sigma\le3/2$ such that
+$\mu^*=p\mu+(1-p)\nu$ is a second design. Moreover,
+\[
+\Ent(\mu^*\mid\sigma)
+\le p\Ent(\mu\mid\sigma)+(1-p)\log(3/2).
+\]
+\end{proposition}
+\begin{proof}
+For $D=M_2(\mu)-\tau$, take
+$d\nu/d\sigma=1-\tr(DB_z)/(102\delta)$.
+The preceding identities prove positivity, normalization, and exact moment
+cancellation. Convexity of relative entropy proves the last inequality.
+\end{proof}
+
+This is an example of a general principle: invert the finite moment frame
+first, then make the inverse perturbation small enough to remain a density.
+It is stronger than an arbitrary signed correction, because positivity
+allows entropy estimates and actual random sampling.
+
+For later use the full frame operator is
+\begin{equation}
+ \mathsf S(B)=\int\tr(BQ_z)Q_z\,d\sigma
+ =\frac{B+2L(\tr_2B)+\tr(B)I_6}{90}.
+ \label{an:frame-spectrum}
+\end{equation}
+Here an operator on $\Sym^2\C^3$ is extended by zero on the antisymmetric
+subspace before taking its partial trace. Haar's fourth tensor moment
+gives the formula by permutation contraction. The scalar, adjoint, and
+remaining irreducible sectors have real dimensions $1,8,27$ and frame
+eigenvalues $1/6,1/15,1/90$, respectively. Thus the correction uses the
+representation-theoretic decomposition of the moment space, while its
+norm bound gives an explicit positive density.
+
+\subsection{Multipoles explain the time-reversal grading}
+
+For a spin-$j$ system, operator space decomposes under rotations as
+\[
+\mathcal B(V_j)\simeq\bigoplus_{\ell=0}^{2j}V_\ell.
+\]
+The spin-coherent symbol $a(n)=\langle n|A|n\rangle$ carries the same
+multipole components, with nonzero normalization factors on each degree.
+Time reversal sends $n$ to $-n$. For Hermitian $A$ invariant under time
+reversal, the symbol is real and satisfies $a(n)=a(-n)$; therefore all odd
+spherical-harmonic degrees vanish. On a register, simultaneous time reversal
+removes odd \emph{total} multipole degree.
+
+For qubits, the only one-site degrees are $0$ and $1$. Total degree then
+coincides with body level, so odd body levels vanish. For spin one, each
+nonidentity site can contribute degree $1$ or $2$, and a one-body
+quadrupole is time-reversal even. The grading is therefore portable across
+spins when expressed in multipoles. It should not be transported as an
+odd-body rule beyond qubits. Standard irreducible-tensor and spin-coherent
+conventions may be found in \citet{Radcliffe1971}.
+
+\fig{fig11_multipoles}{Time reversal acts on multipole degree. The left two
+panels show the exact restrictions of $n_z$ and $(3n_z^2-1)/2$ to a disk
+parameterized by $n_z$, with a common signed color scale. Antipodal reversal
+changes the dipole's sign and preserves the quadrupole. The right panel lists
+possible spin-one pairs of body level and total degree for at most three
+active sites, truncated at total degree four. Each active site contributes
+degree one or two; blue marks even total
+degree and orange marks odd total degree. In particular, the one-body,
+degree-two entry survives time reversal. The identity is the entry $(0,0)$.}
+{fig:multipoles}
+
+\subsection{Two positivity notions that will recur}
+
+For matrices $A,B$, $A\preceq B$ means $B-A$ is positive semidefinite.
+For completely positive maps $\Phi,\Psi$, the notation
+$\Phi\le_{\mathrm{CP}}\Psi$ means that $\Psi-\Phi$ is completely positive,
+equivalently that their Choi matrices satisfy the corresponding Loewner
+inequality. A completely positive comparison remains valid after tensoring
+with an arbitrary identity map and applying the result to any positive
+environment. This is why it is the appropriate input for network bounds.
+
+On the geometric side, a positive polynomial witness is evaluated only on
+the allowed coherent vectors. On the network side, a CP-order witness must
+remain positive on all ancillary extensions. The two requirements are
+different, but both replace a scalar coefficient test by positivity on the
+correct realization space. This distinction is central to the later
+certificates.

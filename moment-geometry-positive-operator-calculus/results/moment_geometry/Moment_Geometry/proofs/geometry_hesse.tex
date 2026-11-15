@@ -1,0 +1,228 @@
+\subsection{An algebraic certificate that becomes a quantum experiment}
+\label{geo:hesse-cert}
+
+The cubic classification identifies an ensemble from exact equations.
+The next result is quantitative and operational. A request of size \(k\)
+means that a hidden ray \(z\sim\mu\) is drawn once and \(k\) copies of that
+same state are prepared; independent requests use independent draws.
+This is a matched-replica model with trusted dimension, basis, and
+measurements. Its average request state is \(M_k(\mu)\). Redrawing the
+hidden ray separately for every copy would instead reveal only \(M_1\).
+
+Use pure-state trace distance
+\[
+ d(z,w)=\frac12\|P_z-P_w\|_1
+       =\sqrt{1-|\langle z,w\rangle|^2}
+\]
+and its \(1\)-Wasserstein distance \(W_1\) on ensembles.
+In \(\operatorname{Sym}^3\mathbb C^3\), define orthonormal vectors
+\[
+ \phi_F=\frac{|000\rangle+|111\rangle+|222\rangle}{\sqrt3},\qquad
+ \phi_T=\frac1{\sqrt6}\sum_{\pi\in S_3}|\pi(012)\rangle,\qquad
+ Q=|\phi_F\rangle\langle\phi_F|+|\phi_T\rangle\langle\phi_T|.
+\]
+Its coherent-state symbol is
+\begin{equation}
+ q(z)=\langle z^{\otimes3},Qz^{\otimes3}\rangle
+ =\frac13|z_0^3+z_1^3+z_2^3|^2+6|z_0z_1z_2|^2.
+ \label{geo:q}
+\end{equation}
+The two cubic equations cut out precisely the nine rays \(\mathcal H\).
+
+\fig{fig02_cubic_witness}{A positive cubic witness locates the Hesse
+ensemble. (a) The exact symbol $q$ on the slice
+$z=(0,\cos s,e^{i\theta}\sin s)$ has three isolated zeros at equal
+coordinate moduli and the Hesse phases. (b) For 2,500 independent complex
+Gaussian rays normalized to unit length (fixed reproducible seed), the
+distance to the nearest Hesse ray is plotted against $q$. The solid curve
+is the proved bound $\min\{1,\sqrt{27q/4}\}$; the samples illustrate the
+bound and do not establish it. The inset shows the same symbol near one
+zero as a surface, with the plane $q=0.03$ for scale.}{fig:witness}
+
+\begin{theorem}[Robust Hesse ensemble certificate]
+\label{geo:hesse-bound}
+For any Borel probability measure \(\mu\) on \(\mathbb P^2\), put
+\[
+ \epsilon_Q=\operatorname{tr}(QM_3(\mu)),\qquad
+ \delta_1=\|M_1(\mu)-I_3/3\|_{\rm HS},\qquad K=1+\frac3{\sqrt2}.
+\]
+Then
+\begin{equation}
+ W_1(\mu,\mu_{\mathcal H})
+ \le K\sqrt{\frac{27}{4}\epsilon_Q}+\frac32\delta_1.
+ \label{geo:robust}
+\end{equation}
+In particular, \(M_1(\mu)=I_3/3\) and \(\epsilon_Q=0\) characterize
+\(\mu_{\mathcal H}\) among all probability ensembles.
+\end{theorem}
+
+\begin{proof}
+First we prove the global error bound
+\begin{equation}
+ d(z,\mathcal H)^2\le\frac{27}{4}q(z).
+ \label{geo:pointwise}
+\end{equation}
+For a normalized binary vector \((u,v)\), let \(\Delta\le\pi/3\) be its
+phase error from the nearest vector \((1,-\omega^j)/\sqrt2\).
+Put \(t=2|uv|\), \(y=t\cos\Delta\). Its squared distance to this
+three-point set is \((1-y)/2\), whereas
+\[
+ |u^3+v^3|^2
+ =(1-y)\left(1+y+y^2-\frac34t^2\right).
+\]
+The second factor is at least one, since
+\[
+ y+y^2-\frac34t^2
+ =(y-t/2)(y+t/2+1)+\frac12t(1-t)\ge0.
+\]
+Thus binary squared distance is at most \(|u^3+v^3|^2/2\).
+
+For a qutrit let \(a\ge b\ge c\) be its squared coordinate moduli and
+\(f=|\sum_i z_i^3|\). Delete the minimum coordinate and use the binary
+estimate. Since \(c\le1/3\),
+\[
+ d(z,\mathcal H)^2
+ \le c+\frac{(f+c^{3/2})^2}{2(1-c)^2}
+ \le\frac54c+\frac94f^2.
+\]
+If \(a\le3/4\), then \(ab\ge3/32\), and this is at most
+\(40abc/3+9f^2/4\le(27/4)q(z)\).
+If \(a\ge3/4\), then
+\[
+ f\ge a^{3/2}-(1-a)^{3/2}\ge2a-1,\qquad
+ d(z,\mathcal H)^2\le\frac{3-a}{4}.
+\]
+The identity
+\(9(2a-1)^2-(3-a)=(4a-3)(9a-2)\ge0\) again proves
+\eqref{geo:pointwise}.
+
+Map each ray to a nearest point of \(\mathcal H\), obtaining weights
+\(w_i\), and put \(L^2=\int d(z,\mathcal H)^2\,d\mu\).
+This transport costs at most \(L\), and the first-moment error of the
+transported measure is at most \(\delta_1+\sqrt2L\).
+For \(u_i=w_i-1/9\), the SIC Gram matrix gives
+\[
+ \left\|\sum_i u_iP_i\right\|_{\rm HS}^2=\frac34\sum_i u_i^2.
+\]
+The weights' total-variation distance from uniform is at most
+\(\sqrt3\,\delta_1+\sqrt6\,L\).
+All pairwise Hesse distances are \(\sqrt3/2\), so correcting the weights
+costs at most \((3/2)\delta_1+(3/\sqrt2)L\).
+Combine the two transports and \(L^2\le27\epsilon_Q/4\).
+\end{proof}
+
+All measurements in the theorem are positive operators.
+The Hesse third moment has the particularly simple form
+\begin{equation}
+ M_3(\mu_{\mathcal H})=\frac18(I_{10}-Q).
+ \label{geo:hesse-third}
+\end{equation}
+The vectors \(h^{\otimes3}\) form a nine-vector equiangular tight frame
+in the eight-dimensional kernel of \(Q\). Algebraically, the ideal
+\((z_0^3+z_1^3+z_2^3,z_0z_1z_2)\) is a complete intersection, with
+Hilbert series
+\[
+ \frac{(1-t^3)^2}{(1-t)^3}.
+\]
+Its Hilbert function starts \(1,3,6,8,9,9,\ldots\), giving the ranks
+available to coherent tensors at successive replica numbers.
+At three replicas the density matrix has rank eight, yet its
+decomposition into pure coherent tensors is uniquely the nine-point
+Hesse mixture. Indeed, the coherent mixtures annihilated by \(Q\) are
+supported on \(\mathcal H\), and the Gram matrix of their nine
+projectors is
+\[
+ \frac{63I_9+\mathbf1\mathbf1^{\mathsf T}}{64},
+\]
+so those projectors are linearly independent. They span an exposed
+simplex face of the convex set of bosonic separable states.
+
+Three matched replicas are also necessary for distribution-free
+identification. Haar measure and \(\mu_{\mathcal H}\) have equal first
+and second moments, so any protocol with independent request blocks of
+size at most two receives identical quantum states in the two cases,
+including joint processing of all blocks. At order three,
+Haar has \(M_3=I_{10}/10\) and \(Q\)-probability \(1/5\), whereas Hesse
+has \(Q\)-probability zero. The degree of the defining equations has
+therefore acquired a direct experimental meaning.
+
+\paragraph{Finite-sample certification.}
+On \(N_3\) triple requests measure \(\{Q,I-Q\}\), observing \(s\) clicks.
+Let \(q_U\) be the one-sided Clopper--Pearson upper bound at failure
+probability \(\alpha/2\). For \(s<N_3\), it is the
+\(1-\alpha/2\) quantile of \(\operatorname{Beta}(s+1,N_3-s)\); if
+\(s=N_3\), put \(q_U=1\). In particular, zero clicks give
+\[
+ q_U=1-(\alpha/2)^{1/N_3}.
+\]
+On \(N_1\) single requests measure the SIC POVM \(\{P_h/3\}\),
+with empirical frequencies \(\widehat p_h\), and set
+\[
+ \widehat\delta_1=\sqrt{12}
+ \left\|\widehat p-\frac19\mathbf1\right\|_2,\qquad
+ u_{N_1}=
+ \frac{\sqrt{12}\bigl(1+\sqrt{\log(2/\alpha)}\bigr)}{\sqrt{N_1}}.
+\]
+Multinomial mean-square error and bounded differences imply, with
+confidence at least \(1-\alpha\),
+\begin{equation}
+ W_1(\mu,\mu_{\mathcal H})
+ \le\min\left\{1,\,
+ K\sqrt{\frac{27}{4}q_U}
+ +\frac32(\widehat\delta_1+u_{N_1})\right\}.
+ \label{geo:confidence}
+\end{equation}
+The inverse SIC relation is \(M_1=4\sum_h p_hP_h-I\).
+For example, the sufficient budgets
+\[
+ N_3\ge27K^2\varepsilon^{-2}\log(2/\alpha),\qquad
+ N_1\ge432\varepsilon^{-2}
+                 \bigl(1+\sqrt{\log(2/\alpha)}\bigr)^2
+\]
+make the acceptance rule \(s=0\),
+\(\widehat\delta_1\le\varepsilon/6\) sound and complete for the ideal
+Hesse ensemble at confidence \(1-\alpha\). The number of physical
+copies is \(3N_3+N_1\).
+
+The accuracy exponent \(\varepsilon^{-2}\) is optimal for fixed request
+patterns. For \(0\le\theta\le\pi/6\), rotate the ensemble by
+\(U_\theta=\operatorname{diag}(e^{i\theta},e^{-i\theta},1)\). Then
+\[
+ W_1(\mu_{\mathcal H},U_{\theta*}\mu_{\mathcal H})
+ =\frac{\sin\theta+2\sin(\theta/2)}3,\qquad
+ \epsilon_Q=
+ \frac{\sin^2(3\theta)+2\sin^2(3\theta/2)}{18}.
+\]
+Coupling hidden labels and using tensor-product fidelity bounds the
+trace distance of the two \(n\)-copy experiments by \(\sqrt n\sin\theta\).
+Constant-success testing at ensemble distance \(\varepsilon\) thus
+requires \(n=\Omega(\varepsilon^{-2})\). This assertion concerns
+fixed request patterns; it makes no claim about every adaptive
+stopping convention.
+
+\paragraph{A portable principle.}
+Let a finite ray set \(S=\{h_1,\ldots,h_N\}\) be cut out by degree-\(k\)
+equations whose coefficient space has orthogonal projector \(Q\).
+Suppose a certified global bound is available:
+\[
+ d(z,S)^2\le
+ C\langle z^{\otimes k},Qz^{\otimes k}\rangle.
+\]
+Suppose also that the weight map
+\(u\mapsto\sum_j u_jP_{h_j}^{\otimes r}\), restricted to
+\(\sum_j u_j=0\), has least singular value \(s_r>0\). If the observed
+\(r\)-th moment differs from that of target weights by \(\delta\)
+in Hilbert--Schmidt norm, and the \(Q\)-probability is \(\epsilon\),
+the same transport argument gives
+\begin{equation}
+ W_1(\mu,\mu_*)
+ \le\sqrt{C\epsilon}
+ +\frac{\operatorname{diam}(S)\sqrt N}{2s_r}
+       \left(\delta+\sqrt{2rC\epsilon}\right).
+ \label{geo:general-cert}
+\end{equation}
+Equations localize the support; moments condition its weights.
+Transverse isolated zeros give local quadratic error bounds. An
+effective global \(C\) additionally needs a Jacobian estimate near the
+zeros and a positive minimum away from them. These are concrete
+targets for exact algebra and certified numerics.

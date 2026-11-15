@@ -1,0 +1,115 @@
+{
+  "score_normalizations": [
+    {
+      "dimension": 2,
+      "bkm_log_derivative_error": 5.266364486568646e-16,
+      "sld_equation_error": 1.975148562412305e-16
+    },
+    {
+      "dimension": 5,
+      "bkm_log_derivative_error": 4.431387025874116e-15,
+      "sld_equation_error": 1.8004767787322818e-15
+    },
+    {
+      "dimension": 9,
+      "bkm_log_derivative_error": 8.602894069218195e-15,
+      "sld_equation_error": 4.297082153247265e-15
+    }
+  ],
+  "beta_identity_checks": [
+    {
+      "nu": -0.25,
+      "t": 0.1,
+      "identity_error": 3.793938047509796e-17
+    },
+    {
+      "nu": -0.25,
+      "t": 2.0,
+      "identity_error": 1.0345792625672513e-16
+    },
+    {
+      "nu": -0.25,
+      "t": 10.0,
+      "identity_error": 3.793254874425237e-16
+    },
+    {
+      "nu": 0.0,
+      "t": 0.1,
+      "identity_error": 2.8585598818809655e-33
+    },
+    {
+      "nu": 0.0,
+      "t": 2.0,
+      "identity_error": 7.794379105602872e-33
+    },
+    {
+      "nu": 0.0,
+      "t": 10.0,
+      "identity_error": 2.857677583706353e-32
+    },
+    {
+      "nu": 0.5,
+      "t": 0.1,
+      "identity_error": 0.0
+    },
+    {
+      "nu": 0.5,
+      "t": 2.0,
+      "identity_error": 0.0
+    },
+    {
+      "nu": 0.5,
+      "t": 10.0,
+      "identity_error": 0.0
+    },
+    {
+      "nu": 1.5,
+      "t": 0.1,
+      "identity_error": 0.0
+    },
+    {
+      "nu": 1.5,
+      "t": 2.0,
+      "identity_error": 1.5557538194652854e-61
+    },
+    {
+      "nu": 1.5,
+      "t": 10.0,
+      "identity_error": 3.111507638930571e-61
+    },
+    {
+      "nu": 5.0,
+      "t": 0.1,
+      "identity_error": 0.0
+    },
+    {
+      "nu": 5.0,
+      "t": 2.0,
+      "identity_error": 0.0
+    },
+    {
+      "nu": 5.0,
+      "t": 10.0,
+      "identity_error": 6.223015277861142e-61
+    }
+  ],
+  "invalid_nu_control": {
+    "nu": -0.75,
+    "rho_diagonal": [
+      0.8,
+      0.19999999999999996
+    ],
+    "tangent_off_diagonal": 0.1,
+    "input_quadratic_form": 0.03324576175084712,
+    "x_measurement_classical_fisher": 0.04000000000000001,
+    "data_processing_violation": 0.0067542382491528885
+  },
+  "quadrature_is_not_a_new_monotone_metric": {
+    "valid_target_nu": 0.5,
+    "kind": "radau mean-only",
+    "log_eigenvalue_ratio": 24.0,
+    "log_approximant_mean": 36.0,
+    "log_arithmetic_mean": 23.306852819477808,
+    "conclusion": "Fixed-state Loewner brackets are valid; global CPTP data processing of approximant metrics is not asserted."
+  }
+}

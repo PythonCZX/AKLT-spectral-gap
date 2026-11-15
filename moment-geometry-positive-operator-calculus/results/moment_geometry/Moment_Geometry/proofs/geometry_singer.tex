@@ -1,0 +1,297 @@
+\subsection{A second design that obstructs geometric localization}
+\label{geo:singer}
+
+The first-moment proof used a coupling on well-conditioned projective
+frames. A natural stronger localization at second moment would couple
+nine points whose blowup has nef anticanonical class. Here \emph{nef}
+means nonnegative intersection with every curve. The next example
+shows that second-moment isotropy alone cannot enforce that geometry.
+
+Let \(\zeta=e^{2\pi i/7}\), and set
+\begin{equation}
+ B=\{e_0,e_1,e_2\},\qquad
+ T_j=\frac{(1,\zeta^j,\zeta^{3j})}{\sqrt3},\quad 0\le j<7,\qquad
+ \mu_{\rm S}=\frac1{12}\sum_{b\in B}\delta_b+
+                  \frac3{28}\sum_{j=0}^6\delta_{T_j}.
+ \label{geo:singer-measure}
+\end{equation}
+This ten-point design is a known projective-toric construction
+\cite[Example 4.2]{geo_iosue2024}. Its character exponents
+\(\{0,2,6,1,3,4\}\) in the symmetric-square basis are distinct modulo
+seven, giving \(M_2(\mu_{\rm S})=I_6/6\) by exact character cancellation.
+
+\begin{theorem}[An exact coupling obstruction and repair threshold]
+\label{geo:singer-nef}
+There is no coupling with all marginals \(\mu_{\rm S}\) supported on
+nine distinct points whose blowup of \(\mathbb P^2\) has nef
+anticanonical class. For
+\[
+ \mu_t=t\mu_{\rm S}+(1-t)\sigma,
+\]
+such a coupling exists if and only if \(t\le20/21\).
+The coupling may always be taken exchangeable.
+\end{theorem}
+
+\begin{proof}
+The cubics
+\[
+ F_0=x^3-yz^2,\qquad F_1=y^3-x^2z,\qquad F_2=z^3-xy^2
+\]
+vanish at all \(T_j\). Each omits one basis point and has a cusp at
+another. A nine-point subset obtained by deleting a basis point thus
+has a cubic through eight points simply and one doubly; its strict
+transform has anticanonical intersection \(9-10=-1\).
+Deleting a torus point instead leaves nine points on a smooth cubic.
+For deletion of \(T_0\), an example is
+\[
+ x^2y+x^2z+xy^2+y^2z+xz^2+yz^2+xyz=0.
+\]
+Its gradient differences are
+\[
+ G_x-G_y=(y-x)(x+y-z),\quad
+ G_y-G_z=(z-y)(y+z-x),\quad
+ G_z-G_x=(x-z)(z+x-y).
+\]
+At a common gradient zero, if \(x=y=z\), a gradient entry is \(7x^2\).
+If exactly two coordinates agree, say \(x=y\ne z\), the remaining
+differences force \(z=0\), but then \(G_z=3x^2\ne0\).
+If all three are distinct, the differences force
+\(x+y=z,\ y+z=x,\ z+x=y\), hence the zero vector.
+The cubic is therefore smooth, and
+the diagonal order-seven symmetry handles all other deletions.
+A smooth cubic through nine points has a strict transform of square
+zero; its intersections with every distinct irreducible curve are
+nonnegative, so it is nef.
+
+Thus a nef nine-subset of the ten-point support contains all three
+basis points. Its expected number of basis points would be three,
+whereas its prescribed marginals give \(9\mu_{\rm S}(B)=9/4\).
+
+For a tuple with marginal \(\mu_t\), let \(n_T\) count entries in the
+seven-point torus orbit, and \(n_O\) entries outside the ten-point
+support. Every admissible tuple satisfies \(n_T\le6+n_O\): when
+\(n_O=0\) it must omit a torus point, and otherwise distinctness gives
+the assertion. Taking expectations yields
+\[
+ \frac{27t}{4}\le6+9(1-t),\qquad t\le\frac{20}{21}.
+\]
+At equality, mix two types and randomly permute the tuple:
+with probability \(4/7\), all three basis points and six uniformly
+chosen torus points; with probability \(3/7\), all seven torus points,
+one uniform basis point, and one Haar point.
+For the second type, cyclic symmetry reduces to the retained basis
+point \(e_0\). Cubics through \(T\cup\{e_0\}\) form the pencil
+\(\operatorname{span}(F_1,F_2)\), since the seven cubic evaluation
+characters exhaust all residues modulo seven.
+This pencil contains the smooth member
+\[
+ F_1+F_2=y^3-x^2z+z^3-xy^2.
+\]
+Indeed, its \(y\)-derivative is \(y(3y-2x)\). If \(y=0\), the other
+gradient equations force the zero vector. Otherwise \(y=2x/3\),
+the \(x\)-derivative forces \(z=-2x/9\), and the \(z\)-derivative is
+\((4/27-1)x^2\ne0\). Only finitely many pencil members are singular,
+so a Haar point chooses a smooth member almost surely.
+The mixture has weights \(5/63\) at each basis point, \(5/49\) at
+each torus point, and Haar weight \(1/21\), exactly \(\mu_{20/21}\).
+For smaller \(t\), mix with independent Haar points, whose generic
+nine-point configuration lies on a smooth cubic.
+\end{proof}
+
+Two measures with identical second moments can therefore have
+different coupling geometry. The obstruction is not explained by a
+large atom: every atom of \(\mu_{\rm S}\) has mass below \(1/9\).
+It is encoded in the incidence and multiplicities of the three cubics.
+
+\subsection{The same design produces a singular K3 surface}
+\label{geo:k3}
+
+Blow up the ten points and call the rational surface \(S\). The strict
+transforms \(C_0,C_1,C_2\) of the preceding cubics are disjoint smooth
+rational curves with
+\[
+ C_i^2=-3,\qquad C_iC_j=0\ (i\ne j),\qquad
+ C_0+C_1+C_2=-3K_S,\qquad K_S^2=-1.
+\]
+The cyclic triple cover \(\pi:Z\to S\), using the line bundle
+\(-K_S\) and branch divisor \(\sum C_i\), is smooth: locally it has
+equation \(w^3=u\). Its ramification curves \(R_i\) have square
+\(-1\), and the canonical bundle formula gives
+\(K_Z=R_0+R_1+R_2\). Contract them to obtain \(X\).
+Then \(K_X\) is trivial, and
+\[
+ e(Z)=3e(S)-2\sum_ie(C_i)=3\cdot13-2\cdot6=27,\qquad e(X)=24.
+\]
+Noether's formula gives \(\chi(\mathcal O_X)=2\); connectedness and
+triviality of \(K_X\) imply \(h^1(\mathcal O_X)=0\).
+Thus \(X\) is a smooth projective K3 surface.
+The term \emph{singular K3} below means maximal Picard rank twenty.
+
+\fig{fig05_singer_cover}{From a finite projective design to a K3 surface.
+(a) The three coordinate rays and seven Singer rays are drawn as an
+incidence schematic; their positions in the drawing are not a projective
+embedding. (b) Blowing up the ten rays separates the three cubic transforms
+into disjoint $(-3)$-curves. The triple cover makes their ramification
+curves $(-1)$-curves; contracting these gives a smooth K3 surface with
+Euler number 24. (c) The transcendental lattice has the Eisenstein shape
+$A_2(7)$, Gram matrix $\left(\begin{smallmatrix}14&-7\\-7&14\end{smallmatrix}\right)$,
+and discriminant 147. The arrows in (b) describe actual geometric
+operations, while (c) is a lattice diagram.}{fig:k3}
+
+\begin{theorem}[The lattice of the design cover]
+\label{geo:k3-lattice}
+The K3 surface obtained from this ten-point configuration satisfies
+\[
+ \rho(X)=20,\qquad
+ T_X\cong A_2(7)=
+ \begin{pmatrix}14&-7\\-7&14\end{pmatrix},\qquad
+ \operatorname{disc}T_X=147.
+\]
+It admits a symplectic automorphism group \(C_7\rtimes C_3\) and a
+commuting non-symplectic deck transformation of order three with
+exactly three isolated fixed points.
+\end{theorem}
+
+\begin{proof}
+A weighted-projective model is
+\[
+ w^3=(x^3-yz^2)(y^3-x^2z)(z^3-xy^2),\qquad
+ \deg(x,y,z,w)=(1,1,1,3).
+\]
+On its smooth locus a two-form is
+\[
+ \Omega=\frac{x\,dy\wedge dz-y\,dx\wedge dz+z\,dx\wedge dy}{w}.
+\]
+At each blown-up point the total branch multiplicity is three, so
+the blowup removes its apparent poles. The zeros are exactly the
+ramification curves, removed by their contraction.
+The deck map \(\delta:w\mapsto e^{2\pi i/3}w\) acts nontrivially on
+\(\Omega\); its three fixed curves become three isolated fixed points.
+The maps
+\[
+ g:(x,y,z,w)\mapsto(x,\zeta y,\zeta^3z,\zeta^4w),\qquad
+ c:(x,y,z,w)\mapsto(y,z,x,w)
+\]
+preserve \(\Omega\), and satisfy \(g^7=c^3=1\),
+\(cgc^{-1}=g^2\) in weighted projective coordinates.
+
+A symplectic order-seven automorphism has rank-four invariant
+cohomology and a rank-eighteen algebraic coinvariant lattice
+\cite[Propositions 4.5--4.6]{geo_garbagnati_sarti2007}.
+An invariant ample class therefore gives \(\rho(X)\ge19\).
+The non-symplectic order-three action makes the transcendental
+lattice a module over \(\mathbb Z[e^{2\pi i/3}]\), so its rank is
+even. It is at most three and at least two, hence is two.
+Thus \(\rho(X)=20\). Since the Eisenstein ring is principal, its
+invariant positive even rank-two form is \(A_2(m)\) for an integer \(m>0\).
+
+To determine \(m\), let
+\[
+ L_0=\{D\in\operatorname{Pic}(S):D C_i=0\text{ for every }i\}.
+\]
+The primitive closure of \(\langle C_0,C_1,C_2\rangle\) has index
+three: it contains \(K_S=-(C_0+C_1+C_2)/3\), and its index squared
+divides \(27\). Unimodularity of \(\operatorname{Pic}(S)\) gives
+\(|\operatorname{disc}L_0|=3\).
+Pullback scales its form by three. The fixed lattice of \(\delta\)
+has rank eight and discriminant \(3^7\), since its fixed locus is
+three isolated points \cite[Theorem 4.1]{geo_artebani_sarti_taki2011}.
+Hence \(\pi^*L_0\) has index three in that fixed lattice.
+
+Let \(H\) and \(E_b,E_{T_j}\) be the line and exceptional classes on \(S\).
+The \(g\)-fixed part of \(L_0\) has basis
+\[
+ v_1=H-\sum_{b\in B}E_b,\qquad
+ v_2=7H-3\sum_{j=0}^6E_{T_j},\qquad
+ \bigl(v_iv_j\bigr)=\begin{pmatrix}-2&7\\7&-14\end{pmatrix}.
+\]
+The order-seven action on the index-three quotient is trivial, and
+the obstruction in \(H^1(C_7,\pi^*L_0)\) is seven-torsion. Thus
+taking \(g\)-invariants preserves index three.
+The unique even index-three overlattice of the threefold-scaled
+matrix adds \((v_2-v_1)/3\): an order-three discriminant element
+\((\alpha v_1+\beta v_2)/3\) is isotropic exactly when
+\(\alpha+\beta=0\) modulo three.
+In the basis \(v_1+(v_2-v_1)/3,-(v_2-v_1)/3\) its matrix is
+\[
+ N=\begin{pmatrix}2&1\\1&-10\end{pmatrix}.
+\]
+A symplectic automorphism fixes \(T_X\) pointwise, since its rational
+coinvariant classes are of type \((1,1)\).
+The rank-four invariant lattice therefore has rank-two algebraic part.
+This contains the rank-two lattice just computed in the \(\delta\)-fixed
+part; consequently \(\delta\) acts trivially on its rational span, and
+\(\operatorname{NS}(X)^g=N\).
+
+The full invariant lattice is
+\[
+ H^2(X,\mathbb Z)^g
+ \cong U(7)\oplus\begin{pmatrix}4&1\\1&2\end{pmatrix},
+ \qquad |\operatorname{disc}|=7^3,
+\]
+with elementary discriminant group \((\mathbb Z/7)^3\)
+\cite[Proposition 4.6]{geo_garbagnati_sarti2007}.
+Both \(N\) and \(T_X\) are primitive in this lattice.
+If \(h\) is their gluing index, the gluing group injects into both
+discriminant groups, so \(h\mid21\). Determinants give
+\[
+ 7^3=\frac{21\cdot3m^2}{h^2}.
+\]
+The only possibilities are \((m,h)=(7,3),(49,21)\).
+In the latter case, the seven-primary discriminants of \(N,T_X\)
+are \(\mathbb Z/7\) and \((\mathbb Z/49)^2\). The gluing subgroup
+has generator \((n,7v)\) with \(n\ne0\).
+Its orthogonal complement projects onto \((\mathbb Z/49)^2\),
+since every pairing with \(7v\) can be canceled by a multiple of \(n\).
+Lift an element of order \(49\). Seven times that lift has zero first
+component and nonzero second component; it cannot belong to the
+gluing subgroup. The glued discriminant would retain an element of
+order \(49\), contradicting its elementary form. Therefore \(m=7\).
+\end{proof}
+
+The invariant lattice also makes the relevant nef geometry explicit.
+Its norm is \(2(x^2+xy-5y^2)\), congruent to \(2(x-y)^2\) modulo three,
+so it represents neither \(-2\) nor \(-14\).
+A rational curve on \(X\) has square \(-2\); its \(g\)-orbit cannot
+have length one. A length-seven orbit sum has square \(-14+14k\)
+for an integer \(k\ge0\), and cannot have square \(-14\), hence is
+nonnegative. Classes in the positive component of \(N_{\mathbb R}\)
+therefore pair positively with every such orbit sum, and thus with
+every curve, by the Hodge index theorem. The invariant nef cone is
+the closure of that positive component. In invariant blowup
+coordinates
+\[
+ dH-b\sum_{b\in B}E_b-c\sum_jE_{T_j},\qquad
+ 3d=3b+7c,
+\]
+its null boundary rays are \(d/b=(9\pm\sqrt{21})/2\).
+
+The construction does not assert a new K3 isomorphism class. Its
+content is the explicit passage from an isotropic quantum ensemble,
+through a geometric localization obstruction, to a canonical cover
+whose transcendental lattice is determined. The same cubic
+multiplicities that obstruct nef localization make the cyclic cover
+possible.
+
+\subsection{Verification and reproducible mathematical content}
+\label{geo:verification}
+
+The conceptual inputs are Kempf--Ness, the three-qutrit Cartan
+classification, semicontinuity of singularity exponents,
+Hilbert/Bergman geodesic comparison, and the stated K3 automorphism
+lattices. They enter with precise hypotheses and primary references.
+Finite calculations are supplied as exact-arithmetic certificates:
+Moore determinants and quartic contractions; Hesse moments, Gram
+matrices and spectra; Singer character cancellation, cubic
+smoothness and intersections; and finite minimal-jet moment-map
+examples. Numerical sampling illustrates bounds and searches for
+counterexamples. The theorem constants follow from the stated
+inequalities and identities.
+
+The operational supplement evaluates \eqref{geo:confidence} from
+measurement counts and supplies seeded synthetic-data examples.
+It exposes the equation-to-projector and moment-to-weight-conditioning
+steps of \eqref{geo:general-cert} for reuse with other finite ray
+sets. The computations verify finite identities and statistical
+calculations; they are not a completed machine formalization of
+the analytic and geometric proofs.

@@ -1,0 +1,448 @@
+\section{Haar measurement simulation and the geometry of contact}
+\label{geo:qutrit}
+
+The same projective moments have an operational use beyond ensemble
+certification. A \emph{parent measurement} is a fixed measurement from
+which a family of measurements can be obtained by classical
+postprocessing. In dimension \(d\), the unitary-invariant pure-state
+parent is
+\[
+ G(dz)=dP_z\,d\sigma(z).
+\]
+For \(m\) labelled outcomes its postprocessing body is
+\[
+ \mathcal H_{d,m}=
+ \left\{\left(d\int p_i(z)P_z\,d\sigma(z)\right)_{i=1}^m:
+      p_i\ge0,\quad\sum_i p_i=1\ {\rm a.e.}\right\}.
+\]
+It is compact and convex by weak-star compactness of bounded response
+functions. Its support function,
+\[
+ h(W)=d\int\max_i\operatorname{tr}(W_iP_z)\,d\sigma(z),
+ \label{geo:haar-support}
+\]
+turns simulation into a comparison between a classical maximum and
+quantum measurement optimization. This convex-body description belongs
+to the established theory of steering and measurement compatibility
+\cite{geo_nguyen2018}.
+
+Let
+\[
+ \Phi_\eta(A)=\eta A+\frac{1-\eta}{d}\operatorname{tr}(A)I,\qquad
+ \eta_d=\frac{H_d-1}{d-1},\qquad c_d=\frac{1-\eta_d}{d}.
+\]
+The notation \(d\) in this section denotes Hilbert-space dimension.
+The number \(\eta_d\) is fixed by the exact maximum-coordinate cells
+\(R_a=\{z:|z_a|^2\ge|z_b|^2\text{ for every }b\}\):
+\begin{equation}
+ d\int_{R_a}P_z\,d\sigma(z)=\eta_d P_a+c_dI.
+ \label{geo:haar-cell}
+\end{equation}
+Indeed, \((|z_1|^2,\ldots,|z_d|^2)\) is uniform on the simplex and
+\(\mathbb E\max_a|z_a|^2=H_d/d\).
+Thus the same expected-maximum computation governing the entropy
+threshold also determines the noise level at which every basis
+measurement is a postprocessing of one Haar parent.
+
+\fig{fig10_measurement_cells}{The Haar parent at qutrit visibility $5/12$.
+(a) Squared coordinate moduli of a Haar qutrit are uniform on the simplex.
+Assigning each point to its largest coordinate partitions it into three
+cells; phase integration removes off-diagonal matrix entries. (b) The three
+postprocessed effects have eigenvalues $11/18$ in their selected direction
+and $7/36$ in the other two directions. Segment heights are the three
+diagonal eigenvalues, colored by coordinate direction; each complete column
+sums to one. Hence each equals
+$(5/12)P_a+(7/36)I$. The neighborhood theorem extends this exact basis-cell
+construction to the specified classes of nearby measurements; the figure
+itself depicts the basis case.}{fig:measurement}
+
+Write \(\mathsf Q_{d,m}\) for the compact set of labelled \(m\)-outcome
+POVMs, and \(\mathsf P_{d,m}\) for the convex hull of its commuting
+members. This is the standard projective-simulable set
+\cite{geo_oszmaniec2017}.
+For qutrits, let \(\mathsf R_m\) consist of all POVMs with a common
+nontrivial reducing subspace, and set
+\(\mathsf K_m=\operatorname{conv}\mathsf R_m\). A qutrit reducing
+decomposition is a two-dimensional block plus an orthogonal flag.
+The decomposition can vary between convex-combination terms.
+
+\begin{theorem}[Uniform operational neighborhoods]
+\label{geo:operational}
+For every fixed \(d\ge2\) and finite \(m\), there exists \(r_{d,m}>0\)
+such that
+\[
+ E\in\mathsf Q_{d,m},\quad
+ \operatorname{dist}(E,\mathsf P_{d,m})<r_{d,m}
+ \quad\Longrightarrow\quad
+ \Phi_{\eta_d}(E)\in\mathcal H_{d,m}.
+ \tag{i}
+\]
+For \(d=3\), there exists \(r_m>0\) with the stronger conclusion
+\[
+ E\in\mathsf Q_{3,m},\quad
+ \operatorname{dist}(E,\mathsf K_m)<r_m
+ \quad\Longrightarrow\quad
+ \Phi_{5/12}(E)\in\mathcal H_{3,m}.
+ \tag{ii}
+\]
+Any fixed norm on tuples can define distance. Zero labelled effects
+are allowed, and nearby POVMs may be irreducible and have arbitrary
+effect ranks. The radii are qualitative; no value uniform in
+unbounded \(m\) is asserted.
+\end{theorem}
+
+In particular, every reducible qutrit POVM and every convex mixture of
+such measurements is simulated by the same Haar parent at \(5/12\).
+Every qutrit POVM with at most three outcomes lies in this class.
+To check the last statement, two effects with overlapping support
+admit opposite small Hermitian perturbations supported in their
+intersection, contradicting extremality. In dimension three, an
+extreme ternary POVM therefore has either three rank-one effects,
+hence is projective, or rank pattern \((2,1,1)\), with smaller cases
+allowed. In the latter case choose a ray \(f\) orthogonal to the
+supports of both rank-one effects. Those effects annihilate \(f\),
+and the remaining effect, being their complement in \(I\), satisfies
+\(E_1f=f\). This is a common reducing flag. The finite-dimensional
+convex decomposition into extreme POVMs finishes the assertion.
+
+\begin{remark}
+The theorem is an open-neighborhood result around a specified compact
+class. It does not assert that all irreducible qutrit POVMs are
+simulable at \(5/12\). The contact theorem below is fully anisotropic
+on the flagged stratum: its restriction is geometric support, not a
+restriction on the spectra of the contact matrices.
+\end{remark}
+
+\subsection{Contact inequalities and martingale transport}
+\label{geo:contact}
+
+Quantum discrimination gives the semidefinite duality
+\[
+ q(W):=\max_{E\in\mathsf Q_{d,m}}
+              \sum_i\operatorname{tr}(\Phi_{\eta_d}(W_i)E_i)
+       =\min_{Y\succeq\Phi_{\eta_d}(W_i)}\operatorname{tr}Y.
+\]
+For a dual optimum put \(C_i=Y-\Phi_{\eta_d}(W_i)\succeq0\).
+Complementary slackness says that an active rank-one effect lies in
+\(\ker C_i\); its weighted rays are balanced. Define
+\[
+ F_d(C)=\int\min_i
+       \{z^*C_i z-c_d\operatorname{tr}C_i\}\,d\sigma(z).
+\]
+Since
+\(\Phi_{\eta_d}^{-1}(C)=
+\eta_d^{-1}(C-c_d\operatorname{tr}(C)I)\), one has the exact identity
+\begin{equation}
+ h(W)=\operatorname{tr}Y-\frac d{\eta_d}F_d(C).
+ \label{geo:contact-identity}
+\end{equation}
+Thus a nonpositive contact integral controls the support comparison.
+The general contact formulation appears in
+\cite[Corollary 2, Eq.~(35)]{geo_yzhang2026}; the identity above also
+provides its direct derivation in the present normalization.
+
+There is a second useful interpretation. For a rank-one POVM
+\(E_i=t_iP_i\), let \(w_i=t_i/d\) and
+\(\rho_i=\eta P_i+(1-\eta)I/d\).
+A Haar postprocessing of \(\Phi_\eta(E)\) is exactly a joint law of
+the label \(i\) and a Haar pure projector \(P\) satisfying
+\[
+ \mathbb P(i)=w_i,\qquad \mathbb E[P\mid i]=\rho_i.
+\]
+Consequently, by the classical martingale coupling theorem
+\cite{geo_strassen1965}, simulation is equivalent to
+\[
+ \sum_iw_i\delta_{\rho_i}\preceq_{\rm cx}\sigma
+\]
+in the real affine space of trace-one Hermitian matrices.
+This is ordinary classical convex order on a matrix-valued state
+space. The contact functions are specific convex-envelope tests for
+that order; testing only covariance or quadratic polynomials is weaker.
+
+\subsection{The anisotropic qutrit flag theorem}
+\label{geo:flag}
+
+\begin{theorem}[Arbitrary contacts on a flagged qutrit frame]
+\label{geo:flag-theorem}
+Let \(\mathbb C^3=H\oplus\mathbb Cf\), \(\dim H=2\), and let
+\(P_i\) be finitely many rays in \(H\) with
+\(\sum_i t_iP_i=I_H\), \(t_i\ge0\). Include \(P_f\).
+For every collection of positive matrices \(C_i,C_f\) with
+\(C_iP_i=0\) and \(C_fP_f=0\), one has
+\[
+ F_3(C)\le0,\qquad \eta_3=\frac5{12},\quad c_3=\frac7{36}.
+\]
+\end{theorem}
+
+\begin{proof}
+Average the contacts under the flag phase
+\(I_H\oplus e^{i\chi}\). Concavity of \(F_3\) and Haar invariance
+show that this can only increase \(F_3\), so it suffices to consider
+\[
+ C_i=a_i(I_H-P_i)+b_iP_f,\quad a_i,b_i\ge0,\qquad
+ C_f\succeq0\text{ on }H.
+\]
+In Bloch notation \(P_i=(I_H+n_i\cdot\sigma)/2\), balance means
+\(0\in\operatorname{conv}\{n_i\}\). Carath\'eodory reduces to at most
+four rays: deleting contacts increases the pointwise minimum.
+One or two rays give a basis case by \eqref{geo:haar-cell}.
+
+For three selected rays \(i,j,k\), put
+\[
+ w=a_in_i+a_jn_j-2a_kn_k,\quad
+ v=a_in_i-a_jn_j,\quad A=a_i+a_j+2a_k.
+\]
+Choose a qubit basis with Bloch axis \(n\). On its first
+maximum-coordinate cell assign the better of contacts \(i,j\), on
+the second assign \(k\), and on the flag cell assign \(f\).
+The exact diagonal moments cancel the flag coefficients. Averaging
+the absolute value of the pair difference over its relative phase
+gives
+\begin{equation}
+ F_3(C)\le\frac5{144}
+ \left(A-n\cdot w-t_*|v\times n|\right),
+ \quad
+ t_*=\frac{36K_0}{5},\quad
+ K_0=\frac4\pi\int_{R_1}\sqrt{p_1p_2}\,d\sigma.
+ \label{geo:pair-cell}
+\end{equation}
+The phase inequality is
+\(\mathbb E_\phi|b+a\cos\phi|\ge2|a|/\pi\).
+An elementary one-dimensional integration gives
+\[
+ \int_{R_1}\sqrt{p_1p_2}\,d\sigma
+ =\frac23\int_{1/2}^1\sqrt{u(1-u)}
+                       \bigl(1-(1+u)^{-3}\bigr)\,du
+ \ge\frac{19\pi}{648}+\frac{37}{3888}.
+\]
+Using \(\pi<22/7\),
+\begin{equation}
+ t_*\ge\frac{2767}{2970}>\frac9{10},
+ \qquad t_*-\frac9{10}\ge\frac{47}{1485}.
+ \label{geo:strict-reserve}
+\end{equation}
+The needed geometric statement is that among any at most four
+balanced Bloch rays, for arbitrary \(a_i\ge0\), some triple satisfies
+\begin{equation}
+ |w|^2+\frac{81}{100}|v|^2+
+             \frac95|w\times v|\ge A^2.
+ \label{geo:four-selection}
+\end{equation}
+Its proof is given below, including the nearest-facet estimates.
+Finally,
+\[
+ \max_{|n|=1}\{n\cdot w+t|v\times n|\}
+ =\sqrt{|w|^2+t^2|v|^2+2t|w\times v|}.
+\]
+Equations \eqref{geo:four-selection} and \eqref{geo:strict-reserve}
+make the right side of \eqref{geo:pair-cell} nonpositive.
+\end{proof}
+
+% The geometric proof may instead be moved to a technical appendix.
+
+For a reducible POVM, pinching any separating witness to the same
+two-plus-one block leaves its score unchanged and decreases Haar
+support. The corresponding quantum SDP splits into a qubit measurement
+and assignment of the flag. An extreme qubit optimizer has at most
+four rank-one effects, with a balanced set of Bloch rays.
+Complementary slackness gives exactly the contacts in
+Theorem~\ref{geo:flag-theorem}; \eqref{geo:contact-identity} rules out
+separation. Convexity then proves
+\(\Phi_{5/12}(\mathsf K_m)\subseteq\mathcal H_{3,m}\).
+
+\subsection{Why local contact control implies an operational neighborhood}
+\label{geo:op-proof}
+
+The main distinction is between the rays of an external POVM and
+the rays of an optimizing dual contact frame. A compactness argument
+must bridge them. The following estimate supplies the required control.
+
+\begin{lemma}[A negative cusp for pinched clusters]
+\label{geo:cusp}
+Suppose a balanced \(m\)-ray frame is partitioned into \(d\) nonempty
+groups, with actual maximum within-group projector distance
+\(\delta\le1/(2d)\). Suppose
+\[
+ a(I-P_i)\preceq C_i\preceq b(I-P_i),\qquad 0<a\le b.
+\]
+For a constant \(\kappa_d>0\) depending only on dimension,
+\begin{equation}
+ F_d(C)\le9\eta_db\delta^2-\frac{\kappa_da}{m}\delta.
+ \label{geo:negative-cusp}
+\end{equation}
+One may take \(\kappa_3=325/536313\).
+\end{lemma}
+
+\begin{proof}
+For group \(I_a\), form its weighted mean
+\(A_a=T_a^{-1}\sum_{i\in I_a}t_iP_i\). Its largest eigenvalue is
+at least \(1-\delta^2\), and its remaining spectral mass at most
+\(\delta^2\). If \(Q_a=u_au_a^*\) is its principal projector,
+\(\|P_i-Q_a\|\le\sqrt2\delta\).
+Balance gives
+\(\sum_aT_a\lambda_aQ_a=I-S\), where \(S\succeq0\) and
+\(\operatorname{tr}S\le d\delta^2\). No group can have zero total
+weight, since \(I-S\) is invertible.
+The polar decomposition of the matrix with columns
+\(\sqrt{T_a\lambda_a}u_a\) gives an orthonormal basis \(e_a\)
+with \(\|P_i-P_{e_a}\|<3\delta\) in group \(a\).
+Consequently \(e_a^*C_ie_a\le9b\delta^2\).
+
+On basis cell \(R_a\), bound the minimum by the uniform average of
+its group's contacts. Equation \eqref{geo:haar-cell} bounds the
+total integrated average by \(9\eta_db\delta^2\).
+The functional
+\[
+ D\longmapsto\int_{R_a}
+       |z^*Dz-c_d\operatorname{tr}D|\,d\sigma
+\]
+is a norm on Hermitian matrices: if its polynomial vanishes on the
+open cell, then \(D=c_d\operatorname{tr}(D)I\), and
+\(1-dc_d=\eta_d>0\) forces \(D=0\).
+It is therefore at least \(\kappa_d\|D\|\).
+In a group attaining diameter \(\delta\), choose \(i,j\) attaining it.
+The average minus the minimum is at least \(|f_i-f_j|/|I_a|\).
+Moreover, a unit vector in \(\operatorname{ran}P_j\) gives
+\(\|C_i-C_j\|\ge a\delta\). This yields the negative linear term.
+If \(\delta=0\), the balanced frame is a basis refinement, and
+\eqref{geo:haar-cell} gives \(F_d\le0\) directly.
+\end{proof}
+
+\paragraph{Normal cones of the Haar body.}
+Suppose \(W\) supports \(\mathcal H_{d,m}\) at the noisy image of a
+commuting POVM \(Q_i=\sum_a p_i(a)P_a\).
+Its known response equals \(p_i(a)\) on \(R_a\).
+Every positive branch must therefore attain the pointwise maximum
+throughout that cell. Phase variation on interfaces \(p_a=p_b\)
+and variation of coordinate moduli show that selected branches have
+the canonical form
+\begin{equation}
+ W_{i(a)}=M+\lambda P_a,\qquad \lambda\ge0,
+ \label{geo:normal}
+\end{equation}
+and every other branch lies below the envelope
+\[
+ z^*W_jz\le z^*Mz+\lambda\max_a|z_a|^2.
+ \label{geo:envelope}
+\]
+Indeed, the difference of two selected branches must be
+\(\lambda_{ab}(P_a-P_b)\); the cocycle relation makes all
+\(\lambda_{ab}\) equal, with sign fixed by the maximizing cells.
+
+An unused branch is controlled quantitatively at the limiting
+normal. If \(z^*Az\le\max_a|z_a|^2\) for every unit vector, then
+\(A\preceq I\), and averaging over flat-amplitude phase states gives
+\(\operatorname{tr}A\le1\). Thus
+\[
+ (\eta_d+c_d)I-\Phi_{\eta_d}(A)
+ =\eta_d(I-A)+c_d(1-\operatorname{tr}A)I\succeq0.
+\]
+This slack is singular only if \(A=P_a\).
+In fact singularity forces \(\operatorname{tr}A=1\) and \(Av=v\);
+the envelope makes \(v\) a basis vector \(e_a\).
+The nonnegative function \(z^*(P_a-A)z\) on \(R_a\) has zero
+integral by \eqref{geo:haar-cell}. It vanishes on an open set,
+so \(A=P_a\).
+
+\paragraph{Support reduction for qutrits.}
+Every supporting witness at the noisy image of a point of
+\(\mathsf K_m\) also supports at a commuting POVM.
+First take a reducible point and pinch \(W\) to its block,
+obtaining \(\overline W\). The unchanged score, the flagged theorem,
+and convexity of Haar support give
+\[
+ h(W)=\operatorname{score}_{\overline W}(E)
+ \le q(\overline W)\le h(\overline W)\le h(W).
+\]
+All inequalities are equalities. Choose an extreme qubit optimizer
+for \(\overline W\). If it has one or two rays it is commuting.
+If an active contact coefficient \(a_i=0\), that contact annihilates
+the entire qubit block and a single block effect is also optimal.
+In the remaining three- or four-ray case, all \(a_i>0\) and the rays
+are distinct. The strict reserve \eqref{geo:strict-reserve} makes
+the pair-cell bound strictly negative, since \(v\ne0\) and
+\(\sqrt{|w|^2+t^2|v|^2+2t|w\times v|}\) is strictly increasing in \(t>0\).
+Equation \eqref{geo:contact-identity} would give \(h>q\), a contradiction.
+A commuting optimizer therefore exists; as it is fixed by the
+pinching, it has the same score for the original \(W\).
+For a convex combination of reducible POVMs, a vanishing support
+deficit forces every positive component's deficit to vanish.
+This proves the reduction for \(\mathsf K_m\).
+For \(\mathsf P_{d,m}\), the same reduction follows immediately
+by taking a commuting component.
+
+\begin{proof}[Proof of Theorem~\ref{geo:operational}]
+Both center sets are compact and closed under merging labels and
+deleting zero effects. We argue by induction on \(m\), beginning
+with the single effect \(I\).
+If nonsimulable \(E^n\) approached a center point \(E^0\), choose
+separating witnesses \(W^n\), subtract their common matrix average,
+and normalize their tuple norm to one. A subsequence converges to
+a nongauge support \(W^0\) at \(E^0\).
+The support reduction supplies a commuting support point, so
+\eqref{geo:normal} and the envelope apply.
+
+If \(\lambda>0\), the unique optimal quantum dual at the limit is
+\[
+ Y^0=\Phi_{\eta_d}(M)+\lambda(\eta_d+c_d)I.
+\]
+Feasibility follows from the envelope lemma. The selected basis
+labels force every basis diagonal of an optimal dual to attain its
+minimal value; positivity then kills all off-diagonal entries,
+proving uniqueness.
+Nearby optimal duals \(Y^n\) are bounded and converge to \(Y^0\).
+Every limiting slack is either positive definite or
+\(\eta_d\lambda(I-P_a)\).
+Complementary slackness for optimal quantum POVMs makes the active
+rays fall into \(d\) shrinking clusters about the basis, with
+uniform positive pinching on their kernel complements. Every basis
+group is present, since the active effects sum to \(I\).
+Discarding inactive labels decreases Haar support without changing
+the quantum value. Strict separation and
+\eqref{geo:contact-identity} then force \(F_d(C^n)>0\).
+This contradicts Lemma~\ref{geo:cusp} as the actual cluster diameter
+tends to zero.
+
+If \(\lambda=0\), all selected branches equal \(M\), while
+\(W_j^0\preceq M\). Nongauge normalization provides a strict branch
+\(D=M-W_j^0\succeq0\), \(D\ne0\), for which
+\(\Phi_{\eta_d}(D)\succ0\). Equality of the limiting score forces
+\(E_j^0=0\). For large \(n\), merge that label into a selected branch:
+the quantum score does not decrease, while deleting the witness
+branch does not increase Haar support. Strict separation survives
+with \(m-1\) labels. The limit is a center point with its zero label
+deleted, contradicting induction.
+
+Thus no nonsimulable sequence can approach any point of the compact
+center set. Compactness gives a uniform positive distance for each
+fixed \(d,m\) (or fixed \(m\) in the qutrit case).
+\end{proof}
+
+\begin{corollary}[Exact boundary within the center classes]
+\label{geo:boundary}
+After deleting zero effects, a POVM in \(\mathsf P_{d,m}\), or in
+\(\mathsf K_m\) for \(d=3\), maps to the boundary of the Haar
+postprocessing body at the stated visibility if and only if it is
+a projective refinement of one orthonormal basis:
+\[
+ E_i=s_iP_{a(i)},\qquad s_i>0,\qquad
+ \sum_{i:a(i)=a}s_i=1.
+\]
+Every other such POVM admits a pointwise increase in visibility.
+\end{corollary}
+
+\begin{proof}
+The Haar body is full dimensional in the affine space \(\sum A_i=I\):
+small bounded quadratic perturbations of constant responses realize
+all small zero-sum Hermitian tuples by the Haar second moment.
+A nontrivial supporting tuple has the normal form above.
+The case \(\lambda=0\) forces a zero effect. When \(\lambda>0\),
+the explicit optimal dual and complementary slackness force each
+nonzero effect into one of its single basis-ray kernels.
+Conversely \(W_i=P_{a(i)}\) supports the image of any projective
+refinement, since both support and score equal \(H_d\).
+For every remaining point, interiority and continuity permit a
+small increase of \(\eta\).
+\end{proof}
+
+\input{proofs/geometry_qutrit_angles.tex}

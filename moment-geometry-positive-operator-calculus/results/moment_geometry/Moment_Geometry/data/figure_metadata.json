@@ -1,0 +1,316 @@
+{
+  "fig01_moment_fibres": {
+    "description": "Exact moment identities; probability-simplex projection loses phase information.",
+    "data": {
+      "singer_weights": [
+        "1/12",
+        "1/12",
+        "1/12",
+        "3/28",
+        "3/28",
+        "3/28",
+        "3/28",
+        "3/28",
+        "3/28",
+        "3/28"
+      ],
+      "witness_expectations": [
+        0,
+        0.2777777777777782,
+        0.2
+      ]
+    },
+    "visual_review": "passed",
+    "review_scope": "Figure inspected visually and checked against its final manuscript caption.",
+    "pdf_sha256": "73b75ed98cb4ec00d259e425481d73fdd769168d0c973990b3becfcf07af5f29",
+    "png_sha256": "e684a0e325cff5cc19f9e57c4335d2689d5d45f7b72df4220654f02604e7805e"
+  },
+  "fig02_cubic_witness": {
+    "description": "Left: exact cubic witness on a projective line. Right: seeded illustration of the proved distance bound, not its proof.",
+    "data": {
+      "random_seed": 20261115,
+      "points": 2500,
+      "minimum_bound_slack": 0.07733429019514143
+    },
+    "visual_review": "passed",
+    "review_scope": "Figure inspected visually and checked against its final manuscript caption.",
+    "pdf_sha256": "0f6e6f936dcc36c277621a6e7734dd4715ec278bd5b533591237ef536d6cc97b",
+    "png_sha256": "69fc92e6bfe548c8ff93fefbbab0e11cca6816c4b4d216c10023775ba6ab8016"
+  },
+  "fig03_tensor_balance": {
+    "description": "Exact support of the three-qutrit Cartan tensor; color magnitudes are illustrative coefficients a=1,b=.65,c=.35. Scalar marginal identity is exact for arbitrary complex a,b,c.",
+    "data": {
+      "coefficients": [
+        1,
+        0.65,
+        0.35
+      ]
+    },
+    "visual_review": "passed",
+    "review_scope": "Figure inspected visually and checked against its final manuscript caption.",
+    "pdf_sha256": "02598e56519fdd6ded7d74294821e5f7136e65341cd9bb798ac489ddb9682b3b",
+    "png_sha256": "41d2ed0bdc6a70da6716b2afbb33b8fb2497734aab32f9cd58bddec92778f55a"
+  },
+  "fig04_jet_geometry": {
+    "description": "Exact monomial jet cost on the degree-24 simplex; projective-dimension threshold formula with harmonic numbers.",
+    "data": {
+      "degree": 24,
+      "monomials": 325,
+      "S_M": 2902,
+      "dimensions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "thresholds": [
+        2.0,
+        1.7142857142857142,
+        1.565217391304348,
+        1.4723926380368098,
+        1.4084507042253522,
+        1.3614262560777959,
+        1.3252197430696417,
+        1.2963796540415409,
+        1.2727986980189685,
+        1.2531135713284722,
+        1.2364010883184182,
+        1.2220125713294225,
+        1.2094781023037935,
+        1.1984484194978053,
+        1.188658203152273,
+        1.1799020664114424,
+        1.1720183846696355,
+        1.1648781214278154,
+        1.1583769311572398,
+        1.1524294659716596,
+        1.146965197689581,
+        1.1419253028073348,
+        1.1372603064289526,
+        1.132928276925715,
+        1.128893426121015,
+        1.1251250120952128,
+        1.1215964705978072,
+        1.118284721109162,
+        1.1151696077213438,
+        1.1122334450956544
+      ]
+    },
+    "visual_review": "passed",
+    "review_scope": "Figure inspected visually and checked against its final manuscript caption.",
+    "pdf_sha256": "74245dd8171f361a67edfca08fa341e513742f53b9f80bf4603c632db1f7c906",
+    "png_sha256": "57a53bd20499aa519b3e894b804bb8bfd276819b24fc2bb3a46924217e9ce8f3"
+  },
+  "fig05_singer_cover": {
+    "description": "Left is an abstract display of the ten labelled rays, not a Euclidean embedding of their projective incidence. Middle gives the exact cover construction. Right draws the shape of the Eisenstein lattice; its scale is fixed by Gram matrix [[14,-7],[-7,14]].",
+    "data": {},
+    "visual_review": "passed",
+    "review_scope": "Figure inspected visually and checked against its final manuscript caption.",
+    "pdf_sha256": "15be89ae810194b6ce14ba859d274fd6ba2693e97cce4d31de83356b0ece6ca2",
+    "png_sha256": "45a2e19d22e5e595ff299a8519d3b7dc220fc5ce01e173e356c8146acaaa204b"
+  },
+  "fig06_gram_trees": {
+    "description": "Exact finite partition enumeration with integer directed-tree cofactors; no sampled spectral data.",
+    "data": {
+      "tree_histograms": {
+        "4": {
+          "1": 14,
+          "2": 1
+        },
+        "5": {
+          "1": 42,
+          "2": 10
+        },
+        "6": {
+          "1": 132,
+          "2": 66,
+          "3": 4,
+          "4": 1
+        },
+        "7": {
+          "1": 429,
+          "2": 364,
+          "3": 56,
+          "4": 28
+        }
+      }
+    },
+    "visual_review": "passed",
+    "review_scope": "Figure inspected visually and checked against its final manuscript caption.",
+    "pdf_sha256": "fc2683b2ff591e2f9f399e727182e41e6f42f833f09d582ff7b1b4fd6e797df5",
+    "png_sha256": "8465a8bb4ba875385e6a932155f98adf0463b4060df5d3d7cd03ab2a437c4b1b"
+  },
+  "fig07_ordered_heaps": {
+    "description": "Exact order-polynomial/Bernoulli coefficients and the singularity radius 2 sin(pi/m) of the root-linear logarithmic response.",
+    "data": {
+      "bernoulli": [
+        "1/2",
+        "1/6",
+        "0",
+        "-1/30",
+        "0",
+        "1/42",
+        "0",
+        "-1/30",
+        "0",
+        "5/66",
+        "0",
+        "-691/2730",
+        "0",
+        "7/6",
+        "0",
+        "-3617/510"
+      ],
+      "radius_at_128": 0.049082457045824576
+    },
+    "visual_review": "passed",
+    "review_scope": "Figure inspected visually and checked against its final manuscript caption.",
+    "pdf_sha256": "b779657a2329d75bf668d67fe6883752e93515517124a258192dc797581fbdd3",
+    "png_sha256": "6cbc6f4e2a8f7f1bb48207ded454cce40c919c24a54d30cb5d47bd01da934d04"
+  },
+  "fig08_modular_clocks": {
+    "description": "Exact normalized power-response filters and Fourier densities. Right compares exact scalar errors with the proved R^-1 and R^-3 local-commutator upper bounds.",
+    "data": {
+      "r_values": [
+        0.15,
+        0.35,
+        0.6,
+        0.85
+      ],
+      "frequency": 4.0,
+      "tau": 1.0
+    },
+    "visual_review": "passed",
+    "review_scope": "Figure inspected visually and checked against its final manuscript caption.",
+    "pdf_sha256": "3ba658ea520b104121f9866d773cf34ebd4a424bc57200477b7b6d805217a074",
+    "png_sha256": "41be4b97ec3dd0d09cbc1d44f54b47de168218a2888d161234ab1a2d12ad5107"
+  },
+  "fig09_quantum_networks": {
+    "description": "Schematic core-wire architecture, exact two-port bound, and its homogeneous-degree coarse-gap consequence. Values below zero are displayed as zero (no positive certificate), not as a claim of a zero physical gap.",
+    "data": {
+      "degrees": [
+        3,
+        10,
+        31
+      ],
+      "half_wire_lengths": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "visual_review": "passed",
+    "review_scope": "Figure inspected visually and checked against its final manuscript caption.",
+    "pdf_sha256": "e939793498cf0be5b7b9ee0cbc7f8bf2333004cfe274733ebbe35a8e67110b2c",
+    "png_sha256": "da21514963276855ec5aa434698225c6bcd9e5e989089e6a873384d2bdb8099c"
+  },
+  "fig10_measurement_cells": {
+    "description": "Exact Haar probability-simplex cells and their qutrit operator moments. Each output effect has eigenvalues 11/18,7/36,7/36.",
+    "data": {
+      "visibility": "5/12",
+      "eigenvalues": [
+        "11/18",
+        "7/36",
+        "7/36"
+      ]
+    },
+    "visual_review": "passed",
+    "review_scope": "Figure inspected visually and checked against its final manuscript caption.",
+    "pdf_sha256": "2208f0bb605c01ab342b354393b04b8f9f28738c8d7f23c530583c9e691976cb",
+    "png_sha256": "7f423609eabcbb1b4292642892a47dc0eda4657e15b5ace3843365e2ceafd70f"
+  },
+  "fig11_multipoles": {
+    "description": "Exact spherical-harmonic restrictions n_z and (3 n_z^2-1)/2 on the unit disk. The spin-one degree/body diagram is truncated at degree4; each active site contributes degree1 or2. Time reversal removes odd total degree, not odd body level.",
+    "data": {},
+    "visual_review": "passed",
+    "review_scope": "Figure inspected visually and checked against its final manuscript caption.",
+    "pdf_sha256": "a324156b6e1ce66512795b50a074bec545a80a38c276c6a16da490edbee648c7",
+    "png_sha256": "92820847c7c50b403b4b0e6e85112151b33c6e1ce032dc675e05079e13361c2f"
+  },
+  "fig12_information_clocks": {
+    "description": "Exact Bessel score family, beta mixture of operator means, and positive one-node Gaussian/Radau approximants. Shaded scalar spectral-multiplier bracket induces fixed-state information-matrix order, not CP-map order.",
+    "data": {
+      "gauss_rule": {
+        "nu": 0.5,
+        "head": 0,
+        "order": 1,
+        "kind": "gauss",
+        "drift": 0.0,
+        "scales": [
+          0.06666666666666667
+        ],
+        "shapes": [
+          2.5
+        ],
+        "error_coefficient": 0.00010582010582010582,
+        "derivative_order": 6,
+        "scalar_moment_residual": 0.0
+      },
+      "radau_rule": {
+        "nu": 0.5,
+        "head": 0,
+        "order": 1,
+        "kind": "radau",
+        "drift": 0.05,
+        "scales": [
+          0.09523809523809523
+        ],
+        "shapes": [
+          1.225
+        ],
+        "error_coefficient": 1.2597631645250694e-06,
+        "derivative_order": 8,
+        "scalar_moment_residual": 0.0
+      }
+    },
+    "visual_review": "passed",
+    "review_scope": "Figure inspected visually and checked against its final manuscript caption.",
+    "pdf_sha256": "dc6a3814706b11f6f3d2705a172bedfe4be94127e7e57ab1d711ee36cfb3f00a",
+    "png_sha256": "33e939b546d6982bb31ada30234d9b4112686cfef3bf11165042a452795b7b95"
+  },
+  "fig13_toric_transport": {
+    "description": "Exact finite assignment geometry for degree6 on CP2, deterministic rational squared-modulus points p=(alpha+1)/9, and the analytical angular-mean interval width log(N)/k+log(N!)/(kN). This concerns the angular mean, not each phase configuration or an attractive exponential moment.",
+    "data": {
+      "degree": 6,
+      "dimension": 2,
+      "N": 28,
+      "point_rule": "p=(alpha+1)/(m+q+1)",
+      "assignment": "identity, certified by the monotonicity of log(alpha+1)",
+      "error_formula": "log(N)/k+log(N!)/(k*N)"
+    },
+    "visual_review": "passed",
+    "review_scope": "Figure inspected visually and checked against its final manuscript caption.",
+    "pdf_sha256": "1336340a33c58c8d63d47b32cf7deccf9c05a924efeba6b102a3d5ac5298af06",
+    "png_sha256": "9286939d22dda6acfa5c381e301ca94a70d8ea303e52c558848df0cd04445d26"
+  }
+}

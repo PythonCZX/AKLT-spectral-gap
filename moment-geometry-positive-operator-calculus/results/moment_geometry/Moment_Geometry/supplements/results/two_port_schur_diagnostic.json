@@ -1,0 +1,145 @@
+{
+  "adversarial": {
+    "status": "all numerical tests passed; not a universal proof",
+    "trials": 24,
+    "seed": 2026111507,
+    "largest_angle_bound_ratio": 0.0942509461571319,
+    "minimum_angle_bound_slack": 5.555884871788166e-05,
+    "maximum_reference_whitening_error": 1.2766636500058532e-14,
+    "maximum_direct_projection_vs_Schur_error": 1.7405807088070706e-16,
+    "record_worst_cases": [
+      {
+        "trial": 0,
+        "core_mode": "pure",
+        "retained_dimension": 1,
+        "reference_ranks": [
+          1,
+          1
+        ],
+        "delta_i": 0.005,
+        "delta_j": 0.006,
+        "angle": 6.768770342772225e-07,
+        "bound": 6.134022274951243e-05,
+        "ratio": 0.011034799091638492,
+        "A_norm": 0.003821822152252274,
+        "B_norm": 0.003305818514976964,
+        "Cij_norm": 1.5143923645000745e-05,
+        "reference_whitening_error": 0.0
+      },
+      {
+        "trial": 1,
+        "core_mode": "pure",
+        "retained_dimension": 2,
+        "reference_ranks": [
+          1,
+          1
+        ],
+        "delta_i": 0.005,
+        "delta_j": 0.006,
+        "angle": 3.963511187821068e-06,
+        "bound": 6.134022274951243e-05,
+        "ratio": 0.06461520695818752,
+        "A_norm": 0.004533177116661577,
+        "B_norm": 0.004255862560028255,
+        "Cij_norm": 1.6327660631793192e-05,
+        "reference_whitening_error": 2.3279939625187213e-16
+      },
+      {
+        "trial": 4,
+        "core_mode": "nearly_pure",
+        "retained_dimension": 2,
+        "reference_ranks": [
+          1,
+          1
+        ],
+        "delta_i": 0.005,
+        "delta_j": 0.006,
+        "angle": 4.171533824093276e-06,
+        "bound": 6.134022274951243e-05,
+        "ratio": 0.06800649944047413,
+        "A_norm": 0.0034225383484943494,
+        "B_norm": 0.0048781662222120055,
+        "Cij_norm": 2.089181204630993e-05,
+        "reference_whitening_error": 2.0862889719104477e-16
+      },
+      {
+        "trial": 7,
+        "core_mode": "flat_spectrum",
+        "retained_dimension": 2,
+        "reference_ranks": [
+          2,
+          2
+        ],
+        "delta_i": 0.005,
+        "delta_j": 0.006,
+        "angle": 5.781374031630774e-06,
+        "bound": 6.134022274951243e-05,
+        "ratio": 0.0942509461571319,
+        "A_norm": 0.004606039766987406,
+        "B_norm": 0.005132509917480785,
+        "Cij_norm": 1.4221694571943604e-05,
+        "reference_whitening_error": 3.7151295393207675e-16
+      }
+    ]
+  },
+  "microscopic_AKLT": {
+    "normalization": "one normalized singlet per internal bond; each half-wire scaled by (2/sqrt(3))^ell",
+    "cases": [
+      {
+        "degree": 2,
+        "half_wire_length": 1,
+        "physical_block_dimension": 27,
+        "boundary_dimension": 4,
+        "relative_direct_vs_CP_Gram_error": 1.2810101601798648e-16,
+        "wire_transfer_error": 7.850462293418876e-17,
+        "minimum_Gram_eigenvalue": 0.6666666666666666
+      },
+      {
+        "degree": 3,
+        "half_wire_length": 1,
+        "physical_block_dimension": 108,
+        "boundary_dimension": 8,
+        "relative_direct_vs_CP_Gram_error": 1.1141562069496666e-16,
+        "wire_transfer_error": 7.850462293418876e-17,
+        "minimum_Gram_eigenvalue": 0.4444444444444444
+      },
+      {
+        "degree": 4,
+        "half_wire_length": 1,
+        "physical_block_dimension": 405,
+        "boundary_dimension": 16,
+        "relative_direct_vs_CP_Gram_error": 1.8645488424551818e-16,
+        "wire_transfer_error": 7.850462293418876e-17,
+        "minimum_Gram_eigenvalue": 0.24691358024691357
+      },
+      {
+        "degree": 2,
+        "half_wire_length": 2,
+        "physical_block_dimension": 243,
+        "boundary_dimension": 4,
+        "relative_direct_vs_CP_Gram_error": 1.2819425599545864e-16,
+        "wire_transfer_error": 5.887846720064156e-17,
+        "minimum_Gram_eigenvalue": 0.7407407407407407
+      },
+      {
+        "degree": 3,
+        "half_wire_length": 2,
+        "physical_block_dimension": 2916,
+        "boundary_dimension": 8,
+        "relative_direct_vs_CP_Gram_error": 2.0395282803102857e-16,
+        "wire_transfer_error": 5.887846720064156e-17,
+        "minimum_Gram_eigenvalue": 0.49382716049382724
+      },
+      {
+        "degree": 4,
+        "half_wire_length": 2,
+        "physical_block_dimension": 32805,
+        "boundary_dimension": 16,
+        "relative_direct_vs_CP_Gram_error": 4.904508230764631e-16,
+        "wire_transfer_error": 5.887846720064156e-17,
+        "minimum_Gram_eigenvalue": 0.30483158055174536
+      }
+    ],
+    "all_passed": true
+  }
+}

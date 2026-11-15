@@ -1,0 +1,758 @@
+\section{Attractive determinant large deviations}
+\label{att:entropy-section}
+
+The argument here concerns the actual Slater determinant on $X=\mathbb
+P^2$, with anticanonical degree $3k$, $N=\binom{3k+2}{2}$, and
+$E_k=-(kN)^{-1}\log\|\Delta_k\|^2$. Write $\sigma$ for
+Fubini--Study probability. The unconditioned attractive ensemble is
+\[
+ Z_k(\gamma)=\int e^{\gamma N E_k}\,d\sigma^{\otimes N},
+ \qquad P_{k,\gamma}=Z_k(\gamma)^{-1}e^{\gamma N E_k}\sigma^{\otimes N}.
+\]
+The scalar inverse-section estimate ensures finiteness for $0\le\gamma<1/3$.
+The proof first obtains the product-law mean energy from the established
+repulsive pressure, using a uniform two-sided estimate at zero coupling.
+Compact full conditional densities then give the entropy and energy
+limits for the actual attractive tilted Gibbs laws. No generic
+microscopic compactness hypothesis is imposed on arbitrary symmetric
+laws, and no attractive pressure statement is used as an input.
+
+\subsection{Entropy is determined by coarse types when conditionals are compact}
+
+Let $(X,\sigma)$ be a compact probability space with an increasing
+sequence $\mathcal A_j$ of finite Borel partitions generating its Borel
+sigma field modulo null sets. Cells of positive probability suffice.
+Let $\mathbb E_j$ denote conditional expectation onto $\mathcal A_j$.
+
+\begin{lemma}[An exact coarse-graining bound]
+\label{att:coarse-entropy}
+Let $P_N\ll\sigma^{\otimes N}$ have finite relative entropy, and let
+$f_{i,x_{-i}}$ be its full one-coordinate conditional density relative
+to $\sigma$. Denote the law of its cell labels by $P_N^{(j)}$ and the
+reference cell probabilities by $\sigma_j$. Then
+\begin{align}
+ 0&\le D(P_N\Vert\sigma^{\otimes N})-
+               D(P_N^{(j)}\Vert\sigma_j^{\otimes N})\\
+ &\le\sum_{i=1}^N\mathbb E_{P_{N,-i}}
+    \left[\operatorname{Ent}_\sigma(f_{i,x_{-i}})
+              -\operatorname{Ent}_\sigma(\mathbb E_j f_{i,x_{-i}})\right].
+ \label{att:coarse-bound}
+\end{align}
+Here $\operatorname{Ent}_\sigma(f)=\int f\log f\,d\sigma$ for a
+probability density $f$.
+\end{lemma}
+
+\begin{proof}
+Condition on the entire cell-label vector $Y$. Relative entropy chain
+rule identifies the difference on the left with
+\[
+ \mathbb E_Y D\left(P_N(\cdot\mid Y)\,
+       \middle\Vert\,\bigotimes_i\sigma(\cdot\mid Y_i)\right).
+\]
+Tensorize relative entropy inside this product of cells, using full
+one-coordinate conditionals. Given $x_{-i}$, the conditional law of
+$x_i$ within cell $A$ has density $f_i/\int_Af_i\,d\sigma$ against
+$\sigma|_A$. Averaging the relative entropy to normalized $\sigma|_A$
+over its cell probabilities gives exactly
+\[
+ \int f_i\log\frac{f_i}{\mathbb E_j f_i}\,d\sigma
+ =\operatorname{Ent}_\sigma(f_i)-
+                       \operatorname{Ent}_\sigma(\mathbb E_jf_i).
+\]
+This proves the upper bound. The lower bound is data processing.
+\end{proof}
+
+\begin{lemma}[Entropy chaos from compact conditional densities]
+\label{att:entropy-chaos}
+Suppose $P_N$ is exchangeable and every full one-coordinate conditional
+density belongs to a fixed relatively compact subset $\mathcal F$ of
+$L^r(\sigma)$ for some $r>1$. Suppose the empirical laws converge to
+$\Gamma\in\mathcal P(\mathcal P(X))$, and partition boundaries have
+zero mass for the limiting first marginal. Then
+\[
+ \lim_N\frac1N D(P_N\Vert\sigma^{\otimes N})
+ =\int D(\mu\Vert\sigma)\,d\Gamma(\mu).
+\]
+In particular, if empirical measures converge in probability to
+$\sigma$, the relative entropy per particle tends to zero.
+\end{lemma}
+
+\begin{proof}
+The operators $\mathbb E_j$ converge strongly to the identity in
+$L^r$ and are contractions. Convergence is uniform on the compact
+closure of $\mathcal F$. The entropy functional is continuous on
+$L^r$-convergent families of densities; uniform $L^r$ control supplies
+uniform integrability of $f\log f$. Consequently
+\[
+ \epsilon_j:=\sup_{f\in\mathcal F}
+ [\operatorname{Ent}_\sigma(f)-
+       \operatorname{Ent}_\sigma(\mathbb E_jf)]\longrightarrow0.
+\]
+By Lemma~\ref{att:coarse-entropy}, the fine and coarse entropies per
+particle differ by at most $\epsilon_j$.
+
+For a fixed partition with $M$ cells, exchangeability makes the label
+law uniform on every type class. If $\nu_N$ is the vector of empirical
+cell frequencies, the method-of-types bounds give
+\[
+ \left|N^{-1}D(P_N^{(j)}\Vert\sigma_j^{\otimes N})
+               -\mathbb E D(\nu_N\Vert\sigma_j)\right|
+ \le \frac{2M\log(N+1)}N.
+\]
+One can obtain this directly from the entropy of the type law, which
+is at most $M\log(N+1)$, and the corresponding upper and lower bounds
+on multinomial type probabilities. The limiting frequencies have law
+$(\mu\mapsto\mu_j)_*\Gamma$. Relative entropy on this finite simplex
+is continuous and bounded, so the last expectation converges to
+$\int D(\mu_j\Vert\sigma_j)\,d\Gamma$.
+Let $N\to\infty$ and then $j\to\infty$. The finite-partition
+entropies increase to full relative entropy. Tensorization also
+bounds the original entropy per particle by
+$\sup_{f\in\mathcal F}\operatorname{Ent}_\sigma(f)<\infty$,
+so the limiting integral is finite. Monotone convergence completes
+the proof.
+\end{proof}
+
+\subsection{The conditional compactness supplied by complex geometry}
+
+\begin{lemma}[Compact attractive conditionals]
+\label{att:conditional-compactness}
+Fix $0\le\gamma<1/3$. The full one-coordinate conditional densities
+of $P_{k,\gamma}$, for all $k$, lie in a fixed compact subset of
+$L^r(\sigma)$ for some $r>1$.
+\end{lemma}
+
+\begin{proof}
+For almost every retained tuple the determinant in the remaining
+coordinate is a nonzero section $s$ of $\mathcal O(3k)$. Put
+\[
+ u=k^{-1}\log\|s\|^2-\sup_X k^{-1}\log\|s\|^2.
+\]
+Then $u$ is $\omega_0$-plurisubharmonic and $\sup u=0$. Its
+conditional density is $e^{-\gamma u}/\int e^{-\gamma u}\,d\sigma$.
+The normalized $\omega_0$-psh family is compact in $L^1$.
+For every $0\le a<1/3$ it satisfies the uniform exponential estimate
+\[
+ \int e^{-a u}\,d\sigma\le C_a,
+ \qquad C_a=\frac2{(1-3a)(2-3a)}.
+\]
+Choose $1<r<r'$ with $r'\gamma<1/3$. Every sequence of normalized
+potentials has an $L^1$-convergent subsequence and, on a further
+subsequence, pointwise almost-everywhere convergence. The exponential
+bound at $r'\gamma$ and Vitali's theorem imply convergence of
+$e^{-\gamma u}$ in $L^r$. Its integral is at least one, and
+normalization is continuous in $L^r$. Thus the normalized densities
+have compact closure in $L^r$. This argument includes limits with
+analytic poles. At $\gamma=0$ the family consists of the constant one.
+\end{proof}
+
+The same conclusion holds with a fixed bounded continuous one-body
+field, or with a smooth cylindrical empirical tilt whose one-coordinate
+increments form a fixed compact bounded family. Such an extension
+asserts compactness of conditionals; it does not assert empirical
+concentration or identify a pressure for an arbitrary tilt.
+
+\subsection{A uniform quadratic bound near zero attraction}
+
+\begin{lemma}[A small-coupling exponential estimate]
+\label{att:quadratic-pressure}
+Let $\nu=g\sigma$ be a probability measure with $g\in L^p(\sigma)$
+for some $p>1$. There are $t_0>0$ and $C_\nu<\infty$, independent
+of $k$, such that
+\begin{equation}
+ t\,\mathbb E_{\nu^{\otimes N}}E_k
+ \le \frac1N\log\int e^{tN E_k}\,d\nu^{\otimes N}
+ \le t\,\mathbb E_{\nu^{\otimes N}}E_k+C_\nu t^2,
+ \qquad |t|\le t_0.
+ \label{att:quadratic-bound}
+\end{equation}
+The constants can be chosen uniformly when the exponent $p>1$ and the $L^p$ bound of $g$ are fixed. The assertion includes finiteness of the integrals and mean energies.
+\end{lemma}
+
+\begin{proof}
+Let $p'=p/(p-1)$, and choose $s>0$ with $p's<1/3$. For every
+normalized $\omega_0$-psh $u\le0$, H\"older gives
+\[
+ \int e^{-su}\,d\nu\le
+ M:=\|g\|_p C_{p's}^{1/p'}<\infty.
+\]
+The section inverse estimate can be anchored at any nonzero value,
+since its normalized maximum dominates that value. Applying it
+successively in all particle coordinates shows that the joint
+partition is finite for $t\le s$, at every level. Its logarithmic
+moments are finite on compact subintervals below $s$.
+
+For a full conditional at parameter $t$, set $Y=-u\ge0$ and
+$F(t)=\log\int e^{tY}\,d\nu$. Its relative entropy to $\nu$ is
+$tF'(t)-F(t)$. Jensen and the exponential bound give
+$\mathbb E_\nu Y\le s^{-1}\log M$. Hence, for $|t|\le s/2$,
+\[
+ \int e^{tY}\,d\nu\ge e^{t\mathbb E_\nu Y}\ge M^{-1/2},
+ \qquad
+ F''(t)\le M^{1/2}\int Y^2e^{sY/2}\,d\nu
+                         \le\frac{16M^{3/2}}{s^2}.
+\]
+In particular
+\[
+ 0\le tF'(t)-F(t)=\int_0^t rF''(r)\,dr
+                         \le C_\nu t^2,
+ \qquad C_\nu=8M^{3/2}/s^2.
+\]
+For negative $t$, the integral has negative integrand and reversed
+orientation, so it is still nonnegative. Tensorization of relative
+entropy for the full Gibbs law yields
+$D(P_{k,t}^{\nu}\Vert\nu^{\otimes N})/N\le C_\nu t^2$ for both signs.
+Repulsive integrability follows also from the Hadamard lower bound;
+attractive integrability on a larger interval was already shown.
+
+Write $p_k(t)=N^{-1}\log Z_k^\nu(t)$. On either side of zero,
+\[
+ \frac{d}{dt}\frac{p_k(t)}t
+ =\frac{t p_k'(t)-p_k(t)}{t^2}
+ =\frac{D(P_{k,t}^{\nu}\Vert\nu^{\otimes N})}{Nt^2}
+ \in[0,C_\nu].
+\]
+Integrating between zero and $t$, and multiplying by $t$, gives
+\[
+ 0\le p_k(t)-t\mathbb E_{\nu^{\otimes N}}E_k\le C_\nu t^2
+\]
+for both signs, since both integration orientation and multiplication
+reverse when $t<0$. Differentiability at zero follows from the two-sided
+exponential neighborhood. This proves the claimed estimate with
+$t_0=s/2$.
+\end{proof}
+
+\begin{theorem}[Product-law mean energy from repulsive pressure]
+\label{att:general-product-energy}
+For every smooth strictly positive probability density $\nu$ on
+$\mathbb P^2$,
+\[
+ \mathbb E_{\nu^{\otimes N_k}}E_k\longrightarrow E(\nu).
+\]
+Together with the deterministic lower comparison, this convergence
+also holds in $L^1$.
+\end{theorem}
+
+\begin{proof}
+For $a>0$, the established unrestricted repulsive determinant LDP
+\cite[Theorems 1.1 and 5.7]{prob_berman2017}, with volume reference
+$\nu$ and the original metric, gives
+\[
+ -\frac1{aN}\log Z_k^\nu(-a)\longrightarrow
+ J_\nu(a):=\inf_\mu\left[E(\mu)+\frac1a D(\mu\Vert\nu)\right].
+\]
+The energy normalization is unchanged by changing the volume reference;
+only the entropy reference changes. If the repulsive theorem is stated
+using a $\nu$-orthonormal basis, its Gram matrix relative to the fixed
+$\sigma$-orthonormal basis has spectrum between $\min g$ and $\max g$.
+The resulting additive change of $E_k$ is $O(k^{-1})$, so its limit
+is unchanged. Lemma~\ref{att:quadratic-pressure}
+gives, for $0<a\le t_0$,
+\[
+ J_\nu(a)\le\liminf_k\mathbb E_{\nu^N}E_k
+ \le\limsup_k\mathbb E_{\nu^N}E_k\le J_\nu(a)+C_\nu a.
+\]
+We claim $J_\nu(a)\to E(\nu)$ as $a\downarrow0$. The upper bound
+uses $\mu=\nu$. Approximate minimizers have relative entropy at most
+$a(E(\nu)+o(1))$, since $E\ge0$, so they converge in total variation
+to $\nu$. Lower semicontinuity of $E$ gives the reverse limiting
+inequality. Letting $a\downarrow0$ proves convergence of the means.
+For the $L^1$ statement, empirical convergence to $\nu$ and the
+continuous-envelope lower comparison make negative deviations from
+$E(\nu)$ tend to zero in probability. They are bounded by
+$E(\nu)+\log N/k$. Convergence of the means then forces both deviations
+to vanish in mean.
+\end{proof}
+
+The theorem is obtained from the repulsive sign, not from an assumed
+negative-temperature limit. Its proof applies more generally whenever
+the polarized manifold has the stated uniform normalized-section
+exponential estimate and the repulsive determinant pressure theorem.
+The separate toric assignment formula gives a direct constructive
+calculation of the same product mean energy on invariant reference laws.
+
+\subsection{Where the limiting empirical densities lie}
+
+Fix $0<\gamma<1/3$. Let $\Phi$ be Lipschitz on $\mathcal P(X)$ for
+the Wasserstein distance of any fixed smooth metric on $X$, and put
+\[
+ dP_{k,\gamma,\Phi}=Z_{k,\gamma,\Phi}^{-1}
+       e^{N[\gamma E_k-\Phi(L_N)]}\,d\sigma^N.
+\]
+Finiteness and finite relative entropy follow from the strict scalar
+integrability margin and boundedness of $\Phi$.
+
+\begin{lemma}[A compact class for all directing densities]
+\label{att:directing-class}
+For these laws there are $r>1$, $c>0$, and a compact convex set
+$\mathcal K\subset L^r(\sigma)$ of probability densities, all at least
+$c$, with the following properties. Every full one-coordinate conditional
+density belongs to $\mathcal K$. Every subsequential empirical limit
+$\Pi$ is supported on the measures $g\sigma$ with $g\in\mathcal K$.
+Weak probability topology and $L^r$ topology coincide on this compact set.
+\end{lemma}
+
+\begin{proof}
+The conditional exponent consists of $-\gamma u(x)$ as in
+Lemma~\ref{att:conditional-compactness}, plus
+\[
+ -V_{k,x_{-i}}(x),\qquad
+ V_{k,x_{-i}}(x)=N[\Phi(L_N^x)-\Phi(L_N^{x_*})].
+\]
+If $L$ is a Lipschitz constant of $\Phi$, these functions have absolute
+value at most $L\operatorname{diam}X$ and Lipschitz constant at most
+$L$, independently of all parameters. Their closure is compact in
+$C(X)$ by Arzel\`a--Ascoli. The psh compactness proof therefore makes
+the normalized conditional densities a relatively compact family in
+$L^r$, for any $r>1$ with $r\gamma<1/3$. Their normalization is at
+most $e^{L\operatorname{diam}X}C_\gamma$, whereas their numerators are
+at least $e^{-L\operatorname{diam}X}$. Hence the common lower bound
+$c=e^{-2L\operatorname{diam}X}/C_\gamma$ holds.
+
+Take the closed convex hull in $L^r$. It is compact: approximate the
+original compact set by a finite epsilon-net; its convex hull lies in
+the epsilon-neighborhood of a compact finite-dimensional polytope.
+The norm bound, normalization, and positive lower bound persist.
+
+Here is an elementary support argument, avoiding any assumption about
+conditional de Finetti limits. For $h\in C(X)$ set
+$b_h=\sup_{g\in\mathcal K}\int hg\,d\sigma$. A one-coordinate
+conditional given previously revealed coordinates is a mixture of full
+conditionals and therefore still belongs to $\mathcal K$. Thus
+$\mathbb E[h(X_i)\mid X_1,\ldots,X_{i-1}]\le b_h$. Hoeffding's
+bounded-increment supermartingale estimate gives
+\[
+ P_{k,\gamma,\Phi}(L_N h>b_h+\epsilon)
+ \le \exp[-2N\epsilon^2/(\operatorname{osc}h)^2]
+\]
+when $h$ is nonconstant. Apply this to a countable dense collection of
+continuous functions. Separation of a compact convex set of probability
+measures shows that every limiting empirical measure belongs to
+$\mathcal K$. Finally the continuous injection
+$\mathcal K\subset L^r\to\mathcal P(X)$ is a homeomorphism onto
+its image, by compactness and the Hausdorff property.
+\end{proof}
+
+\begin{lemma}[Uniform smooth reference approximation]
+\label{att:smooth-net}
+For every $\epsilon>0$, the compact set $\mathcal K$ above has a
+finite set of smooth positive reference densities $g_1,\ldots,g_M$
+such that every $g\in\mathcal K$ is assigned a reference satisfying
+\[
+ D(g\sigma\Vert g_a\sigma)<\epsilon,
+ \qquad |E(g\sigma)-E(g_a\sigma)|<\epsilon.
+\]
+The references can always have the same positive lower bound $c$ and
+a common $L^r$ bound, independently of $\epsilon$.
+\end{lemma}
+
+\begin{proof}
+Apply the heat semigroup of a unitary-invariant metric. It preserves
+probability, positivity, and the lower bound, and contracts $L^r$.
+Strong continuity is uniform on compact sets. Its small-time images,
+together with $\mathcal K$, have compact closure in $L^r$.
+Relative entropy is jointly continuous on this closure: the map
+$g\mapsto\log g$ is continuous into $L^{r'}$ since $g\ge c$, while
+logarithmic growth is controlled by arbitrary small positive powers
+of $g$. H\"older then treats the cross-entropy term, and
+$g\mapsto\int g\log g$ is continuous by $L^r$ integrability.
+
+For energy, normalized psh potentials have a uniform $L^{r'}$ bound
+by their exponential integrability. The energy dual consequently gives
+\[
+ |E(g\sigma)-E(h\sigma)|\le C_{r'}\|g-h\|_r.
+\]
+This bound follows by taking the difference of the two suprema in the
+energy dual and normalizing each test potential to have supremum zero.
+For an explicit relative-entropy estimate, choose
+$1<p\le\min(r,2)$. The elementary bound
+$x\log x-x+1\le C_p|x-1|^p$ for $x\ge0$ gives
+\[
+ D(g\sigma\Vert h\sigma)
+ \le C_p c^{1-p}\|g-h\|_p^p\qquad(h\ge c).
+\]
+A finite net in the heat-smoothed compact set now has the required
+properties.
+\end{proof}
+
+\subsection{The actual tilted Gibbs mean energy}
+
+\begin{theorem}[Entropy and energy limits of attractive Gibbs laws]
+\label{att:gibbs-energy-limit}
+For fixed $0<\gamma<1/3$ and Lipschitz $\Phi$, suppose a subsequence
+of the empirical laws of $P_{k,\gamma,\Phi}$ converges to $\Pi$.
+Then
+\begin{align}
+ \frac1N D(P_{k,\gamma,\Phi}\Vert\sigma^N)
+       &\longrightarrow\int H(\mu)\,d\Pi(\mu),\\
+ \mathbb E_{P_{k,\gamma,\Phi}}E_k
+       &\longrightarrow\int E(\mu)\,d\Pi(\mu).
+ \label{att:gibbs-energy-limit-eq}
+\end{align}
+The statements concern the actual attractive Gibbs laws. They do not
+assert microscopic energy compactness for all symmetric laws of
+bounded entropy and energy.
+\end{theorem}
+
+\begin{proof}
+Lemma~\ref{att:directing-class} and the entropy-chaos lemma give the
+entropy limit. Partition boundaries for the underlying spatial
+partitions may be chosen $\sigma$-null, since the limiting first
+marginal has an $L^r$ density.
+
+Choose finite smooth references from Lemma~\ref{att:smooth-net}.
+Because weak and strong topology agree on $\mathcal K$, finitely many
+weak neighborhoods can be chosen so that every point of
+$\mathcal K$ in a given neighborhood has the prescribed small relative
+entropy and energy error to its reference. Choose radii with
+$\Pi$-null boundaries and make the neighborhoods into disjoint cells
+$A_1,\ldots,A_M$. Add a remaining cell $A_0$ with reference
+$\nu_0=\sigma$; its limiting probability is zero. Put
+$p_{k,a}=P_{k,\gamma,\Phi}(L_N\in A_a)$, and let $R_{k,a}$ be the
+corresponding conditional law whenever its probability is nonzero.
+
+The disjoint-event entropy identity and change of reference give
+\begin{align*}
+ \sum_a\frac{p_{k,a}}N D(R_{k,a}\Vert\nu_a^N)
+ &=\frac1N D(P_{k,\gamma,\Phi}\Vert\sigma^N)
+   +\frac{H((p_{k,a})_a)}N\\
+ &\quad-\sum_a p_{k,a}\mathbb E_{R_{k,a}}
+                    \int\log g_a\,dL_N.
+\end{align*}
+For this fixed finite family every $\log g_a$ is bounded continuous.
+The entropy limit and convergence on the cells imply
+\begin{equation}
+ \limsup_k\sum_a\frac{p_{k,a}}N
+                D(R_{k,a}\Vert\nu_a^N)
+ \le\sum_a\int_{A_a}D(\mu\Vert\nu_a)\,d\Pi(\mu)<\epsilon.
+ \label{att:mixture-entropy}
+\end{equation}
+There is no need for a separate estimate on the exceptional cell:
+its nonnegative entropy term is included in this sum.
+
+The two-sided pressure bound and the entropy variational inequality
+imply, for either sign and a common $0<t\le t_0$,
+\[
+ \left|\mathbb E_{R_{k,a}}E_k-
+                   \mathbb E_{\nu_a^N}E_k\right|
+ \le Ct+\frac{D(R_{k,a}\Vert\nu_a^N)}{Nt}.
+\]
+The constants $C,t_0$ are uniform over every refinement of the net:
+Lemma~\ref{att:quadratic-pressure} uses only the common $L^r$ bound.
+Multiply by $p_{k,a}$ and sum. Theorem~\ref{att:general-product-energy}
+handles the finitely many smooth references, and
+\eqref{att:mixture-entropy} gives
+\[
+ \limsup_k\left|\mathbb E_{P_{k,\gamma,\Phi}}E_k
+                   -\int E(\mu)\,d\Pi(\mu)\right|
+ \le Ct+\epsilon/t+\epsilon.
+\]
+First refine the reference net, then let $t\downarrow0$. This proves
+mean-energy convergence. The argument controls collective logarithmic
+singularities through entropy and conditional regularity; no spectral
+positive-moment bound is substituted for a logarithmic estimate.
+\end{proof}
+
+\subsection{The full Laplace principle and shrinking design constraints}
+
+Set $F_\gamma(\mu)=H(\mu)-\gamma E(\mu)$ for finite-entropy
+probability measures, and $F_\gamma=+\infty$ otherwise. This convention
+never subtracts two infinite quantities: finite entropy implies finite
+energy by the scalar exponential estimate. The following argument also
+applies on an arbitrary positively polarized compact manifold, replacing
+$1/3$ by its normalized-psh integrability threshold $\alpha$.
+
+\begin{lemma}[Good rate and entropy-continuous energy recovery]
+\label{att:good-rate}
+For $0\le\gamma<\alpha$, $F_\gamma$ is lower semicontinuous and
+has compact sublevels. For every $\gamma<a<\alpha$,
+\begin{equation}
+ F_\gamma(\mu)\ge(1-\gamma/a)H(\mu)
+                          -(\gamma/a)\log C_a,
+ \label{att:coercivity}
+\end{equation}
+where $C_a$ bounds $\int e^{-au}\,d\sigma$ over all normalized psh
+potentials. If $\mu_j\to\mu$ weakly and
+$H(\mu_j)\to H(\mu)<\infty$, then $E(\mu_j)\to E(\mu)$.
+\end{lemma}
+
+\begin{proof}
+The case $\gamma=0$ for the first assertion is ordinary entropy lower
+semicontinuity. Take $0<\gamma<\alpha$. Write $\mathcal A$ for
+Aubin--Mabuchi potential energy, extended by $-\infty$ on infinite-energy
+normalized psh functions. The measure energy dual gives
+\begin{equation}
+ F_\gamma(\mu)=
+ \inf_{\substack{u\in\operatorname{PSH}(X,\omega_0)\\\sup u=0}}
+ \left\{D(\mu\Vert e^{-\gamma u}\sigma)
+                       -\gamma\mathcal A(u)\right\}.
+ \label{att:compact-potential-dual}
+\end{equation}
+Here relative entropy against a finite, not necessarily normalized,
+measure $\nu$ means $\int\log(d\mu/d\nu)\,d\mu$ and has the
+variational formula
+\[
+ D(\mu\Vert\nu)=\sup_{f\in C(X)}
+       \left(\int f\,d\mu-\log\int e^f\,d\nu\right).
+\]
+For finite $H(\mu)$, the exponential bound and the entropy inequality
+make $\int|u|\,d\mu$ finite, uniformly over normalized $u$.
+Thus $D(\mu\Vert e^{-\gamma u}\sigma)=H(\mu)+\gamma\int u\,d\mu$,
+and \eqref{att:compact-potential-dual} follows from the energy dual.
+Potentials with $\mathcal A(u)=-\infty$ contribute $+\infty$.
+
+The equality also holds at infinite entropy. To see this and obtain a
+uniform bound, choose $\gamma<a<\alpha$ and put $r=a/\gamma>1$.
+For every bounded continuous $f$, H\"older gives
+\[
+ \int e^{f/r'}e^{-\gamma u}\,d\sigma
+ \le \left(\int e^f\,d\sigma\right)^{1/r'} C_a^{1/r}.
+\]
+Taking the relative-entropy variational supremum therefore yields
+\[
+ D(\mu\Vert e^{-\gamma u}\sigma)
+ \ge (1-\gamma/a)H(\mu)-(\gamma/a)\log C_a.
+\]
+This is valid with infinite values. Since $\mathcal A(u)\le0$ when
+$\sup u=0$, every objective in \eqref{att:compact-potential-dual}
+satisfies the same bound. Consequently the infimum is $+\infty$ when
+$H(\mu)=+\infty$, and \eqref{att:coercivity} follows in all cases.
+
+The normalized psh family is compact in $L^1$, and $\mathcal A$ is
+upper semicontinuous on it, including its value $-\infty$; these are
+standard variational pluripotential inputs \cite{BBGZ2013}.
+If $u_j\to u$ in this compact family, the strict exponent margin
+and Vitali's theorem give
+$e^{-\gamma u_j}\to e^{-\gamma u}$ in $L^1(\sigma)$.
+The displayed entropy variational formula makes $D(\mu\Vert\nu)$
+jointly lower semicontinuous under weak convergence of its two measure
+arguments. Hence the objective in \eqref{att:compact-potential-dual}
+is jointly lower semicontinuous in $(\mu,u)$. Minimizing over the
+compact potential space proves lower semicontinuity of $F_\gamma$:
+choose approximate minimizing potentials along any sequence and extract
+a convergent subsequence. Compactness of $\mathcal P(X)$ then makes
+every free-energy sublevel compact.
+
+Finally choose any fixed $0<\gamma<\alpha$. Under the assumptions
+of the last assertion, lower semicontinuity of $F_\gamma$ gives
+\[
+ H(\mu)-\gamma E(\mu)
+ \le H(\mu)-\gamma\limsup_j E(\mu_j).
+\]
+Thus $\limsup E(\mu_j)\le E(\mu)$; lower semicontinuity of $E$
+gives the reverse lower limit. All energies are finite and uniformly
+bounded by the entropy/exponential estimate. This proves energy recovery.
+\end{proof}
+
+\begin{theorem}[Full attractive determinant Laplace principle]
+\label{att:full-laplace}
+For every fixed $0\le\gamma<1/3$ and every
+$\Phi\in C(\mathcal P(\mathbb P^2))$,
+\begin{equation}
+ \lim_{k\to\infty}\frac1N\log\int
+       e^{N[\gamma E_k-\Phi(L_N)]}\,d\sigma^N
+ =-\inf_{\mu\in\mathcal P(X)}[F_\gamma(\mu)+\Phi(\mu)].
+ \label{att:full-laplace-eq}
+\end{equation}
+The empirical laws of the normalized attractive ensemble satisfy a
+full speed-$N$ LDP with good rate
+$F_\gamma-\inf F_\gamma$.
+\end{theorem}
+
+\begin{proof}
+The case $\gamma=0$ is Sanov. Assume $0<\gamma<1/3$ and first take
+$\Phi$ Lipschitz. Its finite-level Gibbs variational identity is
+\[
+ N^{-1}\log Z_{k,\gamma,\Phi}
+ =\gamma\mathbb E E_k-N^{-1}D(P_{k,\gamma,\Phi}\Vert\sigma^N)
+                         -\mathbb E\Phi(L_N).
+\]
+Every subsequence has an empirically convergent further subsequence.
+Theorem~\ref{att:gibbs-energy-limit} identifies its limit as
+$\int[\gamma E-H-\Phi]\,d\Pi$, at most
+$\sup_\mu[\gamma E(\mu)-H(\mu)-\Phi(\mu)]$.
+For the opposite bound, insert a smooth positive product law $\mu^N$
+in the variational principle and use
+Theorem~\ref{att:general-product-energy}.
+
+Smooth positive references suffice for the variational infimum.
+For any finite-entropy $\mu$, unitary heat averaging gives smooth
+positive $\mu_\epsilon\to\mu$ with $H(\mu_\epsilon)\to H(\mu)$:
+entropy contracts and is lower semicontinuous. Energy also converges,
+since its unitary invariance and convexity give
+$E(\mu_\epsilon)\le E(\mu)$ and its lower semicontinuity gives the
+reverse lower limit. Thus the lower bound extends to all relevant
+measures.
+
+Lipschitz functions are uniformly dense in the continuous functions
+on the compact metric space $\mathcal P(X)$. Both finite pressure and
+the variational limit are 1-Lipschitz in the uniform norm of $\Phi$.
+This proves the assertion for every continuous tilt. The full Laplace
+principle on a compact probability space is equivalent to the stated
+LDP.
+\end{proof}
+
+\begin{theorem}[Full attractive LDP on shrinking design tubes]
+\label{att:design-laplace}
+Fix any design order $t\ge1$ and $0<a<1/2$. Let
+\[
+ \begin{aligned}
+ \mathcal D_t&=\{\mu:M_t(\mu)=I/\tbinom{t+2}{2}\},\\
+ \Omega_N&=\{\|M_t(L_N)-I/\tbinom{t+2}{2}\|_{\rm HS}<N^{-a}\},
+ \qquad Q_N=\sigma^N(\cdot\mid\Omega_N).
+ \end{aligned}
+\]
+For every fixed $0\le\gamma<1/3$ and every continuous empirical tilt,
+\begin{equation}
+ \lim_{k\to\infty}\frac1N\log\int
+ e^{N[\gamma E_k-\Phi(L_N)]}\,dQ_N
+ =-\inf_{\mu\in\mathcal D_t}[H(\mu)-\gamma E(\mu)+\Phi(\mu)].
+ \label{att:design-laplace-eq}
+\end{equation}
+The normalized empirical laws satisfy the full LDP with good rate
+$F_\gamma+\iota_{\mathcal D_t}-\inf_{\mathcal D_t}F_\gamma$.
+\end{theorem}
+
+\begin{proof}
+The reference probability of $\Omega_N$ tends to one by the finite
+moment variance bound, since $N^{1-2a}\to\infty$.
+For the upper bound, fix a closed moment tube of radius $\delta>0$.
+For large $N$ it contains $\Omega_N$. The unrestricted LDP and its
+bounded continuous tilt bound the upper pressure by the variational
+infimum on that fixed tube. Let $\delta\downarrow0$, using compactness
+and lower semicontinuity of $F_\gamma+\Phi$.
+
+For the lower bound take a smooth positive $\mu\in\mathcal D_t$.
+Under $\mu^N$, the event $\Omega_N$ has probability tending to one.
+Theorem~\ref{att:general-product-energy} and its $L^1$ version show
+that conditioning on this event preserves convergence of mean energy
+to $E(\mu)$. Its relative entropy per particle to $Q_N$ tends to
+$H(\mu)$: write out the conditioned product density, use boundedness
+of $\log(d\mu/d\sigma)$, and note that both conditioning logarithms
+are $o(N)$. The variational principle gives the desired lower bound.
+Finally, unitary heat averaging preserves an exact projective design,
+since its moment target is scalar and the heat operation is an average
+of simultaneous unitary pushforwards. It approximates any finite-entropy
+member of $\mathcal D_t$ with converging entropy and energy as above.
+The full continuous-tilt Laplace principle yields the LDP.
+\end{proof}
+
+\begin{corollary}[Polarized manifolds and all projective dimensions]
+\label{att:polarized-extension}
+Let $Y$ be a compact connected complex manifold, let $(L,h)$ be a
+positive Hermitian line bundle with curvature $\omega$, and let $\sigma$
+be a smooth strictly positive probability volume. For all sufficiently large $k$, choose an $L^2(h^k,\sigma)$
+orthonormal basis of $H^0(Y,L^k)$ and let $\Delta_k$ be its determinant,
+$N_k=h^0(Y,L^k)$, and $E_k=-(kN_k)^{-1}\log\|\Delta_k\|^2$.
+Write $E_\omega$ for the pluricomplex measure energy with potential
+energy normalized to vanish at zero, and put
+\[
+ \alpha(\omega,\sigma)=\sup\left\{a>0:
+ \sup_{\substack{u\in\operatorname{PSH}(Y,\omega)\\ \sup u=0}}
+             \int e^{-au}\,d\sigma<\infty\right\}.
+\]
+For every fixed $0\le\gamma<\alpha(\omega,\sigma)$, the unrestricted
+attractive determinant ensemble has the full speed-$N_k$ LDP with good
+rate
+\[
+ H_\sigma-\gamma E_\omega-\inf(H_\sigma-\gamma E_\omega).
+\]
+Its Laplace principle holds for every continuous empirical-law tilt.
+For $Y=\mathbb P^q$, $q\ge1$, $L=\mathcal O(q+1)$, and Fubini--Study probability,
+the admissible range is $0\le\gamma<1/(q+1)$; in that range the same
+shrinking-tube conclusion holds for every fixed projective design order,
+with target $I/\binom{q+t}{q}$.
+\end{corollary}
+
+\begin{proof}
+The proof above uses only compactness of normalized psh functions,
+a uniform exponential estimate below $\alpha$, and the repulsive determinant
+pressure theorem. These hold for the stated polarized manifold; the
+repulsive input is \cite[Theorem 5.7]{prob_berman2017}. The good-rate
+argument of Lemma~\ref{att:good-rate} uses only the same integrability
+margin and the basic potential-energy duality of \cite{BBGZ2013}.
+For clarity, there is no hidden homogeneity assumption in the reference
+approximation. Use a smooth uniformly elliptic diffusion whose invariant
+volume is $\sigma$; its heat semigroup contracts all $L^p(\sigma)$,
+preserves positive lower bounds, and has a positive smooth kernel.
+It therefore supplies the finite smooth reference nets. For an arbitrary
+finite-entropy density its heat regularizations have converging entropy,
+and their energies converge by Lemma~\ref{att:good-rate}. This replaces
+the unitary averaging argument without imposing homogeneity on $Y$. The lower
+Hadamard bound is $E_k\ge-o(1)$, since the smooth positive Bergman kernel
+has polynomial growth in $k$. Every other step is unchanged. This proves
+the unrestricted assertion; no moment constraint on a general manifold
+is assumed here.
+
+On projective space put $D=q+1$. The normalized psh threshold is
+$1/D$, as can also be seen directly. Choose a maximum point of $u$ and
+disintegrate Haar measure along projective lines through it. The
+conditional radial density on a line is $q(1-x)^{q-1}dx$, bounded by
+$q$ times line Haar density. The Riesz representation of $u/D$ on the
+line, normalized at the maximum point, and Jensen's inequality give
+\[
+ \int_{\mathbb P^q}e^{-au}\,d\sigma\le\frac{q}{1-Da},
+ \qquad 0\le a<1/D.
+\]
+Indeed a unit linear form has squared modulus uniform on $[0,1]$ under
+line Haar measure. Conversely $u=D\log|z_0|^2$ has supremum zero and
+fails exponential integrability at $a=1/D$, proving sharpness of this
+one-coordinate threshold. Finally unitary heat averaging on
+$\mathbb P^q$ preserves each exact projective design. The proof of
+Theorem~\ref{att:design-laplace} applies verbatim in every dimension.
+\end{proof}
+
+\begin{corollary}[Zero pressure and the unique Haar equilibrium]
+\label{att:haar-minimizer}
+On $\mathbb P^q$ with anticanonical polarization, let
+$0\le\gamma<1/(q+1)$. Then
+\[
+ \lim_k N_k^{-1}\log Z_{k,\gamma}=0,
+ \qquad H(\mu)-\gamma E(\mu)\ge0,
+\]
+and equality in the second assertion holds exactly for $\mu=\sigma$.
+The unconditioned attractive rate is therefore $F_\gamma$ itself.
+For every fixed-order shrinking design tube the rate is
+$F_\gamma+\iota_{\mathcal D_t}$, and its unnormalized pressure is also
+zero.
+\end{corollary}
+
+\begin{proof}
+Corollary~\ref{ac:tubes} gives empirical convergence to $\sigma$.
+The entropy and energy limit in Theorem~\ref{att:gibbs-energy-limit},
+with the same proof on projective space of every dimension as explained
+in Corollary~\ref{att:polarized-extension}, then gives
+\[
+ N^{-1}D(P_{k,\gamma}\Vert\sigma^N)\longrightarrow0,
+ \qquad \mathbb E_{P_{k,\gamma}}E_k\longrightarrow E(\sigma)=0.
+\]
+The finite Gibbs identity yields zero pressure. The full Laplace principle
+therefore identifies $\inf F_\gamma=0$, attained by $\sigma$.
+For $\gamma=0$ these assertions are also immediate from entropy.
+
+To prove uniqueness, let $\mu\ne\sigma$. Choose a real smooth $f$
+with $\mu(f)\ne\sigma(f)$, and a weak neighborhood $U$ of $\mu$
+on which $|\nu(f)-\sigma(f)|>s$ for some $s>0$. The exponential
+bound of Theorem~\ref{ac:concentration} gives
+$P_{k,\gamma}(L_N\in U)\le2e^{-cN}$ with $c>0$.
+The LDP lower bound on this open set gives
+$-\inf_U F_\gamma\le-c$. In particular $F_\gamma(\mu)\ge c>0$.
+The use of the exponential estimate is essential: convergence in
+probability alone would not imply strict positivity of the rate away
+from $\sigma$. Finally $\sigma$ is an exact design of every order,
+so restriction to a design fibre preserves the unique zero and the
+normalization in Theorem~\ref{att:design-laplace}.
+\end{proof}
+
+\paragraph{Range and the next problem.}
+The proven interval is a fixed positive attractive interval,
+$0\le\gamma<1/3$, for the natural complex determinant and for every
+fixed-order shrinking design constraint. It includes all continuous
+empirical-law tilts. The scalar section threshold is used twice:
+for integrability and compactness of attractive conditional densities.
+A result near $\gamma=1$ requires a replacement for that conditional
+compactness mechanism; first-moment macroscopic coercivity alone does
+not provide it. The toric assignment formula separately makes the product energy
+computable by finite optimal assignments, while the polarized extension
+shows that the entropy-and-conditional-compactness mechanism is not
+specific to a homogeneous projective space.

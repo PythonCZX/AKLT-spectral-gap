@@ -1,0 +1,19 @@
+import MomentGeometry.Coherent.Moments
+import MomentGeometry.Coherent.CycleCofactor
+open MomentGeometry.Coherent
+#print axioms MomentGeometry.Coherent.expectedT2_expanded
+#print axioms MomentGeometry.Coherent.expectedT3_cubic_form
+#print axioms MomentGeometry.Coherent.expectedT3_at_unit_density
+#print axioms MomentGeometry.Coherent.expectedT4_density_form
+#print axioms MomentGeometry.Coherent.expectedT4_plane_unit_density
+#print axioms MomentGeometry.Coherent.fourth_moment_at_equal_counts
+#print axioms MomentGeometry.Coherent.tendsto_expectedT2R
+#print axioms MomentGeometry.Coherent.tendsto_expectedT3R
+#print axioms MomentGeometry.Coherent.tendsto_expectedT4R
+#print axioms MomentGeometry.Coherent.tree_one_three
+#print axioms MomentGeometry.Coherent.tree_histogram_four
+#print axioms MomentGeometry.Coherent.tree_one_iff_noncrossing_four
+#print axioms MomentGeometry.Coherent.treeNumber_root_indep_four
+#print axioms MomentGeometry.Coherent.treeNumber_pos_four
+#print axioms MomentGeometry.Coherent.crossingWord_tree
+#print axioms MomentGeometry.Coherent.crossingWord_mult

@@ -1,0 +1,358 @@
+% Publication fragment: standard amsmath/amsthm environments.
+% Bibliography: geometry_references.bib. Audit manifest: geometry_status.txt.
+\section{Projective moment geometry}
+\label{geo:section}
+
+A probability distribution of pure quantum states can be studied through its
+moments, through the algebraic equations satisfied by its support, or through
+the singular potentials against which it is tested. These descriptions retain
+different information. The first moment specifies an average density matrix;
+the second moment specifies all quadratic experiments on matched preparations;
+higher moments can distinguish ensembles whose lower moments coincide. On the
+geometric side, a homogeneous equation of degree \(k\) becomes a positive test
+on \(k\) matched copies. We use this relation between moments and equations
+in both directions.
+
+Throughout this section, \(P_z=zz^*/\|z\|^2\), and \(\sigma\) denotes the
+unitary-invariant probability measure on the relevant complex projective
+space. A projective \(k\)-design is a Borel probability measure satisfying
+\begin{equation}
+ M_k(\mu):=\int P_z^{\otimes k}\,d\mu(z)
+ =\frac{I_{\operatorname{Sym}^k\mathbb C^D}}
+ {\binom{D+k-1}{k}}.
+ \label{geo:design}
+\end{equation}
+Partial trace gives all lower moment identities. The definition allows
+weighted discrete designs and continuous measures. The connection between
+projective second designs and informationally complete measurements is
+standard \cite{geo_scott2006}; the results below exploit the additional
+geometry of a design's support.
+
+\subsection{A sharp first-moment entropy threshold in every dimension}
+\label{geo:threshold}
+
+The geometric energy is the Legendre transform of the Monge--Amp\`ere
+energy. Its normalization matters. Put \(d=D-1\), \(X=\mathbb P^d\),
+\(H=\mathcal O(1)\), \(L=-K_X=DH\), and \(\omega_0=D\omega_{\rm FS}\), with
+\(\int_X\omega_{\rm FS}^d=1\). For a smooth strictly
+\(\omega_0\)-plurisubharmonic potential \(u\), set
+\begin{align}
+ \mathcal E_L(u)
+ &=\frac{1}{D^{d+1}}\sum_{j=0}^{d}
+       \int_Xu\,\omega_u^j\wedge\omega_0^{d-j},
+ &\omega_u&=\omega_0+dd^cu,\\
+ E_L(\mu)
+ &=\sup_u\left\{\mathcal E_L(u)-\int_Xu\,d\mu\right\}.
+ \label{geo:energy}
+\end{align}
+Constants cancel in the second line. A measure is \emph{balanced} if
+\(M_1(\mu)=I_D/D\). Balance is simultaneously a vanishing moment-map
+condition and the assertion that the mean quantum state is maximally mixed.
+
+\begin{theorem}[Sharp balanced entropy threshold]
+\label{geo:sharp}
+Let \(H_D=\sum_{j=1}^D j^{-1}\). The supremum of the coefficients
+\(\gamma\) for which
+\[
+ \operatorname{Ent}(\mu\mid\sigma)\ge\gamma E_L(\mu)-C_\gamma
+\]
+holds uniformly over balanced finite-entropy measures is
+\begin{equation}
+ \Gamma_d^{\rm bal}=\frac{d}{D-H_D}.
+ \label{geo:gamma}
+\end{equation}
+Every strict subcritical coefficient admits such a constant; every strict
+supercritical coefficient fails. In particular, the first-moment constant
+on \(\mathbb P^2\) is \(12/7\). The assertion concerns the supremal
+coefficient and does not require boundedness at the endpoint.
+\end{theorem}
+
+The first values are
+\[
+ 2,\qquad \frac{12}{7},\qquad \frac{36}{23},\qquad
+ \frac{240}{163},\qquad \frac{100}{71}.
+\]
+The harmonic number has a concrete origin: for a uniform random point
+\((x_0,\ldots,x_{D-1})\) of the probability simplex,
+\(\mathbb E\max_i x_i=H_D/D\). The proof converts a balanced allocation of
+monomials to projective-frame points into a statement about singularities,
+then into an entropy inequality. This explains why the same constant
+appears in a combinatorial allocation problem and in pluripotential theory.
+
+\fig{fig04_jet_geometry}{Minimal jet allocation and the sharp balanced
+coefficient. (a) Degree-24 monomials on $\mathbb P^2$ are plotted in their
+normalized exponent simplex. The color is the minimal normalized order
+$1-\max_i\alpha_i/24$ among the three coordinate centers. White boundaries
+separate the maximizing-coordinate regions; ties can be allocated to meet
+equal quotas. The continuum average is $7/18$. (b) The resulting
+anticanonically normalized coefficient
+$\Gamma_d^{\rm bal}=d/(d+1-H_{d+1})$ decreases toward one as complex
+dimension grows. Its projective-plane value is $12/7$; the dashed line marks
+one, not a separately proved microscopic integrability threshold.}{fig:jets}
+
+\paragraph{Balanced jets and their invariant.}
+Choose \(M\) with
+\[
+ N=\binom{M+d}{d}=Dn,\qquad
+ S_M=\sum_{\substack{\alpha\in\mathbb N^D\\|\alpha|=M}}
+                  (M-\max_i\alpha_i).
+\]
+There are arbitrarily large such levels: \(M=1+kD\) suffices. At coordinate
+point \(e_i\), the order of \(z^\alpha\) is \(M-\alpha_i\). A joint jet
+determinant using \(n\) rows at each of the \(D\) centers therefore has
+total order at least \(S_M\). Equality is possible: assign each monomial
+equally among its maximum-exponent centers, obtaining load \(N/D\) by
+symmetry, and use integral max-flow to obtain the same integer quotas.
+
+Collect the minimal-order minors into a nonzero vector \(P_0\) in
+\[
+ \left(\bigotimes_{i=0}^{D-1}
+ \bigwedge^n\bigoplus_{\ell=0}^{M}
+              \operatorname{Sym}^{\ell}(\mathbb C^d)^*\right)_{\deg S_M}.
+\]
+Use the invariant monomial norms \(\|x^\beta\|^2=\beta!/|\beta|!\).
+After twisting by \(\prod_i\det_i^{-S_M/(Dd)}\), this vector has zero
+moment map for \(\operatorname{GL}(d)^D\). A local root operator changes
+one global monomial label, so its image has no overlap with the supported
+assignments. Permutations of tangent coordinates kill the traceless
+diagonal expectations, and permutations of centers distribute the total
+degree equally. Polynomial pullback here is a right action; transposing
+each matrix converts it to a left representation without changing the
+determinant character.
+
+Kempf--Ness, after clearing the rational character by a tensor power,
+supplies a homogeneous semi-invariant \(F\) of some degree \(q>0\):
+\begin{equation}
+ F(P_0)\ne0,\qquad
+ F(\rho(g)P)=\prod_i(\det g_i)^{qS_M/(Dd)}F(P).
+ \label{geo:jet-semi-invariant}
+\end{equation}
+Let \(\mathcal U\subset X^D\) be the locus of \(D\) linearly independent
+rays. Projective transformations act transitively on \(\mathcal U\).
+All lower-total-order quota minors vanish identically there, and the
+semi-invariant in \eqref{geo:jet-semi-invariant} is nonzero there.
+
+\paragraph{From jets to log-canonical thresholds.}
+For a basis \(s_1,\ldots,s_N\) of \(H^0(X,MH)\), form the balanced basis
+ideal on \(X^D\),
+\[
+ \mathfrak b_s=
+ \left\langle\prod_{i=0}^{D-1}\prod_{j\in B_i}s_j(z_i):
+ \bigsqcup_i B_i=\{1,\ldots,N\},\quad |B_i|=n\right\rangle.
+\]
+The log-canonical threshold is the largest exponent for which the inverse
+squared norm of ideal generators is locally integrable. On a resolution
+it is computed by log discrepancy divided by ideal order; discrepancy
+records the Jacobian cost of changing coordinates.
+
+Let \(v_i\) be a monomial valuation on a resolving chart
+\(F_i:y_i\mapsto x_i\), with weights \(a_{i1},\ldots,a_{id}\ge0\), and
+\(J_i=\det dF_i\). Then
+\[
+ A_X(v_i)=\sum_j a_{ij}+v_i(J_i).
+\]
+The chain rule for the minimal jet vector has no surviving nonlinear
+correction: every such term contains a lower-total-order minor, which
+vanishes on \(\mathcal U\). Therefore
+\[
+ \widetilde P=\rho(dF_i)P(F_i),\qquad
+ F(\widetilde P)=
+ \prod_iJ_i^{qS_M/(Dd)}F(P(F_i)).
+\]
+The last factor is a valuation unit. Scaling jet rows by resolving
+coordinates charges their differentiation costs to the same determinant
+character. Some minimal minor consequently satisfies
+\[
+ \text{valuation of minor}+\text{differentiation cost}
+ \le\frac{S_M}{Dd}\sum_i A_X(v_i).
+\]
+Apply its derivatives to the evaluation determinant in independent
+particle variables, and only then identify the \(n\) variables within
+each cluster. Identification can increase valuation. Thus the displayed
+bound gives an upper bound for the relevant product valuation of the
+independent-particle determinant.
+
+Resolve the divisors of all \(s_j\) separately in each factor. The
+pullback of \(\mathfrak b_s\) is a monomial ideal on the product resolution,
+so its threshold is computed by valuations of this product form. Its
+order is at most the determinant order. Hence
+\begin{equation}
+ \operatorname{lct}_{\mathcal U}(\mathfrak b_s)
+ \ge\frac{Dd}{S_M}.
+ \label{geo:basis-lct}
+\end{equation}
+When \(S_M=0\), the ideal is the unit ideal on \(\mathcal U\).
+This statement concerns balanced basis ideals; arbitrary valuations on a
+full particle configuration space need not be product valuations.
+
+\paragraph{The analytic transfer.}
+Fix a compact subset of \(\mathcal U\) and one degree \(M\). Strictly
+below \eqref{geo:basis-lct}, inverse ideal norms are integrable uniformly
+over the compact group of orthonormal section bases, by semicontinuity
+of complex singularity exponents \cite{geo_demailly_kollar2001}.
+For \(Q(z)=\sum_j e^{\lambda_j}|s_j(z)|^2\), expansion gives
+\[
+ \prod_iQ(z_i)^n\ge e^{\sum_j\lambda_j}
+ \sum_B\left|\prod_i\prod_{j\in B_i}s_j(z_i)\right|^2.
+\]
+This yields the quantized local inequality for every
+\(\beta<dMN/S_M\). No estimate uniform in growing \(M\) is used.
+The normalized monomial lattice converges to the uniform simplex law:
+\begin{equation}
+ \frac{S_M}{MN}\longrightarrow\frac{D-H_D}{D}.
+ \label{geo:monomial-limit}
+\end{equation}
+Indeed, integrating
+\[
+ \mathbb P(\max_i x_i>a)
+ =\sum_{j=1}^D(-1)^{j+1}\binom Dj(1-ja)_+^{D-1}
+\]
+gives \(\mathbb E\max_i x_i=H_D/D\).
+
+For the Hilbert map
+\[
+ H_\psi(s,t)=\int_Xh_{\rm FS}^M(s,t)e^{-M\psi}\,d\sigma,\qquad
+ v=\operatorname{FS}(H_\psi),
+\]
+and \(E_M(v)=(MN)^{-1}\log(\det H_0/\det H_\psi)\), one has the exact
+comparison
+\begin{equation}
+ \mathcal E_H(\psi)\le E_M(v),\qquad
+ \int_Xe^{M(v-\psi)}\,d\sigma=N.
+ \label{geo:exact-quantization}
+\end{equation}
+Here \(\mathcal E_H\) uses \(\omega_{\rm FS}\). To justify the exact
+coefficient, apply the direct-image maximum principle of
+\cite[Propositions 4.1--4.2]{geo_zhang2024} along the weak geodesic
+from \(0\) to \(\psi\). The auxiliary bundle \(MH-K_X\) has curvature
+\[
+ M(\pi^*\omega_{\rm FS}+dd^c\psi)+D\pi^*\omega_{\rm FS}\ge0,
+\]
+and the reference Bergman density is exactly \(N\). Differentiating the
+Hilbert/Bergman geodesic comparison at the reference endpoint gives the
+first inequality; the second is the trace of Hilbert orthonormality.
+This exact endpoint-derivative specialization is spelled out again in
+Theorem~\ref{an:lower-comparison}; it is not obtained by setting the error
+parameter to zero in an asymptotic quantization bound.
+
+Given \(\lambda<dD/(D-H_D)\), choose a larger strict-subcritical \(\beta\)
+and a single sufficiently large admissible \(M\) with
+\(\lambda/M+\lambda/\beta\le1\). H\"older's inequality with these weights
+transfers the quantized estimate using \eqref{geo:exact-quantization}.
+Since \(\mathcal E_L(D\psi)=D\mathcal E_H(\psi)\), for
+\(\gamma<d/(D-H_D)\) this gives
+\begin{equation}
+ \gamma\mathcal E_L(u)+\frac1D\sum_{i=0}^{D-1}
+          \log\int_{U_i}e^{-\gamma u}\,d\sigma
+ \le C_{\gamma,U},
+ \label{geo:local-entropy}
+\end{equation}
+whenever the \(U_i\) have disjoint closures with closed product in
+\(\mathcal U\).
+
+\paragraph{Globalization by a determinantal coupling.}
+For unit representatives set
+\[
+ \mathfrak D(z_1,\ldots,z_D)=|\det(z_1,\ldots,z_D)|,\qquad
+ c_D=\frac{D^{D-1}}{(D-1)!}.
+\]
+If \(\nu\) is balanced, \(c_D\mathfrak D^2\nu^{\otimes D}\) has all
+marginals \(\nu\). Assume first that \(\nu\ge\epsilon\sigma\).
+The conditional operator and the derivative of common marginal scaling are
+\[
+ Tf(z)=\frac D{D-1}\left(\int f\,d\nu-
+     \operatorname{tr}\left(P_z\int fP\,d\nu\right)\right),\qquad
+ \mathcal L=I+(D-1)T.
+\]
+On traceless Hermitian matrices put
+\(\mathcal B(M)=D\int\operatorname{tr}(MP)P\,d\nu\). Haar's second
+moment and the variance inequality imply
+\[
+ 0\le\mathcal B\le\left(1-\frac{D\epsilon}{D+1}\right)I.
+\]
+For \(m=\int g\,d\nu\), \(G=\int g(P-I/D)\,d\nu\), the inverse is
+\begin{equation}
+ \mathcal L^{-1}g=g-\frac{D-1}{D}m+
+ D\operatorname{tr}\bigl((I-\mathcal B)^{-1}G\,P\bigr),\qquad
+ \|\mathcal L^{-1}\|_{\infty\to\infty}\le\kappa:=\frac{D+3}{\epsilon}.
+ \label{geo:marginal-inverse}
+\end{equation}
+Truncate the kernel to \(\mathfrak D\ge\delta\), where
+\(\delta=(8\kappa D\sqrt{c_D})^{-1}\). Each marginal loses at most
+\(\eta=c_D\delta^2\). Write the common scaling as \(a=1+h\). Its
+equation is \(-r+\mathcal Lh+R(h)=0\), with \(\|r\|_\infty\le\eta\).
+On \(\|h\|_\infty\le b=2\kappa\eta\),
+\[
+ \operatorname{Lip}(R)\le D\eta+2D(D-1)b,\qquad
+ \kappa\operatorname{Lip}(R)<\frac18.
+\]
+Contraction gives the exact coupling
+\[
+ d\pi=\prod_i a(z_i)c_D\mathfrak D^2
+          \mathbf1_{\{\mathfrak D\ge\delta\}}\,d\nu^{\otimes D}.
+\]
+A fixed finite partition of diameter at most \(\delta/(2D)\) in
+projective chordal distance localizes it into finitely many frame
+products, since the determinant is separately \(1\)-Lipschitz. Each good
+closed product has determinant at least \(\delta/2\), hence disjoint
+coordinate-cell closures. Slight enlargements give the \(U_i\) in
+\eqref{geo:local-entropy}. Conditioning on labels expresses
+\(\nu=\sum_jp_j\nu_j\), where \(\nu_j\) is the equal average of \(D\)
+measures in one frame product, and the number \(J\) depends only on
+\(D,\epsilon\). The finite-mixture entropy identity gives
+\[
+ \sum_jp_j\operatorname{Ent}(\nu_j\mid\sigma)
+ \le\operatorname{Ent}(\nu\mid\sigma)+\log J.
+\]
+Entropy duality in \eqref{geo:local-entropy} and energy convexity now
+prove the required inequality for \(\nu\ge\epsilon\sigma\).
+
+To remove the Haar floor, normalize \(\int u\,d\sigma=0\) and set
+\(J(u)=-\mathcal E_L(u)\). Integration by parts gives
+\(I(u)\ge(1+1/d)J(u)\) and \(c\frac{d}{dc}J(cu)=I(cu)\), so
+\(J(cu)\le c^{1+1/d}J(u)\). Taking \(c=\theta^d\) in the Legendre
+transform proves the extended-valued inequality
+\begin{equation}
+ E_L(\theta\mu+(1-\theta)\sigma)\ge\theta^{d+1}E_L(\mu).
+ \label{geo:dilution}
+\end{equation}
+Entropy convexity transfers the estimate to \(\mu\) with coefficient
+\(\gamma\theta^d\). Letting \(\theta\uparrow1\) proves every
+strict-subcritical case of Theorem~\ref{geo:sharp}.
+
+\paragraph{Explicit sharpness.}
+For \(t>\log2\), set
+\[
+ C_i(t)=\{[z]:1-|z_i|^2\le e^{-t}\},\qquad
+ \mu_t=\frac{\mathbf1_{\cup_i C_i(t)}}{De^{-dt}}\,\sigma.
+\]
+The disjoint caps each have mass \(e^{-dt}\). Their torus and permutation
+symmetries make \(\mu_t\) balanced, and its entropy is \(dt-\log D\).
+For an orthonormal monomial basis and \(r_\alpha=M-\max_i\alpha_i\),
+consider
+\[
+ \psi_t=\frac1M\log\sum_{|\alpha|=M}e^{tr_\alpha}|s_\alpha|^2.
+\]
+Subgeodesic convexity gives
+\(\mathcal E_H(\psi_t)\ge(\log N)/M+tS_M/(MN)\). On cap \(i\),
+\(r_\alpha\le M-\alpha_i\), so the multinomial theorem gives
+\(\psi_t\le(\log N)/M+\log2\). Passing \(M\to\infty\) in energy duality,
+\[
+ E_L(\mu_t)\ge(D-H_D)t-D\log2.
+\]
+Every strict-supercritical coefficient fails along this family. Unitary
+convolution and a small Haar admixture produce smooth positive balanced
+examples with the same limiting obstruction.
+
+\paragraph{Relation to stability theory.}
+Moment-constrained entropy coercivity is the analytic threshold in the
+probabilistic approach to K\"ahler--Einstein metrics with continuous
+automorphisms. In the stated anticanonical normalization,
+\cite[Propositions 3.6 and 3.10]{AndreassonBermanSvensson2026} identify this balanced
+threshold on projective space with the analytic polystability threshold.
+The theorem calculates that analytic quantity; microscopic integrability
+of an interacting particle determinant requires additional information.
+
+\input{proofs/geometry_cubic.tex}
+\input{proofs/geometry_hesse.tex}
+\input{proofs/geometry_singer.tex}

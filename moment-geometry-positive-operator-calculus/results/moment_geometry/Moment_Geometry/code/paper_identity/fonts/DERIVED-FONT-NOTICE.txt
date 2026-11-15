@@ -1,0 +1,7 @@
+Paper Identity Panel: renamed TrueType derivatives of Latin Modern Roman 10 Italic and Bold Italic.
+
+Original authors: B. Jackowski and J.M. Nowacki (on behalf of TeX Users Groups), Copyright 2003-2021. Original license: GUST Font License, included in FONT-LICENSE.txt. Original OTF files are included unchanged.
+
+Changes: mechanical cubic-to-quadratic outline conversion using fontTools Cu2QuPen with maximum approximation error 1 font unit; TrueType table construction; renamed family, full, and PostScript names. Original advances, character mapping, and available OpenType layout tables are retained. These renamed derivatives avoid a CFF/TrueType mismatch in Matplotlib PDF embedding.
+
+Modified files: paperpanel-italic.ttf and paperpanel-bolditalic.ttf. Derived files remain under the GUST Font License. The modified work has maintenance status unmaintained; the original Latin Modern work remains separately maintained by its original authors.

@@ -1,0 +1,76 @@
+\pdfoutput=1
+\documentclass[11pt]{article}
+\input{preamble}
+\title{Moment geometry and positive operator calculus\\[5pt]
+\large Coherent states, algebraic support, and quantitative quantum certificates}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+Positive moment constraints turn ensembles of pure quantum states into a
+tractable meeting point of Hermitian algebra, complex geometry, and probability.
+We develop this perspective together with a completely positive calculus for
+modular response and tensor-network boundary maps. For balanced measures on
+projective space, the optimal entropy--pluricomplex-energy coefficient is
+expressed by harmonic numbers; on the projective plane it is $12/7$.
+Positive moment repair yields smooth constrained equilibria and constrained
+repulsive large deviations. A compactness theorem for conditional densities,
+combined with a two-sided entropy estimate, also proves full attractive
+determinant large deviations below the normalized plurisubharmonic
+integrability threshold. On $\mathbb P^q$ this includes every fixed-order
+shrinking design constraint for $0\le\gamma<1/(q+1)$.
+A positive coherent-moment formula for the finite-energy Hessian also
+yields a nonlinear Green representation of Calabi--Yau potentials by
+random interpolation sections.
+A classification of cubic supports of projective second designs follows by
+turning a determinantal representation into a balanced three-qutrit tensor
+and applying the Cartan theory associated with $E_6$. Its Hesse specialization
+gives a robust ensemble certificate using three matched copies. A second,
+ten-point design produces an explicit K3 surface with transcendental lattice
+$A_2(7)$. For random coherent Gram matrices, directed spanning-tree counts
+give all limiting spectral moments, imply unbounded support at every fixed
+dimension, and explain the emergence of the
+Marchenko--Pastur law as the complex dimension increases.
+A separate Newton-polytope argument turns the phase-averaged Slater energy
+into an explicitly certified relative-entropy assignment problem.
+Anticanonical curvature gives finite-particle concentration and an exact
+first-moment susceptibility.
+On the operator side, signed heap logarithms lead to positive modular
+resummation, with Gamma-clock approximations certified by local nested
+commutators. Completely positive order estimates for primitive wires yield
+dimension-independent core bounds and logarithmic sufficient decoration for
+bounded-degree AKLT networks. An anisotropic contact theorem gives uniform
+neighborhoods of qutrit measurements simulated at visibility $5/12$.
+The paper explains how these constructions
+connect geometric invariant theory, quantum information, random matrices,
+and noncommutative analysis. Reproducible exact-arithmetic certificates,
+illustrated computational tools, and theorem-level dependency records
+accompany the proofs.
+\end{abstract}
+\vspace{5pt}
+\noindent\textbf{Keywords.} Coherent states; projective designs; K\"ahler energy;
+geometric invariant theory; quantum channels; tensor networks; modular response;
+spectral gaps; random Gram matrices; large deviations; optimal transport.
+\clearpage
+\begingroup
+\small
+\setlength{\parskip}{0pt}
+\tableofcontents
+\endgroup
+\clearpage
+\input{sections/introduction}
+\input{sections/coherent_foundations}
+\input{sections/geometry}
+\input{sections/equilibria}
+\input{sections/probability}
+\input{sections/positive_calculus}
+\input{sections/quantum}
+\input{sections/measurement}
+\input{sections/verification}
+\input{sections/future}
+\input{sections/ai_acknowledgements}
+\clearpage
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

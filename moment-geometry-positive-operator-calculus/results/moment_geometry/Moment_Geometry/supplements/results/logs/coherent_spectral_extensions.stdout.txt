@@ -1,0 +1,5 @@
+{
+  "output": "/workspace/scratch/e041a694f3ed/publication_package/supplements/probability/probability_extensions_verified.json",
+  "partitions_checked": 5295,
+  "pair_partitions_checked": 124
+}

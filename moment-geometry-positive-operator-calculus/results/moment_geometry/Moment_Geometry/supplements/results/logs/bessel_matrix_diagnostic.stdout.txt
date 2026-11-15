@@ -1,0 +1,19 @@
+{
+  "output": "/workspace/scratch/e041a694f3ed/publication_package/supplements/results/bessel_diagnostic.json",
+  "exact_recurrences": 40,
+  "benchmark_cases": 216,
+  "metric_cases": 45,
+  "selected": [],
+  "adverse": {
+    "off_diagonal_multiplier_difference": 7.918904258275017e-05,
+    "difference_on_plus_state_eigenvalues": [
+      -3.9594521291375084e-05,
+      3.9594521291375084e-05
+    ],
+    "difference_choi_nonzero_eigenvalues": [
+      -7.918904258275017e-05,
+      7.918904258275017e-05
+    ],
+    "interpretation": "Spectral/quadratic-form order does not imply positive-map or CP order."
+  }
+}

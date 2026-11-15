@@ -1,0 +1,749 @@
+{
+  "status": "Exact graph enumeration and finite expectation identities; Monte Carlo is diagnostic only.",
+  "moments": [
+    {
+      "p": 1,
+      "partitions": 1,
+      "tree_histogram": {
+        "1": 1
+      },
+      "by_vertices_and_trees": [
+        {
+          "vertices": 1,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "qutrit_moment_exact": "1",
+      "qutrit_moment_float": 1.0
+    },
+    {
+      "p": 2,
+      "partitions": 2,
+      "tree_histogram": {
+        "1": 2
+      },
+      "by_vertices_and_trees": [
+        {
+          "vertices": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "vertices": 2,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "qutrit_moment_exact": "2",
+      "qutrit_moment_float": 2.0
+    },
+    {
+      "p": 3,
+      "partitions": 5,
+      "tree_histogram": {
+        "1": 5
+      },
+      "by_vertices_and_trees": [
+        {
+          "vertices": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "vertices": 2,
+          "trees": 1,
+          "count": 3
+        },
+        {
+          "vertices": 3,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "qutrit_moment_exact": "5",
+      "qutrit_moment_float": 5.0
+    },
+    {
+      "p": 4,
+      "partitions": 15,
+      "tree_histogram": {
+        "1": 14,
+        "2": 1
+      },
+      "by_vertices_and_trees": [
+        {
+          "vertices": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "vertices": 2,
+          "trees": 1,
+          "count": 6
+        },
+        {
+          "vertices": 2,
+          "trees": 2,
+          "count": 1
+        },
+        {
+          "vertices": 3,
+          "trees": 1,
+          "count": 6
+        },
+        {
+          "vertices": 4,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "qutrit_moment_exact": "57/4",
+      "qutrit_moment_float": 14.25
+    },
+    {
+      "p": 5,
+      "partitions": 52,
+      "tree_histogram": {
+        "1": 42,
+        "2": 10
+      },
+      "by_vertices_and_trees": [
+        {
+          "vertices": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "vertices": 2,
+          "trees": 1,
+          "count": 10
+        },
+        {
+          "vertices": 2,
+          "trees": 2,
+          "count": 5
+        },
+        {
+          "vertices": 3,
+          "trees": 1,
+          "count": 20
+        },
+        {
+          "vertices": 3,
+          "trees": 2,
+          "count": 5
+        },
+        {
+          "vertices": 4,
+          "trees": 1,
+          "count": 10
+        },
+        {
+          "vertices": 5,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "qutrit_moment_exact": "89/2",
+      "qutrit_moment_float": 44.5
+    },
+    {
+      "p": 6,
+      "partitions": 203,
+      "tree_histogram": {
+        "1": 132,
+        "2": 66,
+        "3": 4,
+        "4": 1
+      },
+      "by_vertices_and_trees": [
+        {
+          "vertices": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "vertices": 2,
+          "trees": 1,
+          "count": 15
+        },
+        {
+          "vertices": 2,
+          "trees": 2,
+          "count": 15
+        },
+        {
+          "vertices": 2,
+          "trees": 3,
+          "count": 1
+        },
+        {
+          "vertices": 3,
+          "trees": 1,
+          "count": 50
+        },
+        {
+          "vertices": 3,
+          "trees": 2,
+          "count": 36
+        },
+        {
+          "vertices": 3,
+          "trees": 3,
+          "count": 3
+        },
+        {
+          "vertices": 3,
+          "trees": 4,
+          "count": 1
+        },
+        {
+          "vertices": 4,
+          "trees": 1,
+          "count": 50
+        },
+        {
+          "vertices": 4,
+          "trees": 2,
+          "count": 15
+        },
+        {
+          "vertices": 5,
+          "trees": 1,
+          "count": 15
+        },
+        {
+          "vertices": 6,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "qutrit_moment_exact": "21457/144",
+      "qutrit_moment_float": 149.00694444444446
+    },
+    {
+      "p": 7,
+      "partitions": 877,
+      "tree_histogram": {
+        "1": 429,
+        "2": 364,
+        "3": 56,
+        "4": 28
+      },
+      "by_vertices_and_trees": [
+        {
+          "vertices": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "vertices": 2,
+          "trees": 1,
+          "count": 21
+        },
+        {
+          "vertices": 2,
+          "trees": 2,
+          "count": 35
+        },
+        {
+          "vertices": 2,
+          "trees": 3,
+          "count": 7
+        },
+        {
+          "vertices": 3,
+          "trees": 1,
+          "count": 105
+        },
+        {
+          "vertices": 3,
+          "trees": 2,
+          "count": 147
+        },
+        {
+          "vertices": 3,
+          "trees": 3,
+          "count": 28
+        },
+        {
+          "vertices": 3,
+          "trees": 4,
+          "count": 21
+        },
+        {
+          "vertices": 4,
+          "trees": 1,
+          "count": 175
+        },
+        {
+          "vertices": 4,
+          "trees": 2,
+          "count": 147
+        },
+        {
+          "vertices": 4,
+          "trees": 3,
+          "count": 21
+        },
+        {
+          "vertices": 4,
+          "trees": 4,
+          "count": 7
+        },
+        {
+          "vertices": 5,
+          "trees": 1,
+          "count": 105
+        },
+        {
+          "vertices": 5,
+          "trees": 2,
+          "count": 35
+        },
+        {
+          "vertices": 6,
+          "trees": 1,
+          "count": 21
+        },
+        {
+          "vertices": 7,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "qutrit_moment_exact": "19007/36",
+      "qutrit_moment_float": 527.9722222222222
+    },
+    {
+      "p": 8,
+      "partitions": 4140,
+      "tree_histogram": {
+        "1": 1430,
+        "2": 1820,
+        "3": 480,
+        "4": 359,
+        "5": 30,
+        "6": 20,
+        "8": 1
+      },
+      "by_vertices_and_trees": [
+        {
+          "vertices": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "vertices": 2,
+          "trees": 1,
+          "count": 28
+        },
+        {
+          "vertices": 2,
+          "trees": 2,
+          "count": 70
+        },
+        {
+          "vertices": 2,
+          "trees": 3,
+          "count": 28
+        },
+        {
+          "vertices": 2,
+          "trees": 4,
+          "count": 1
+        },
+        {
+          "vertices": 3,
+          "trees": 1,
+          "count": 196
+        },
+        {
+          "vertices": 3,
+          "trees": 2,
+          "count": 448
+        },
+        {
+          "vertices": 3,
+          "trees": 3,
+          "count": 148
+        },
+        {
+          "vertices": 3,
+          "trees": 4,
+          "count": 146
+        },
+        {
+          "vertices": 3,
+          "trees": 5,
+          "count": 20
+        },
+        {
+          "vertices": 3,
+          "trees": 6,
+          "count": 8
+        },
+        {
+          "vertices": 4,
+          "trees": 1,
+          "count": 490
+        },
+        {
+          "vertices": 4,
+          "trees": 2,
+          "count": 784
+        },
+        {
+          "vertices": 4,
+          "trees": 3,
+          "count": 220
+        },
+        {
+          "vertices": 4,
+          "trees": 4,
+          "count": 184
+        },
+        {
+          "vertices": 4,
+          "trees": 5,
+          "count": 10
+        },
+        {
+          "vertices": 4,
+          "trees": 6,
+          "count": 12
+        },
+        {
+          "vertices": 4,
+          "trees": 8,
+          "count": 1
+        },
+        {
+          "vertices": 5,
+          "trees": 1,
+          "count": 490
+        },
+        {
+          "vertices": 5,
+          "trees": 2,
+          "count": 448
+        },
+        {
+          "vertices": 5,
+          "trees": 3,
+          "count": 84
+        },
+        {
+          "vertices": 5,
+          "trees": 4,
+          "count": 28
+        },
+        {
+          "vertices": 6,
+          "trees": 1,
+          "count": 196
+        },
+        {
+          "vertices": 6,
+          "trees": 2,
+          "count": 70
+        },
+        {
+          "vertices": 7,
+          "trees": 1,
+          "count": 28
+        },
+        {
+          "vertices": 8,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "qutrit_moment_exact": "5652121/2880",
+      "qutrit_moment_float": 1962.542013888889
+    },
+    {
+      "p": 9,
+      "partitions": 21147,
+      "tree_histogram": {
+        "1": 4862,
+        "2": 8568,
+        "3": 3264,
+        "4": 3237,
+        "5": 540,
+        "6": 522,
+        "7": 63,
+        "8": 90,
+        "9": 1
+      },
+      "by_vertices_and_trees": [
+        {
+          "vertices": 1,
+          "trees": 1,
+          "count": 1
+        },
+        {
+          "vertices": 2,
+          "trees": 1,
+          "count": 36
+        },
+        {
+          "vertices": 2,
+          "trees": 2,
+          "count": 126
+        },
+        {
+          "vertices": 2,
+          "trees": 3,
+          "count": 84
+        },
+        {
+          "vertices": 2,
+          "trees": 4,
+          "count": 9
+        },
+        {
+          "vertices": 3,
+          "trees": 1,
+          "count": 336
+        },
+        {
+          "vertices": 3,
+          "trees": 2,
+          "count": 1134
+        },
+        {
+          "vertices": 3,
+          "trees": 3,
+          "count": 576
+        },
+        {
+          "vertices": 3,
+          "trees": 4,
+          "count": 651
+        },
+        {
+          "vertices": 3,
+          "trees": 5,
+          "count": 180
+        },
+        {
+          "vertices": 3,
+          "trees": 6,
+          "count": 126
+        },
+        {
+          "vertices": 3,
+          "trees": 7,
+          "count": 21
+        },
+        {
+          "vertices": 3,
+          "trees": 9,
+          "count": 1
+        },
+        {
+          "vertices": 4,
+          "trees": 1,
+          "count": 1176
+        },
+        {
+          "vertices": 4,
+          "trees": 2,
+          "count": 3024
+        },
+        {
+          "vertices": 4,
+          "trees": 3,
+          "count": 1296
+        },
+        {
+          "vertices": 4,
+          "trees": 4,
+          "count": 1593
+        },
+        {
+          "vertices": 4,
+          "trees": 5,
+          "count": 270
+        },
+        {
+          "vertices": 4,
+          "trees": 6,
+          "count": 288
+        },
+        {
+          "vertices": 4,
+          "trees": 7,
+          "count": 42
+        },
+        {
+          "vertices": 4,
+          "trees": 8,
+          "count": 81
+        },
+        {
+          "vertices": 5,
+          "trees": 1,
+          "count": 1764
+        },
+        {
+          "vertices": 5,
+          "trees": 2,
+          "count": 3024
+        },
+        {
+          "vertices": 5,
+          "trees": 3,
+          "count": 1056
+        },
+        {
+          "vertices": 5,
+          "trees": 4,
+          "count": 900
+        },
+        {
+          "vertices": 5,
+          "trees": 5,
+          "count": 90
+        },
+        {
+          "vertices": 5,
+          "trees": 6,
+          "count": 108
+        },
+        {
+          "vertices": 5,
+          "trees": 8,
+          "count": 9
+        },
+        {
+          "vertices": 6,
+          "trees": 1,
+          "count": 1176
+        },
+        {
+          "vertices": 6,
+          "trees": 2,
+          "count": 1134
+        },
+        {
+          "vertices": 6,
+          "trees": 3,
+          "count": 252
+        },
+        {
+          "vertices": 6,
+          "trees": 4,
+          "count": 84
+        },
+        {
+          "vertices": 7,
+          "trees": 1,
+          "count": 336
+        },
+        {
+          "vertices": 7,
+          "trees": 2,
+          "count": 126
+        },
+        {
+          "vertices": 8,
+          "trees": 1,
+          "count": 36
+        },
+        {
+          "vertices": 9,
+          "trees": 1,
+          "count": 1
+        }
+      ],
+      "qutrit_moment_exact": "690178117/90720",
+      "qutrit_moment_float": 7607.783476631394
+    }
+  ],
+  "finite_level_identity_checks": [
+    {
+      "degree": 1,
+      "N": 3,
+      "moments_exact": [
+        "1",
+        "5/3",
+        "29/9",
+        "20/3"
+      ],
+      "partition_contractions_match_closed_form": true
+    },
+    {
+      "degree": 2,
+      "N": 6,
+      "moments_exact": [
+        "1",
+        "11/6",
+        "73/18",
+        "179/18"
+      ],
+      "partition_contractions_match_closed_form": true
+    },
+    {
+      "degree": 3,
+      "N": 10,
+      "moments_exact": [
+        "1",
+        "19/10",
+        "221/50",
+        "40409/3500"
+      ],
+      "partition_contractions_match_closed_form": true
+    },
+    {
+      "degree": 6,
+      "N": 28,
+      "moments_exact": [
+        "1",
+        "55/28",
+        "1877/392",
+        "1891235/142688"
+      ],
+      "partition_contractions_match_closed_form": true
+    },
+    {
+      "degree": 12,
+      "N": 91,
+      "moments_exact": [
+        "1",
+        "181/91",
+        "40861/8281",
+        "52561661/3767855"
+      ],
+      "partition_contractions_match_closed_form": true
+    },
+    {
+      "degree": 24,
+      "N": 325,
+      "moments_exact": [
+        "1",
+        "649/325",
+        "526177/105625",
+        "23839083481/1682078125"
+      ],
+      "partition_contractions_match_closed_form": true
+    },
+    {
+      "degree": 36,
+      "N": 703,
+      "moments_exact": [
+        "1",
+        "1405/703",
+        "2466829/494209",
+        "360582985225/25362311671"
+      ],
+      "partition_contractions_match_closed_form": true
+    }
+  ],
+  "diagnostics": [],
+  "monte_carlo_enabled": false,
+  "seed": 20261115,
+  "warning": "Positive spectral moments do not establish logarithmic uniform integrability or attractive pressure/LDP."
+}

@@ -1,0 +1,45 @@
+{
+  "channels": {
+    "short": {
+      "kind": "aklt",
+      "length": 2
+    },
+    "long": {
+      "kind": "aklt",
+      "length": 3
+    },
+    "custom": {
+      "kind": "choi",
+      "file": "complex_choi.json"
+    }
+  },
+  "edges": [
+    {
+      "id": "e0",
+      "u": "a",
+      "v": "b",
+      "ports": {
+        "a": "short",
+        "b": "custom"
+      }
+    },
+    {
+      "id": "e1",
+      "u": "b",
+      "v": "c",
+      "ports": {
+        "b": "long",
+        "c": "short"
+      }
+    },
+    {
+      "id": "e2",
+      "u": "c",
+      "v": "d",
+      "ports": {
+        "c": "custom",
+        "d": "long"
+      }
+    }
+  ]
+}

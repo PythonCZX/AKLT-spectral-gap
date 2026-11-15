@@ -1,0 +1,312 @@
+\section{A nonlinear Green formula from coherent moments}
+\label{cy:section}
+
+The product-law energy limit has a differential consequence. It
+recovers the Calabi--Yau potential itself from random interpolation
+sections, rather than only recovering its variational energy. The
+representation below is the determinant formula proposed in
+\cite[Conjecture 6.1]{prob_berman2017}. Its finite-level convexity
+mechanism reduces a two-coordinate determinant to the projective line.
+The underlying product-energy theorem addresses the determinant instance
+of \cite[Problem 4.10]{prob_berman2017}, rather than arbitrary singular
+Hamiltonians. A later conditional result obtained the same potential
+formula from a uniform complex zero-free neighborhood of the partition
+functions \cite[Theorems 3.2--3.3]{Berman2023zeta}. The argument here
+uses the real-parameter energy estimate and finite-level convexity;
+it makes no assertion about the complex zeros of those functions.
+In complex dimension one the representation was already unconditional
+by bosonization, as recalled in \cite[Remark 3.4]{Berman2023zeta}.
+The argument below applies in every complex dimension under the stated
+smooth positive hypotheses.
+
+Let $X$ be a compact connected complex manifold of dimension $q\ge1$,
+and let $(L,h)$ be a positive Hermitian line bundle with curvature
+$\omega=dd^c\phi_0$, where $dd^c=i\partial\bar\partial/(2\pi)$.
+Put $V=\int_X\omega^q$. For all sufficiently large $k$, let
+$N=N_k=h^0(X,L^k)$ and choose an orthonormal basis for a fixed smooth
+positive reference volume $\sigma$. Denote its evaluation determinant
+by $\Delta_k$ and keep this basis fixed when varying a probability
+measure $\mu$. As before,
+\[
+ E_k=-\frac1{kN}\log\|\Delta_k\|^2,
+ \qquad \overline E_k(\mu)=\int E_k\,d\mu^{\otimes N}.
+\]
+All norms use the fixed metric $h$, in every determinant coordinate.
+
+\begin{lemma}[Convexity of the product mean energy]
+\label{cy:finite-convexity}
+For every sufficiently large fixed $k$, the functional
+$\overline E_k$ is convex on smooth strictly positive probability
+volumes. If $\eta$ is a smooth signed measure of total mass zero and
+$\mu_t=\mu+t\eta$ remains strictly positive, then
+\begin{equation}
+ \frac{d}{dt}\overline E_k(\mu_t)\bigg|_{t=0}
+ =-\int_X U_{k,\mu}(x)\,d\eta(x),\qquad
+ U_{k,\mu}(x)=\frac1k\int_{X^{N-1}}
+        \log\|\Delta_k(x,\mathbf y)\|^2\,d\mu^{N-1}(\mathbf y).
+ \label{cy:first-variation}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The logarithm of a nonzero holomorphic section is locally integrable.
+On the compact product manifold this makes the determinant logarithm
+absolutely integrable against every product of smooth volume densities.
+Thus expansion of $(\mu+t\eta)^N$ gives an ordinary polynomial in
+$t$, and differentiation gives \eqref{cy:first-variation} and
+\[
+ \frac{d^2}{dt^2}\overline E_k(\mu_t)
+ =-\frac{N-1}{k}\int_{X^{N-2}}
+   \left[\int_{X^2}\log\|\Delta_k(x,y,\mathbf z)\|^2
+                      \,d\eta(x)d\eta(y)\right]d\mu_t^{N-2}(\mathbf z).
+\]
+For almost every retained tuple $\mathbf z$, its evaluation rows have
+rank $N-2$. Indeed, a nonzero full determinant gives one such tuple,
+and rank failure is a proper analytic locus. The two-dimensional
+annihilator of these rows is a pencil of sections $a,b$ of $L^k$.
+Expansion of the determinant gives a nonzero constant times
+$a(x)b(y)-b(x)a(y)$, with the retained norm factors constant in $x,y$.
+Set
+\[
+ r(x)=\|a(x)\|^2+\|b(x)\|^2,\qquad
+ P(x)=P_{[a(x):b(x)]}\in\mathbb P^1.
+\]
+The common zero set has volume zero. Off it,
+\[
+ \log\|\Delta_k(x,y,\mathbf z)\|^2
+ =c_{\mathbf z}+\log r(x)+\log r(y)
+                     +\log[1-\operatorname{tr}(P(x)P(y))].
+\]
+Since $\eta(X)=0$, the first three terms contribute zero to the signed
+double integral. The remaining kernel is positive definite after
+changing its sign:
+\begin{equation}
+ K(P,Q)=-\log[1-\operatorname{tr}(PQ)]
+   =\sum_{j\ge1}\frac1j
+            \operatorname{tr}(P^{\otimes j}Q^{\otimes j}).
+ \label{cy:projective-kernel}
+\end{equation}
+Each finite sum has nonnegative quadratic form because
+\[
+ \iint\operatorname{tr}(P(x)^{\otimes j}P(y)^{\otimes j})
+                         \,d\eta(x)d\eta(y)
+ =\left\|\int P(x)^{\otimes j}\,d\eta(x)\right\|_{\rm HS}^2\ge0.
+\]
+To justify the infinite sum with a signed measure, first apply Fubini
+to the absolute determinant logarithm. For almost every $\mathbf z$
+its double integral against $|\eta|\otimes|\eta|$ is finite. The
+functions $\log r$ are also integrable: they are bounded above, and a
+nonzero component section bounds their negative parts. The displayed
+kernel identity therefore makes $K$ integrable against
+$|\eta|\otimes|\eta|$. Its increasing finite sums are bounded by $K$,
+so dominated convergence proves nonnegativity of the full quadratic
+form. More precisely, if $P_{\mathbf z}$ denotes the pencil map for
+these retained rows, the computation proves the exact hierarchy
+\begin{equation}
+ \frac{d^2}{dt^2}\overline E_k(\mu_t)
+ =\frac{N-1}{k}\int_{X^{N-2}}
+   \sum_{j\ge1}\frac1j
+   \left\|\int_X P_{\mathbf z}(x)^{\otimes j}\,d\eta(x)
+          \right\|_{\rm HS}^2
+                  \,d\mu_t^{N-2}(\mathbf z)\ge0.
+ \label{cy:hessian-hierarchy}
+\end{equation}
+Tonelli justifies averaging the nonnegative terms over $\mathbf z$.
+Thus coherent moment discrepancies form the finite-level Hessian.
+No convergence of these Hessians is required for the result below.
+\end{proof}
+
+\begin{theorem}[Nonlinear Green representation]
+\label{cy:green-formula}
+Let $\mu$ be any smooth strictly positive probability volume on $X$.
+There is a unique smooth potential $\phi_\mu$, normalized by
+$\int_X\phi_\mu\,d\mu=0$, such that
+\[
+ \frac{(\omega+dd^c\phi_\mu)^q}{V}=\mu,
+ \qquad \omega+dd^c\phi_\mu>0.
+\]
+The mean-zero determinant potentials
+\begin{equation}
+ \phi_{k,\mu}(x)=\frac1k\int_{X^{N_k-1}}
+       \log\|\Delta_k(x,\mathbf y)\|^2\,d\mu^{N_k-1}(\mathbf y)
+      -C_{k,\mu},
+ \quad
+ C_{k,\mu}=\frac1k\int_{X^{N_k}}\log\|\Delta_k\|^2\,d\mu^{N_k}
+ \label{cy:potential-formula}
+\end{equation}
+converge to $\phi_\mu$ in $L^p(X,\sigma)$, equivalently in
+$L^p(X,\mu)$, for every fixed $1\le p<\infty$. The formula is independent of the chosen basis after
+the displayed centering.
+\end{theorem}
+
+\begin{proof}
+Existence and uniqueness of the smooth solution are Yau's theorem
+\cite{Yau1978}. The energy dual is attained at that solution:
+\[
+ E_\omega(\mu)=\mathcal A(\phi_\mu)-\int\phi_\mu\,d\mu.
+\]
+For a smooth signed variation $\eta$ of mass zero, the normalized
+solutions for $\mu+t\eta$ vary smoothly for small $t$. This follows
+from the elliptic implicit function theorem: the linearization of the
+normalized Monge--Amp\`ere map is the Laplacian of the positive metric,
+an isomorphism modulo constants onto zero-integral variations.
+Differentiating the last energy identity and using
+$d\mathcal A_\phi(v)=\int v\,\operatorname{MA}_\omega(\phi)$ gives
+\begin{equation}
+ \frac{d}{dt}E_\omega(\mu+t\eta)\bigg|_{t=0}
+                 =-\int\phi_\mu\,d\eta.
+ \label{cy:energy-derivative}
+\end{equation}
+
+The product mean-energy theorem
+\ref{att:general-product-energy}, in its polarized form explained in
+Corollary~\ref{att:polarized-extension}, gives
+$\overline E_k(\mu+t\eta)\to E_\omega(\mu+t\eta)$ for every
+fixed sufficiently small $t$. The functions of $t$ on the left are
+convex by Lemma~\ref{cy:finite-convexity}. Hence the secant inequalities
+\[
+ \frac{\overline E_k(\mu)-\overline E_k(\mu-\varepsilon\eta)}\varepsilon
+ \le \frac{d}{dt}\overline E_k(\mu+t\eta)\bigg|_{t=0}
+ \le
+ \frac{\overline E_k(\mu+\varepsilon\eta)-\overline E_k(\mu)}\varepsilon
+\]
+show, by first taking $k\to\infty$ and then $\varepsilon\downarrow0$,
+that their derivatives converge to \eqref{cy:energy-derivative}.
+Because constants pair to zero with $\eta$, this says
+\[
+ \int\phi_{k,\mu}\,d\eta\longrightarrow\int\phi_\mu\,d\eta
+ \quad\text{for every smooth zero-mass signed }\eta.
+\]
+
+For completeness, these weak identities determine an $L^1$ limit.
+The averaged logarithm in \eqref{cy:potential-formula} defines an
+$L^1$ function, by absolute logarithmic integrability and Fubini.
+In distributions it satisfies
+$dd^c\phi_{k,\mu}\ge-\omega$, since each determinant slice is a
+section of $L^k$. Its psh representative is therefore an
+$\omega$-psh potential. Centering makes its $\mu$ mean zero.
+The normalized-psh exponential estimate gives a uniform constant $B_\mu$
+such that every $\omega$-psh $v$ with $\sup v=0$ satisfies
+$\int(-v)\,d\mu\le B_\mu$. Consequently
+\[
+ 0\le\sup_X\phi_{k,\mu}\le B_\mu.
+\]
+Compactness of normalized psh potentials makes $\phi_{k,\mu}$ relatively
+compact in $L^1(\sigma)$. Every cluster point has mean zero against
+$\mu$, and its integrals against all smooth zero-mass signed measures
+agree with those of $\phi_\mu$. Their difference is constant as a
+distribution, and normalization makes that constant zero. Every cluster
+point is therefore $\phi_\mu$, proving $L^1$ convergence of the full
+sequence. The same uniform exponential estimate, together with the
+uniform upper bounds, makes $|\phi_{k,\mu}|^p$ uniformly integrable
+for every finite $p$. Vitali therefore upgrades the convergence to
+$L^p$. A fixed basis change multiplies the determinant by a nonzero constant;
+its logarithm cancels exactly in \eqref{cy:potential-formula}.
+\end{proof}
+
+\begin{corollary}[Random interpolation divisors and sampling error]
+\label{cy:interpolation-sampling}
+Draw $\mathbf Y=(Y_2,\ldots,Y_N)$ independently from $\mu$.
+Almost surely the section
+$s_{\mathbf Y}(x)=\Delta_k(x,\mathbf Y)$ is nonzero and is the unique
+section vanishing at these $N-1$ points, up to scale. Define its
+mean-zero potential
+\[
+ u_{k,\mathbf Y}(x)=\frac1k\log\|s_{\mathbf Y}(x)\|^2
+                 -\int_X\frac1k\log\|s_{\mathbf Y}\|^2\,d\mu.
+\]
+Then
+\begin{equation}
+ \mathbb E\frac1k[Z_{s_{\mathbf Y}}]
+       =\omega+dd^c\phi_{k,\mu}
+       \longrightarrow\omega+dd^c\phi_\mu
+ \label{cy:divisor-limit}
+\end{equation}
+weakly as currents. Moreover, if $u^{(1)},\ldots,u^{(M)}$ are independent
+copies of $u_{k,\mathbf Y}$, then, for every $a>0$ with
+\[
+ C_a(\mu):=\sup_{\substack{v\in\operatorname{PSH}(X,\omega)\\\sup v=0}}
+                      \int e^{-av}\,d\mu<\infty,
+\]
+one has the uniform sampling estimate
+\begin{equation}
+ \mathbb E\left\|\frac1M\sum_{j=1}^M u^{(j)}-\phi_{k,\mu}
+             \right\|_{L^2(\mu)}^2
+       \le\frac{2C_a(\mu)}{a^2M}.
+ \label{cy:sampling-bound}
+\end{equation}
+On the anticanonical projective plane, if $\mu=g\sigma$, one may take
+$a=1/6$, obtaining the explicit bound $192\|g\|_\infty/M$.
+
+Exact centering integrals can also be replaced by sampling. For each
+section independently draw $J\ge1$ calibration points from $\mu$
+and subtract their mean log squared norm in place of its $\mu$ integral.
+Then the left side of \eqref{cy:sampling-bound} is bounded by
+\begin{equation}
+ \frac{2C_a(\mu)}{a^2M}\left(1+\frac1J\right).
+ \label{cy:sample-centered-bound}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Independence of $N-1$ evaluation rows fails only on a proper analytic
+subset, so the interpolation assertion holds almost surely. The
+Poincar\'e--Lelong formula in our convention is
+$k^{-1}[Z_s]=\omega+dd^c(k^{-1}\log\|s\|^2)$.
+Taking expectations and using \eqref{cy:potential-formula} proves the
+identity of currents; $L^1$ convergence of potentials proves its limit.
+
+For the quantitative statement subtract the supremum from the section
+potential and write $v\le0$ for the result. Centering at its $\mu$ mean
+gives $u=v-\mu(v)$, so
+\[
+ \|u\|_{L^2(\mu)}^2\le\int v^2\,d\mu
+              \le\frac2{a^2}\int e^{-av}\,d\mu
+              \le\frac{2C_a(\mu)}{a^2}.
+\]
+Here $x^2\le2a^{-2}e^{ax}$ for $x\ge0$ follows from the exponential
+series. The random functions form a square-integrable random variable
+in the separable Hilbert space $L^2(\mu)$, and their mean is
+$\phi_{k,\mu}$. The elementary variance identity for independent
+Hilbert-space samples gives \eqref{cy:sampling-bound}.
+On $\mathbb P^2$, the scalar bound gives
+$C_{1/6}(\mu)\le(8/3)\|g\|_\infty$, yielding the stated constant.
+
+For the sample-centered version, write the calibration error for section
+$j$ as $e_j=J^{-1}\sum_{\ell=1}^J u^{(j)}(Z_{j\ell})$.
+Conditionally on the interpolation sections it has mean zero and
+variance at most $2C_a(\mu)/(a^2J)$, and the $e_j$ are conditionally
+independent. The final estimator is
+$M^{-1}\sum_j u^{(j)}-M^{-1}\sum_j e_j$.
+The second term is a random constant of squared $L^2(\mu)$ norm
+$|M^{-1}\sum_j e_j|^2$. Its cross term with the first centered
+estimation error has conditional mean zero. Adding variances gives
+\eqref{cy:sample-centered-bound}.
+\end{proof}
+
+\paragraph{Computational access and scope.}
+A direct sampling procedure takes a basis of $H^0(X,L^k)$ that can be
+evaluated, the Hermitian norm, and independent sample access to $\mu$.
+For each repetition, draw $N_k-1$ interpolation points, form their
+evaluation matrix, and choose a nonzero null vector. Evaluate the
+resulting section, subtract its mean log squared norm on $J$ fresh calibration
+points, divide by $k$, and average over the $M$ repetitions. Changing
+the normalization of any null vector cancels in this subtraction.
+Thus no exact integration oracle is needed. The theorem specifies the
+sampling error of this ideal arithmetic procedure, without an assertion
+of efficient sample access or finite-precision conditioning.
+
+The sampling bound controls the error at a fixed polynomial level.
+Theorem~\ref{cy:green-formula} separately proves convergence of the
+level-dependent bias, without an effective rate in $k$. Taking
+$k\to\infty$ and $M\to\infty$, even with $J=1$, gives convergence
+in expected squared $L^2(\mu)$ to the Calabi--Yau potential: the error
+is the sampling variance plus $\|\phi_{k,\mu}-\phi_\mu\|_2^2$.
+No uniform-norm or higher-derivative convergence is asserted.
+If the canonical bundle is trivial and $\mu$ is the normalized volume
+of a nowhere-vanishing holomorphic top form, the limiting K\"ahler
+form is the Ricci-flat metric in $c_1(L)$. In particular the K3 surface
+of Theorem~\ref{geo:k3-lattice}, equipped with any ample polarization,
+is an algebraic test case for the construction. This application uses
+its Calabi--Yau structure; it does not assert an effective polynomial-
+level bias bound or a practical sampling complexity for that surface.

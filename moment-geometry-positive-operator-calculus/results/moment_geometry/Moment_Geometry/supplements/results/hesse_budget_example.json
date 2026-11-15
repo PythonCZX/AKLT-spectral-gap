@@ -1,0 +1,12 @@
+{
+  "target_W1": 0.1,
+  "failure_probability": 0.01,
+  "q_triples": 139373,
+  "single_copy_tomography_samples": 470964,
+  "total_physical_copies": 889083,
+  "acceptance_rule": {
+    "Q_clicks": 0,
+    "tomography_HS_error_estimate_at_most": 0.016666666666666666
+  },
+  "ideal_source_acceptance_probability_at_least": 0.995
+}

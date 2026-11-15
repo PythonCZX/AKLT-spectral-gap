@@ -1,0 +1,231 @@
+\subsection{The Euclidean selection inequality}
+\label{geo:angles}
+
+This subsection proves \eqref{geo:four-selection} and records all
+constants used in the contact theorem. Put
+\[
+ f_t(\theta)=t\sin\theta-1-\cos\theta,\qquad
+ g_t(\theta)=4t\sin\theta-2(1-t^2)(1-\cos\theta),\qquad
+ H_t=g_t+4f_t.
+\]
+
+\paragraph{Planar balanced triples.}
+Let three unit vectors in a plane enclose the origin, with cyclic gaps
+\(\alpha,\beta,\gamma\in[0,\pi]\) summing to \(2\pi\).
+For pair \(i,j\) and singleton \(k\), define \(w,v,A\) as in
+\eqref{geo:pair-cell}, and set
+\[
+ D_k=|w|^2+t^2|v|^2+2t|w\times v|-A^2.
+\]
+All cyclic oriented sine terms are nonnegative. Expanding gives
+\begin{equation}
+ D_k=t^2(a_i-a_j)^2+a_ia_jg_t(\theta_{ij})
+ +4a_k\{a_if_t(\theta_{ki})+a_jf_t(\theta_{jk})\}.
+ \label{geo:planar-deficit}
+\end{equation}
+Take \(t=3/4\), \(\theta_0=2\arctan(1/t)\), and
+\(\theta_1=2\arctan t=\pi-\theta_0\).
+One has \(f_t\ge0\) on \([\theta_0,\pi]\) and
+\(g_t\ge0\) on \([0,4\arctan t]\).
+If two gaps are at least \(\theta_0\), choose their common vertex as
+singleton; the remaining gap is at most \(4\arctan t\), so every
+term in \eqref{geo:planar-deficit} is nonnegative.
+
+Otherwise exactly one gap \(\alpha\) is at least \(\theta_0\), as
+\(\theta_0<2\pi/3\). Its other gaps lie in
+\([\theta_1,\theta_0]\). Add the deficits at the two endpoints \(i,j\)
+of \(\alpha\):
+\[
+ D_i+D_j=t^2\{(a_j-a_k)^2+(a_i-a_k)^2\}
+ +8a_ia_jf_t(\alpha)+a_ia_kH_t(\gamma)+a_ja_kH_t(\beta).
+\]
+On that middle interval,
+\(\sin\theta\ge2t/(1+t^2)\) and
+\(\cos\theta\le(1-t^2)/(1+t^2)\), hence
+\[
+ H_t(\theta)\ge
+ \frac{4(t^4+3t^2-2)}{1+t^2}=\frac1{100}.
+\]
+Thus some deficit is nonnegative. Monotonicity in \(t\) gives
+\eqref{geo:four-selection} for every balanced subset of at most
+three rays, including limiting degeneracies.
+
+\paragraph{A nearest-facet inequality.}
+Now suppose four rays form a tetrahedron with the origin in its
+interior; all other cases have a balanced subset of at most three.
+Choose a facet of least plane distance \(h>0\) from the origin,
+with outward normal \(e\), and write its vertices
+\[
+ n_i=he+Ru_i,\qquad R=\sqrt{1-h^2},\qquad u_i\in S^1\subset e^\perp.
+\]
+The radius-\(h\) ball lies in the tetrahedron and touches this facet
+in its relative interior: equality with another facet would force
+its unit normal to equal \(e\).
+The projected triangle therefore encloses zero. Its cyclic gaps
+\(\alpha,\beta,\gamma\) are in \((0,\pi)\), and
+\[
+ \Pi=\cos(\alpha/2)\cos(\beta/2)\cos(\gamma/2)>0,\qquad
+ p=\frac{h^2}{R^2}.
+\]
+We claim
+\begin{equation}
+ \frac{h}{1-h}\le\sqrt{2\Pi},\qquad
+ p\le\frac{2\Pi}{1+2\sqrt{2\Pi}}.
+ \label{geo:facet}
+\end{equation}
+Write the fourth vertex as \(r-se\), \(0<s\le1\).
+For an edge let \(\nu\) be its outward planar unit normal,
+\(b=R\cos(\theta/2)>0\) its chord distance, and
+\(\ell=2R\sin(\theta/2)\) its length. The adjacent facet equation is
+\[
+ (s+h)\nu\cdot x+(\nu\cdot r-b)z=sb+h\nu\cdot r.
+\]
+Its right side is positive, since the origin is in the interior.
+Its distance from the origin is at least \(h\); squaring yields
+\[
+ \nu\cdot r\ge
+ \frac{h(s+h)}{2b}-\frac{(s-h)b}{2h}.
+\]
+Multiply by \(\ell\), sum, and use the polygon identity
+\(\sum\ell\nu=0\). This forces \(s>h\) and gives
+\[
+ h^2\frac{s+h}{s-h}\le\frac{\sum\ell b}{\sum\ell/b}
+ =2R^2\Pi.
+\]
+The equality follows from the half-gap sum \(\pi\) and the identities
+\(\sum\sin2A=4\sin A\sin B\sin C\),
+\(\sum\tan A=\tan A\tan B\tan C\).
+Since \(s\le1\), this gives \(h^2\le2(1-h)^2\Pi\), proving
+\eqref{geo:facet}. In particular, concavity of \(\log\cos\) gives
+\(\Pi\le1/8\) and \(h\le1/3\).
+
+\paragraph{Lifting the planar deficit.}
+Set \(t=9/10\). If \(w_0,v_0\) are the vectors for the projected
+triangle, the normal component of \(w\times v\) has magnitude
+\(R^2|w_0\times v_0|\), while
+\[
+ w=Rw_0+h(a_i+a_j-2a_k)e,\qquad
+ v=Rv_0+h(a_i-a_j)e.
+\]
+Consequently
+\[
+ D_k\ge R^2D_k^{\rm planar}
+ +h^2\{t^2(a_i-a_j)^2-8a_k(a_i+a_j)\}.
+\]
+Dropping the last positive square and using
+\eqref{geo:planar-deficit},
+\begin{equation}
+ \frac{D_k}{R^2}\ge
+ t^2(a_i-a_j)^2+a_ia_jg_t(\theta_{ij})
+ +4a_k\{a_i(f_t(\theta_{ki})-2p)
+             +a_j(f_t(\theta_{jk})-2p)\}.
+ \label{geo:lifted}
+\end{equation}
+Call a gap large when it is at least $2\pi/3$. We prove the following
+three bounds from \eqref{geo:facet}:
+\begin{align}
+ f_t(\theta)-2p&\ge0
+ &&\text{for either large gap if two are large},
+ \label{geo:coeff1}\\
+ f_t(\alpha)-2p&\ge-1/200
+ &&\text{for every }\alpha\ge2\pi/3,
+ \label{geo:coeff2}\\
+ H_t(\beta)-8p,\ H_t(\gamma)-8p&\ge1/25
+ &&\text{if }\alpha\text{ is the unique large gap}.
+ \label{geo:coeff3}
+\end{align}
+
+For \eqref{geo:coeff1}, put \(B=\theta/2\in[\pi/3,\pi/2]\),
+\(z=\cos B\), and
+\[
+ r=\frac{\sqrt3}{2}\sin B-\frac z2,\qquad
+ A=\frac{\sqrt3}{2}\sin B-z.
+\]
+The second large gap implies \(2\Pi\le zr\).
+Both \(r,A\) increase with \(B\), while \(z\) decreases.
+At \(B=\pi/3\), \(16rA^2=z\), so \(16rA^2\ge z\) throughout.
+By \eqref{geo:facet} and monotonicity of \(u/(1+2\sqrt u)\),
+\[
+ p\le\frac{zr}{1+2\sqrt{zr}}\le zA
+ =\frac12 f_{\sqrt3/2}(2B).
+\]
+The middle inequality is equivalent, by positive squaring, to the
+inequality just proved. Since \(9/10>\sqrt3/2\),
+\eqref{geo:coeff1} follows.
+
+For \eqref{geo:coeff2}, put \(z=\cos(\alpha/2)\in[0,1/2]\).
+The product of the other two half-gap cosines is at most
+\((1-z)/2\). Thus
+\[
+ f_t(\alpha)-2p
+ \ge2z\left[\frac9{10}\sqrt{1-z^2}-q(z)\right],\qquad
+ q(z)=z+\frac{1-z}{1+2\sqrt{z(1-z)}}.
+\]
+On \(0\le z\le1/100\), use \(q(z)\le1\) and
+\(\sqrt{1-z^2}\ge1-z^2\), obtaining
+\[
+ f_t(\alpha)-2p
+ \ge-\frac{10009}{5000000}>-\frac1{200}.
+\]
+On \(1/100\le z\le1/4\), let \(k=\sqrt{z(1-z)}\).
+The sign of \(q'\) is the sign of
+\[
+ N=(1-z)(4z-1)+4k^3,\qquad N'=5-8z+6k(1-2z)>0.
+\]
+Hence \(q\) has no interior maximum. Its endpoint values are at
+most \(1/100+99/118<17/20\) and \(2/3<17/20\), whereas
+\((9/10)\sqrt{1-z^2}\ge(9/10)\sqrt{15/16}>17/20\).
+On \(1/4\le z\le1/2\), \(N\ge0\), so \(q(z)\le q(1/2)=3/4\);
+meanwhile \((9/10)\sqrt{1-z^2}\ge9\sqrt3/20>3/4\).
+These bounds prove \eqref{geo:coeff2}.
+
+For \eqref{geo:coeff3}, the two middle gaps belong to
+\([\pi/3,2\pi/3]\). For either such \(\theta\), maximizing the other
+two half-gap cosine factors subject to one being large gives
+\[
+ p\le2\Pi\le\frac{\sqrt3\sin\theta-1-\cos\theta}{4}.
+\]
+Since
+\(H_{9/10}=(36/5)\sin\theta-219/50-(181/50)\cos\theta\),
+\[
+ H_{9/10}(\theta)-8p\ge
+ \left(\frac{36}{5}-2\sqrt3\right)\sin\theta
+             -\frac{119}{50}-\frac{81}{50}\cos\theta.
+\]
+This expression is concave on the stated interval. Its smaller
+endpoint value is \(18\sqrt3/5-619/100>1/25\), the last inequality
+following after positive squaring from \(388800>388129\).
+
+\paragraph{Completing selection.}
+If two gaps are at least \(2\pi/3\), choose their common vertex
+as singleton. The remaining gap is at most \(2\pi/3\), where
+\(g_{9/10}\ge0\); \eqref{geo:coeff1} makes \eqref{geo:lifted}
+nonnegative.
+Otherwise let \(a,b\) be the amplitudes at the endpoints of the
+unique large gap, and \(c\) the third amplitude. Add the endpoint
+deficits, and use \eqref{geo:coeff2}--\eqref{geo:coeff3}:
+\[
+ \frac{D_i+D_j}{R^2}\ge
+ \frac{81}{100}\{(a-c)^2+(b-c)^2\}
+      -\frac{ab}{25}+\frac{c(a+b)}{25}
+ =\frac{79}{200}(a+b-2c)^2
+  +\frac{83}{200}(a-b)^2+\frac{c^2}{25}\ge0.
+\]
+Some deficit is nonnegative, proving \eqref{geo:four-selection}.
+All amplitudes may vanish; degeneracies are covered either by
+continuity or reduction to a smaller balanced subset.
+
+\paragraph{The optional explicit cusp constant.}
+For \(d=3\), the shifted diagonal Gram matrix on \(R_1\) is
+\[
+ M=\frac1{3888}
+ \begin{pmatrix}251&-13&-13\\-13&20&-7\\-13&-7&20\end{pmatrix}.
+\]
+The exact Haar integrals give this matrix; off-diagonal phase
+averages have larger unmultiplied coefficients, at least \(7/648\).
+For its positive eigenvalues,
+\(\lambda_{\min}(M)\ge4\det M/(\operatorname{tr}M)^2=325/338724\).
+Also
+\(\|z^*Dz-(7/36)\operatorname{tr}D\|_\infty\le(19/12)\|D\|\).
+Dividing the \(L^2\) lower bound by this \(L^\infty\) upper bound
+gives \(\kappa_3=325/536313\) in Lemma~\ref{geo:cusp}.

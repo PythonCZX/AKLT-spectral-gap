@@ -1,0 +1,271 @@
+\section{Introduction: what positivity remembers}
+\label{sec:introduction}
+
+A probability measure on pure quantum states has several mathematical lives.
+It is an ensemble for an experimentalist, a positive integration functional
+for a geometer, and a sequence of symmetric tensor moments for an operator
+theorist. Passing between these descriptions is useful only if the relevant
+structure survives. The support of the measure, the Hermitian metric on the
+ambient vector space, and the positivity of the integration weights all matter.
+For example, two ensembles can have identical two-copy statistics and very
+different algebraic supports. A third-copy observable can then detect a
+geometric distinction that is invisible to every two-copy measurement.
+
+The same discipline is useful for many-body operators. A small transfer-map
+error in an ordinary norm need not remain small after contraction with an
+arbitrary tensor environment. Completely positive order does survive that
+contraction. Likewise, a scalar cluster expansion need not control an ordered
+operator logarithm, whereas a positive average of modular-time conjugations
+preserves complete positivity term by term. The central theme of this paper is
+to identify representations in which the required positivity is preserved and
+then extract quantitative consequences from them.
+
+\subsection{The problem and established approaches}
+
+The motivating physical question asks when a local frustration-free
+Hamiltonian has a spectral gap bounded away from zero as the system grows.
+The AKLT chain has a classical rigorous solution through its valence-bond
+structure \citep{q:AKLT1988}. In higher dimensions, decorated AKLT models
+admit rigorous tensor-network gap proofs
+\citep{q:ARLLNY2020,LuciaYoung2023}; boundary-state factorization provides
+another route, developed for the hexagonal model in the recent preprint
+\citet{Kastoryano2026}. These arguments make transfer operators, overlaps
+of local ground spaces, and the normalization of the physical energy
+central objects. We seek estimates that remain valid for arbitrary
+positive tensor environments, so that a finite channel calculation can
+certify a whole family of Hamiltonians.
+
+The geometric question has an analogous emphasis on preserved structure:
+what can a positive moment constraint force about support, concentration,
+and equilibrium? Classical projective designs fix low tensor moments,
+geometric invariant theory controls balanced tensors, and pluripotential
+theory converts concentration into a nonlinear energy. Each has its own
+established proof methods. The aim here is to build explicit interfaces
+between them, retaining the Hermitian metric and positivity throughout.
+This produces exact support classifications and quantitative certificates,
+as well as an analytic entropy threshold.
+
+For the associated particle systems, positive-temperature determinant
+large deviations are established by \citet{prob_berman2017}. On complex
+curves, a Vandermonde factorization also relates attractive determinant
+ensembles to logarithmic pair interactions. In higher dimension the
+determinant has collective singularities, and its microscopic pressure is
+a distinct issue from macroscopic coercivity
+\citep{AndreassonBermanSvensson2026}. We state the sign, constraint, and
+scope of each probability result explicitly. The same care distinguishes
+known scalar subordination laws from the positive operator approximations
+and observable-dependent error bounds constructed from them.
+
+\subsection{Three interfaces and eight principal contributions}
+
+The first interface is between \emph{moments and algebraic support}.
+The $t$th moment of an ensemble is a positive matrix on a symmetric tensor
+power. A polynomial vanishing on the support gives a kernel vector of that
+matrix. A Hermitian polynomial nonnegative on the support gives a separating
+functional. These are concrete connections to geometric quantization,
+Hermitian sums of squares, and quantum de Finetti theory
+\citep{Rao2024,GouveiaParriloThomas2010}.
+The second interface is between \emph{determinants and concentration}:
+vanishing orders of evaluation determinants measure energy gained by
+concentrating a particle ensemble. The third is between \emph{completely positive
+order and local quantum constraints}: finite matrix inequalities become
+certificates for large tensor networks without introducing the condition
+number of the tensor core.
+
+The contributions can be read in the following order.
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{A sharp balanced entropy--energy coefficient.}
+For first-moment-balanced measures on $\Pp^d$, the strict-subcritical
+coercivity threshold is
+\[
+\Gamma_d^{\mathrm{bal}}=\frac{d}{d+1-H_{d+1}},
+\qquad H_m=\sum_{j=1}^m\frac1j.
+\]
+The proof uses minimal jet determinants, a moment-map argument, a conditioned
+determinantal coupling, and a fixed-degree quantization estimate. Harmonic
+numbers enter through the largest coordinate of a uniform simplex point.
+Positive moment repair and exact energy comparison then give smooth
+constrained equilibria on the projective plane and a full large-deviation
+principle for repulsive determinant ensembles in shrinking design tubes.
+
+\item \textbf{Coherent moments control determinant ensembles and geometric potentials.}
+For a positive polarized compact complex manifold, we prove the full
+attractive determinant Laplace principle below the exponential integrability
+threshold of normalized plurisubharmonic potentials. On $\mathbb P^q$ with
+anticanonical polarization the range is $0\le\gamma<1/(q+1)$, and every
+fixed-order shrinking design tube is allowed. The proof combines compact
+one-particle conditional densities, coarse-grained entropy, and a two-sided
+small-coupling bound that imports mean-energy information from the known
+repulsive sign. A separate curvature argument gives finite-particle
+concentration. For $D=q+1$ and $M_1=N^{-1}\sum_iP_{z_i}$, a projective
+Ward identity yields the exact susceptibility
+\[
+ \mathbb E\left\|M_1-I/D\right\|_{\rm HS}^2
+ =\frac{D-1}{DN(1-\gamma)}.
+\]
+The identity holds whenever the unconditioned partition is finite and
+$\gamma<1$; the LDP range above requires no such additional assumption.
+The product mean energy has a positive Hessian expansion in squared
+coherent moments of rank-two interpolation pencils. Its convexity
+allows differentiation of the mean-energy limit and gives a logarithmic
+interpolation formula for the inverse complex Monge--Amp\`ere operator.
+The resulting potential estimator has an explicit sampling-variance
+bound, uniform in the polynomial level.
+
+\item \textbf{Cubic support is controlled by three-qutrit balance.}
+We classify all plane cubics supporting a positive projective second design
+in their given Hermitian embedding. A quartic rank witness completes a
+two-factor-balanced determinantal representation to a fully balanced tensor.
+The $E_6$ Cartan theory then forces a unitary Hesse form. Smooth members have
+a unique supporting design; the singular case gives orthogonal triangles
+with an explicit Fourier description.
+
+\item \textbf{Algebraic rigidity becomes an operational certificate.}
+A rank-two observable on three matched qutrit copies, together with the
+one-copy moment defect, bounds transport distance to the Hesse ensemble.
+The copy number is minimal in this access model. The geometry of a
+complete intersection supplies a pointwise error bound, and the simplex
+structure of the finite ensemble controls its weights.
+
+\item \textbf{A finite design determines a K3 surface.}
+A ten-point Singer design yields three disjoint $(-3)$-curves on a rational
+surface. A cyclic triple cover and three contractions produce a K3 surface
+with transcendental lattice $A_2(7)$. The calculation makes the relation
+between moment constraints, special point configurations, and lattice
+geometry explicit.
+
+\item \textbf{Coherent Gram spectra interpolate between ordinary and
+noncrossing partitions.}
+At unit sampling density in complex dimension $d$, the limiting $p$th moment is
+\[
+m_p(d)=\sum_{\pi\in\mathcal P(p)}\tau(G_\pi)^{-d}.
+\]
+Here $G_\pi$ is the directed cycle quotient associated with a set partition
+and $\tau$ counts rooted directed spanning trees. Crossing partitions
+survive at every fixed dimension, but disappear in the limit $d\to\infty$.
+For logarithmic energy, an independent Newton-polytope argument replaces
+torus averaging by a finite assignment with Kullback--Leibler cost, with
+an explicit error of order $\log N/k$. This connects coherent determinants
+to tropical geometry and optimal transport through a computation that
+admits exact rational dual certificates.
+
+\item \textbf{Positive operator calculus gives quantitative compilers.}
+We relate ordered logarithms to order polynomials, represent compatible
+modular responses by positive random times, and give local-commutator error
+bounds for finite clock approximations. A separate completely positive
+wire comparison controls angles between tensor-network constraints and
+yields logarithmic sufficient AKLT decoration in the maximum graph degree.
+
+\item \textbf{Moment contact controls measurement simulation.}
+The same simplex expected maximum fixes the Haar-parent visibility
+$\eta_D=(H_D-1)/(D-1)$. A quantitative anisotropic contact analysis gives
+an open simulation neighborhood of projective-simulable measurements in
+every fixed dimension and outcome number, and of the larger convex hull
+of reducible qutrit measurements at visibility $5/12$.
+\end{enumerate}
+
+These results share tools, but their proof dependencies are deliberately
+explicit. For instance, the spectral-gap certificate uses completely positive
+comparison and subspace geometry. It does not require a thermodynamic limit
+for a determinant ensemble. The Hesse certificate uses finite-dimensional
+algebra and transport, so it can be implemented without solving a nonlinear
+equilibrium problem.
+
+\subsection{Position within the literature}
+
+The use of symmetry breaking by moment constraints in Fano geometry is
+developed by Andreasson--Berman--Svensson \citep{AndreassonBermanSvensson2026}.
+Our balanced energy calculation concerns their analytic, orbit-reduced
+coercivity framework. The determinant ensemble has additional microscopic
+structure. Theorems~\ref{att:full-laplace}--\ref{att:polarized-extension}
+give an attractive large-deviation principle below the section integrability
+threshold; extension to the canonical coupling is posed in the final
+section. This separates a geometric stability coefficient from a statement
+about every singular stratum of a many-particle determinant.
+
+The mean-energy approach to singular Gibbs measures, including its
+positive- and negative-temperature distinction, is developed by
+\citet{Berman2018meanenergy}. Our argument supplies the requisite entropy
+and energy convergence for the actual attractive tilted determinant laws
+in a definite range. In particular, it uses the established repulsive
+theorem without assuming product-law energy convergence as an input.
+For these Slater Hamiltonians, this supplies the smooth-reference
+mean-energy limit considered in \citet[Problem 4.10]{prob_berman2017}.
+The nonlinear Green formula in Theorem~\ref{cy:green-formula} is the
+representation formulated in \citet[Conjecture 6.1]{prob_berman2017}.
+A later conditional proof uses a complex zero-free neighborhood for a
+two-parameter partition function
+\citep[Theorems 3.2--3.3]{Berman2023zeta}. Our proof obtains the formula
+from real mean-energy convergence and the positive projective-kernel
+Hessian, without asserting that zero-free property. This is a concrete
+connection between coherent tensor moments, interpolation theory, and
+the nonlinear equation solved by Yau's theorem \citep{Yau1978}.
+Toric pluripotential duality and complex optimal transport are established
+in \citet{BermanWittNystrom2014}; the finite assignment error bound makes
+that interface computational. The curvature estimate uses classical
+H\"ormander theory, while the projective change of variables evaluates a
+specific covariance exactly.
+
+Moment-improved Sobolev and Moser--Trudinger inequalities have a substantial
+history. Recent sharp results on spheres under finite-order moment constraints
+are given by Zhou--Zou \citep{ZhouZou2026}. The energy here is the nonlinear
+dual Monge--Amp\`ere energy, and the proof uses projective jets and balanced
+determinantal couplings. The role of positive cubature remains a useful
+conceptual comparison, with the geometric energy and its normalization kept
+distinct.
+
+The invariant theory used in the cubic classification is established:
+Kempf--Ness converts zero moment into closed orbits and unitary uniqueness,
+and the three-qutrit Cartan representation is treated explicitly by
+Di Trani--de Graaf--Marrani \citep{geo_ditrani2023}. The additional bridge is
+the rank witness that forces a design-supported pencil into that representation's
+balanced locus. The Hesse pencil and its classical incidence geometry are
+described by Artebani--Dolgachev \citep{geo_hesse2009}.
+
+For quantum spin systems, tensor-network methods already prove gaps for
+decorated AKLT models. Lucia--Young obtain a sufficient decoration linear
+in the maximum degree \citep{LuciaYoung2023}. The quantitative comparison
+developed here uses the positive order of the half-wire Choi matrices;
+the cancellation between two ports gives logarithmic sufficient decoration.
+The elementary finite-dimensional certificate and the transfer back to the
+specified microscopic Hamiltonian are stated separately, including the
+finite-patch gap factor.
+
+The scalar laws underlying modular clocks are also established. Hyperbolic
+infinite divisibility and Brownian subordination are treated by Pitman--Yor
+\citep{PitmanYor2003}. We use them as positive operator representations and
+combine them with observable-specific nested-commutator estimates. This
+distinguishes the scalar sampling identity from the quantitative operator
+approximation it supports.
+
+\subsection{Reading routes and conventions}
+
+Readers coming from quantum information can start with the moment operators
+below, then read the cubic classification and ensemble certificate.
+Readers from complex geometry can begin with the balanced energy theorem and
+the Singer surface construction, then the nonlinear Green formula in
+Section~\ref{cy:section}. The spectral-law and finite assignment
+sections are largely self-contained after the definition of coherent
+vectors. For the probability results, Section~\ref{att:entropy-section}
+gives the entropy mechanism and the full attractive LDP, while
+Section~\ref{ac:section} gives finite-particle bounds and the susceptibility
+identity. The positive
+calculus and network sections can be read independently using ordinary
+finite-dimensional operator theory.
+
+All logarithms are natural. Pure states are rays represented by unit vectors,
+and $P_z=zz^*$ is independent of their phase. Our pure-state distance is
+\[
+d_{\mathrm{tr}}(P_z,P_w)=\tfrac12\|P_z-P_w\|_1
+=\sqrt{1-|\langle z,w\rangle|^2}.
+\]
+On $\Pp^d$, Fubini--Study measure has total mass one, and the geometric
+energy uses the anticanonical polarization $(d+1)H$. Spectral gaps of blocked
+parents refer to sums of norm-one projections. The conversion to a
+nearest-neighbor Hamiltonian keeps its local energy scale explicitly.
+
+The supplemental source provides full proof modules for long geometric
+arguments, exact arithmetic certificates, figure-generation code, and an
+index of theorem dependencies. The verification section describes the
+mathematical meaning of those computations and their trusted arithmetic
+assumptions.

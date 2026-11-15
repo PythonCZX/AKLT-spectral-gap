@@ -1,0 +1,637 @@
+{
+  "ferromagnets": [
+    {
+      "graph": "path",
+      "spins": 8,
+      "q": "1",
+      "variance": "1/8",
+      "first_four_zero_power_sums": [
+        "1/16",
+        "1/3072",
+        "1/491520",
+        "17/1321205760"
+      ],
+      "distribution": {
+        "-1": "1/256",
+        "-3/4": "1/32",
+        "-1/2": "7/64",
+        "-1/4": "7/32",
+        "0": "35/128",
+        "1/4": "7/32",
+        "1/2": "7/64",
+        "3/4": "1/32",
+        "1": "1/256"
+      },
+      "rules": [
+        {
+          "order": 1,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "1/8847360",
+          "radau_error_coefficient": "1/26424115200",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 2,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "1/133177540608000",
+          "radau_error_coefficient": "1/1012575476750745600",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 3,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "1/10811605890426627686400",
+          "radau_error_coefficient": "1/154204390300027786887168000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 4,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "1/2831192605908510167248404480000",
+          "radau_error_coefficient": "1/65029348388156357974843352678400000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        }
+      ]
+    },
+    {
+      "graph": "path",
+      "spins": 8,
+      "q": "2",
+      "variance": "991/4374",
+      "first_four_zero_power_sums": [
+        "991/8748",
+        "1622969/612220032",
+        "39835985293/428456067194880",
+        "761062029788027/209895485845965373440"
+      ],
+      "distribution": {
+        "-1": "64/2187",
+        "-3/4": "160/2187",
+        "-1/2": "280/2187",
+        "-1/4": "380/2187",
+        "0": "419/2187",
+        "1/4": "380/2187",
+        "1/2": "280/2187",
+        "3/4": "160/2187",
+        "1": "64/2187"
+      },
+      "rules": [
+        {
+          "order": 1,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "18020819857/1747324948930560",
+          "radau_error_coefficient": "2339790765826607/25640013982206158438400",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 2,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "110683120419079430813/159430205344900053794291712000",
+          "radau_error_coefficient": "768999141570045108077244821/157387232007886775805722538015090278400",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 3,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "19621108874236040820234305648782361/715449821611935014807267684440531678252341657600",
+          "radau_error_coefficient": "2868024124955328340386090626066613417392489/23632459260977516363774051274248548926284526795481939968000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 4,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "5424854800110829571139438521477495649168835961765359/11070807196330704132733623877420628889658664881001224353917624647680000",
+          "radau_error_coefficient": "154018805166171427440768100103804978681755580065651863646862003/111506396597156235180763002645693323567650843950289755322245204154090737421516800000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        }
+      ]
+    },
+    {
+      "graph": "path",
+      "spins": 8,
+      "q": "5",
+      "variance": "15565/34992",
+      "first_four_zero_power_sums": [
+        "15565/69984",
+        "24925585/1224440064",
+        "3563932121473/1371059415023616",
+        "234643170484028353/671665554707089195008"
+      ],
+      "distribution": {
+        "-1": "78125/559872",
+        "-3/4": "3125/34992",
+        "-1/2": "14375/139968",
+        "-1/4": "3895/34992",
+        "0": "31991/279936",
+        "1/4": "3895/34992",
+        "1/2": "14375/139968",
+        "3/4": "3125/34992",
+        "1": "78125/559872"
+      },
+      "rules": [
+        {
+          "order": 1,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "4310117164561/17564230283821056",
+          "radau_error_coefficient": "8781045278472998297/2016152385734478365982720",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 2,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "482223863542239535968403/9386242324113262935598851686400",
+          "radau_error_coefficient": "36831427103220233034064921834027/85914405413723925654941713411650449571840",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 3,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "2318569594754977375788341832837454088371/906783850143498700865709061998331571053957711134720",
+          "radau_error_coefficient": "6513526302888692527094433405865107506865207821563/557234800637279180199004890216885458733610533194211393326284800",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 4,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "175900292609292196725693474715818226301783660059112856138799/4186256688236251714907629985313041880426226037536685554377032965067636736000",
+          "radau_error_coefficient": "309773791754181280346638647509191613637827046627109100843107534504796003/2633701141111276848926994121435135845642266611149833651001148774212660042941860140810240000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        }
+      ]
+    },
+    {
+      "graph": "cycle",
+      "spins": 8,
+      "q": "1",
+      "variance": "1/8",
+      "first_four_zero_power_sums": [
+        "1/16",
+        "1/3072",
+        "1/491520",
+        "17/1321205760"
+      ],
+      "distribution": {
+        "-1": "1/256",
+        "-3/4": "1/32",
+        "-1/2": "7/64",
+        "-1/4": "7/32",
+        "0": "35/128",
+        "1/4": "7/32",
+        "1/2": "7/64",
+        "3/4": "1/32",
+        "1": "1/256"
+      },
+      "rules": [
+        {
+          "order": 1,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "1/8847360",
+          "radau_error_coefficient": "1/26424115200",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 2,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "1/133177540608000",
+          "radau_error_coefficient": "1/1012575476750745600",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 3,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "1/10811605890426627686400",
+          "radau_error_coefficient": "1/154204390300027786887168000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 4,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "1/2831192605908510167248404480000",
+          "radau_error_coefficient": "1/65029348388156357974843352678400000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        }
+      ]
+    },
+    {
+      "graph": "cycle",
+      "spins": 8,
+      "q": "2",
+      "variance": "820/3281",
+      "first_four_zero_power_sums": [
+        "410/3281",
+        "1844743/516718128",
+        "16405193573/108502539389952",
+        "8453004069618103/1196149354641133240320"
+      ],
+      "distribution": {
+        "-1": "128/3281",
+        "-3/4": "256/3281",
+        "-1/2": "416/3281",
+        "-1/4": "32/193",
+        "0": "593/3281",
+        "1/4": "32/193",
+        "1/2": "416/3281",
+        "3/4": "256/3281",
+        "1": "128/3281"
+      },
+      "rules": [
+        {
+          "order": 1,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "1000621937/61014076554240",
+          "radau_error_coefficient": "272044708308833/1639829925201771233280",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 2,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "6656141382415568269/4482945847944155741080780800",
+          "radau_error_coefficient": "543354655040144079590813807/46334040564536456909407604027110195200",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 3,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "4255932385365328782665305235408201/60522273741464079079258590229303369339502592000",
+          "radau_error_coefficient": "4649924463866437771135377993815193766134293/14093297426945820379789676292656535521852037278176641024000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 4,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "17826949035809879508441169037031937623919748659/13617317076350404876755967917687784501944273842346643697958912000",
+          "radau_error_coefficient": "2216885429288792550985551637831442546996863399372995480413207/598368690870714140695287714341600883165987540640310441633876876673573747425280000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        }
+      ]
+    },
+    {
+      "graph": "cycle",
+      "spins": 8,
+      "q": "5",
+      "variance": "31525/54536",
+      "first_four_zero_power_sums": [
+        "31525/109072",
+        "5935980025/142760414208",
+        "247153579186895/31142327796989952",
+        "893963837160991264765/570655004215512391483392"
+      ],
+      "distribution": {
+        "-1": "390625/1745152",
+        "-3/4": "15625/218144",
+        "-1/2": "34375/436288",
+        "-1/4": "18175/218144",
+        "0": "74051/872576",
+        "1/4": "18175/218144",
+        "1/2": "34375/436288",
+        "3/4": "15625/218144",
+        "1": "390625/1745152"
+      },
+      "rules": [
+        {
+          "order": 1,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "67556054839385/103692028214181888",
+          "radau_error_coefficient": "150992000492175803689/11662709430083713826291712",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 2,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "540165496315223698552895389/3344813019890613321033919192104960",
+          "radau_error_coefficient": "388454437275842477780731532613441169/284202519423681244810673716252510382041595904",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 3,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "6860775289025746388809812189408884480428297/835064983453474460828337880776432105503743747137994752",
+          "radau_error_coefficient": "319927345089543106768536286473800234353049140124941213/8565250172090760088852565529381939081143038620034256267044234199040",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 4,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "280797399536606832785601682540347702940244897909987054890841009/2123930338407186902020144981431746286517941239105364863903948615133178940620800",
+          "radau_error_coefficient": "841068333543971374779463423995997527393685273663697623722288830322343095509/2274879631863784636845277699970660536205988742078147690445097715689374396722206066402656256000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        }
+      ]
+    },
+    {
+      "graph": "complete",
+      "spins": 8,
+      "q": "1",
+      "variance": "1/8",
+      "first_four_zero_power_sums": [
+        "1/16",
+        "1/3072",
+        "1/491520",
+        "17/1321205760"
+      ],
+      "distribution": {
+        "-1": "1/256",
+        "-3/4": "1/32",
+        "-1/2": "7/64",
+        "-1/4": "7/32",
+        "0": "35/128",
+        "1/4": "7/32",
+        "1/2": "7/64",
+        "3/4": "1/32",
+        "1": "1/256"
+      },
+      "rules": [
+        {
+          "order": 1,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "1/8847360",
+          "radau_error_coefficient": "1/26424115200",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 2,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "1/133177540608000",
+          "radau_error_coefficient": "1/1012575476750745600",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 3,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "1/10811605890426627686400",
+          "radau_error_coefficient": "1/154204390300027786887168000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 4,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "1/2831192605908510167248404480000",
+          "radau_error_coefficient": "1/65029348388156357974843352678400000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        }
+      ]
+    },
+    {
+      "graph": "complete",
+      "spins": 8,
+      "q": "2",
+      "variance": "839/867",
+      "first_four_zero_power_sums": [
+        "839/1734",
+        "2481971/16036032",
+        "265278402119/4449036718080",
+        "20090117601025753/864038522944880640"
+      ],
+      "distribution": {
+        "-1": "32768/70227",
+        "-3/4": "2048/70227",
+        "-1/2": "224/70227",
+        "-1/4": "56/70227",
+        "0": "35/70227",
+        "1/4": "56/70227",
+        "1/2": "224/70227",
+        "3/4": "2048/70227",
+        "1": "32768/70227"
+      },
+      "rules": [
+        {
+          "order": 1,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "130668436099/38748184842240",
+          "radau_error_coefficient": "72107353931177143/1027055977218677145600",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 2,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "41893842593241039214543/48091793619784581569839104000",
+          "radau_error_coefficient": "74526586310674133547718637562911/10290735861118907442229169119748004249600",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 3,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "139117723150259794475364330654289574381131/3255742478703660638054559530294192452537860646502400",
+          "radau_error_coefficient": "923408756877920637237000074421296937571470634532281/4859243798824967265086863565501017795713920913146424462409728000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 4,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "719776193293424637432249919056450815525741548035801802621207/1088481789368195166270350730133488034771507066554947311708323722098114560000",
+          "radau_error_coefficient": "2739577126245207538671733491666193966820641352353514004928954082352474923/1493534267205348445866845548259828504681438901793258312204094049893449121056616035123200000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        }
+      ]
+    },
+    {
+      "graph": "complete",
+      "spins": 8,
+      "q": "5",
+      "variance": "23548871/23549928",
+      "first_four_zero_power_sums": [
+        "23548871/47099856",
+        "164309295709935/985953971209216",
+        "46431327621107585134837/696574350998733292093440",
+        "19826981433507274206359417177351/734911556407476990976155960999936"
+      ],
+      "distribution": {
+        "-1": "30517578125/61041413376",
+        "-3/4": "390625/7630176672",
+        "-1/2": "875/15260353344",
+        "-1/4": "7/7630176672",
+        "0": "7/30520706688",
+        "1/4": "7/7630176672",
+        "1/2": "875/15260353344",
+        "3/4": "390625/7630176672",
+        "1": "30517578125/61041413376"
+      },
+      "rules": [
+        {
+          "order": 1,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "742884155955626800829339/200604408882712199381975040",
+          "radau_error_coefficient": "2985488793645047575514422661253683/37623724147052745869085658916585472000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 2,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "287950204010989377980965751551892408365305773/285778811069038128848391369941904071713854849024000",
+          "radau_error_coefficient": "1346542015021461489614950594438631615271085576603060123/158766218058124542857035233019187572394075062566655592465694720",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 3,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "4114285325335162305367419193831591496850947187965941736279038683516931/80933448351477395062542286041509736761361259045480287376852214157634038241689600",
+          "radau_error_coefficient": "13544477944515315833157372767865339792930355585702930799430053821561785443394260591/59378576331833861410389919683772859523553638321816600741808945295236653370369333416922447872000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        },
+        {
+          "order": 4,
+          "max_bracket_width": null,
+          "error_at_x4": null,
+          "gauss_error_coefficient": "144468621804101100757546841530193111542933063297765655342669754195375185478448713746881172425568731/181691880799906490889707156950717605636929808728182861034266883268776728621348594582861793613429587177902178304000",
+          "radau_error_coefficient": "273942822384724131005025411775669195149161529780841898111154901484304556141601987088205690023758543116078913842183/123647653929800062225668807338008168903247698726121063282787802134910110634097997151550128854606129190366440719516097905877319680000",
+          "nodes_positive": true,
+          "weights_positive": true,
+          "exact_rational_root_isolation": true
+        }
+      ]
+    }
+  ],
+  "antiferromagnetic_adverse_control": {
+    "distribution": {
+      "-1": "1/20",
+      "0": "9/10",
+      "1": "1/20"
+    },
+    "representing_mean": "(t^0+t^1)/20 + 9*t^(1/2)/10",
+    "log_rho_eigenvalues_up_to_scalar": [
+      "-2*log(2)",
+      "0",
+      "2*log(2)"
+    ],
+    "modular_half_generator_eigenvalues": [
+      "-log(2)",
+      "0",
+      "log(2)"
+    ],
+    "kernel": [
+      [
+        "1",
+        "40/41",
+        "80/89"
+      ],
+      [
+        "40/41",
+        "1",
+        "40/41"
+      ],
+      [
+        "80/89",
+        "40/41",
+        "1"
+      ]
+    ],
+    "rational_witness_vector": [
+      1,
+      -2,
+      1
+    ],
+    "quadratic_form": "-26/3649",
+    "conclusion": "A valid power-mixture Petz metric need not have a CP relative-score filter. The Lee--Yang condition supplies additional content."
+  },
+  "floating_frequency_grid_run": false,
+  "known_scalar_sources": [
+    "Lee and Yang1952; Schoenberg1951",
+    "Konstantopoulos, Patie and Sarkar2024, DOI10.5802/aif.3600"
+  ],
+  "scope": "Lee--Yang supplies global positive divisibility. Exact rational moments and Sturm isolation certify rule parameters/error constants. Frequency-grid comparisons are numerical diagnostics, not proof of global positivity. Input enumeration is exponential."
+}

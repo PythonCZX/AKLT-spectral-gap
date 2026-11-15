@@ -1,0 +1,551 @@
+{
+  "arithmetic": "exact symbolic rational",
+  "charts": [
+    {
+      "order": 1,
+      "chart": [
+        "s",
+        "s**2*(s + t)"
+      ],
+      "jet_dimension": 3,
+      "determinant_exponent_R": 1,
+      "jacobian": "s**2",
+      "chain_determinant": "s**2",
+      "scaled_determinant": "s**3*t",
+      "complementary_minor_identities_checked": 38,
+      "complementary_minor_evaluation_points": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "all_assertions_passed": true
+    },
+    {
+      "order": 2,
+      "chart": [
+        "s",
+        "s**2*(s + t)"
+      ],
+      "jet_dimension": 6,
+      "determinant_exponent_R": 4,
+      "jacobian": "s**2",
+      "chain_determinant": "s**8",
+      "scaled_determinant": "s**12*t**4",
+      "complementary_minor_identities_checked": 98,
+      "complementary_minor_evaluation_points": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "all_assertions_passed": true
+    },
+    {
+      "order": 3,
+      "chart": [
+        "s",
+        "s**2*(s + t)"
+      ],
+      "jet_dimension": 10,
+      "determinant_exponent_R": 10,
+      "jacobian": "s**2",
+      "chain_determinant": "s**20",
+      "scaled_determinant": "s**30*t**10",
+      "complementary_minor_identities_checked": 98,
+      "complementary_minor_evaluation_points": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "all_assertions_passed": true
+    },
+    {
+      "order": 1,
+      "chart": [
+        "s*t",
+        "s*t**2"
+      ],
+      "jet_dimension": 3,
+      "determinant_exponent_R": 1,
+      "jacobian": "s*t**2",
+      "chain_determinant": "s*t**2",
+      "scaled_determinant": "s**2*t**3",
+      "complementary_minor_identities_checked": 38,
+      "complementary_minor_evaluation_points": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "all_assertions_passed": true
+    },
+    {
+      "order": 2,
+      "chart": [
+        "s*t",
+        "s*t**2"
+      ],
+      "jet_dimension": 6,
+      "determinant_exponent_R": 4,
+      "jacobian": "s*t**2",
+      "chain_determinant": "s**4*t**8",
+      "scaled_determinant": "s**8*t**12",
+      "complementary_minor_identities_checked": 98,
+      "complementary_minor_evaluation_points": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "all_assertions_passed": true
+    },
+    {
+      "order": 3,
+      "chart": [
+        "s*t",
+        "s*t**2"
+      ],
+      "jet_dimension": 10,
+      "determinant_exponent_R": 10,
+      "jacobian": "s*t**2",
+      "chain_determinant": "s**10*t**20",
+      "scaled_determinant": "s**20*t**30",
+      "complementary_minor_identities_checked": 98,
+      "complementary_minor_evaluation_points": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "all_assertions_passed": true
+    }
+  ],
+  "finite_thresholds": [
+    {
+      "m": 1,
+      "threshold": "10/9"
+    },
+    {
+      "m": 2,
+      "threshold": "14/9"
+    },
+    {
+      "m": 3,
+      "threshold": "11/6"
+    },
+    {
+      "m": 4,
+      "threshold": "91/45"
+    },
+    {
+      "m": 5,
+      "threshold": "136/63"
+    },
+    {
+      "m": 6,
+      "threshold": "95/42"
+    },
+    {
+      "m": 7,
+      "threshold": "253/108"
+    },
+    {
+      "m": 8,
+      "threshold": "65/27"
+    },
+    {
+      "m": 9,
+      "threshold": "406/165"
+    },
+    {
+      "m": 10,
+      "threshold": "248/99"
+    },
+    {
+      "m": 11,
+      "threshold": "595/234"
+    },
+    {
+      "m": 12,
+      "threshold": "703/273"
+    },
+    {
+      "m": 13,
+      "threshold": "164/63"
+    },
+    {
+      "m": 14,
+      "threshold": "473/180"
+    },
+    {
+      "m": 15,
+      "threshold": "1081/408"
+    },
+    {
+      "m": 16,
+      "threshold": "1225/459"
+    },
+    {
+      "m": 17,
+      "threshold": "1378/513"
+    },
+    {
+      "m": 18,
+      "threshold": "154/57"
+    },
+    {
+      "m": 19,
+      "threshold": "1711/630"
+    },
+    {
+      "m": 20,
+      "threshold": "1891/693"
+    },
+    {
+      "m": 21,
+      "threshold": "2080/759"
+    },
+    {
+      "m": 22,
+      "threshold": "1139/414"
+    },
+    {
+      "m": 23,
+      "threshold": "497/180"
+    },
+    {
+      "m": 24,
+      "threshold": "2701/975"
+    },
+    {
+      "m": 25,
+      "threshold": "2926/1053"
+    },
+    {
+      "m": 26,
+      "threshold": "1580/567"
+    },
+    {
+      "m": 27,
+      "threshold": "3403/1218"
+    },
+    {
+      "m": 28,
+      "threshold": "731/261"
+    },
+    {
+      "m": 29,
+      "threshold": "3916/1395"
+    },
+    {
+      "m": 30,
+      "threshold": "2093/744"
+    },
+    {
+      "m": 31,
+      "threshold": "4465/1584"
+    },
+    {
+      "m": 32,
+      "threshold": "4753/1683"
+    },
+    {
+      "m": 33,
+      "threshold": "1010/357"
+    },
+    {
+      "m": 34,
+      "threshold": "2678/945"
+    },
+    {
+      "m": 35,
+      "threshold": "5671/1998"
+    },
+    {
+      "m": 36,
+      "threshold": "5995/2109"
+    },
+    {
+      "m": 37,
+      "threshold": "6328/2223"
+    },
+    {
+      "m": 38,
+      "threshold": "667/234"
+    },
+    {
+      "m": 39,
+      "threshold": "7021/2460"
+    },
+    {
+      "m": 40,
+      "threshold": "7381/2583"
+    },
+    {
+      "m": 41,
+      "threshold": "7750/2709"
+    },
+    {
+      "m": 42,
+      "threshold": "4064/1419"
+    },
+    {
+      "m": 43,
+      "threshold": "1703/594"
+    },
+    {
+      "m": 44,
+      "threshold": "8911/3105"
+    },
+    {
+      "m": 45,
+      "threshold": "9316/3243"
+    },
+    {
+      "m": 46,
+      "threshold": "4865/1692"
+    },
+    {
+      "m": 47,
+      "threshold": "10153/3528"
+    },
+    {
+      "m": 48,
+      "threshold": "2117/735"
+    },
+    {
+      "m": 49,
+      "threshold": "11026/3825"
+    },
+    {
+      "m": 50,
+      "threshold": "5738/1989"
+    },
+    {
+      "m": 51,
+      "threshold": "11935/4134"
+    },
+    {
+      "m": 52,
+      "threshold": "12403/4293"
+    },
+    {
+      "m": 53,
+      "threshold": "2576/891"
+    },
+    {
+      "m": 54,
+      "threshold": "6683/2310"
+    },
+    {
+      "m": 55,
+      "threshold": "13861/4788"
+    },
+    {
+      "m": 56,
+      "threshold": "14365/4959"
+    },
+    {
+      "m": 57,
+      "threshold": "14878/5133"
+    },
+    {
+      "m": 58,
+      "threshold": "1540/531"
+    },
+    {
+      "m": 59,
+      "threshold": "15931/5490"
+    },
+    {
+      "m": 60,
+      "threshold": "16471/5673"
+    },
+    {
+      "m": 61,
+      "threshold": "17020/5859"
+    },
+    {
+      "m": 62,
+      "threshold": "8789/3024"
+    },
+    {
+      "m": 63,
+      "threshold": "3629/1248"
+    },
+    {
+      "m": 64,
+      "threshold": "18721/6435"
+    },
+    {
+      "m": 65,
+      "threshold": "19306/6633"
+    },
+    {
+      "m": 66,
+      "threshold": "9950/3417"
+    },
+    {
+      "m": 67,
+      "threshold": "20503/7038"
+    },
+    {
+      "m": 68,
+      "threshold": "4223/1449"
+    },
+    {
+      "m": 69,
+      "threshold": "21736/7455"
+    },
+    {
+      "m": 70,
+      "threshold": "11183/3834"
+    },
+    {
+      "m": 71,
+      "threshold": "23005/7884"
+    },
+    {
+      "m": 72,
+      "threshold": "23653/8103"
+    },
+    {
+      "m": 73,
+      "threshold": "4862/1665"
+    },
+    {
+      "m": 74,
+      "threshold": "12488/4275"
+    },
+    {
+      "m": 75,
+      "threshold": "25651/8778"
+    },
+    {
+      "m": 76,
+      "threshold": "26335/9009"
+    },
+    {
+      "m": 77,
+      "threshold": "27028/9243"
+    },
+    {
+      "m": 78,
+      "threshold": "2773/948"
+    },
+    {
+      "m": 79,
+      "threshold": "28441/9720"
+    },
+    {
+      "m": 80,
+      "threshold": "29161/9963"
+    },
+    {
+      "m": 81,
+      "threshold": "29890/10209"
+    },
+    {
+      "m": 82,
+      "threshold": "15314/5229"
+    },
+    {
+      "m": 83,
+      "threshold": "6275/2142"
+    },
+    {
+      "m": 84,
+      "threshold": "32131/10965"
+    },
+    {
+      "m": 85,
+      "threshold": "32896/11223"
+    },
+    {
+      "m": 86,
+      "threshold": "16835/5742"
+    },
+    {
+      "m": 87,
+      "threshold": "34453/11748"
+    },
+    {
+      "m": 88,
+      "threshold": "7049/2403"
+    },
+    {
+      "m": 89,
+      "threshold": "36046/12285"
+    },
+    {
+      "m": 90,
+      "threshold": "18428/6279"
+    },
+    {
+      "m": 91,
+      "threshold": "37675/12834"
+    },
+    {
+      "m": 92,
+      "threshold": "38503/13113"
+    },
+    {
+      "m": 93,
+      "threshold": "7868/2679"
+    },
+    {
+      "m": 94,
+      "threshold": "20093/6840"
+    },
+    {
+      "m": 95,
+      "threshold": "41041/13968"
+    },
+    {
+      "m": 96,
+      "threshold": "41905/14259"
+    },
+    {
+      "m": 97,
+      "threshold": "42778/14553"
+    },
+    {
+      "m": 98,
+      "threshold": "4366/1485"
+    },
+    {
+      "m": 99,
+      "threshold": "44551/15150"
+    },
+    {
+      "m": 100,
+      "threshold": "45451/15453"
+    }
+  ]
+}

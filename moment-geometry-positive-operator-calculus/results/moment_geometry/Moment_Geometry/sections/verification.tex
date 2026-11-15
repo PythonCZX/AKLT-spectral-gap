@@ -1,0 +1,249 @@
+\section{Computational content and verification}
+\label{sec:verification}
+
+The computational materials are intended to be usable mathematical
+objects: a reader can supply measurement counts, a finite channel, a graph,
+a Hermitian generator, or rational points in a simplex and obtain an output
+with a stated meaning.
+The same materials support verification of finite identities occurring in
+the proofs. We distinguish those two purposes from exploratory numerical
+sampling.
+
+\subsection{Reusable interfaces}
+
+\paragraph{Ensemble certification.}
+The Hesse tool takes the number of triple-copy $Q$ clicks, the nine
+single-copy SIC counts, and a confidence level. It returns the bound in
+\eqref{geo:confidence}, the binomial upper confidence limit, and the
+one-copy moment error. A planning mode returns sufficient sample budgets
+for a requested accuracy. Seeded synthetic experiments illustrate the
+interface, but the confidence statement is proved for the matched-replica
+access model. It does not assume that the unknown ensemble is a finite
+mixture of nine states. The support witness and the weight-conditioning
+matrix are exposed separately so that the approach can be adapted to a
+different finite coherent ensemble.
+
+\paragraph{Channel and graph certificates.}
+The network tool accepts rational real or complex Choi matrices, a
+faithful rank-one reference, and proposed sandwich constants. It checks
+Hermiticity and positive semidefiniteness by exact congruence elimination,
+including zero-pivot cases. It then builds the edge influence matrix and
+checks a rational positive vector $w$ with $Cw\le rw$. The output records
+the coarse gap $1-r$ and the separate microscopic coverage multiplier.
+For homogeneous AKLT inputs, the exact certificates include
+\[
+ (\Delta,n)=(3,4):\quad\operatorname{gap}H_{\rm block}\ge\frac3{16},
+ \qquad
+ (\Delta,n)=(31,6):\quad\operatorname{gap}H_{\rm block}\ge\frac7{432}.
+\]
+These are blocked-parent bounds; a specified microscopic Hamiltonian
+still uses its finite-patch gap in Lemma~\ref{q:lem-seed}. Rational
+certificates can be checked without diagonalizing the full spin system.
+
+\paragraph{Positive modular and information-matrix approximations.}
+The modular tool constructs positive Gauss and Radau clocks from exact
+Bessel moments or supplied positive moment data. The output includes
+positive nodes, Gamma shapes, a heat drift when needed, the derivative
+order in the error bound, and an exact rounding certificate obtained from
+Sturm isolation and rational interval arithmetic. A sparse Pauli routine
+computes nested commutators by combining integer coefficients before
+taking an absolute sum. This yields a certified operator-norm upper bound
+for use in Theorem~\ref{op:quadrature-theorem}.
+
+For example, for
+\[
+ G_0=\frac{37\sum_jZ_jZ_{j+1}+29\sum_jX_j+13\sum_jZ_j}{100},
+ \qquad A=Z_{\rm center},
+\]
+the second, fourth, and sixth commutator bounds are respectively
+$1.3456$, $6.80685216$, and $49.483070071552$. These displayed decimals
+are terminating exact rational values. Their support sizes are three,
+five, and seven sites, so they agree on sufficiently long open chains.
+The calculation concerns the supplied $A$ and $G_0$; it does not infer
+locality of a relative tangent from locality of an unnormalized perturbation.
+
+One sampled use of a compiled rule requires its Gamma draws, one Gaussian
+draw, and one evolution by $e^{iTG}$. Their times add before evolution.
+For $G=K/2$ the evolution is $e^{iTK/2}$. At the hyperbolic endpoint and
+semigroup time one, a direct logistic sampler is already available; the
+advantage of the common clock construction is its fractional-time
+semigroup, certified deterministic approximations, and fixed-state
+information brackets. Access to $K$, state preparation, feature inner
+products, and Hamiltonian simulation precision remain explicit inputs.
+
+\paragraph{Coherent spectral combinatorics.}
+The spectral tool enumerates restricted-growth words for set partitions,
+constructs the directed cycle quotients, and evaluates rooted cofactors by
+fraction-free integer elimination. It produces rational moments at
+arbitrary integer complex dimension and rational sampling density. A
+separate extension check verifies the noncrossing layer, Narayana
+multiplicities, the aspect-ratio factors, and pairing bounds used for
+unbounded support. Optional Monte Carlo generates coherent Gram matrices
+at finite degree, with exact finite-degree expectations as the comparison.
+The random experiment is separated from the default exact calculation.
+
+\paragraph{Certified Slater-energy assignments.}
+The transport tool accepts positive rational squared moduli for $N_k$
+projective points. A numerical assignment proposes a matching of these
+points to the degree-$Dk$ exponent grid. A separate rational calculation
+then certifies optimality: multiplicative dual variables majorize every
+monomial weight and attain equality on the proposed matching. This proves
+the optimum without treating floating-point comparisons as exact.
+Arb ball arithmetic encloses the logarithms and the two endpoints in
+Proposition~\ref{tor:finite-certificate}. The output bounds the angular
+mean of the actual determinant energy for the supplied moduli. It is
+useful for comparing radial configurations and for investigating toric
+energy landscapes. The certificate has precisely this scope; it does not
+bound every phase configuration or an exponential moment of the energy.
+
+\paragraph{Sampling geometric potentials.}
+The nonlinear Green theorem supplies a further algorithmic interface,
+specified mathematically in Corollary~\ref{cy:interpolation-sampling}.
+Given evaluations of a section basis, its Hermitian norm, and independent
+samples from a smooth positive volume, solve a homogeneous interpolation
+system, evaluate the resulting section, and subtract the mean logarithm
+of its squared Hermitian norm on fresh calibration samples. Averaging $M$ such functions estimates the
+finite-level potential. With $J$ calibration points per section, its
+expected squared $L^2$ error is at most
+$2C_a(\mu)(1+1/J)/(a^2M)$, uniformly in the level. The polynomial-level
+bias converges, but its rate and finite-precision interpolation conditioning
+remain questions for an implementation. This result is an algorithmic
+consequence of the proof; the executable suites do not simulate a
+Calabi--Yau metric or certify a finite-level bias.
+
+\subsection{What the certificates establish}
+
+Table~\ref{tab:claim-support} summarizes the support for the principal
+claims. The external inputs are cited where they enter the proofs. The
+machine-readable registry expands these rows into individual statements,
+hypotheses, dependencies, and arithmetic assumptions.
+
+\begingroup
+\small
+\begin{longtable}{p{.22\linewidth}p{.42\linewidth}p{.26\linewidth}}
+\caption{Mathematical support and the role of finite verification.}
+\label{tab:claim-support}\\
+\toprule
+Main result & Decisive argument & Computational support\\
+\midrule
+\endfirsthead
+\toprule Main result & Decisive argument & Computational support\\
+\midrule
+\endhead
+Balanced threshold, Theorem~\ref{geo:sharp}
+& Jet semi-invariants, balanced determinantal couplings, and fixed-degree
+quantization prove the sharp strict-subcritical coefficient.
+& Exact jet maps and monomial examples check constants and conventions.\\[5pt]
+Cubic classification and Hesse certification,
+Theorem~\ref{geo:cubic} and Section~\ref{geo:hesse-cert}
+& A quartic rank witness supplies full tensor balance; Cartan theory
+classifies support. A pointwise polynomial inequality gives robustness.
+& Exact tensor, witness, moment, and Gram-matrix identities.\\[5pt]
+Singer surface, Section~\ref{geo:k3}
+& Blow-up and cover calculations, automorphisms, and an integral
+discriminant-form computation determine the K3 lattice.
+& Cyclotomic cancellation and intersection-lattice arithmetic.\\[5pt]
+Coherent spectra and toric energy,
+Sections~\ref{sec:coherent-spectrum} and \ref{tor:section}
+& Local Gaussian graph integrals yield tree moments; exposed Newton
+vertices and Jensen's formula bound the torus-averaged logarithm.
+& Partition enumeration and exact assignment duals, with certified
+logarithmic endpoints.\\[5pt]
+Equilibria and determinant LDPs,
+Sections~\ref{sec:equilibria}, \ref{sec:repulsive-constraints},
+and \ref{att:entropy-section}
+& Positive moment repair, pluripotential duality, conditional compactness,
+entropy coarse-graining, and two-sided mean-energy transfer.
+& Finite repair identities check normalization; the limit theorems have
+analytic proofs.\\[5pt]
+Nonlinear Green formula, Section~\ref{cy:section}
+& The determinant Hessian is a positive hierarchy of coherent moments.
+Convex secants identify the limiting derivative with the inverse
+Monge--Amp\`ere potential.
+& A proved sampling-variance bound separates statistical error from
+the convergent, nonquantified level bias.\\[5pt]
+Curvature and susceptibility, Section~\ref{ac:section}
+& Singular anticanonical metrics are regularized before applying
+H\"ormander's estimate; projective changes of variables give the Ward identity.
+& The identities are proved at finite particle number.\\[5pt]
+Modular and gap certificates,
+Sections~\ref{sec:positive-calculus} and \ref{q:sec-networks}
+& Positive random-time representations, local commutators, two-port
+Schur cancellation, and projection-angle estimates.
+& Rational clocks, Arb brackets, Choi positivity, and graph inequalities;
+bounded matrix diagnostics check implementations.\\[5pt]
+Measurement neighborhoods, Theorem~\ref{geo:operational}
+& Convex dual contact identities, anisotropic flag estimates, and
+compactness at reducible qutrit strata.
+& Exact finite-angle inequalities; the neighborhood conclusion uses
+the full analytic contact proof.\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+The exact calculations cover Moore determinants, quartic contractions,
+finite Hesse moments and Gram matrices, Singer character cancellation and
+intersection forms, finite jet moment maps, scalar response identities,
+Choi positivity, and rational graph inequalities. They are particularly
+useful where a transpose convention, normalization, or cancellation could
+change the statement of a theorem. Finite jet examples verify the
+implementation of the all-degree argument, rather than replacing it.
+
+Floating-point checks have a different role. Direct physical tensor
+contractions test the CP convention; numerical principal angles test the
+quotient-metric formula; Fourier quadrature tests modular kernels against
+matrix divided differences. Dense eigenvalue experiments and the sampled
+Hesse scatter plot illustrate formulas and can expose implementation
+errors. Their output is labeled numerical evidence and is not used as a
+certificate of a universal inequality.
+
+The packaged run passed all 25 suites: 18 exact-algebra suites, three
+certified-arithmetic suites, and four bounded floating-point diagnostic
+suites. Monte Carlo experiments were disabled in this run. Exact coverage
+includes 26,442 set partitions through order nine, an independent
+5,295-partition spectral audit, 50 finite posets, and 18 Hesse identities.
+The clock tools checked 32 rational quadrature isolations, 72 Lee--Yang
+rules, and 16 Arb-certified information brackets; the eighth-order BKM
+example has certified bracket width below $1.893\times10^{-23}$. These
+counts describe finite computational coverage, not the scope of a theorem.
+The assignment suite additionally checks 720 Newton-exposure assignments,
+319 exact multinomial mode inequalities, and 720 exhaustive small
+assignment comparisons; its default rational example verifies all 100
+dual inequalities.
+
+For the analytic probability results, the evidence is the proof itself.
+The attractive LDP follows from the two-sided estimate
+\eqref{att:quadratic-bound}, compact conditional densities, the exact
+coarse-graining entropy inequality, and finite-reference energy transfer.
+No finite simulation certifies a thermodynamic limit. Likewise, the
+curvature and Ward identities are derived before any limit is taken.
+The theorem registry records the classical external results and each
+intermediate lemma, so their verification can proceed independently of
+the numerical illustrations.
+
+The aggregate runner records the command, return status, elapsed time,
+arithmetic category, and result path for every check. The report includes
+the Python and package versions and fixes random seeds. Exact rational
+and algebraic calculations rely on the correctness of the supplied code
+and the arithmetic libraries. No proof-assistant kernel has checked the
+full analytic or geometric arguments in this version. The accompanying
+formalization guide identifies the definitions, theorem dependencies,
+external theorems, and finite certificates needed for such a development;
+its machine-readable registry records this verification status explicitly.
+
+\subsection{Figures and reproducibility}
+
+All thirteen figures are generated from the equations in the text by one
+script, with PDF and PNG outputs and a formula-and-data manifest. The
+plotting style and the surface inset use the supplied Matplotlib identity
+package; font notices are retained with that code. No example data from
+the styling package are used. The simplex projections, curve operations,
+and core-wire architecture are labeled as geometric illustrations; the
+remaining curves and finite tables are computed from explicit formulas.
+The figures and compiled pages were visually inspected for mathematical
+labeling, caption consistency, clipping, and legibility.
+
+The main source, bibliography, proof modules, figure code, executable
+supplements, result files, and verification guide are distributed together.
+The mathematical proofs are contained in the paper; the dependency guide
+makes their interfaces easier to formalize and reuse.

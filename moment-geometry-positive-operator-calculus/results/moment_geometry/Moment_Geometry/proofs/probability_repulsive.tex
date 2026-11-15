@@ -1,0 +1,225 @@
+\section{Moment constraints and repulsive determinant ensembles}
+\label{sec:repulsive-constraints}
+
+Positive moment repair also acts directly on particle configurations.
+It can enforce a shrinking design constraint by resampling a vanishing
+fraction of the particles while controlling both determinant energy
+and relative entropy.  This gives a constrained version of the
+positive-temperature determinant large-deviation theorem
+\cite{prob_berman2017}.
+
+Fix a design order $t\geq1$ on $X=\mathbb P^2$, and set
+\[
+ T_t(z)=P_z^{\otimes t},\qquad
+ H_t=\frac{I_{\Sym^t\C^3}}{\binom{t+2}{2}},\qquad
+ \mathcal D_t=\left\{\mu:\int T_t\,d\mu=H_t\right\}.
+\]
+For $N=N_k=\binom{3k+2}{2}$ let $E_k$ be the anticanonical Slater
+energy in \eqref{eq:coherent-logarithmic-energy}, and let $E$ be the
+normalized pluricomplex measure energy for $(X,\mathcal O(3))$,
+with $E\geq0$ and $E(\sigma)=0$.  Fix $0<a<1/2$
+and define
+\[
+ \Omega_N=\left\{\left\|\frac1N\sum_iT_t(z_i)-H_t\right\|_{\HS}
+                      <N^{-a}\right\},
+ \qquad Q_N=\sigma^{\otimes N}(\cdot\mid\Omega_N).
+\]
+The design order $t$ is fixed before $k\to\infty$.
+
+\begin{lemma}[Conditional replacement estimate]
+\label{lem:conditional-replacement}
+If $\Delta_k(\boldsymbol x)\ne0$ and a set of $m$ particle positions
+is replaced independently by laws having densities at most $3/2$
+against $\sigma$, then the resulting tuple $\boldsymbol Y$ satisfies
+\[
+ \Pr\!\left(E_k(\boldsymbol Y)>E_k(\boldsymbol x)
+                   +c_*m/N\right)\leq e^{-m},
+ \qquad c_*=6(1+\log4).
+\]
+\end{lemma}
+
+\begin{proof}
+For a nonzero section $p\in H^0(\mathbb P^2,\mathcal O(3k))$,
+a point $z_0$ with $p(z_0)\ne0$, and $0<s<1/3$, one has
+\[
+ \int\left(\frac{\|p(z)\|}{\|p(z_0)\|}\right)^{-2s/k}d\sigma(z)
+ \leq C(3s),\qquad C(u)=\frac2{(1-u)(2-u)}.
+\]
+To verify this, it suffices to replace $z_0$ by a maximum point.
+Disintegrate Fubini--Study measure along complex lines through it.
+On such a line the radial density is $2(1-x)dx\,d\theta/(2\pi)$.
+Factor the restriction into $3k$ normalized linear forms and apply
+H\"older.  The inverse integral of one unit linear form, whose
+squared value at the distinguished point is $b$, is
+$2(1-u+ub)/((1-u)(2-u))\leq C(u)$.  The normalizing values of the
+individual linear forms contribute factors at most one.
+
+Apply this estimate successively to the determinant in each replaced
+coordinate, evaluating it at the old coordinate after each integration.
+The restrictions that vanish identically occur on analytic null sets.
+At $s=1/6$, $C(3s)=8/3$; the density bounds therefore give
+\[
+ \mathbb E\exp\left(\frac N6
+       [E_k(\boldsymbol Y)-E_k(\boldsymbol x)]\right)\leq4^m.
+\]
+Exponential Markov inequality proves the claim.
+\end{proof}
+
+\begin{proposition}[Entropy-controlled repair of microscopic moments]
+\label{prop:microscopic-moment-repair}
+Suppose $\delta_N\downarrow0$.  There are integers $m_N=o(N)$,
+with $m_N\to\infty$, and measurable replacement kernels
+$\mathcal R_N$ on nonzero-determinant configurations of moment defect
+at most $\delta_N$, such that, almost surely under the kernel,
+\[
+ \boldsymbol Y\in\Omega_N,\qquad
+ \#\{i:Y_i\ne x_i\}\leq m_N,\qquad
+ E_k(\boldsymbol Y)\leq E_k(\boldsymbol x)+c_*m_N/N.
+\]
+For every input law $R_N$ of finite relative entropy, its repaired law
+$S_N=R_N\mathcal R_N$ satisfies
+\begin{equation}
+ \Ent(S_N\mid\sigma^{\otimes N})
+ \leq\Ent(R_N\mid\sigma^{\otimes N})
+           +m_N\log(3/2)+2\log2.
+ \label{eq:microscopic-repair-entropy}
+\end{equation}
+The empirical measures before and after repair have bounded-Lipschitz
+distance at most $2m_N/N$.
+\end{proposition}
+
+\begin{proof}
+The coherent covariance map on traceless Hermitian matrices,
+\[
+ \mathsf S_t(A)=\int\tr(AT_t(z))T_t(z)\,d\sigma(z),
+\]
+is strictly positive: a coherent symbol vanishing identically is the
+zero bihomogeneous polynomial.  Hence it is invertible.  There is a
+finite constant $C_t\geq1$ such that, for every sufficiently small
+traceless Hermitian $D$, the density
+\[
+ 1+g_D(z),\qquad
+ g_D(z)=\tr(\mathsf S_t^{-1}(D)T_t(z)),
+\]
+has mean one, moment $H_t+D$, and
+$\|g_D\|_\infty\leq C_t\|D\|_{\HS}$.  It lies in $[1/2,3/2]$
+when $\|D\|\leq1/(2C_t)$.
+
+Choose $\theta_N=m_N/N\to0$ with $m_N\to\infty$ and
+$\theta_N\geq4C_t\delta_N$.  A uniformly sampled $m_N$-subset
+$I$ has average moment within $1/(4C_t)$ of the full empirical
+moment $M_x$ with probability at least $1/2$, for large $N$:
+sampling without replacement gives mean squared deviation at most
+$1/m_N$.  Condition on these good subsets.  The desired replacement
+moment is
+\[
+ M_\tau=\frac1{m_N}\sum_{i\in I}T_t(x_i)
+                      +\frac{H_t-M_x}{\theta_N}.
+\]
+It is within $1/(2C_t)$ of $H_t$, so a density in $[1/2,3/2]$
+realizes it.  Independent replacements from that density give total
+expected moment $H_t$ and variance at most $m_N/N^2$.
+The probability of violating the tube is at most $N^{2a-1}$.
+Lemma~\ref{lem:conditional-replacement} bounds the probability of
+violating the energy inequality by $e^{-m_N}$.  Condition on both
+requirements; their joint probability is at least $1/2$ for large $N$.
+
+For completeness, the entropy bound includes the adaptive choice of
+labels.  Relative to the independent uniform law on subsets, selecting
+a good subset costs at most $\log2$ in relative entropy.  Discarding
+the old selected coordinates does not increase relative entropy.
+Conditional on the retained coordinates and the subset, the new
+coordinates have a mixture of densities bounded by
+$2(3/2)^{m_N}$.  The entropy chain rule adds at most
+$m_N\log(3/2)+\log2$.  Discarding the subset label gives
+\eqref{eq:microscopic-repair-entropy}.  All selections and conditional
+densities are Borel; changing $m_N$ atoms gives the empirical-distance
+bound.
+\end{proof}
+
+\begin{theorem}[Shrinking-design pressure and large deviations]
+\label{thm:repulsive-design-ldp}
+For every $\beta\geq0$ and every continuous
+$\Phi:\mathcal P(X)\to\mathbb R$,
+\begin{equation}
+ \lim_{k\to\infty}\frac1N\log
+       \int e^{-N[\beta E_k+\Phi(L_N)]}\,dQ_N
+ =-\inf_{\mu\in\mathcal D_t}
+       [\Ent(\mu\mid\sigma)+\beta E(\mu)+\Phi(\mu)].
+ \label{eq:repulsive-design-laplace}
+\end{equation}
+The normalized empirical laws satisfy a full speed-$N$ LDP with good
+rate function
+\[
+ I_\beta(\mu)=\Ent(\mu\mid\sigma)+\beta E(\mu)
+                         +\iota_{\mathcal D_t}(\mu).
+\]
+Its unique minimizer is $\sigma$, with minimum zero.  Here
+$\iota_{\mathcal D_t}$ is zero on the constraint and infinity outside it.
+\end{theorem}
+
+\begin{proof}
+First, $\sigma^{\otimes N}(\Omega_N)\to1$ by the variance estimate.
+The reference conditioned laws have the constrained Sanov rate
+$\Ent(\mu\mid\sigma)+\iota_{\mathcal D_t}$.  The upper bound is
+Sanov's upper bound and the closed limiting constraint.  For the lower
+bound at a finite-entropy $\mu\in\mathcal D_t$, use $\mu^{\otimes N}$:
+its empirical law converges to $\mu$, its moment lies in the tube with
+probability tending to one because $N^{1-2a}\to\infty$, and the
+log-density law of large numbers gives the entropy cost.
+
+Choose continuous nonnegative envelopes $E_r\uparrow E$.
+Theorem~\ref{an:lower-comparison} gives
+$E_k\geq E_r(L_N)-o_r(1)$ uniformly for each fixed $r$. The
+reference Laplace principle therefore bounds the upper limit of
+\eqref{eq:repulsive-design-laplace} by
+$-\inf_{\mathcal D_t}(\Ent+\beta E_r+\Phi)$.  Let $r\to\infty$;
+monotonicity and compactness of probability space give the desired
+upper bound.
+
+For the lower bound at $\beta>0$, use the unrestricted determinant
+LDP of \citet[Theorems 1.1 and 5.7]{prob_berman2017}.  At every
+$\mu\in\mathcal D_t$ of finite entropy and energy it supplies
+shrinking empirical neighborhoods and restricted Gibbs laws $R_N$
+with
+\[
+ \limsup_N\left[
+   \frac1N\Ent(R_N\mid\sigma^{\otimes N})
+                  +\beta\mathbb E_{R_N}E_k\right]
+ \leq \Ent(\mu\mid\sigma)+\beta E(\mu).
+\]
+Indeed the bracket equals minus the normalized logarithm of the
+restricted unnormalized partition function; the LDP lower bound and
+a diagonal choice of shrinking neighborhoods give the assertion.
+At finite $N$ entropy and energy are finite, since the positive
+temperature weight suppresses logarithmic determinant singularities.
+
+The moment defects on these neighborhoods tend to zero uniformly.
+Proposition~\ref{prop:microscopic-moment-repair} gives laws $S_N$
+supported on $\Omega_N$, changes their empirical measures by $o(1)$,
+and increases the displayed mean free energy by at most
+\[
+ \frac{m_N}{N}[\log(3/2)+\beta c_*]+\frac{2\log2}{N}=o(1).
+\]
+Furthermore
+$\Ent(S_N\mid Q_N)=\Ent(S_N\mid\sigma^{\otimes N})
++\log\sigma^{\otimes N}(\Omega_N)$.
+The Gibbs variational principle now proves the pressure lower bound,
+including the continuous tilt $\Phi$.  At $\beta=0$ the assertion
+is the constrained Sanov theorem.  The Laplace principle for every
+continuous $\Phi$ on compact probability space is equivalent to the
+full LDP.  Finally $E\geq0$, $E(\sigma)=0$, and entropy has unique
+zero at $\sigma$, proving the normalization and uniqueness claims.
+\end{proof}
+
+\begin{corollary}
+For every fixed $\beta>0$, the unperturbed repulsive ensemble has
+$\mathbb E E_k\to0$ and relative entropy per particle tending to
+zero, relative to either $Q_N$ or $\sigma^{\otimes N}$.
+\end{corollary}
+\begin{proof}
+The limiting unperturbed pressure is zero at every positive $\beta$.
+Convex difference quotients at $\beta\pm h$ imply convergence of
+the finite-level derivative $-\mathbb E E_k$ to zero.
+The Gibbs variational identity then gives the entropy limit.
+\end{proof}

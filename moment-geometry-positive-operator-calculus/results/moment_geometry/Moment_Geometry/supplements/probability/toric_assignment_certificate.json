@@ -1,0 +1,165 @@
+{
+  "status": "certified",
+  "evidence_class": "certified_arithmetic",
+  "q": 2,
+  "m": 3,
+  "k": 1,
+  "N": 10,
+  "coordinates": [
+    [
+      "1/6",
+      "1/6",
+      "2/3"
+    ],
+    [
+      "1/6",
+      "1/3",
+      "1/2"
+    ],
+    [
+      "1/6",
+      "1/2",
+      "1/3"
+    ],
+    [
+      "1/6",
+      "2/3",
+      "1/6"
+    ],
+    [
+      "1/3",
+      "1/6",
+      "1/2"
+    ],
+    [
+      "1/3",
+      "1/3",
+      "1/3"
+    ],
+    [
+      "1/3",
+      "1/2",
+      "1/6"
+    ],
+    [
+      "1/2",
+      "1/6",
+      "1/3"
+    ],
+    [
+      "1/2",
+      "1/3",
+      "1/6"
+    ],
+    [
+      "2/3",
+      "1/6",
+      "1/6"
+    ]
+  ],
+  "exponents": [
+    [
+      0,
+      0,
+      3
+    ],
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      2,
+      1
+    ],
+    [
+      0,
+      3,
+      0
+    ],
+    [
+      1,
+      0,
+      2
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      2,
+      0
+    ],
+    [
+      2,
+      0,
+      1
+    ],
+    [
+      2,
+      1,
+      0
+    ],
+    [
+      3,
+      0,
+      0
+    ]
+  ],
+  "assignment": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "multiplicative_dual": {
+    "u": [
+      "16/81",
+      "1/12",
+      "1/12",
+      "16/81",
+      "1/12",
+      "1/27",
+      "1/12",
+      "1/12",
+      "1/12",
+      "16/81"
+    ],
+    "v": [
+      "3/2",
+      "1",
+      "1",
+      "3/2",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "3/2"
+    ]
+  },
+  "dual_inequalities_checked": 100,
+  "precision_bits": 160,
+  "assignment_KL_cost_interval": "[0.23671236141316168556909153703683571357300101140 +/- 7.34e-48]",
+  "lower_bound_interval": "[-3.1028892660621121568332877764989641040703235289 +/- 5.92e-47]",
+  "upper_bound_interval": "[0.7101370842394850567072746111105071407190030342 +/- 2.20e-47]",
+  "phase_mean_energy_enclosure": "[+/- 3.11]",
+  "meaning": "The phase-averaged energy lies between the exact lower and upper expressions enclosed above. The union ball encloses the entire guaranteed interval. This is not a bound for each angular configuration or an attractive partition function.",
+  "example_kind": "deterministic rational illustration",
+  "finite_checks": {
+    "exposure_assignments": 720,
+    "minimum_positive_exposure_gap": 1,
+    "exact_multinomial_modes": 319,
+    "exhaustive_assignment_comparisons": 720,
+    "incorrect_assignment_rejected": true
+  }
+}

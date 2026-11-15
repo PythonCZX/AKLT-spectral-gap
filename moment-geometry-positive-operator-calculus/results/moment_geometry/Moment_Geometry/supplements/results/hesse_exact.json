@@ -1,0 +1,213 @@
+{
+  "exact": {
+    "M1_is_I3_over_3": true,
+    "M2_is_I6_over_6": true,
+    "Q_is_rank_two_projector": true,
+    "M3_is_IminusQ_over_8": true,
+    "fourth_moment_rank_nine": true,
+    "third_projector_gram": true,
+    "third_vector_frame_rank_eight": true,
+    "witness_spectrum": true,
+    "witness_symbol": true,
+    "projector_symbol": true,
+    "binary_cubic_factorization": true,
+    "binary_nonnegative_remainder": true,
+    "large_coordinate_projector_constant": true,
+    "small_coordinate_h_identity": true,
+    "small_coordinate_h_margin": true,
+    "small_coordinate_projector_margin": true,
+    "h_distance_constant": true,
+    "SIC_tomography_constant": true,
+    "moment_ranks": {
+      "1": 3,
+      "2": 6,
+      "3": 8,
+      "4": 9
+    },
+    "witness_spectrum_exact": {
+      "5/2": 1,
+      "-1/2": 2,
+      "1/6": 6,
+      "1/2": 1
+    },
+    "Q_occupation_basis": [
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        2,
+        1,
+        0
+      ],
+      [
+        2,
+        0,
+        1
+      ],
+      [
+        1,
+        2,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        3,
+        0
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        0,
+        3
+      ]
+    ],
+    "Q_matrix": [
+      [
+        "1/3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/3",
+        "0",
+        "0",
+        "1/3"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "1/3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/3",
+        "0",
+        "0",
+        "1/3"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "1/3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/3",
+        "0",
+        "0",
+        "1/3"
+      ]
+    ]
+  },
+  "numerical": {
+    "status": "not_run",
+    "samples": 0,
+    "seed": 20261115
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "all_36_matrix_unit_haar_contractions_match": true,
+  "frame_eigenvalues": {
+    "1/6": 1,
+    "1/15": 8,
+    "1/90": 27
+  },
+  "centered_inverse_frame_diagonal": [
+    35,
+    -25,
+    -25,
+    5,
+    5,
+    5
+  ],
+  "centered_inverse_frame_squared_HS_norm": 2550,
+  "centered_inverse_frame_identity_checked": true,
+  "repair_exact_moment_cancellation": true,
+  "dilution_nonnegative_remainder": "-D*c**2*(c - 1)/2",
+  "normalized_psh_L1_bound": "9/2",
+  "global_entropy_energy_bound": "E <= 6 H + 6 log(8/3)",
+  "scope": "Exact algebra only; analytic theorems are proved and sourced in the packet."
+}

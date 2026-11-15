@@ -1,0 +1,72 @@
+{
+  "stress": {
+    "status": "all numerical tests passed; not a universal proof",
+    "trials": 24,
+    "seed": 2026111507,
+    "largest_angle_bound_ratio": 0.0942509461571319,
+    "minimum_angle_bound_slack": 5.555884871788166e-05,
+    "maximum_reference_whitening_error": 1.2766636500058532e-14,
+    "maximum_direct_projection_vs_Schur_error": 1.7405807088070706e-16
+  },
+  "microscopic_AKLT": {
+    "normalization": "one normalized singlet per internal bond; each half-wire scaled by (2/sqrt(3))^ell",
+    "cases": [
+      {
+        "degree": 2,
+        "half_wire_length": 1,
+        "physical_block_dimension": 27,
+        "boundary_dimension": 4,
+        "relative_direct_vs_CP_Gram_error": 1.2810101601798648e-16,
+        "wire_transfer_error": 7.850462293418876e-17,
+        "minimum_Gram_eigenvalue": 0.6666666666666666
+      },
+      {
+        "degree": 3,
+        "half_wire_length": 1,
+        "physical_block_dimension": 108,
+        "boundary_dimension": 8,
+        "relative_direct_vs_CP_Gram_error": 1.1141562069496666e-16,
+        "wire_transfer_error": 7.850462293418876e-17,
+        "minimum_Gram_eigenvalue": 0.4444444444444444
+      },
+      {
+        "degree": 4,
+        "half_wire_length": 1,
+        "physical_block_dimension": 405,
+        "boundary_dimension": 16,
+        "relative_direct_vs_CP_Gram_error": 1.8645488424551818e-16,
+        "wire_transfer_error": 7.850462293418876e-17,
+        "minimum_Gram_eigenvalue": 0.24691358024691357
+      },
+      {
+        "degree": 2,
+        "half_wire_length": 2,
+        "physical_block_dimension": 243,
+        "boundary_dimension": 4,
+        "relative_direct_vs_CP_Gram_error": 1.2819425599545864e-16,
+        "wire_transfer_error": 5.887846720064156e-17,
+        "minimum_Gram_eigenvalue": 0.7407407407407407
+      },
+      {
+        "degree": 3,
+        "half_wire_length": 2,
+        "physical_block_dimension": 2916,
+        "boundary_dimension": 8,
+        "relative_direct_vs_CP_Gram_error": 2.0395282803102857e-16,
+        "wire_transfer_error": 5.887846720064156e-17,
+        "minimum_Gram_eigenvalue": 0.49382716049382724
+      },
+      {
+        "degree": 4,
+        "half_wire_length": 2,
+        "physical_block_dimension": 32805,
+        "boundary_dimension": 16,
+        "relative_direct_vs_CP_Gram_error": 4.904508230764631e-16,
+        "wire_transfer_error": 5.887846720064156e-17,
+        "minimum_Gram_eigenvalue": 0.30483158055174536
+      }
+    ],
+    "all_passed": true
+  },
+  "output": "/workspace/scratch/e041a694f3ed/publication_package/supplements/results/two_port_schur_diagnostic.json"
+}

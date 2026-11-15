@@ -1,0 +1,210 @@
+{
+  "hamiltonian": "(37 sum ZZ +29 sum X +13 sum Z)/100",
+  "observable": "Z at center",
+  "rows": [
+    {
+      "spins": 8,
+      "derivative_order": 2,
+      "pauli_terms": 4,
+      "support_sites": 3,
+      "exact_operator_norm_upper_bound": "841/625",
+      "bound_float": 1.3456,
+      "elapsed_seconds": 3.067500074394047e-05
+    },
+    {
+      "spins": 8,
+      "derivative_order": 4,
+      "pauli_terms": 16,
+      "support_sites": 5,
+      "exact_operator_norm_upper_bound": "21271413/3125000",
+      "bound_float": 6.80685216,
+      "elapsed_seconds": 0.0001386639996781014
+    },
+    {
+      "spins": 8,
+      "derivative_order": 6,
+      "pauli_terms": 54,
+      "support_sites": 7,
+      "exact_operator_norm_upper_bound": "193293242467/3906250000",
+      "bound_float": 49.483070071552,
+      "elapsed_seconds": 0.000303016000543721
+    },
+    {
+      "spins": 8,
+      "derivative_order": 8,
+      "pauli_terms": 176,
+      "support_sites": 8,
+      "exact_operator_norm_upper_bound": "17771049953711943/39062500000000",
+      "bound_float": 454.93887881502576,
+      "elapsed_seconds": 0.0009049120053532533
+    },
+    {
+      "spins": 8,
+      "derivative_order": 10,
+      "pauli_terms": 490,
+      "support_sites": 8,
+      "exact_operator_norm_upper_bound": "254571074325888215113/48828125000000000",
+      "bound_float": 5213.615602194191,
+      "elapsed_seconds": 0.002911246003350243
+    },
+    {
+      "spins": 8,
+      "derivative_order": 12,
+      "pauli_terms": 1241,
+      "support_sites": 8,
+      "exact_operator_norm_upper_bound": "9130837657032970868041171/122070312500000000000",
+      "bound_float": 74799.8220864141,
+      "elapsed_seconds": 0.012351276003755629
+    },
+    {
+      "spins": 8,
+      "derivative_order": 14,
+      "pauli_terms": 2762,
+      "support_sites": 8,
+      "exact_operator_norm_upper_bound": "807057316554906594449811820899/610351562500000000000000",
+      "bound_float": 1322282.707443559,
+      "elapsed_seconds": 0.03663053300260799
+    },
+    {
+      "spins": 16,
+      "derivative_order": 2,
+      "pauli_terms": 4,
+      "support_sites": 3,
+      "exact_operator_norm_upper_bound": "841/625",
+      "bound_float": 1.3456,
+      "elapsed_seconds": 2.6659996365197003e-05
+    },
+    {
+      "spins": 16,
+      "derivative_order": 4,
+      "pauli_terms": 16,
+      "support_sites": 5,
+      "exact_operator_norm_upper_bound": "21271413/3125000",
+      "bound_float": 6.80685216,
+      "elapsed_seconds": 0.00011426900164224207
+    },
+    {
+      "spins": 16,
+      "derivative_order": 6,
+      "pauli_terms": 54,
+      "support_sites": 7,
+      "exact_operator_norm_upper_bound": "193293242467/3906250000",
+      "bound_float": 49.483070071552,
+      "elapsed_seconds": 0.0004559719964163378
+    },
+    {
+      "spins": 16,
+      "derivative_order": 8,
+      "pauli_terms": 177,
+      "support_sites": 9,
+      "exact_operator_norm_upper_bound": "2221546939022273/4882812500000",
+      "bound_float": 454.9728131117615,
+      "elapsed_seconds": 0.0017314599972451106
+    },
+    {
+      "spins": 16,
+      "derivative_order": 10,
+      "pauli_terms": 515,
+      "support_sites": 11,
+      "exact_operator_norm_upper_bound": "31848860300929462057/6103515625000000",
+      "bound_float": 5218.117271704283,
+      "elapsed_seconds": 0.0063778109979466535
+    },
+    {
+      "spins": 16,
+      "derivative_order": 12,
+      "pauli_terms": 1478,
+      "support_sites": 13,
+      "exact_operator_norm_upper_bound": "1145655261599892401285079/15258789062500000000",
+      "bound_float": 75081.66322421056,
+      "elapsed_seconds": 0.021203219002927653
+    },
+    {
+      "spins": 16,
+      "derivative_order": 14,
+      "pauli_terms": 4117,
+      "support_sites": 15,
+      "exact_operator_norm_upper_bound": "25489334743840543999205432763/19073486328125000000000",
+      "bound_float": 1336375.2334178672,
+      "elapsed_seconds": 0.06629780399816809
+    },
+    {
+      "spins": 32,
+      "derivative_order": 2,
+      "pauli_terms": 4,
+      "support_sites": 3,
+      "exact_operator_norm_upper_bound": "841/625",
+      "bound_float": 1.3456,
+      "elapsed_seconds": 4.296300176065415e-05
+    },
+    {
+      "spins": 32,
+      "derivative_order": 4,
+      "pauli_terms": 16,
+      "support_sites": 5,
+      "exact_operator_norm_upper_bound": "21271413/3125000",
+      "bound_float": 6.80685216,
+      "elapsed_seconds": 0.00018244900275021791
+    },
+    {
+      "spins": 32,
+      "derivative_order": 6,
+      "pauli_terms": 54,
+      "support_sites": 7,
+      "exact_operator_norm_upper_bound": "193293242467/3906250000",
+      "bound_float": 49.483070071552,
+      "elapsed_seconds": 0.0008133279989124276
+    },
+    {
+      "spins": 32,
+      "derivative_order": 8,
+      "pauli_terms": 177,
+      "support_sites": 9,
+      "exact_operator_norm_upper_bound": "2221546939022273/4882812500000",
+      "bound_float": 454.9728131117615,
+      "elapsed_seconds": 0.002914992001024075
+    },
+    {
+      "spins": 32,
+      "derivative_order": 10,
+      "pauli_terms": 515,
+      "support_sites": 11,
+      "exact_operator_norm_upper_bound": "31848860300929462057/6103515625000000",
+      "bound_float": 5218.117271704283,
+      "elapsed_seconds": 0.009577882003213745
+    },
+    {
+      "spins": 32,
+      "derivative_order": 12,
+      "pauli_terms": 1478,
+      "support_sites": 13,
+      "exact_operator_norm_upper_bound": "1145655261599892401285079/15258789062500000000",
+      "bound_float": 75081.66322421056,
+      "elapsed_seconds": 0.03131918299914105
+    },
+    {
+      "spins": 32,
+      "derivative_order": 14,
+      "pauli_terms": 4117,
+      "support_sites": 15,
+      "exact_operator_norm_upper_bound": "25489334743840543999205432763/19073486328125000000000",
+      "bound_float": 1336375.2334178672,
+      "elapsed_seconds": 0.09672922900062986
+    }
+  ],
+  "sixteen_and_thirtytwo_site_local_certificates_identical": true,
+  "independent_dense_validation": {
+    "spins": 3,
+    "orders_checked": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "method": "Independent exact SymPy matrix commutators",
+    "passed": true
+  },
+  "scope": "Exact rational Pauli l1 bounds. These are genuine upper bounds on operator derivatives; no dense diagonalization or norm estimation is used."
+}

@@ -1,0 +1,7 @@
+{
+  "status": "all independent formula and obstruction checks passed",
+  "fourier_checks": 20,
+  "matrix_checks": 28,
+  "prior_obstruction_checks": 20,
+  "report": "/workspace/scratch/e041a694f3ed/publication_package/supplements/modular_response/power_response_and_obstructions_verified.json"
+}

@@ -1,0 +1,343 @@
+\section{Torus averaging and optimal transport}
+\label{tor:section}
+
+This section establishes mean-energy convergence for the actual complex
+Slater determinant under every torus-invariant reference satisfying a
+logarithmic moment condition. No negative-temperature large-deviation
+principle is assumed. The argument identifies a finite computational
+bridge: the phase-averaged logarithm is within an explicit vanishing
+error of an assignment problem with relative-entropy cost.
+
+Put $D=q+1$, $X=\mathbb P^q$, $m=Dk$, and
+$N=\binom{m+q}{q}$. Let
+\[
+ \mathcal A_m=\{\alpha\in\mathbb N^D:|\alpha|=m\},\qquad
+ \lambda_m=N^{-1}\sum_{\alpha\in\mathcal A_m}\delta_{\alpha/m}.
+\]
+Write $\Delta_q=\{p\in\mathbb R_+^D:\sum p_j=1\}$ and let
+$\lambda$ be normalized Lebesgue measure on this simplex. The coherent
+monomial basis, orthonormal for Fubini--Study probability, is
+\[
+ s_\alpha(z)=\sqrt{N\binom m\alpha}\,z^\alpha,
+ \qquad \binom m\alpha=\frac{m!}{\alpha_0!\cdots\alpha_q!},
+ \qquad \|z\|=1.
+\]
+Let $\Delta_k(\boldsymbol z)=\det(s_\alpha(z_i))_{i,\alpha}$ and
+$E_k=-(kN)^{-1}\log\|\Delta_k\|^2$. All phases in the statements
+below are independent Haar phases, one projective torus per particle.
+For $p_i\in\Delta_q^\circ$, write
+$z_i=(\sqrt{p_{i0}},\sqrt{p_{i1}}e^{i\theta_{i1}},\ldots,
+\sqrt{p_{iq}}e^{i\theta_{iq}})$.
+
+\subsection{An exposed coefficient controls the phase average}
+
+\begin{lemma}[The assignment vertices]
+\label{tor:vertices}
+Every monomial in $\det(z_i^\alpha)_{i,\alpha\in\mathcal A_m}$
+is an exposed vertex of its Newton polytope. Consequently, if
+\[
+ A_m(\boldsymbol p)=
+ \max_{\pi:\{1,\ldots,N\}\simeq\mathcal A_m}
+ \prod_{i=1}^N N\binom m{\pi(i)}p_i^{\pi(i)},
+\]
+then
+\begin{equation}
+ \log A_m(\boldsymbol p)
+ \le \int\log\|\Delta_k(\boldsymbol z)\|^2\,d\boldsymbol\theta
+ \le \log A_m(\boldsymbol p)+\log N!.
+ \label{tor:phase-squeeze}
+\end{equation}
+The logarithm is integrable for every such $\boldsymbol p$.
+\end{lemma}
+
+\begin{proof}
+Delete the zeroth component from each exponent and denote the resulting
+integer vector by $\alpha'\in\mathbb N^q$. For a fixed assignment
+$\pi$, put $v_i=\pi(i)'$. Its scalar product with an assignment $\tau$
+is $\sum_i\pi(i)'\cdot\tau(i)'$. Since both lists enumerate the same
+set of distinct vectors,
+\[
+ \sum_i\|\pi(i)'\|^2-
+ \sum_i\pi(i)'\cdot\tau(i)'
+ =\frac12\sum_i\|\pi(i)'-\tau(i)'\|^2.
+\]
+The difference is positive unless $\tau=\pi$, proving exposure.
+No two determinant terms have the same exponent vector, so the
+coefficient of every term is nonzero.
+
+For completeness, the elementary vertex form of Jensen's inequality
+suffices here. For fixed $\boldsymbol\theta$, substitute
+$\theta_i\mapsto\theta_i+t v_i$ into the determinant. This is a
+one-variable polynomial in $e^{it}$ whose highest-degree term is the
+chosen assignment, uniquely. Jensen's formula bounds its logarithmic
+circle mean below by the logarithm of the modulus of that leading
+coefficient. Integrating $\boldsymbol\theta$ and using invariance of
+Haar measure gives the lower bound for the chosen assignment, hence for
+the maximum. Logarithms of nonzero trigonometric polynomials are
+integrable; one can also obtain this fact by successive one-variable
+factorization and Jensen. The upper bound follows from Jensen's
+inequality and orthogonality of the distinct torus characters:
+\[
+ \int\log|\Delta_k|^2\le
+ \log\int|\Delta_k|^2
+ =\log\sum_\pi\prod_iN\binom m{\pi(i)}p_i^{\pi(i)}
+ \le\log A_m+\log N!.
+\]
+\end{proof}
+
+For $a\in\Delta_q$, $p\in\Delta_q^\circ$, use the conventions
+$0\log0=0$ and
+\[
+ c(a,p)=D_{\rm KL}(a\Vert p)=\sum_{j=0}^q a_j\log(a_j/p_j).
+\]
+Define the finite assignment cost
+\[
+ C_m(\boldsymbol p)=\min_\pi\frac1N\sum_{i=1}^N
+                         c(\pi(i)/m,p_i).
+\]
+This is also the Kantorovich transport cost from $\lambda_m$ to
+$N^{-1}\sum_i\delta_{p_i}$: both empirical measures have $N$ equally
+weighted atoms, and the doubly stochastic polytope has permutation
+vertices.
+
+\begin{proposition}[Finite assignment certificate]
+\label{tor:finite-certificate}
+For every $\boldsymbol p\in(\Delta_q^\circ)^N$,
+\begin{equation}
+ D C_m(\boldsymbol p)-\frac{\log N}{k}
+                       -\frac{\log N!}{kN}
+ \le\int E_k(\boldsymbol z)\,d\boldsymbol\theta
+ \le D C_m(\boldsymbol p).
+ \label{tor:finite-certificate-bound}
+\end{equation}
+In particular the error is at most $2\log N/k$.
+\end{proposition}
+
+\begin{proof}
+For $a=\alpha/m$, the multinomial type probability at its own parameter
+$a$ is a largest type probability. Indeed, for another type $\beta$,
+\[
+ \frac{\binom m\beta a^\beta}{\binom m\alpha a^\alpha}
+ =\prod_j\frac{\alpha_j!}{\beta_j!}
+              \alpha_j^{\beta_j-\alpha_j}\le1.
+\]
+If $\alpha_j=0<\beta_j$ the numerator probability is zero; otherwise
+each displayed factor is at most one, by writing out the consecutive
+integer factors. The powers of $m$ cancel. There are $N$ types, so
+\[
+ N^{-1}\le\binom m\alpha a^\alpha\le1,
+ \qquad
+ e^{m h(a)}\le N\binom m\alpha\le N e^{m h(a)},
+ \quad h(a)=-\sum_j a_j\log a_j.
+\]
+Therefore
+\[
+ -mN C_m\le\log A_m\le -mN C_m+N\log N.
+\]
+Apply Lemma~\ref{tor:vertices} and divide by $-kN$, noting $m/k=D$.
+\end{proof}
+
+\fig{fig13_toric_transport}{A finite transport certificate for Slater
+energy. (a) In complex dimension $q=2$ at degree $m=6$, the 28 exponent-grid
+points $a=\alpha/6$ (open blue circles) are matched to the rational
+squared-modulus points $p=(\alpha+\mathbf 1)/9$ (orange). The arrows show
+the identity assignment, which is optimal for this deterministic example
+by the monotonicity of $\log(\alpha_j+1)$. (b) The matrix of exact costs
+$D_{\rm KL}(a\Vert p)$, displayed numerically, with the optimal diagonal
+shown in white. The matrix order is the same in the two coordinates.
+(c) The guaranteed interval width $\log N_k/k+\log(N_k!)/(kN_k)$ in
+\eqref{tor:finite-certificate-bound}, for $q=1,2,3$ and
+$N_k=\binom{(q+1)k+q}{q}$. This interval controls the independent
+phase average of the actual logarithmic determinant energy for fixed
+moduli. It is not a pointwise bound in the phases or a bound on an
+attractive exponential moment.}{fig:toric-transport}
+
+\subsection{The transport limit, including the simplex boundary}
+
+\begin{lemma}[Convergence of the unbounded assignment cost]
+\label{tor:cost-limit}
+Let $\eta$ be a probability on $\Delta_q^\circ$ such that
+\begin{equation}
+ \int b(p)\,d\eta(p)<\infty,
+ \qquad b(p)=\sum_{j=0}^q-\log p_j.
+ \label{tor:log-moment}
+\end{equation}
+For iid $p_1,p_2,\ldots$ with law $\eta$,
+\[
+ C_m(p_1,\ldots,p_N)\longrightarrow
+ C(\eta):=\inf_{\kappa\in\Pi(\lambda,\eta)}
+                   \int c(a,p)\,d\kappa(a,p)
+\]
+almost surely and in $L^1$ as $m\to\infty$ (along $m=Dk$ or all
+integer degrees).
+\end{lemma}
+
+\begin{proof}
+The uniform lattice measures $\lambda_m$ converge weakly to $\lambda$
+by Riemann sums on the simplex. The empirical measures $\eta_N$
+converge weakly almost surely. For $R>0$, let
+\[
+ c_R(a,p)=\sum_j a_j\log a_j+
+                  \sum_j a_j\min\{-\log p_j,R\}.
+\]
+Extend the truncated logarithm by $R$ at $p_j=0$. Then $c_R$ is
+bounded and continuous on the compact product $\Delta_q^2$.
+Its transport cost is continuous in both marginals. One direct proof
+couples nearby marginals by couplings converging to the diagonal,
+composes these with a fixed optimal coupling, and uses uniform
+continuity; compactness of optimal couplings gives the reverse bound.
+Thus the $c_R$ costs for $(\lambda_m,\eta_N)$ converge to the $c_R$
+cost for $(\lambda,\eta)$.
+
+The truncation error is nonnegative and independent of the coupling:
+\[
+ 0\le c(a,p)-c_R(a,p)
+ \le t_R(p):=\sum_j(-\log p_j-R)_+.
+\]
+Consequently the difference of the two optimal costs is between zero
+and $\int t_R\,d\eta_N$, and the analogous assertion holds for
+$\eta$. For every integer $R$, the strong law makes
+$\int t_R\,d\eta_N\to\int t_R\,d\eta$ simultaneously almost surely.
+The latter tends to zero as $R\to\infty$ by
+\eqref{tor:log-moment}. This proves almost-sure convergence.
+Moreover the expected truncation error equals exactly
+$\int t_R\,d\eta$, for every $N$. Bounded convergence for $c_R$ costs,
+followed by $R\to\infty$, proves $L^1$ convergence. This argument does
+not assume a uniform positive lower bound on the sample coordinates.
+\end{proof}
+
+\subsection{Identification with anticanonical pluricomplex energy}
+
+\begin{proposition}[Relative-entropy transport formula]
+\label{tor:energy-transport}
+Let $\mu$ be invariant under the standard projective torus, and let
+$\eta$ be its squared-modulus pushforward. Under
+\eqref{tor:log-moment}, its anticanonical pluricomplex energy is
+\begin{equation}
+ E(\mu)=D C(\eta).
+ \label{tor:energy-transport-formula}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Averaging any admissible potential over the compact torus increases its
+concave Monge--Amp\`ere energy and leaves its integral against $\mu$
+unchanged. The energy dual may therefore be restricted to invariant
+potentials. In logarithmic coordinates
+$y_j=\log(p_j/p_0)$ put
+\[
+ \phi_0(y)=D\log(1+e^{y_1}+\cdots+e^{y_q}),\qquad
+ \phi_0^*(Da')=D\sum_{j=0}^q a_j\log a_j,
+\]
+where $a'=(a_1,\ldots,a_q)$ and the moment polytope is $D\Delta_q$.
+For an invariant positive metric $\phi=\phi_0+u$, normalized
+Monge--Amp\`ere energy is
+\[
+ \mathcal E_L(u)=-\int_{\Delta_q}
+                   [\phi^*(Da')-\phi_0^*(Da')]\,d\lambda(a).
+\]
+This follows first for smooth metrics by differentiating the Legendre
+transform and changing variables by the moment map, then for finite
+energy by monotone approximation. The energy dual consequently equals
+\[
+ \int\phi_0(y)\,d\eta_y(y)+\int\phi_0^*(Da')\,d\lambda(a)
+ -\inf_\phi\left\{\int\phi(y)\,d\eta_y(y)
+                   +\int\phi^*(Da')\,d\lambda(a)\right\}.
+\]
+The infimum is the maximal coupling integral
+$\sup_{\pi\in\Pi(\lambda,\eta_y)}\int D a'\cdot y\,d\pi$.
+Here is an explicit approximation argument for this duality.  First
+assume that $\eta_y$ is supported on a compact cube.  Compact
+Kantorovich duality for the continuous payoff $D a'\cdot y$ supplies
+a bounded continuous dual function $h$ on $\Delta_q$.  Its transform
+\[
+ \phi(y)=\sup_{a\in\Delta_q}\{D a'\cdot y-h(a)\}
+\]
+has slopes in $D\Delta_q$, and $\phi^*(Da')\le h(a)$.
+Fenchel's inequality gives the reverse comparison with every
+coupling, so replacing the dual pair by $(\phi,\phi^*)$ attains
+the same infimum.  This transform differs by a bounded function from
+$D\max(0,y_1,\ldots,y_q)$, hence also from $\phi_0$.
+Continuity of $h$ shows that $u=\phi-\phi_0$ extends continuously
+across each coordinate face: in the limit only exponents supported
+on that face contribute to the supremum.  It therefore defines a
+continuous toric positive metric on $\mathbb P^q$.  Unitary heat
+averaging, followed by a vanishing convex mixture with the reference
+metric, approximates $u$ uniformly by smooth strictly positive toric
+metrics.  Uniform convergence gives convergence both of its integrals
+and of the Monge--Amp\`ere energy, so these transforms are legitimate
+in the energy dual.
+
+For general $\eta_y$, clip $y$ coordinatewise to $[-R,R]^q$.
+The logarithmic moment assumption implies $\int|y|\,d\eta_y<\infty$,
+so the mean clipping displacement tends to zero.  After normalizing
+$\phi(0)=0$, every convex potential with slopes in $D\Delta_q$ is
+$D$-Lipschitz.  Its integral changes under clipping by at most
+$D\int|y-y^{(R)}|\,d\eta_y$, uniformly over all these potentials.
+The same bound holds for every coupling payoff $D a'\cdot y$;
+couplings can be pushed forward under clipping or lifted by
+disintegration.  Thus both sides of the compact duality converge,
+proving it for $\eta_y$ without any boundary-support assumption
+beyond \eqref{tor:log-moment}.  The resulting cost is
+\[
+ \phi_0(y)+\phi_0^*(Da')-Da'\cdot y
+ =D\sum_j a_j\log(a_j/p_j).
+\]
+This proves \eqref{tor:energy-transport-formula}. The Legendre--moment-map
+correspondence is the toric optimal-transport description of
+\cite{BermanWittNystrom2014}; the energy dual is part of the
+variational framework of \cite{BBGZ2013}.
+\end{proof}
+
+\begin{theorem}[Actual Slater mean energy for toric reference laws]
+\label{tor:mean-energy}
+Let $\mu$ satisfy the hypotheses of Proposition~\ref{tor:energy-transport}.
+Then, for iid particles with law $\mu$,
+\begin{equation}
+ \lim_{k\to\infty}\mathbb E_{\mu^{\otimes N_k}}E_k=E(\mu).
+ \label{tor:mean-energy-limit}
+\end{equation}
+Whenever the deterministic continuous-envelope lower comparison is
+available for this polarization, $E_k\to E(\mu)$ also in $L^1$ under
+these product laws. In particular, for Haar probability on $\mathbb P^q$,
+\[
+ \mathbb E_{\sigma^{\otimes N_k}}|E_k|\longrightarrow0.
+\]
+On $\mathbb P^2$ this remains true after conditioning on any fixed-order
+projective moment tube of width $N^{-a}$, $0<a<1/2$.
+\end{theorem}
+
+\begin{proof}
+Torus invariance disintegrates $\mu$ into $\eta$ and independent uniform
+angular variables. Integrate \eqref{tor:finite-certificate-bound} and
+apply Lemma~\ref{tor:cost-limit} and
+Proposition~\ref{tor:energy-transport}. The error tends to zero since
+$\log N/k\to0$. All logarithmic determinant integrals are finite, by
+the upper bound and the universal lower bound $E_k\ge-\log N/k$.
+
+For the $L^1$ assertion, empirical measures converge to $\mu$, and the
+continuous-envelope lower comparison gives
+$\Pr(E_k<E(\mu)-\epsilon)\to0$ for every $\epsilon>0$.
+The negative deviation $(E(\mu)-E_k)_+$ is bounded by
+$E(\mu)+\log N/k$, hence tends to zero in mean. The already proved
+convergence of the means then forces the positive deviation to vanish
+in mean too.
+
+For Haar probability, $\eta=\lambda$ and the diagonal coupling has
+cost zero. The universal lower bound alone therefore proves $L^1$
+convergence in every dimension. If $\Omega_N$ is the stated tube,
+$\sigma^{\otimes N}(\Omega_N)\to1$ by the finite-moment variance
+estimate. The conditional expectation of the nonnegative variable
+$E_k+\log N/k$ is at most its unconditioned expectation divided by
+$\sigma^{\otimes N}(\Omega_N)$, and hence also tends to zero.
+\end{proof}
+
+\paragraph{From mean energy to attractive pressure.}
+The finite certificate gives a product-law mean-energy statement for the
+actual Slater Hamiltonian using an ordinary assignment solver, known
+constants, and explicit logarithmic boundary control. The full attractive
+pressure in Section~\ref{att:entropy-section} requires the additional
+entropy and conditional-density argument developed there. These are
+different levels of control: convergence of the mean alone does not
+permit replacing the determinant by its phase-averaged logarithm inside
+an attractive partition function.

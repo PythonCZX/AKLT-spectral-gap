@@ -1,0 +1,1102 @@
+{
+  "schema_version": 2,
+  "generated_utc": "2026-11-15T19:28:27Z",
+  "generator": "scripts/regenerate_coverage.py (member m8)",
+  "source_registry": "results/moment_geometry/Moment_Geometry/supplements/theorem_registry.json",
+  "source_registry_sha256": "0623a06de80e2d2e366875429fecfbd4a3e4b223e9d7f42f1554546b1b8176eb",
+  "registry_records": 74,
+  "source_contracts_verified": 1,
+  "records_with_verified_components": 10,
+  "ledger_ids_unique": true,
+  "status_vocabulary": [
+    "source_contract_verified",
+    "component_verified",
+    "not_started"
+  ],
+  "additional_scope_note": "Contract coverage counts complete source contracts only; component proofs do not close their remaining physical/analytic inputs.",
+  "priority_records": [
+    "eq:coherent-finite-moments",
+    "op:hyperbolic-clock",
+    "prop:repair",
+    "q:cor-aklt",
+    "q:cor-filtered",
+    "q:kms-compatibility",
+    "q:lem-seed",
+    "q:thm-oblique",
+    "q:thm-powers",
+    "q:thm-wire-gap",
+    "q:prop-rotation",
+    "q:lem-schur",
+    "q:thm-wire-gap",
+    "q:lem-seed",
+    "q:cor-aklt",
+    "q:thm-oblique",
+    "q:cor-filtered",
+    "thm:coherent-spectral-law",
+    "lem:coherent-graph-integral",
+    "lem:tree-one-noncrossing",
+    "thm:coherent-free-limit"
+  ],
+  "records": [
+    {
+      "id": "prop:repair",
+      "title": "Positive repair",
+      "kind": "proposition",
+      "source": "sections/coherent_foundations.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "component_verified",
+      "verified_components": [
+        {
+          "decl": "repair_density_range",
+          "file": "lean/MomentGeometry/Repair/Frame.lean",
+          "declared": true,
+          "note": "Repair density 1 - d/(2 C delta) lies in [1/2, 3/2] when |d| <= C delta."
+        },
+        {
+          "decl": "repair_total_mass",
+          "file": "lean/MomentGeometry/Repair/Frame.lean",
+          "declared": true,
+          "note": "Normalisation of the repair density from the frame identity sum sigma_i d_i = 0."
+        },
+        {
+          "decl": "repair_moment_eq",
+          "file": "lean/MomentGeometry/Repair/Frame.lean",
+          "declared": true,
+          "note": "Exact moment cancellation at p = (1 + 102 delta)^(-1)."
+        },
+        {
+          "decl": "repair_summary",
+          "file": "lean/MomentGeometry/Repair/Frame.lean",
+          "declared": true,
+          "note": "Combined source-constant statement: range, normalisation, exact moment tau."
+        }
+      ],
+      "remaining_for_contract": "eq:repairframe (Haar fourth-moment identities for B_z = 90 Q_z - 30 L(P_z) + 5 I and ||B_z||_HS = sqrt 2550 < 51), the Borel lift, and the relative-entropy inequality."
+    },
+    {
+      "id": "an:frame-spectrum",
+      "title": "Exact coherent covariance spectrum",
+      "kind": "derived_result",
+      "source": "sections/coherent_foundations.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "an:dilution",
+      "title": "Energy retained by positive dilution",
+      "kind": "proposition",
+      "source": "sections/equilibria.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:sharp",
+      "title": "Sharp balanced entropy threshold",
+      "kind": "theorem",
+      "source": "proofs/geometry_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:basis-lct",
+      "title": "Balanced basis-ideal singularity bound",
+      "kind": "derived_result",
+      "source": "proofs/geometry_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:exact-quantization",
+      "title": "Exact fixed-degree Hilbert comparison",
+      "kind": "derived_result",
+      "source": "proofs/geometry_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "an:entropy-projection",
+      "title": "Exact constrained entropy projection",
+      "kind": "theorem",
+      "source": "sections/equilibria.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "an:equilibrium",
+      "title": "Smooth constrained equilibria",
+      "kind": "theorem",
+      "source": "sections/equilibria.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "an:lower-comparison",
+      "title": "Lower comparison with explicit finite-test error",
+      "kind": "theorem",
+      "source": "sections/equilibria.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:cubic",
+      "title": "Complete cubic-support classification",
+      "kind": "theorem",
+      "source": "proofs/geometry_cubic.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:hesse-bound",
+      "title": "Robust Hesse ensemble certificate",
+      "kind": "theorem",
+      "source": "proofs/geometry_hesse.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:hesse-third",
+      "title": "Hesse third moment and exposed coherent face",
+      "kind": "derived_result",
+      "source": "proofs/geometry_hesse.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:confidence",
+      "title": "Finite-sample Hesse confidence certificate",
+      "kind": "derived_result",
+      "source": "proofs/geometry_hesse.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:general-cert",
+      "title": "General support-and-weight ensemble certificate",
+      "kind": "derived_result",
+      "source": "proofs/geometry_hesse.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:singer-nef",
+      "title": "An exact coupling obstruction and repair threshold",
+      "kind": "theorem",
+      "source": "proofs/geometry_singer.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:k3-lattice",
+      "title": "The lattice of the design cover",
+      "kind": "theorem",
+      "source": "proofs/geometry_singer.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:flag-theorem",
+      "title": "Arbitrary contacts on a flagged qutrit frame",
+      "kind": "theorem",
+      "source": "proofs/geometry_qutrit.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:cusp",
+      "title": "A negative cusp for pinched clusters",
+      "kind": "lemma",
+      "source": "proofs/geometry_qutrit.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:operational",
+      "title": "Uniform operational neighborhoods",
+      "kind": "theorem",
+      "source": "proofs/geometry_qutrit.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "geo:boundary",
+      "title": "Exact boundary within the center classes",
+      "kind": "corollary",
+      "source": "proofs/geometry_qutrit.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "lem:coherent-graph-integral",
+      "title": "The local graph integral",
+      "kind": "lemma",
+      "source": "proofs/coherent_gram.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "thm:coherent-spectral-law",
+      "title": "Coherent spectral law",
+      "kind": "theorem",
+      "source": "proofs/coherent_gram.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "lem:tree-one-noncrossing",
+      "title": "The noncrossing layer",
+      "kind": "lemma",
+      "source": "proofs/coherent_gram.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "thm:coherent-free-limit",
+      "title": "Support, exponential moments, and the free limit",
+      "kind": "theorem",
+      "source": "proofs/coherent_gram.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "eq:coherent-finite-moments",
+      "title": "Finite-degree coherent Gram trace identities",
+      "kind": "derived_result",
+      "source": "proofs/coherent_gram.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "component_verified",
+      "verified_components": [
+        {
+          "decl": "expectedT3_cubic_form",
+          "file": "lean/MomentGeometry/Coherent/Moments.lean",
+          "declared": true,
+          "note": "Exact finite-k cubic form of E T_3 with the corrected correction term."
+        },
+        {
+          "decl": "expectedT3_at_unit_density",
+          "file": "lean/MomentGeometry/Coherent/Moments.lean",
+          "declared": true,
+          "note": "Exact finite-k E T_3 = 5 - 6/D + 2/D^2 at n = D, D != 0."
+        },
+        {
+          "decl": "expectedT4_unit_density_general",
+          "file": "lean/MomentGeometry/Coherent/UnitDensity.lean",
+          "declared": true,
+          "note": "Exact finite-k E T_4 at n = D with D' free: 14 + (D-1)/D' - 30/D + 23/D^2 - 6/D^3."
+        },
+        {
+          "decl": "expectedT4_unit_density_q2_m1",
+          "file": "lean/MomentGeometry/Coherent/UnitDensity.lean",
+          "declared": true,
+          "note": "Exact instance q = 2, m = 1 (D = 3, D' = 6): E T_4 = 20/3."
+        }
+      ],
+      "remaining_for_contract": "The random Gram matrix, the tensor second/fourth moment integrals int P_z^{otimes m} dsigma = I/D and int |<z,w>|^{4m} dsigma(w) = 1/D', and hence the expectations themselves.  Only the rational identities in (n, D, D') are proved."
+    },
+    {
+      "id": "lem:conditional-replacement",
+      "title": "Conditional replacement estimate",
+      "kind": "lemma",
+      "source": "proofs/probability_repulsive.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "prop:microscopic-moment-repair",
+      "title": "Entropy-controlled repair of microscopic moments",
+      "kind": "proposition",
+      "source": "proofs/probability_repulsive.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "thm:repulsive-design-ldp",
+      "title": "Shrinking-design pressure and large deviations",
+      "kind": "theorem",
+      "source": "proofs/probability_repulsive.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "op:heap",
+      "title": "The order-polynomial logarithm",
+      "kind": "proposition",
+      "source": "sections/positive_calculus.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "op:root-response",
+      "title": "Ordered root-response obstruction",
+      "kind": "derived_result",
+      "source": "sections/positive_calculus.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "op:hyperbolic-clock",
+      "title": "Positive hyperbolic clock and local error",
+      "kind": "theorem",
+      "source": "sections/positive_calculus.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "component_verified",
+      "verified_components": [
+        {
+          "decl": "isCP_multMap_iff",
+          "file": "lean/MomentGeometry/Operator/CP/Base.lean",
+          "declared": true,
+          "note": "Choi-style multiplier criterion for complete positivity (finite dimension)."
+        },
+        {
+          "decl": "isCP_sinhc_rpow_uncond",
+          "file": "lean/MomentGeometry/Operator/CP/Closure.lean",
+          "declared": true,
+          "note": "Complete positivity of the hyperbolic clock kernel at every real exponent > 0."
+        },
+        {
+          "decl": "completelyPositive_sinhc_rpow",
+          "file": "lean/MomentGeometry/Operator/Clock.lean",
+          "declared": true,
+          "note": "Headline export: the clock multiplier is completely positive."
+        }
+      ],
+      "remaining_for_contract": "Gamma-subordinated heat-channel identity, fourth-nested-commutator error bound; component is CP positivity of the kernel only."
+    },
+    {
+      "id": "op:metric-range",
+      "title": "Exact metric range",
+      "kind": "proposition",
+      "source": "sections/positive_calculus.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "op:quadrature-theorem",
+      "title": "Finite positive quadrature with local certificates",
+      "kind": "theorem",
+      "source": "sections/positive_calculus.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "op:information-bracket",
+      "title": "Fixed-state information-matrix bracket",
+      "kind": "derived_result",
+      "source": "sections/positive_calculus.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "op:one-clock",
+      "title": "One-node positive hyperbolic approximation",
+      "kind": "derived_result",
+      "source": "sections/positive_calculus.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "q:lem-schur",
+      "title": "A quotient-metric estimate",
+      "kind": "lemma",
+      "source": "proofs/quantum_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "q:thm-wire-gap",
+      "title": "Two-port CP gap criterion",
+      "kind": "theorem",
+      "source": "proofs/quantum_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "component_verified",
+      "verified_components": [
+        {
+          "decl": "norm_sq_block_ge_of_conflict",
+          "file": "lean/MomentGeometry/Network/GapAssembly.lean",
+          "declared": true,
+          "note": "Finite matrix assembly from the off-block angle certificate and a conflict matrix."
+        }
+      ],
+      "remaining_for_contract": "CP transport/injectivity, tensor-product CP orders, CP sandwich whitening, the signed-average mixed-defect cancellation and physical edge-subspace identifications. block_gap_row_criterion assumes hcross and the actual ground-space projector."
+    },
+    {
+      "id": "q:lem-seed",
+      "title": "Finite-patch comparison",
+      "kind": "lemma",
+      "source": "proofs/quantum_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": true,
+      "status": "source_contract_verified",
+      "verified_components": [
+        {
+          "decl": "sum_patchHam",
+          "file": "lean/MomentGeometry/Swarm/Seed.lean",
+          "declared": true,
+          "note": "Coverage reindexing of the patch Hamiltonians."
+        },
+        {
+          "decl": "seed_kernel_eq",
+          "file": "lean/MomentGeometry/Swarm/Seed.lean",
+          "declared": true,
+          "note": "Full common-kernel identity using positivity and every-term coverage."
+        },
+        {
+          "decl": "seed_gap_le",
+          "file": "lean/MomentGeometry/Swarm/Seed.lean",
+          "declared": true,
+          "note": "(g/m)\u2022H_block \u2264 H_micro."
+        },
+        {
+          "decl": "seed_gap_transfer",
+          "file": "lean/MomentGeometry/Swarm/Seed.lean",
+          "declared": true,
+          "note": "Every blocked gap certificate \u03b3 gives micro certificate g_*\u03b3/m."
+        }
+      ],
+      "remaining_for_contract": "Complete at the operator-level contract. Physical AKLT patch instantiation and numerical patch gaps are separate q:cor-aklt inputs, not additional gaps in q:lem-seed."
+    },
+    {
+      "id": "q:cor-aklt",
+      "title": "Logarithmic sufficient decoration",
+      "kind": "corollary",
+      "source": "proofs/quantum_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "component_verified",
+      "verified_components": [
+        {
+          "decl": "phi_iterate_eq",
+          "file": "lean/MomentGeometry/AKLT/Wire.lean",
+          "declared": true,
+          "note": "Spin-one wire channel algebra and contraction by the exact transfer scalar."
+        },
+        {
+          "decl": "delta_le_ninth",
+          "file": "lean/MomentGeometry/AKLT/Radius.lean",
+          "declared": true,
+          "note": "Exact centered transfer-radius bounds, not a Choi spectrum theorem."
+        },
+        {
+          "decl": "decoration_gap_positive",
+          "file": "lean/MomentGeometry/AKLT/Decoration.lean",
+          "declared": true,
+          "note": "Positive decorated gap-factor arithmetic conditional on the finite-patch input."
+        }
+      ],
+      "remaining_for_contract": "Pauli/Kraus identity, actual Choi multiplicities, edge-bracket irreducibility/nonassociate regional SU(2) kernel, finite physical patch gap, and q:thm-wire-gap inputs."
+    },
+    {
+      "id": "q:thm-oblique",
+      "title": "A compatible-idempotent certificate",
+      "kind": "theorem",
+      "source": "proofs/quantum_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "component_verified",
+      "verified_components": [
+        {
+          "decl": "defect_gap",
+          "file": "lean/MomentGeometry/Swarm/Oblique.lean",
+          "declared": true,
+          "note": "Defect matrix assembly from hcos and the Rayleigh input."
+        },
+        {
+          "decl": "rayleigh_of_rowSums",
+          "file": "lean/MomentGeometry/Swarm/Oblique.lean",
+          "declared": true,
+          "note": "Row/column-sum criterion showing the Rayleigh defect bound."
+        }
+      ],
+      "remaining_for_contract": "The orthogonalizer formula, adjoint-commutator bounds, quotient construction of the cosine matrix, and full product-filter locality. hcos is an explicit remaining interface."
+    },
+    {
+      "id": "q:cor-filtered",
+      "title": "Filtered commuting-projector models",
+      "kind": "corollary",
+      "source": "proofs/quantum_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "component_verified",
+      "verified_components": [
+        {
+          "decl": "filtered_ground_space",
+          "file": "lean/MomentGeometry/Swarm/Filtered.lean",
+          "declared": true,
+          "note": "Transport of idempotence, commutation, ranges and the common kernel under a similarity."
+        }
+      ],
+      "remaining_for_contract": "Perturbation ODE bound ||P_i-E_i||\u2264exp(2s\u03b5)-1 and tensor locality from product filters. Gap assembly is conditional on the hcos input."
+    },
+    {
+      "id": "q:thm-powers",
+      "title": "Exact response of fractional powers",
+      "kind": "theorem",
+      "source": "proofs/quantum_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "component_verified",
+      "verified_components": [
+        {
+          "decl": "hermitianPart",
+          "file": "lean/MomentGeometry/Operator/KMS.lean",
+          "declared": true,
+          "note": "Scalar Hermitian response psi_r(x) = sinh(rx)/sinh(x), value r at 0."
+        },
+        {
+          "decl": "antiPart",
+          "file": "lean/MomentGeometry/Operator/KMS.lean",
+          "declared": true,
+          "note": "Scalar anti-Hermitian response chi_r(x) = (cosh(rx)-1)/(cosh x - 1), value r^2 at 0."
+        },
+        {
+          "decl": "antiPart_eq_ratio_sq",
+          "file": "lean/MomentGeometry/Operator/KMS.lean",
+          "declared": true,
+          "note": "chi_r(x) = (sinh(rx/2)/sinh(x/2))^2, the source normalisation, away from 0."
+        }
+      ],
+      "remaining_for_contract": "Matrix-level divided-difference representation of A -> A^r, the split H_r + A_r, CP amplification positivity, and the norms r and r^2."
+    },
+    {
+      "id": "q:kms-compatibility",
+      "title": "KMS-compatible tangent relation",
+      "kind": "derived_result",
+      "source": "proofs/quantum_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "component_verified",
+      "verified_components": [
+        {
+          "decl": "antiPart_compatibility",
+          "file": "lean/MomentGeometry/Operator/KMS.lean",
+          "declared": true,
+          "note": "Scalar KMS relation chi_r(x) tanh(x/2) = tanh(rx/2) psi_r(x)."
+        },
+        {
+          "decl": "cosh_sub_one_div_sinh_eq_tanh_half",
+          "file": "lean/MomentGeometry/Operator/KMS.lean",
+          "declared": true,
+          "note": "The removable-singularity identity (cosh z - 1)/sinh z = tanh(z/2)."
+        }
+      ],
+      "remaining_for_contract": "Matrix-level identity A = tanh(ad_K/2) H on a faithful path; only the scalar quotient identity is proved."
+    },
+    {
+      "id": "q:prop-rotation",
+      "title": "A positive rotation generator",
+      "kind": "proposition",
+      "source": "proofs/quantum_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "q:prop-ratio-obstruction",
+      "title": "Exact local ratios, nonlocal log difference",
+      "kind": "proposition",
+      "source": "proofs/quantum_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "q:prop-filter-obstruction",
+      "title": "No generic same-norm modular bound",
+      "kind": "proposition",
+      "source": "proofs/quantum_results.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "att:coarse-entropy",
+      "title": "An exact coarse-graining bound",
+      "kind": "lemma",
+      "source": "proofs/attractive_high_temperature.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "att:entropy-chaos",
+      "title": "Entropy chaos from compact conditional densities",
+      "kind": "lemma",
+      "source": "proofs/attractive_high_temperature.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "att:conditional-compactness",
+      "title": "Compact attractive conditionals",
+      "kind": "lemma",
+      "source": "proofs/attractive_high_temperature.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "att:quadratic-pressure",
+      "title": "A small-coupling exponential estimate",
+      "kind": "lemma",
+      "source": "proofs/attractive_high_temperature.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "att:general-product-energy",
+      "title": "Product-law mean energy from repulsive pressure",
+      "kind": "theorem",
+      "source": "proofs/attractive_high_temperature.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "att:directing-class",
+      "title": "A compact class for all directing densities",
+      "kind": "lemma",
+      "source": "proofs/attractive_high_temperature.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "att:smooth-net",
+      "title": "Uniform smooth reference approximation",
+      "kind": "lemma",
+      "source": "proofs/attractive_high_temperature.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "att:gibbs-energy-limit",
+      "title": "Entropy and energy limits of attractive Gibbs laws",
+      "kind": "theorem",
+      "source": "proofs/attractive_high_temperature.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "att:good-rate",
+      "title": "Good rate and entropy-continuous energy recovery",
+      "kind": "lemma",
+      "source": "proofs/attractive_high_temperature.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "att:full-laplace",
+      "title": "Full attractive determinant Laplace principle",
+      "kind": "theorem",
+      "source": "proofs/attractive_high_temperature.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "att:design-laplace",
+      "title": "Full attractive LDP on shrinking design tubes",
+      "kind": "theorem",
+      "source": "proofs/attractive_high_temperature.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "att:polarized-extension",
+      "title": "Polarized manifolds and all projective dimensions",
+      "kind": "corollary",
+      "source": "proofs/attractive_high_temperature.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "att:haar-minimizer",
+      "title": "Zero pressure and the unique Haar equilibrium",
+      "kind": "corollary",
+      "source": "proofs/attractive_high_temperature.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "tor:vertices",
+      "title": "The assignment vertices",
+      "kind": "lemma",
+      "source": "proofs/toric_assignment.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "tor:finite-certificate",
+      "title": "Finite assignment certificate",
+      "kind": "proposition",
+      "source": "proofs/toric_assignment.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "tor:cost-limit",
+      "title": "Convergence of the unbounded assignment cost",
+      "kind": "lemma",
+      "source": "proofs/toric_assignment.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "tor:energy-transport",
+      "title": "Relative-entropy transport formula",
+      "kind": "proposition",
+      "source": "proofs/toric_assignment.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "tor:mean-energy",
+      "title": "Actual Slater mean energy for toric reference laws",
+      "kind": "theorem",
+      "source": "proofs/toric_assignment.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "ac:canonical-poincare",
+      "title": "Canonical-volume Poincar\\'e inequality",
+      "kind": "lemma",
+      "source": "proofs/attractive_concentration.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "ac:variance",
+      "title": "Attractive covariance and exponential tilts",
+      "kind": "proposition",
+      "source": "proofs/attractive_concentration.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "ac:ward",
+      "title": "Sharp covariance of the first moment",
+      "kind": "proposition",
+      "source": "proofs/attractive_concentration.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "ac:integrability",
+      "title": "Integrability by monomial degeneration",
+      "kind": "lemma",
+      "source": "proofs/attractive_concentration.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "ac:concentration",
+      "title": "Attractive empirical concentration",
+      "kind": "theorem",
+      "source": "proofs/attractive_concentration.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "ac:tubes",
+      "title": "Moment tubes and propagation of chaos",
+      "kind": "corollary",
+      "source": "proofs/attractive_concentration.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "cy:finite-convexity",
+      "title": "Convexity of the product mean energy",
+      "kind": "lemma",
+      "source": "proofs/nonlinear_green.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "cy:green-formula",
+      "title": "Nonlinear Green representation",
+      "kind": "theorem",
+      "source": "proofs/nonlinear_green.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "cy:interpolation-sampling",
+      "title": "Random interpolation divisors and sampling error",
+      "kind": "corollary",
+      "source": "proofs/nonlinear_green.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    },
+    {
+      "id": "cy:hessian-hierarchy",
+      "title": "Finite Hessian as squared coherent-moment discrepancies",
+      "kind": "derived_result",
+      "source": "proofs/nonlinear_green.tex",
+      "registered_mathematical_status": "proof_supplied",
+      "registered_proof_assistant_verified": false,
+      "source_contract_verified": false,
+      "status": "not_started",
+      "verified_components": [],
+      "remaining_for_contract": "Complete source-contract formalization remains pending; no Lean ingredient is proved."
+    }
+  ]
+}

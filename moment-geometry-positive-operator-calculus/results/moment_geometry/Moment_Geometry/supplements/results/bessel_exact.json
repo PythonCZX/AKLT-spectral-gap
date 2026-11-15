@@ -1,0 +1,327 @@
+{
+  "exact_rational": [
+    {
+      "nu": "-1/2",
+      "order": 1,
+      "generator_error_coefficient": "1/270",
+      "derivative_order": 6,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "-1/2",
+      "order": 2,
+      "generator_error_coefficient": "1/992250",
+      "derivative_order": 10,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "-1/2",
+      "order": 3,
+      "generator_error_coefficient": "1/19666196550",
+      "derivative_order": 14,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "-1/2",
+      "order": 4,
+      "generator_error_coefficient": "1/1257302087291250",
+      "derivative_order": 18,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "-1/2",
+      "order": 5,
+      "generator_error_coefficient": "1/198045614682464298750",
+      "derivative_order": 22,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "-1/2",
+      "order": 6,
+      "generator_error_coefficient": "1/65002621671812378710406250",
+      "derivative_order": 26,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "-1/2",
+      "order": 7,
+      "generator_error_coefficient": "1/39640973791263043220673996093750",
+      "derivative_order": 30,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "-1/2",
+      "order": 8,
+      "generator_error_coefficient": "1/41317810767217744706734438532913281250",
+      "derivative_order": 34,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "0",
+      "order": 1,
+      "generator_error_coefficient": "1/2304",
+      "derivative_order": 6,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "0",
+      "order": 2,
+      "generator_error_coefficient": "1/14745600",
+      "derivative_order": 10,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "0",
+      "order": 3,
+      "generator_error_coefficient": "1/416179814400",
+      "derivative_order": 14,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "0",
+      "order": 4,
+      "generator_error_coefficient": "1/34519618525593600",
+      "derivative_order": 18,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "0",
+      "order": 5,
+      "generator_error_coefficient": "1/6682998146554920960000",
+      "derivative_order": 22,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "0",
+      "order": 6,
+      "generator_error_coefficient": "1/2602199086312968903720960000",
+      "derivative_order": 26,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "0",
+      "order": 7,
+      "generator_error_coefficient": "1/1836111675302430858465509376000000",
+      "derivative_order": 30,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "0",
+      "order": 8,
+      "generator_error_coefficient": "1/2173486178969200714123395930783744000000",
+      "derivative_order": 34,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1/2",
+      "order": 1,
+      "generator_error_coefficient": "1/9450",
+      "derivative_order": 6,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1/2",
+      "order": 2,
+      "generator_error_coefficient": "1/98232750",
+      "derivative_order": 10,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1/2",
+      "order": 3,
+      "generator_error_coefficient": "1/3834908327250",
+      "derivative_order": 14,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1/2",
+      "order": 4,
+      "generator_error_coefficient": "1/406108574195073750",
+      "derivative_order": 18,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1/2",
+      "order": 5,
+      "generator_error_coefficient": "1/95656031891630256296250",
+      "derivative_order": 22,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1/2",
+      "order": 6,
+      "generator_error_coefficient": "1/43876769628473355629524218750",
+      "derivative_order": 26,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1/2",
+      "order": 7,
+      "generator_error_coefficient": "1/35637235438345475855385922488281250",
+      "derivative_order": 30,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1/2",
+      "order": 8,
+      "generator_error_coefficient": "1/47722071436136495136278276505514839843750",
+      "derivative_order": 34,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1",
+      "order": 1,
+      "generator_error_coefficient": "1/27648",
+      "derivative_order": 6,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1",
+      "order": 2,
+      "generator_error_coefficient": "1/442368000",
+      "derivative_order": 10,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1",
+      "order": 3,
+      "generator_error_coefficient": "1/23306069606400",
+      "derivative_order": 14,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1",
+      "order": 4,
+      "generator_error_coefficient": "1/3106765667303424000",
+      "derivative_order": 18,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1",
+      "order": 5,
+      "generator_error_coefficient": "1/882155755345249566720000",
+      "derivative_order": 22,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1",
+      "order": 6,
+      "generator_error_coefficient": "1/473600233708960340477214720000",
+      "derivative_order": 26,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1",
+      "order": 7,
+      "generator_error_coefficient": "1/440666802072583406031722250240000000",
+      "derivative_order": 30,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "1",
+      "order": 8,
+      "generator_error_coefficient": "1/665086770764575418521759154819825664000000",
+      "derivative_order": 34,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "3/2",
+      "order": 1,
+      "generator_error_coefficient": "1/66150",
+      "derivative_order": 6,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "3/2",
+      "order": 2,
+      "generator_error_coefficient": "1/1560809250",
+      "derivative_order": 10,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "3/2",
+      "order": 3,
+      "generator_error_coefficient": "1/108655735938750",
+      "derivative_order": 14,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "3/2",
+      "order": 4,
+      "generator_error_coefficient": "1/18004146789314936250",
+      "derivative_order": 18,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "3/2",
+      "order": 5,
+      "generator_error_coefficient": "1/6111357593076377485593750",
+      "derivative_order": 22,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "3/2",
+      "order": 6,
+      "generator_error_coefficient": "1/3817278957677181939768607031250",
+      "derivative_order": 26,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "3/2",
+      "order": 7,
+      "generator_error_coefficient": "1/4050765761491935755562199856167968750",
+      "derivative_order": 30,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    },
+    {
+      "nu": "3/2",
+      "order": 8,
+      "generator_error_coefficient": "1/6866675834421862355720040897182413066406250",
+      "derivative_order": 34,
+      "exact_orthogonality": true,
+      "closed_jacobi_recurrence": true
+    }
+  ],
+  "scope": "Exact rational recurrence and orthogonality identities only.",
+  "floating_diagnostics_run": false,
+  "monte_carlo_samples": 0
+}
